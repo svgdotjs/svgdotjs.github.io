@@ -1,0 +1,120 @@
+Title: Coding Style
+
+----
+
+Text: 
+
+# Coding Style
+
+## Indentation
+We do it with __two spaces__. Make sure you don't start using tabs because then things get messy.
+
+## Avoid hairy code
+We like to keep things simple and clean, don't write anything you don't need. So use __single quotes__ where possible and __avoid semicolons__, we're not writing PHP here.
+
+__Good__:
+```javascript
+var text = draw.text('with single quotes here')
+  , nest = draw.nested().attr('x', '50%')
+
+for (var i = 0; i < 5; i++)
+  if (i != 3)
+    nest.circle(i * 100)
+```
+
+__Bad__:
+```javascript
+var text = draw.text("with double quotes here");
+var nest = draw.nested().attr("x", "50%");
+
+for (var i = 0; i < 5; i++) {
+  if (i != 3) {
+    nest.circle(100);
+  };
+};
+```
+
+## Minimize variable declarations
+All local variables should be declared at the beginning of a function or method unless there is ony one variable to declare. Although it is not required to assign them at the same moment. When if statements are involved, requiring some variables only to be present in the statement, the necessary variables should be declared right after the if statement.
+
+__Good__:
+```javascript
+function reading_board() {
+  var aap, noot, mies
+
+  aap  = 1
+  noot = 2
+  mies = aap + noot
+}
+```
+
+__Bad__:
+```javascript
+function reading_board() {
+  var aap  = 1
+  var noot = 2
+  var mies = aap + noot
+}
+```
+
+## Let your code breathe people!
+Don't try to be a code compressor yourself, they do way a better job anyway. Give your code some spaces and newlines.
+
+__Good__:
+```javascript
+var nest = draw.nested().attr({
+  x:      10
+, y:      20
+, width:  200
+, height: 300
+})
+
+for (var i = 0; i < 5; i++)
+  nest.circle(100)
+```
+
+__Bad__:
+```javascript
+var nest=draw.nested().attr({x:10,y:20,width:200,height:300});
+for(var i=0;i<5;i++)nest.circle(100);
+```
+
+## It won't hurt to add a few comments
+Where necessary tell us what you are doing but be concise. We only use single-line comments. Also keep your variable and method names short while maintaining readability.
+
+__Good__:
+```javascript
+// Adds orange-specific methods
+SVG.extend(SVG.Rect, {
+  // Add a nice, transparent orange
+  orangify: function() {
+    // fill with orange color
+    this.fill('orange')
+
+    // add a slight opacity
+    return this.opacity(0.85)
+  }
+})
+```
+
+__Bad__:
+```javascript
+/*
+ *
+ * does something with orange and opacity
+ *
+ */
+SVG.extend(SVG.Rect, {
+  orgf: function() {
+    return this.fill('orange').opacity(0.85)
+  }
+})
+```
+
+## Refactor your code
+Once your implementation is ready, revisit and rework it. We like to keep it [DRY](http://en.wikipedia.org/wiki/Don't_repeat_yourself).
+
+## Test. Your. Code.
+It's not that hard to write at least one example per implementation, although we prefer more. Your code might seem to work by quickly testing it in your browser but more than often you can't forsee everything.
+
+Before running the specs you will need to build the library. Be aware that pull requests without specs will be declined.

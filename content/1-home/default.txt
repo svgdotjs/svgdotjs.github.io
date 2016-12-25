@@ -1,0 +1,44 @@
+Title: Home
+
+----
+
+Text: 
+
+# SVG.js
+
+A lightweight library for manipulating and animating SVG.
+
+SVG.js has no dependencies and aims to be as small as possible while providing close to complete coverage of the SVG spec.
+
+<a class="github-button" href="https://github.com/svgdotjs/svg.js" data-icon="octicon-star" data-style="mega" data-count-href="/svgdotjs/svg.js/stargazers" data-count-api="/repos/svgdotjs/svg.js#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star svgdotjs/svg.js on GitHub">Star</a>
+
+## Downloads
+__[svg.js (for development)](https://raw.github.com/wout/svg.js/master/dist/svg.js)__ - lots of comments
+
+__[svg.min.js (for production)](https://raw.github.com/wout/svg.js/master/dist/svg.min.js)__ - ±16k when gzipped
+
+Or grab the latest version from (link: https://cdnjs.com/libraries/svgjs text: cdnjs.com target: _blank).
+
+<br>
+### Not convinced yet? Here are a few highlights:
+- easy readable uncluttered syntax
+- very small, about 16k gzipped
+- animations on size, position, transformations, color, ...
+- painless extension thanks to the modular structure
+- various useful plugins available
+- unified api between shape types with move, size, center, ...
+- binding events to elements
+- full support for opacity masks and clipping paths
+- text paths, even animated
+- element groups and sets
+- dynamic gradients
+- fully documented
+
+### License
+Svg.js is licensed under the terms of the (link: https://github.com/svgdotjs/svg.js/blob/master/LICENSE.txt text: MIT License target: _blank).
+
+### Changelog
+Wondering what has changed in the latest releases? Have a look at the (link: https://github.com/svgdotjs/svg.js/blob/master/CHANGELOG.md text: change log target: _blank).
+
+### Recommendations
+(link: http://domain.tips text: Domain Tips target: _blank) recommends svg.js library for manipulating and animating SVG.

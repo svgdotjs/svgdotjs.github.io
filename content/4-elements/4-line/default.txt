@@ -1,0 +1,56 @@
+Title: Line
+
+----
+
+Text: 
+
+# Line
+
+`returns` __`SVG.Line`__ ` which inherits from ` __`SVG.Shape`__
+
+Create a line from point A to point B:
+
+```javascript
+var line = draw.line(0, 0, 100, 150).stroke({ width: 1 })
+```
+
+Creating a line element can be done in four ways. Look at the `plot()` method to see all the possiblilities.
+
+## plot()
+
+`returns` __`itself`__
+
+Updating a line is done with the `plot()` method:
+
+```javascript
+line.plot(50, 30, 100, 150)
+```
+
+Alternatively it also accepts a point string:
+
+```javascript
+line.plot('0,0 100,150')
+```
+
+Or a point array:
+
+```javascript
+line.plot([[0, 0], [100, 150]])
+```
+
+Or an instance of `SVG.PointArray`:
+
+```javascript
+var array = new SVG.PointArray([[0, 0], [100, 150]])
+line.plot(array)
+```
+
+## array()
+
+`returns` __`SVG.PointArray`__
+
+References the `SVG.PointArray` instance. This method is rather intended for internal use:
+
+```javascript
+polyline.array()
+```

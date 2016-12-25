@@ -1,0 +1,42 @@
+Title: ViewBox
+
+----
+
+Text: 
+
+# ViewBox
+
+## viewbox() _as getter_
+
+`returns` __`SVG.ViewBox`__
+
+Without any arguments an instance of `SVG.ViewBox` will be returned:
+
+```javascript
+var box = draw.viewbox()
+```
+
+But the best thing about the `viewbox()` method is that you can get the zoom of the viewbox:
+
+```javascript
+var box = draw.viewbox()
+var zoom = box.zoom
+```
+
+If the size of the viewbox equals the size of the svg drawing, the zoom value will be 1.
+
+## viewbox() _as setter_
+
+`returns` __`itself`__
+
+The `viewBox` attribute of an `<svg>` element can be managed with the `viewbox()` method. When supplied with four arguments it will act as a setter:
+
+```javascript
+draw.viewbox(0, 0, 297, 210)
+```
+
+Alternatively you can also supply an object as the first argument:
+
+```javascript
+draw.viewbox({ x: 0, y: 0, width: 297, height: 210 })
+```

@@ -1,0 +1,821 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <title>SVG.js | Text</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://svgdotjs.github.io/assets/css/main.css">  </head>
+  <body class="docs-svgjs">
+  <div class="container">
+  <header role="banner">
+    <div class="wrap">
+      <img src="/assets/images/logo-svg-js-01d-128.png" alt="SVG.js logo" class="svgjs-logo">
+      <h1 class="site-title"><a class="title-link" href="https://svgdotjs.github.io">SVG.js</a></h1>
+                </div>
+  </header>  <div class="wrap content">
+
+    
+<aside>
+  <p class="intro"><p>A lightweight library for manipulating and animating SVG</p></p>
+  <a class="skip-link visuallyhidden focusable" href="#main">Skip to Main Content</a>
+  <nav class="sidebar-nav" role="navigation">
+    <ul>
+            <li class="group">
+
+                        <a href="https://svgdotjs.github.io">Home</a>
+
+                
+        
+      </li>
+            <li class="group">
+
+                        <a href="https://svgdotjs.github.io/usage">Usage</a>
+
+                
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-parents">+</button>
+                <a href="https://svgdotjs.github.io/parents">Parents</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-parents" aria-hidden="true">
+        
+                            <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/parents/main-svg-document">Main svg document</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/parents/groups">Groups</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/parents/nested-svg">Nested svg</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/parents/defs">Defs</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/parents/hyperlink">Hyperlink</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group sidebar-nav-active">
+
+                  <button class="expand-subnav" aria-expanded="true" aria-controls="nav-collapsible-elements">+</button>
+                        <a href="https://svgdotjs.github.io/elements">Elements</a>
+
+                  <ul class="submenu nav-children" id="nav-collapsible-elements" aria-hidden="false">
+                
+                            <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/elements/rect">Rect</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/elements/circle">Circle</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/elements/ellipse">Ellipse</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/elements/line">Line</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/elements/polyline">Polyline</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/elements/polygon">Polygon</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/elements/path">Path</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/elements/image">Image</a>
+
+                        
+            
+          </li>
+                    <li class="sidebar-nav-active">
+            
+                                    <a href="https://svgdotjs.github.io/elements/text">Text</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/elements/tspan">Tspan</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/elements/textpath">TextPath</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/elements/use">Use</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/elements/symbol">Symbol</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/elements/gradient">Gradient</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/elements/pattern">Pattern</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/elements/marker">Marker</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/elements/bare">Bare</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-referencing">+</button>
+                <a href="https://svgdotjs.github.io/referencing">Referencing</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-referencing" aria-hidden="true">
+        
+                            <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/referencing/circular-reference">Circular reference</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/referencing/parent-references">Parent reference</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/referencing/child-references">Child references</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-manipulating">+</button>
+                <a href="https://svgdotjs.github.io/manipulating">Manipulating</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-manipulating" aria-hidden="true">
+        
+                            <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/manipulating/attributes">Attributes</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/manipulating/transforms">Transforms</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/manipulating/styles">Styles</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/manipulating/classes">Classes</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/manipulating/position">Position</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/manipulating/size">Size</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/manipulating/document-tree">Document Tree</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/manipulating/arranging">Arranging</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/manipulating/masking">Masking</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/manipulating/clipping">Clipping</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/manipulating/misc">Misc</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-geometry">+</button>
+                <a href="https://svgdotjs.github.io/geometry">Boxes</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-geometry" aria-hidden="true">
+        
+                            <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/geometry/viewbox">ViewBox</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/geometry/bbox">BBox</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/geometry/rbox">RBox</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/geometry/tbox">TBox</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-animating">+</button>
+                <a href="https://svgdotjs.github.io/animating">Animating</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-animating" aria-hidden="true">
+        
+                            <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/animating/animate">Animate</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/animating/controlling">Controlling</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/animating/timing">Timing</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/animating/callbacks">Callbacks</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/animating/references">References</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-events">+</button>
+                <a href="https://svgdotjs.github.io/events">Events</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-events" aria-hidden="true">
+        
+                            <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/events/basic">Basic</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/events/listeners">Listeners</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/events/custom">Custom</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-classes">+</button>
+                <a href="https://svgdotjs.github.io/classes">Classes</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-classes" aria-hidden="true">
+        
+                            <li class="">
+            
+                                      <button class="expand-subnav expand-sub-subnav" aria-expanded="false" aria-controls="nav-collapsible-arrays">+</button>
+                        <a href="https://svgdotjs.github.io/classes/arrays">Arrays</a>
+
+                                    <ul class="submenu nav-children" id="nav-collapsible-arrays" aria-hidden="true">
+            
+                                        <li class="sidebar-nav-sub ">
+                <a href="https://svgdotjs.github.io/classes/arrays/array">Array</a>
+              </li>
+                            <li class="sidebar-nav-sub ">
+                <a href="https://svgdotjs.github.io/classes/arrays/pointarray">PointArray</a>
+              </li>
+                            <li class="sidebar-nav-sub ">
+                <a href="https://svgdotjs.github.io/classes/arrays/patharray">PathArray</a>
+              </li>
+                          </ul>
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/classes/color">Color</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/classes/data">Data</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/classes/memory">Memory</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/classes/matrix">Matrix</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/classes/number">Number</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/classes/set">Set</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                        <a href="https://svgdotjs.github.io/importing-exporting">Importing / Exporting</a>
+
+                
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-extending">+</button>
+                <a href="https://svgdotjs.github.io/extending">Extending</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-extending" aria-hidden="true">
+        
+                            <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/extending/svg-invent">SVG.invent</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/extending/svg-extend">SVG.extend</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-plugins">+</button>
+                <a href="https://svgdotjs.github.io/plugins">Plugins</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-plugins" aria-hidden="true">
+        
+                            <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/plugins/svg-connectable-js">svg.connectable.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/plugins/svg-easing-js">svg.easing.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/plugins/svg-draw-js">svg.draw.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/plugins/svg-draggable-js">svg.draggable.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/plugins/svg-filter-js">svg.filter.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/plugins/svg-foreignobject-js">svg.foreignobject.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/plugins/svg-intersections-js">svg.intersections.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/plugins/svg-math-js">svg.math.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/plugins/svg-path-js">svg.path.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/plugins/svg-pathmorphing-js">svg.pathmorphing.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/plugins/svg-resize-js">svg.resize.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/plugins/svg-screenbbox-js">svg.screenbbox.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/plugins/svg-select-js">svg.select.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/plugins/svg-shapes-js">svg.shapes.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/plugins/svg-textmorph-js">svg.textmorph.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/plugins/svg-topath-js">svg.topath.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/plugins/svg-topoly-js">svg.topoly.js</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-contributing">+</button>
+                <a href="https://svgdotjs.github.io/contributing">Contributing</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-contributing" aria-hidden="true">
+        
+                            <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/contributing/coding-style">Coding Style</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io/contributing/building">Building</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                        <a href="https://svgdotjs.github.io/compatibility">Compatibility</a>
+
+                
+        
+      </li>
+            <li class="group">
+
+                        <a href="https://svgdotjs.github.io/acknowledgements-thanks">Acknowledgements &amp; Thanks</a>
+
+                
+        
+      </li>
+          </ul>    
+  </nav>
+</aside>
+
+    <section id="main" class="main-content" role="main">
+      <h1>Text</h1>
+<p><code>returns</code> <strong><code>SVG.Text</code></strong> <code>which inherits from</code> <strong><code>SVG.Shape</code></strong></p>
+<p>Unlike html, text in svg is much harder to tame. There is no way to create flowing text, so newlines should be entered manually. In SVG.js there are two ways to create text elements.</p>
+<p>The first and easiest method is to provide a string of text, split by newlines:</p>
+<pre><code class="language-javascript">var text = draw.text("Lorem ipsum dolor sit amet consectetur.\nCras sodales imperdiet auctor.")</code></pre>
+<p>This will automatically create a block of text and insert newlines where necessary.</p>
+<p>The second method will give you much more control but requires a bit more code:</p>
+<pre><code class="language-javascript">var text = draw.text(function(add) {
+  add.tspan('Lorem ipsum dolor sit amet ').newLine()
+  add.tspan('consectetur').fill('#f06')
+  add.tspan('.')
+  add.tspan('Cras sodales imperdiet auctor.').newLine().dx(20)
+  add.tspan('Nunc ultrices lectus at erat').newLine()
+  add.tspan('dictum pharetra elementum ante').newLine()
+})</code></pre>
+<p>If you want to go the other way and don't want to add tspans at all, just one line of text, you can use the <code>plain()</code> method instead:</p>
+<pre><code class="language-javascript">var text = draw.plain('Lorem ipsum dolor sit amet consectetur.')</code></pre>
+<p>This is a shortcut to the <code>plain</code> method on the <code>SVG.Text</code> instance which doesn't render newlines at all.</p>
+<h2>text() <em>as setter</em></h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Changing text afterwards is also possible with the <code>text()</code> method:</p>
+<pre><code class="language-javascript">text.text('Brilliant!')</code></pre>
+<h2>text() <em>as getter</em></h2>
+<p><code>returns</code> <strong><code>string</code></strong></p>
+<p>To get the raw text content:</p>
+<pre><code class="language-javascript">text.text()</code></pre>
+<h2>tspan()</h2>
+<p><code>returns</code> <strong><code>SVG.Tspan</code></strong></p>
+<p>Just adding one tspan is also possible:</p>
+<pre><code class="language-javascript">text.tspan(' on a train...').fill('#f06')</code></pre>
+<h2>plain()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>If the content of the element doesn't need any stying or multiple lines, it might be sufficient to just add some plain text:</p>
+<pre><code class="language-javascript">text.plain('I do not have any expectations.')</code></pre>
+<h2>font()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>The sugar.js module provides some syntax sugar specifically for this element type:</p>
+<pre><code class="language-javascript">text.font({
+  family:   'Helvetica'
+, size:     144
+, anchor:   'middle'
+, leading:  '1.5em'
+})</code></pre>
+<h2>leading()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>As opposed to html, where leading is defined by <code>line-height</code>, svg does not have a natural leading equivalent. In svg, lines are not defined naturally. They are defined by <code>&lt;tspan&gt;</code> nodes with a <code>dy</code> attribute defining the line height and a <code>x</code> value resetting the line to the <code>x</code> position of the parent text element. But you can also have many nodes in one line defining a different <code>y</code>, <code>dy</code>, <code>x</code> or even <code>dx</code> value. This gives us a lot of freedom, but also a lot more responsibility. We have to decide when a new line is defined, where it starts, what its offset is and what it's height is. The <code>leading()</code> method in SVG.js tries to ease the pain by giving you behaviour that is much closer to html. In combination with newline separated text, it works just like html:</p>
+<pre><code class="language-javascript">var text = draw.text("Lorem ipsum dolor sit amet consectetur.\nCras sodales imperdiet auctor.")
+text.leading(1.3)</code></pre>
+<p>This will render a text element with a tspan element for each line, with a <code>dy</code> value of <code>130%</code> of the font size.</p>
+<p>Note that the <code>leading()</code> method assumes that every first level tspan in a text node represents a new line. Using <code>leading()</code> on text elements containing multiple tspans in one line (e.g. without a wrapping tspan defining a new line) will render scrambeled. So it is advisable to use this method with care, preferably only when throwing newline separated text at the text element or calling the <code>newLine()</code> method on every first level tspan added in the block passed as argument to the text element.</p>
+<h2>build()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>The <code>build()</code> can be used to enable / disable build mode. With build mode disabled, the <code>plain()</code> and <code>tspan()</code> methods will first call the <code>clear()</code> bethod before adding the new content. So when build mode is enabled, <code>plain()</code> and <code>tspan()</code> will append the new content to the existing content. When passing a block to the <code>text()</code> method, build mode is toggled automatically before and after the block is called. But in some cases it might be useful to be able to toggle it manually:</p>
+<pre><code class="language-javascript">var text = draw.text('This is just the start, ')
+
+text.build(true)  // enables build mode
+
+var tspan = text.tspan('something pink in the middle ').fill('#00ff97')
+text.plain('and again boring at the end.')
+
+text.build(false) // disables build mode
+
+tspan.animate('2s').fill('#f06')</code></pre>
+<h2>rebuild()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>This is an internal callback that probably never needs to be called manually. Basically it rebuilds the text element whenerver <code>font-size</code> and <code>x</code> attributes or the <code>leading()</code> of the text element are modified. This method also acts a setter to enable or disable rebuilding:</p>
+<pre><code class="language-javascript">text.rebuild(false) //-&gt; disables rebuilding
+text.rebuild(true)  //-&gt; enables rebuilding and instantaneously rebuilds the text element</code></pre>
+<h2>clear()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Clear all the contents of the called text element:</p>
+<pre><code class="language-javascript">text.clear()</code></pre>
+<h2>length()</h2>
+<p><code>returns</code> <strong><code>number</code></strong></p>
+<p>Gets the total computed text length of all tspans together:</p>
+<pre><code class="language-javascript">text.length()</code></pre>
+<h2>lines()</h2>
+<p><code>returns</code> <strong><code>SVG.Set</code></strong></p>
+<p>All first level tspans can be referenced with the <code>lines()</code> method:</p>
+<pre><code class="language-javascript">text.lines()</code></pre>
+<p>This will return an intance of <code>SVG.Set</code> including all <code>tspan</code> elements.</p>
+<h2>events</h2>
+<p>The text element has one event. It is fired every time the <code>rebuild()</code> method is called:</p>
+<pre><code class="language-javascript">text.on('rebuild', function() {
+  // whatever you need to do after rebuilding
+})</code></pre>    </section>
+
+  </div><!-- /.wrap content -->
+
+
+<footer role="contentinfo">
+  <div class="wrap">
+    <p><a href="http://svgjs.com">SVG.js</a> © 2012-2016 <a href="https://github.com/wout/" rel="noopener noreferrer" target="_blank">Wout Fierens</a> -  SVG.js is released under the terms of the MIT license.</p>  </div><!--/.wrap -->
+</footer>
+
+<a href="https://github.com/svgdotjs/svg.js">
+  <img src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" class="fork-me-on-github">
+</a>
+
+<script src="https://svgdotjs.github.io/assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io/assets/js/libs/accordion-plain.js"></script><script src="https://svgdotjs.github.io/assets/js/kdoc.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+</html>
+</div> <!-- /.container -->

@@ -1,0 +1,21 @@
+Title: SVG.js
+
+----
+
+Author: Nate Steiner
+
+----
+
+Description: A lightweight library for manipulating and animating SVG
+
+----
+
+Keywords: Kirby,CMS,file-based
+
+----
+
+Copyright: (link: http://svgjs.com text: SVG.js) © 2012-(date: Year) (link: https://github.com/wout/ text: Wout Fierens target: _blank) -  SVG.js is released under the terms of the MIT license.
+
+----
+
+Authorurl: http://natesteiner.com

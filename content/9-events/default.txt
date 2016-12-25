@@ -1,0 +1,9 @@
+Title: Events
+
+----
+
+Text: 
+
+# Events
+
+SVG.js supports named events, event listeners and custom events.

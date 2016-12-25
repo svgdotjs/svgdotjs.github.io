@@ -1,0 +1,112 @@
+Title: Tspan
+
+----
+
+Text: 
+
+# Tspan
+
+`returns` __`SVG.Tspan`__ ` which inherits from ` __`SVG.Shape`__
+
+The tspan elements are only available inside text elements or inside other tspan elements.
+
+## text()
+
+`returns` __`itself`__
+
+Update the content of the tspan. This can be done by either passing a string:
+
+```javascript
+tspan.text('Just a string.')
+```
+
+Which will basicly call the `plain()` method.
+
+Or by passing a block to add more specific content inside the called tspan:
+
+```javascript
+tspan.text(function(add) {
+  add.plain('Just plain text.')
+  add.tspan('Fancy text wrapped in a tspan.').fill('#f06')
+  add.tspan(function(addMore) {
+    addMore.tspan('And you can doo deeper and deeper...')
+  })
+})
+```
+
+## tspan()
+
+`returns` __`SVG.Tspan`__
+
+Add a nested tspan:
+
+```javascript
+tspan.tspan('I am a child of my parent').fill('#f06')
+```
+
+## plain()
+
+`returns` __`itself`__
+
+Just adds some plain text:
+
+```javascript
+tspan.plain('I do not have any expectations.')
+```
+
+## dx()
+
+`returns` __`itself`__
+
+Define the dynamic `x` value of the element, much like a html element with `position:relative` and `left` defined:
+
+```javascript
+tspan.dx(30)
+```
+
+## dy()
+
+`returns` __`itself`__
+
+Define the dynamic `y` value of the element, much like a html element with `position:relative` and `top` defined:
+
+```javascript
+tspan.dy(30)
+```
+
+## newLine()
+
+`returns` __`itself`__
+
+The `newLine()` is a convenience method for adding a new line with a `dy` attribute using the current "leading":
+
+```javascript
+var text = draw.text(function(add) {
+  add.tspan('Lorem ipsum dolor sit amet ').newLine()
+  add.tspan('consectetur').fill('#f06')
+  add.tspan('.')
+  add.tspan('Cras sodales imperdiet auctor.').newLine().dx(20)
+  add.tspan('Nunc ultrices lectus at erat').newLine()
+  add.tspan('dictum pharetra elementum ante').newLine()
+})
+```
+
+## clear()
+
+`returns` __`itself`__
+
+Clear all the contents of the called tspan element:
+
+```javascript
+tspan.clear()
+```
+
+## length()
+
+`returns` __`number`__
+
+Gets the total computed text length:
+
+```javascript
+tspan.length()
+```

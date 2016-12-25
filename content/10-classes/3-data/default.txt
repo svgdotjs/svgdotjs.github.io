@@ -1,0 +1,51 @@
+Title: Data
+
+----
+
+Text: 
+
+# Data
+
+The `data()` method allows you to bind arbitrary objects, strings and numbers to SVG elements.
+
+## data() _as getter_
+
+`returns` __`value`__
+
+Fetching the values is similar to the `attr()` method:
+
+```javascript
+var key = rect.data('key')
+```
+
+## data() _as setter_
+
+`returns` __`itself`__
+
+```javascript
+rect.data('key', { value: { data: 0.3 }})
+```
+
+Or set multiple values at once:
+
+```javascript
+rect.data({
+  forbidden: 'fruit'
+, multiple: {
+    values: 'in'
+  , an: 'object'
+  }
+})
+```
+
+Removing the data altogether:
+
+```javascript
+rect.data('key', null)
+```
+
+Your values will always be stored as JSON and in some cases this might not be desirable. If you want to store the value as-is, just pass true as the third argument:
+
+```javascript
+rect.data('key', 'value', true)
+```
