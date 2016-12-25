@@ -1,0 +1,32 @@
+{
+  "name": "kdocbuild",
+  "version": "0.1.0",
+  "author": "Nate Steiner <nate@natesteiner.com> (http://natesteiner.com)",
+  "description": "SCSS build and PHP preview for kdoc Kirby theme",
+  "license": "MIT",
+  "private": false,
+  "main": "assets/scss/main.scss",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nsteiner/kdoc.git"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.0.0",
+    "cssmin": "^0.4.3",
+    "node-sass": "^3.4.2",
+    "nodemon": "^1.3.5",
+    "opener": "^1.4.0",
+    "parallelshell": "^1.0.4",
+    "rimraf": "^2.2.8",
+    "postcss-cli": "^2.3.2"
+  },
+  "scripts": {
+    "clean": "rimraf assets/css/*",
+    "prebuild": "npm run clean -s",
+    "build": "node-sass assets/scss/main.scss | postcss --use autoprefixer -c postcss.json | cssmin > assets/css/main.css",
+    "watch": "nodemon -e scss -w assets/scss --exec npm run build",
+    "serve": "php -S localhost:8008",
+    "open:dev": "opener http://localhost:8008/",
+    "dev": "parallelshell \"npm run serve -s\" \"npm run watch -s\" \"npm run open:dev -s\""
+  }
+}
