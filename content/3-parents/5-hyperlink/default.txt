@@ -11,7 +11,7 @@ Text:
 A hyperlink or `<a>` tag creates a container that enables a link on all children:
 
 ```javascript
-var link = draw.link('http://svgjs.com')
+var link = draw.link('http://svgdotjs.github.io/')
 var rect = link.rect(100, 100)
 ```
 
@@ -36,13 +36,13 @@ link.target('_blank')
 Elements can also be linked the other way around with the `linkTo()` method:
 
 ```javascript
-rect.linkTo('http://svgjs.com')
+rect.linkTo('http://svgdotjs.github.io/')
 ```
 
 Alternatively a block can be passed instead of a url for more options on the link element:
 
 ```javascript
 rect.linkTo(function(link) {
-  link.to('http://svgjs.com').target('_blank')
+  link.to('http://svgdotjs.github.io/').target('_blank')
 })
 ```
