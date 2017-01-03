@@ -1,0 +1,15 @@
+Title: Main svg document
+
+----
+
+Text: 
+
+# Main svg document
+
+`returns` __`SVG.Doc`__ ` which inherits from ` __`SVG.Container`__
+
+The main SVG.js initializer function creates a root svg node in the given element and returns an instance of `SVG.Doc`:
+
+```javascript
+var draw = SVG('drawing')
+```

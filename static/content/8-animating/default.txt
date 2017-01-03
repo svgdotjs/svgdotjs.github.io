@@ -1,0 +1,53 @@
+Title: Animating
+
+----
+
+Text: 
+
+# Animating
+
+## Method chain
+Note that the `animate()` method will not return the targeted element but an instance of SVG.FX which will take the following methods:
+
+Of course `attr()`:
+```javascript
+rect.animate().attr({ fill: '#f03' })
+```
+
+The `x()`, `y()` and `move()` methods:
+```javascript
+rect.animate().move(100, 100)
+```
+
+And the `cx()`, `cy()` and `center()` methods:
+```javascript
+rect.animate().center(200, 200)
+```
+
+If you include the sugar.js module, `fill()`, `stroke()`, `rotate()`, `skew()`, `scale()`, `matrix()`, `opacity()`, `radius()` will be available as well:
+```javascript
+rect.animate().rotate(45).skew(25, 0)
+```
+
+You can also animate non-numeric unit values using the `attr()` method:
+```javascript
+rect.attr('x', '10%').animate().attr('x', '50%')
+```
+
+## Easing
+All available ease types are:
+
+- `<>`: ease in and out
+- `>`: ease out
+- `<`: ease in
+- `-`: linear
+- `=`: external control
+- a function
+
+For the latter, here is an example of the default `<>` function:
+
+```javascript
+function(pos) { return (-Math.cos(pos * Math.PI) / 2) + 0.5 }
+```
+
+For more easing equations, have a look at the (link: https://github.com/svgdotjs/svg.easing.js text: svg.easing.js target: _blank) plugin.

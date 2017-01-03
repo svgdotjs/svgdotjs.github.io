@@ -1,0 +1,60 @@
+Title: Listeners
+
+----
+
+Text: 
+
+# Event listeners
+
+## on()
+
+`returns` __`itself`__
+
+```javascript
+var click = function() {
+  this.fill({ color: '#f06' })
+}
+
+rect.on('click', click)
+```
+
+**Note:** The context of `this` in the callback is bound to the element. You can change this context by applying your own object:
+
+```javascript
+rect.on('click', click, window) // context of this is window
+```
+
+## off()
+
+`returns` __`itself`__
+
+Unbinding events is just as easy:
+
+```javascript
+rect.off('click', click)
+```
+
+Or to unbind all listeners for a given event:
+
+```javascript
+rect.off('click')
+```
+
+Or even unbind all listeners for all events:
+
+```javascript
+rect.off()
+```
+
+## other elements
+But there is more to event listeners. You can bind events to html elements as well:
+
+```javascript
+SVG.on(window, 'click', click)
+```
+
+Obviously unbinding is practically the same:
+
+```javascript
+SVG.off(window, 'click', click)
+```

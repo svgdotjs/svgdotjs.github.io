@@ -1,0 +1,23 @@
+Title: Defs
+
+----
+
+Text: 
+
+# Defs
+
+`returns` __`SVG.Defs`__ ` which inherits from ` __`SVG.Container`__
+
+The `<defs>` element is a container element for referenced elements. Elements that are descendants of a ‘defs’ are not rendered directly. The `<defs>` node lives in the main `<svg>` document and can be accessed with the `defs()` method:
+
+```javascript
+var defs = draw.defs()
+```
+
+The defs are also available on any other element through the `doc()` method:
+
+```javascript
+var defs = rect.doc().defs()
+```
+
+The defs node works exactly the same as groups.

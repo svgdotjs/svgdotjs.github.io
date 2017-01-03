@@ -1,0 +1,145 @@
+Title: Set
+
+----
+
+Text: 
+
+# Set
+
+`returns` __`SVG.Set`__
+
+Sets are very useful if you want to modify or animate multiple elements at once. A set will accept all the same methods accessible on individual elements, even the ones that you add with your own plugins! Creating a set is exactly as you would expect:
+
+```javascript
+// create some elements
+var rect = draw.rect(100,100)
+var circle = draw.circle(100).move(100,100).fill('#f09')
+
+// create a set and add the elements
+var set = draw.set()
+set.add(rect).add(circle)
+
+// change the fill of all elements in the set at once
+set.fill('#ff0')
+```
+
+A single element can be a member of many sets. Sets also don't have a structural representation, in fact they are just fancy array's.
+
+## add()
+
+`returns` __`itself`__
+
+Add an element to a set:
+
+```javascript
+set.add(rect)
+```
+
+Quite a useful feature of sets is the ability to accept multiple elements at once:
+
+```javascript
+set.add(rect, circle)
+```
+## each()
+
+`returns` __`itself`__
+
+Iterating over all members in a set is the same as with svg containers:
+
+```javascript
+set.each(function(i) {
+  this.attr('id', 'shiny_new_id_' + i)
+})
+```
+
+Note that `this` refers to the current child element.
+
+## has()
+
+`returns` __`boolean`__
+
+Determine if an element is member of the set:
+
+```javascript
+set.has(rect)
+```
+
+## index()
+
+`returns` __`number`__
+
+Returns the index of a given element in the set.
+
+```javascript
+set.index(rect) //-> -1 if element is not a member
+```
+
+## get()
+
+`returns` __`SVG.Element`__
+
+Gets the element at a given index:
+
+```javascript
+set.get(1)
+```
+
+## first()
+
+`returns` __`SVG.Element`__
+
+Gets the first element:
+
+```javascript
+set.first()
+```
+
+## last()
+
+`returns` __`SVG.Element`__
+
+Gets the last element:
+
+```javascript
+set.last()
+```
+
+## bbox()
+
+`returns` __`SVG.BBox`__
+
+Get the bounding box of all elements in the set:
+
+```javascript
+set.bbox()
+```
+
+## remove()
+
+`returns` __`itself`__
+
+To remove an element from a set:
+
+```javascript
+set.remove(rect)
+```
+
+## clear()
+
+`returns` __`itself`__
+
+Or to remove all elements from a set:
+
+```javascript
+set.clear()
+```
+
+## animate()
+
+`returns` __`SVG.SetFX`__
+
+Sets work with animations as well:
+
+```javascript
+set.animate(3000).fill('#ff0')
+```

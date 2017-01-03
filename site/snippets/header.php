@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title><?php echo $site->title()->html() ?> | <?php echo $page->title()->html() ?></title>
     <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <?php echo css('assets/css/main.css') ?>
   </head>
   <body class="docs-svgjs">

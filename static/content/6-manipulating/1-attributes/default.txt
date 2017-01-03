@@ -1,0 +1,53 @@
+Title: Attributes
+
+----
+
+Text: 
+
+# Attributes
+
+## attr() _as getter_
+
+`returns` __`value`__ _(string, number, ...)_
+
+You can get and set an element's attributes directly using `attr()`.
+
+Get a single attribute:
+```javascript
+var x = rect.attr('x')
+```
+
+Get all attributes as an object:
+
+```javascript
+var attributes = rect.attr()
+```
+
+## attr() _as setter_
+
+`returns` __`itself`__
+
+Set a single attribute:
+```javascript
+rect.attr('x', 50)
+```
+
+Set multiple attributes at once:
+```javascript
+rect.attr({
+  fill: '#f06'
+, 'fill-opacity': 0.5
+, stroke: '#000'
+, 'stroke-width': 10
+})
+```
+
+Set an attribute with a namespace:
+```javascript
+rect.attr('x', 50, 'http://www.w3.org/2000/svg')
+```
+
+Explicitly remove an attribute:
+```javascript
+rect.attr('fill', null)
+```

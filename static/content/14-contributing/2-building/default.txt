@@ -1,0 +1,37 @@
+Title: Building
+
+----
+
+Text: 
+
+# Building
+After contributing you probably want to build the library to run some specs. Make sure you have Node.js installed on your system, `cd` to the svg.js directory and run:
+
+```sh
+$ npm install
+```
+
+Build SVG.js by running `gulp`:
+
+```sh
+$ npm run build
+```
+
+The resulting files are:
+
+1. `dist/svg.js`
+2. `dist/svg.min.js`
+
+# Testing
+There is two ways to run the test suite. One is from the command line and the other is in your browser.
+To run the test suite at the command line, you need to have Firefox installed.
+
+```sh
+$ npm test
+```
+
+To run the test suite in your default browser, simply open `/spec/SpecRunner.html`. Usually by double click.
+
+If you are the cautious type, you might want to read,
+[before you push](https://github.com/svgdotjs/svg.js/wiki/Before-you-push)
+, on how to prevent pushing failing commits.

@@ -1,0 +1,59 @@
+Title: Memory
+
+----
+
+Text: 
+
+# Memory
+
+## remember() _as getter_
+
+`returns` __`value`__
+
+To retrieve a memory
+
+```javascript
+rect.remember('oldBBox')
+```
+
+## remember() _as setter_
+
+`returns` __`itself`__
+
+Storing data in-memory is very much like setting attributes:
+
+```javascript
+rect.remember('oldBBox', rect.bbox())
+```
+
+Multiple values can also be remembered at once:
+
+```javascript
+rect.remember({
+  oldFill:    rect.attr('fill')
+, oldStroke:  rect.attr('stroke')
+})
+```
+
+## forget()
+
+`returns` __`itself`__
+
+Erasing a single memory:
+
+```javascript
+rect.forget('oldBBox')
+```
+
+Or erasing multiple memories at once:
+
+
+```javascript
+rect.forget('oldFill', 'oldStroke')
+```
+
+And finally, just erasing the whole memory:
+
+```javascript
+rect.forget()
+```
