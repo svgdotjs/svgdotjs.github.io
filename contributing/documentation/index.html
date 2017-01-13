@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
-    <title>SVG.js | Size</title>
+    <title>SVG.js | Documentation</title>
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -249,13 +249,13 @@
                   </ul>
         
       </li>
-            <li class="group sidebar-nav-active">
+            <li class="group">
 
-                  <button class="expand-subnav" aria-expanded="true" aria-controls="nav-collapsible-manipulating">+</button>
-                        <a href="https://svgdotjs.github.io//manipulating">Manipulating</a>
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-manipulating">+</button>
+                <a href="https://svgdotjs.github.io//manipulating">Manipulating</a>
 
-                  <ul class="submenu nav-children" id="nav-collapsible-manipulating" aria-hidden="false">
-                
+                        <ul class="submenu nav-children" id="nav-collapsible-manipulating" aria-hidden="true">
+        
                             <li class="">
             
                                     <a href="https://svgdotjs.github.io//manipulating/attributes">Attributes</a>
@@ -291,7 +291,7 @@
                         
             
           </li>
-                    <li class="sidebar-nav-active">
+                    <li class="">
             
                                     <a href="https://svgdotjs.github.io//manipulating/size">Size</a>
 
@@ -681,13 +681,13 @@
                   </ul>
         
       </li>
-            <li class="group">
+            <li class="group sidebar-nav-active">
 
-                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-contributing">+</button>
-                <a href="https://svgdotjs.github.io//contributing">Contributing</a>
+                  <button class="expand-subnav" aria-expanded="true" aria-controls="nav-collapsible-contributing">+</button>
+                        <a href="https://svgdotjs.github.io//contributing">Contributing</a>
 
-                        <ul class="submenu nav-children" id="nav-collapsible-contributing" aria-hidden="true">
-        
+                  <ul class="submenu nav-children" id="nav-collapsible-contributing" aria-hidden="false">
+                
                             <li class="">
             
                                     <a href="https://svgdotjs.github.io//contributing/coding-style">Coding Style</a>
@@ -709,7 +709,7 @@
                         
             
           </li>
-                    <li class="">
+                    <li class="sidebar-nav-active">
             
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
@@ -738,39 +738,43 @@
 </aside>
 
     <section id="main" class="main-content" role="main">
-      <h1>Size</h1>
-<h2>size()</h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Set the size of an element to a given <code>width</code> and <code>height</code>:</p>
-<pre><code class="language-javascript">rect.size(200, 300)</code></pre>
-<p>Proportional resizing is also possible by leaving out <code>height</code>:</p>
-<pre><code class="language-javascript">rect.size(200)</code></pre>
-<p>Or by passing <code>null</code> as the value for <code>width</code>:</p>
-<pre><code class="language-javascript">rect.size(null, 200)</code></pre>
-<p>As with positioning, the size of an element could be set by using <code>attr()</code>. But because every type of element is handles its size differently the <code>size()</code> method is much more convenient.</p>
-<p>There is one exception though: for <code>SVG.Text</code> elements, this method takes only one argument and applies the given value to the <code>font-size</code> attribute.</p>
-<h2>width() <em>as getter</em></h2>
-<p><code>returns</code> <strong><code>value</code></strong></p>
-<pre><code class="language-javascript">var width = rect.width()</code></pre>
-<h2>width() <em>as setter</em></h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Set the width of an element:</p>
-<pre><code class="language-javascript">rect.width(200)</code></pre>
-<h2>height() <em>as getter</em></h2>
-<p><code>returns</code> <strong><code>value</code></strong></p>
-<pre><code class="language-javascript">rect.height()</code></pre>
-<h2>height() <em>as setter</em></h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Set the height of an element:</p>
-<pre><code class="language-javascript">rect.height(325)</code></pre>
-<h2>radius()</h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Circles, ellipses, and rects may use the <code>radius()</code> method. On rects, it defines rounded corners.</p>
-<p>For a circle, the argument sets the <code>r</code> attribute.</p>
-<pre><code class="language-javascript">circle.radius(10)</code></pre>
-<p>For ellipses and rects, pass two arguments to set the <code>rx</code> and <code>ry</code> attributes individually. Or, pass a single argument, to make the two attributes equal.</p>
-<pre><code class="language-javascript">ellipse.radius(10, 20)
-rect.radius(5)</code></pre>    </section>
+      <h1>Documentation</h1>
+<p>The SVG.js docs are built upon <a href="https://getkirby.com/" rel="noopener noreferrer" target="_blank">Kirby</a> with the <a href="https://natesteiner.com/kdoc" rel="noopener noreferrer" target="_blank">KDoc theme</a>.</p>
+<h2>Requirements</h2>
+<p>You'll need:</p>
+<ul>
+<li>PHP 5.4+</li>
+<li>Node.js</li>
+</ul>
+<h2>Getting started</h2>
+<ol>
+<li>
+<p>Download or clone the <strong><a href="https://github.com/svgdotjs/svgdotjs.github.io" rel="noopener noreferrer" target="_blank">svgdotjs.github.io</a></strong> repo and switch to the <code>source</code> branch.</p>
+</li>
+<li>
+<p>Run <code>npm install</code>. This is only required the first time.</p>
+</li>
+<li>Run <code>npm run dev</code> which will open up your default browser with the docs running.</li>
+</ol>
+<h2>Writing</h2>
+<p>Log in to Kirby on <a href="http://localhost:8008/panel" rel="noopener noreferrer" target="_blank">localhost:8008/panel</a> using username <strong>svgjs</strong> and password <strong>svgjs</strong>.</p>
+<p>The text editors in Kirby are <a href="https://daringfireball.net/projects/markdown/syntax" rel="noopener noreferrer" target="_blank">Markdown</a> and <a href="https://getkirby.com/docs/content/text" rel="noopener noreferrer" target="_blank">Kirbytext</a> enabled.</p>
+<h2>Building the static version</h2>
+<ol>
+<li>
+<p>Go to <a href="http://localhost:8008/statify.php" rel="noopener noreferrer" target="_blank">localhost:8008/statify.php</a> in a web browser to run the build. The static files will be generated at <code>static</code> at the root of the repo.</p>
+</li>
+<li>
+<p>Move the <code>static</code> folder out of the repo (e.g. your Desktop).</p>
+</li>
+<li>
+<p>Commit and push the changes in the <code>source</code> branch and switch to the <code>master</code> branch.</p>
+</li>
+<li>
+<p>Replace everything in the <code>master</code> branch with the contents of the <code>static</code> folder.</p>
+</li>
+<li>Commit and push the changes in the <code>master</code> branch and you're done!</li>
+</ol>    </section>
 
   </div><!-- /.wrap content -->
 

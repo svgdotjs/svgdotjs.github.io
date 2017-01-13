@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
-    <title>SVG.js | Size</title>
+    <title>SVG.js | Before you push</title>
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -249,13 +249,13 @@
                   </ul>
         
       </li>
-            <li class="group sidebar-nav-active">
+            <li class="group">
 
-                  <button class="expand-subnav" aria-expanded="true" aria-controls="nav-collapsible-manipulating">+</button>
-                        <a href="https://svgdotjs.github.io//manipulating">Manipulating</a>
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-manipulating">+</button>
+                <a href="https://svgdotjs.github.io//manipulating">Manipulating</a>
 
-                  <ul class="submenu nav-children" id="nav-collapsible-manipulating" aria-hidden="false">
-                
+                        <ul class="submenu nav-children" id="nav-collapsible-manipulating" aria-hidden="true">
+        
                             <li class="">
             
                                     <a href="https://svgdotjs.github.io//manipulating/attributes">Attributes</a>
@@ -291,7 +291,7 @@
                         
             
           </li>
-                    <li class="sidebar-nav-active">
+                    <li class="">
             
                                     <a href="https://svgdotjs.github.io//manipulating/size">Size</a>
 
@@ -681,13 +681,13 @@
                   </ul>
         
       </li>
-            <li class="group">
+            <li class="group sidebar-nav-active">
 
-                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-contributing">+</button>
-                <a href="https://svgdotjs.github.io//contributing">Contributing</a>
+                  <button class="expand-subnav" aria-expanded="true" aria-controls="nav-collapsible-contributing">+</button>
+                        <a href="https://svgdotjs.github.io//contributing">Contributing</a>
 
-                        <ul class="submenu nav-children" id="nav-collapsible-contributing" aria-hidden="true">
-        
+                  <ul class="submenu nav-children" id="nav-collapsible-contributing" aria-hidden="false">
+                
                             <li class="">
             
                                     <a href="https://svgdotjs.github.io//contributing/coding-style">Coding Style</a>
@@ -702,7 +702,7 @@
                         
             
           </li>
-                    <li class="">
+                    <li class="sidebar-nav-active">
             
                                     <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
 
@@ -738,39 +738,74 @@
 </aside>
 
     <section id="main" class="main-content" role="main">
-      <h1>Size</h1>
-<h2>size()</h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Set the size of an element to a given <code>width</code> and <code>height</code>:</p>
-<pre><code class="language-javascript">rect.size(200, 300)</code></pre>
-<p>Proportional resizing is also possible by leaving out <code>height</code>:</p>
-<pre><code class="language-javascript">rect.size(200)</code></pre>
-<p>Or by passing <code>null</code> as the value for <code>width</code>:</p>
-<pre><code class="language-javascript">rect.size(null, 200)</code></pre>
-<p>As with positioning, the size of an element could be set by using <code>attr()</code>. But because every type of element is handles its size differently the <code>size()</code> method is much more convenient.</p>
-<p>There is one exception though: for <code>SVG.Text</code> elements, this method takes only one argument and applies the given value to the <code>font-size</code> attribute.</p>
-<h2>width() <em>as getter</em></h2>
-<p><code>returns</code> <strong><code>value</code></strong></p>
-<pre><code class="language-javascript">var width = rect.width()</code></pre>
-<h2>width() <em>as setter</em></h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Set the width of an element:</p>
-<pre><code class="language-javascript">rect.width(200)</code></pre>
-<h2>height() <em>as getter</em></h2>
-<p><code>returns</code> <strong><code>value</code></strong></p>
-<pre><code class="language-javascript">rect.height()</code></pre>
-<h2>height() <em>as setter</em></h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Set the height of an element:</p>
-<pre><code class="language-javascript">rect.height(325)</code></pre>
-<h2>radius()</h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Circles, ellipses, and rects may use the <code>radius()</code> method. On rects, it defines rounded corners.</p>
-<p>For a circle, the argument sets the <code>r</code> attribute.</p>
-<pre><code class="language-javascript">circle.radius(10)</code></pre>
-<p>For ellipses and rects, pass two arguments to set the <code>rx</code> and <code>ry</code> attributes individually. Or, pass a single argument, to make the two attributes equal.</p>
-<pre><code class="language-javascript">ellipse.radius(10, 20)
-rect.radius(5)</code></pre>    </section>
+      <h1>Before you push</h1>
+<p>Imagine that you're tweaking some part of svg.js and as the responsible person you are, you made sure to run <code>npm test</code> before pushing. Unfortunately <code>npm test</code> tests the current <code>dist/svg.js</code> which only has your edits if you first did <code>npm run build</code>.</p>
+<p>This has happen to me a couple of times and as a svg.js contributor, it's embarrassing.</p>
+<p>Fortunately <code>git</code> has a <code>pre-push</code> hook which can save yourself from the embarrassment.</p>
+<p>I have created a <code>pre-commit</code> hook that will build a new <code>dist/svg.js</code> and run the tests. It's developed on Ubuntu 16.04 but should work on all *nix platforms. You can disable this check with:</p>
+<pre><code>git push --no-verify</code></pre>
+<p><strong><a href="https://gist.github.com/dotnetCarpenter/bb6c2f040e11922cc8f81ef42a8054fd" rel="noopener noreferrer" target="_blank">pre-commit</a></strong></p>
+<pre><code class="language-sh">#!/bin/sh
+
+npm run build:test &amp;&amp; npm run test:quick
+
+# check how the test went
+testCode=$?
+[ "$testCode" = 0 ] || echo "Your current build does not pass our unit tests - please make them pass before you push"
+# revert artifacts created during build
+git reset --hard $(git log -1 --pretty=%H)
+# exit with the test exit code
+exit $testCode</code></pre>
+<p>A failed push looks something like this:</p>
+<pre><code>git push
+
+&gt; svg.js@2.3.6 build:test /home/dotnet/projects/opensource/svg.js
+&gt; gulp unify
+
+[14:20:12] Using gulpfile ~/projects/opensource/svg.js/gulpfile.js
+[14:20:12] Starting 'clean'...
+[14:20:12] Finished 'clean' after 34 ms
+[14:20:12] Starting 'unify'...
+[14:20:13] Full svg.js 137.14 kB
+[14:20:13] Finished 'unify' after 318 ms
+
+&gt; svg.js@2.3.6 test:quick /home/dotnet/projects/opensource/svg.js
+&gt; karma start .config/karma.quick.js
+
+PhantomJS 2.1.1 (Linux 0.0.0) ERROR
+  TypeError: undefined is not a function (evaluating 'root.callFailingFooBar()')
+  at dist/svg.js:21
+
+npm ERR! Linux 4.4.0-45-generic
+npm ERR! argv "/home/dotnet/.nvm/versions/node/v7.0.0/bin/node" "/home/dotnet/.nvm/versions/node/v7.0.0/bin/npm" "run" "test:quick"
+npm ERR! node v7.0.0
+npm ERR! npm  v3.10.8
+npm ERR! code ELIFECYCLE
+npm ERR! svg.js@2.3.6 test:quick: `karma start .config/karma.quick.js`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the svg.js@2.3.6 test:quick script 'karma start .config/karma.quick.js'.
+npm ERR! Make sure you have the latest version of node.js and npm installed.
+npm ERR! If you do, this is most likely a problem with the svg.js package,
+npm ERR! not with npm itself.
+npm ERR! Tell the author that this fails on your system:
+npm ERR!     karma start .config/karma.quick.js
+npm ERR! You can get information on how to open an issue for this project with:
+npm ERR!     npm bugs svg.js
+npm ERR! Or if that isn't available, you can get their info via:
+npm ERR!     npm owner ls svg.js
+npm ERR! There is likely additional logging output above.
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     /home/dotnet/projects/opensource/svg.js/npm-debug.log
+Your current build does not pass our unit tests - please make them pass before you push
+HEAD is now at b66f005 Calling new awesome method
+error: failed to push some refs to 'https://github.com/dotnetCarpenter/svg.js.git'</code></pre>
+<h2>Install</h2>
+<p>Put <a href="https://gist.github.com/dotnetCarpenter/bb6c2f040e11922cc8f81ef42a8054fd" rel="noopener noreferrer" target="_blank">pre-commit</a> in your local svg.js repository, in the .git/hooks folder and make it executable:</p>
+<pre><code>sudo chmod +x .git/hooks/pre-push</code></pre>
+<p>To disable the check when you push, write:</p>
+<pre><code>git push --no-verify</code></pre>    </section>
 
   </div><!-- /.wrap content -->
 
