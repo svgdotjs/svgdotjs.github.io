@@ -1,9 +1,0 @@
-Title: svg.select.js
-
-----
-
-Text: 
-
-# svg.select.js
-
-[svg.select.js](https://github.com/fuzzyma/svg.select.js) to select elements.

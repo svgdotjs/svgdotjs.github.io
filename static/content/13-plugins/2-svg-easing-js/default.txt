@@ -1,9 +1,0 @@
-Title: svg.easing.js
-
-----
-
-Text: 
-
-# svg.easing.js
-
-[svg.easing.js](https://github.com/svgdotjs/svg.easing.js) for more easing methods on animations.

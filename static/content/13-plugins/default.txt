@@ -1,9 +1,0 @@
-Title: Plugins
-
-----
-
-Text: 
-
-# Plugins
-
-Here's a list of all plugins available for SVG.js. If you wrote one, please let us know!

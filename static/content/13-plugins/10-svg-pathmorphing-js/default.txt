@@ -1,9 +1,0 @@
-Title: svg.pathmorphing.js
-
-----
-
-Text: 
-
-# svg.pathmorphing.js
-
-[svg.pathmorphing.js](https://github.com/svgdotjs/svg.pathmorphing.js) to make path animatable

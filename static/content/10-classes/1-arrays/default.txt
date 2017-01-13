@@ -1,9 +1,0 @@
-Title: Arrays
-
-----
-
-Text: 
-
-# Arrays
-
-In SVG.js every value list string can be cast and passed as an array. This makes writing them more convenient but also adds a lot of key functionality to them.

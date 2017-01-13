@@ -1,9 +1,0 @@
-Title: svg.filter.js
-
-----
-
-Text: 
-
-# svg.filter.js
-
-[svg.filter.js](https://github.com/svgdotjs/svg.filter.js) adding svg filters to elements.
