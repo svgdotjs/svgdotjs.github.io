@@ -23,7 +23,18 @@
     <div class="wrap">
       <img src="/assets/images/logo-svg-js-01d-128.png" alt="SVG.js logo" class="svgjs-logo">
       <h1 class="site-title"><a class="title-link" href="https://svgdotjs.github.io/">SVG.js</a></h1>
-                </div>
+                  <script>
+        // get all h* tags
+        var htags = document.querySelectorAll( 'h2[id],h3[id],h4[id],h5[id],h6[id]' )
+
+        // make them clickable
+        htags.forEach( function( h ) {
+          h.onclick = function() {
+            window.location.hash = this.id
+          }
+        })
+      </script>
+    </div>
   </header>  <div class="wrap content">
 
     
