@@ -1,0 +1,42 @@
+Title: Documentation
+
+----
+
+Text: 
+
+# Documentation
+
+The SVG.js docs are built upon (link: https://getkirby.com/ text: Kirby target: _blank) with the (link: https://natesteiner.com/kdoc text: KDoc theme target: _blank).
+
+## Requirements
+You'll need:
+- PHP 5.4+
+- Node.js
+
+## Getting started
+1. Download or clone the **(link: https://github.com/svgdotjs/svgdotjs.github.io text: svgdotjs.github.io target: _blank)** repo and switch to the `source` branch.
+
+2. Run `npm install `. This is only required the first time.
+
+3. Run `npm run dev` which will open up your default browser with the docs running.
+
+## Writing
+Log in to Kirby on (link: http://localhost:8008/panel target: _blank) using username **svgjs** and password **svgjs**.
+
+The text editors in Kirby are (link: https://daringfireball.net/projects/markdown/syntax text: Markdown target: _blank) and (link: https://getkirby.com/docs/content/text text: Kirbytext target: _blank) enabled.
+
+## Building the static version
+
+1. Go to (link: http://localhost:8008/statify.php target: _blank) in a web browser to run the build. The static files will be generated at `static` at the root of the repo.
+
+2. Move the `static` folder out of the repo (e.g. your Desktop).
+
+3. Commit and push the changes in the `source` branch and switch to the `master` branch.
+
+4. Replace everything in the `master` branch with the contents of the `static` folder.
+
+5. Commit and push the changes in the `master` branch and you're done!
+
+----
+
+Description: The SVG.js docs are built upon Kirby with the KDoc theme. You'll only need PHP and Node.js to be able to build a new version.

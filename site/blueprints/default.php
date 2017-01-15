@@ -11,7 +11,7 @@ fields:
     label: Description (SEO)
     type:  text
     validate:
-      minLength: 80
+      minLength: 100
       maxLength: 160
   text:
     label: Text

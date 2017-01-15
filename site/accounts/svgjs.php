@@ -9,8 +9,8 @@ role: admin
 firstname: SVG
 lastname: JS
 history:
-  - installation
-  - home
+  - acknowledgements-thanks
+  - compatibility
   - contributing/documentation
-  - contributing/before-you-push
-  - manipulating/misc
+  - contributing/coding-style
+  - contributing

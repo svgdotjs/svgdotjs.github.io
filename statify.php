@@ -1,5 +1,7 @@
 <?php
 
+header( 'Content-Type: text/html' );
+
 /**
  * Instructions:
  *
@@ -46,22 +48,43 @@ $kirby->models();
 // load all language variables
 $kirby->localize();
 
+// build json index for static search
+$index = [];
+
 foreach($site->index() as $page) {
-  $site->visit($page->uri());
-  $html = $kirby->render($page);
+  // render page
+  $site->visit( $page->uri() );
+  $html = $kirby->render( $page );
 
-  if($page->isHomePage()) {
-    $root = __DIR__ . DS . 'static' . DS . 'index.html';
-  } else {
-    $root = __DIR__ . DS . 'static' . DS . $page->uri() . DS . 'index.html';
-  }
+  // set root base
+  $root  = __DIR__ . DS . 'static' . DS;
+  $root .= $page->isHomePage() ? 'index.html' : $page->uri() . DS . 'index.html';
 
+  // write static file
   f::write($root, $html);
+  
+  // add every page as json object to index
+  array_push( $index, [
+    'uri'  => $page->uri()
+  , 'text' => str_replace( PHP_EOL, ' ', strip_tags( html_entity_decode( $page->text()->kirbytext() )))
+  ]);
 
 }
 
+// write json index
+file_put_contents( __DIR__ . DS . 'static' . DS . 'index.json',  'var documents = ' . json_encode( $index ) );
+
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Statification</title>
+</head>
+<body>
 
 Your site has been exported to the <b>static</b> folder.<br />
 Copy all sites and folders from there and upload them to your server.<br />
 Make sure the main URL is correct: <b><?php echo $url ?></b>
+
+</body>
+</html>
