@@ -1,9 +1,0 @@
-Title: svg.draggable.js
-
-----
-
-Text: 
-
-# svg.draggable.js
-
-[svg.draggable.js](https://github.com/svgdotjs/svg.draggable.js) to make elements draggable.

@@ -56,6 +56,9 @@ foreach($site->index() as $page) {
   $site->visit( $page->uri() );
   $html = $kirby->render( $page );
 
+  // convert h2 tags
+  $html = preg_replace_callback( "#<(h[2-6])>(.*?)</\\1>#", 'retitle', $html );
+
   // set root base
   $root  = __DIR__ . DS . 'static' . DS;
   $root .= $page->isHomePage() ? 'index.html' : $page->uri() . DS . 'index.html';
@@ -73,6 +76,15 @@ foreach($site->index() as $page) {
 
 // write json index
 file_put_contents( __DIR__ . DS . 'static' . DS . 'index.json',  'var documents = ' . json_encode( $index ) );
+
+// helpers
+function retitle( $match ) {
+  list( $_unused, $hx, $title ) = $match;
+
+  $id = strtolower( strtr( $title, ' .', '--' ) );
+
+  return "<$hx id='$id'>$title</$hx>";
+}
 
 ?>
 <!DOCTYPE html>
