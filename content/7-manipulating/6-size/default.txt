@@ -1,0 +1,92 @@
+Title: Size
+
+----
+
+Text: 
+
+# Size
+
+## size()
+
+`returns` __`itself`__
+
+Set the size of an element to a given `width` and `height`:
+
+```javascript
+rect.size(200, 300)
+```
+
+Proportional resizing is also possible by leaving out `height`:
+
+```javascript
+rect.size(200)
+```
+
+Or by passing `null` as the value for `width`:
+
+```javascript
+rect.size(null, 200)
+```
+
+As with positioning, the size of an element could be set by using `attr()`. But because every type of element is handles its size differently the `size()` method is much more convenient.
+
+There is one exception though: for `SVG.Text` elements, this method takes only one argument and applies the given value to the `font-size` attribute.
+
+## width() _as getter_
+
+`returns` __`value`__
+
+```javascript
+var width = rect.width()
+```
+
+## width() _as setter_
+
+`returns` __`itself`__
+
+Set the width of an element:
+
+```javascript
+rect.width(200)
+```
+
+## height() _as getter_
+
+`returns` __`value`__
+
+```javascript
+rect.height()
+```
+
+## height() _as setter_
+
+`returns` __`itself`__
+
+Set the height of an element:
+
+```javascript
+rect.height(325)
+```
+
+## radius()
+
+`returns` __`itself`__
+
+Circles, ellipses, and rects may use the `radius()` method. On rects, it defines rounded corners.
+
+For a circle, the argument sets the `r` attribute.
+
+```javascript
+circle.radius(10)
+```
+
+For ellipses and rects, pass two arguments to set the `rx` and `ry` attributes individually. Or, pass a single argument, to make the two attributes equal.
+
+```javascript
+ellipse.radius(10, 20)
+rect.radius(5)
+```
+
+----
+
+Description: Set the size of an element to a given width and height. Proportional resizing is also possible by leaving out height or by passing null as the value for width.

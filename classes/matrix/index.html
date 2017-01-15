@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Matrix</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//classes/matrix" />
+    <meta property="og:title" content="Matrix" />
+    <meta property="og:description" content="Matrices in SVG.js have their own class SVG.Matrix, wrapping the native SVGMatrix, adding a lot of functionality like extracting transform values." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -740,7 +735,7 @@
     <section id="main" class="main-content" role="main">
       <h1>Matrix</h1>
 <p>Matrices in SVG.js have their own class <code>SVG.Matrix</code>, wrapping the native <code>SVGMatrix</code>. They add a lot of functionality like extracting transform values, matrix morphing and improvements on the native methods.</p>
-<h2>SVG.Matrix</h2>
+<h2 id='svg-matrix'>SVG.Matrix</h2>
 <p>In SVG.js matrices accept various values on initialization.</p>
 <p>Without a value:</p>
 <pre><code class="language-javascript">var matrix = new SVG.Matrix
@@ -762,7 +757,7 @@ matrix.toString() //-&gt; returns matrix(1,0,0,1,0,0)</code></pre>
 <pre><code class="language-javascript">var rect = draw.rect(50, 25)
 var matrix = new SVG.Matrix(rect)
 matrix.toString() //-&gt; returns matrix(1,0,0,1,0,0)</code></pre>
-<h2>extract()</h2>
+<h2 id='extract()'>extract()</h2>
 <p><code>returns</code> <strong><code>object</code></strong></p>
 <p>Gets the calculated values of the matrix as an object:</p>
 <pre><code class="language-javascript">matrix.extract()</code></pre>
@@ -776,32 +771,32 @@ matrix.toString() //-&gt; returns matrix(1,0,0,1,0,0)</code></pre>
 <li><code>scaleY</code> (calculated scale on y-axis)</li>
 <li><code>rotation</code> (calculated rotation)</li>
 </ul>
-<h2>clone()</h2>
+<h2 id='clone()'>clone()</h2>
 <p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
 <p>Returns an exact copy of the matrix:</p>
 <pre><code class="language-javascript">matrix.clone()</code></pre>
-<h2>morph()</h2>
+<h2 id='morph()'>morph()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>In order to animate matrices the <code>morph()</code> method lets you pass a destination matrix. This can be any value a <code>SVG.Matrix</code> would accept on initialization:</p>
 <pre><code class="language-javascript">matrix.morph('matrix(2,0,0,2,100,150)')</code></pre>
-<h2>at()</h2>
+<h2 id='at()'>at()</h2>
 <p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
 <p>This method will morph the matrix to a given position between <code>0</code> and <code>1</code>:</p>
 <pre><code class="language-javascript">matrix.at(0.27)</code></pre>
 <p>This will only work when a destination matirx is defined using the <code>morph()</code> method.</p>
-<h2>multiply()</h2>
+<h2 id='multiply()'>multiply()</h2>
 <p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
 <p>Multiplies by another given matrix:</p>
 <pre><code class="language-javascript">matrix.matrix(matrix2)</code></pre>
-<h2>inverse()</h2>
+<h2 id='inverse()'>inverse()</h2>
 <p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
 <p>Creates an inverted matix:</p>
 <pre><code class="language-javascript">matrix.inverse()</code></pre>
-<h2>translate()</h2>
+<h2 id='translate()'>translate()</h2>
 <p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
 <p>Translates matrix by a given x and y value:</p>
 <pre><code class="language-javascript">matrix.translate(10, 20)</code></pre>
-<h2>scale()</h2>
+<h2 id='scale()'>scale()</h2>
 <p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
 <p>Scales matrix uniformal with one value:</p>
 <pre><code class="language-javascript">// scale
@@ -815,7 +810,7 @@ matrix.scale(2, 100, 150)</code></pre>
 <p>Scales matrix non-uniformal on a given center point with four values:</p>
 <pre><code class="language-javascript">// scaleX, scaleY, cx, cy
 matrix.scale(2, 3, 100, 150)</code></pre>
-<h2>rotate()</h2>
+<h2 id='rotate()'>rotate()</h2>
 <p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
 <p>Rotates matrix by degrees with one value given:</p>
 <pre><code class="language-javascript">// degrees
@@ -823,7 +818,7 @@ matrix.rotate(45)</code></pre>
 <p>Rotates a matrix by degrees around a given point with three values:</p>
 <pre><code class="language-javascript">// degrees, cx, cy
 matrix.rotate(45, 100, 150)</code></pre>
-<h2>flip()</h2>
+<h2 id='flip()'>flip()</h2>
 <p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
 <p>Flips matrix over a given axis:</p>
 <pre><code class="language-javascript">matrix.flip('x')</code></pre>
@@ -833,7 +828,7 @@ matrix.rotate(45, 100, 150)</code></pre>
 <pre><code class="language-javascript">matrix.flip('x', 150)</code></pre>
 <p>or</p>
 <pre><code class="language-javascript">matrix.flip('y', 100)</code></pre>
-<h2>skew()</h2>
+<h2 id='skew()'>skew()</h2>
 <p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
 <p>Skews matrix a given degrees over x and or y axis with two values:</p>
 <pre><code class="language-javascript">// degreesX, degreesY
@@ -841,17 +836,17 @@ matrix.skew(0, 45)</code></pre>
 <p>Skews matrix a given degrees over x and or y axis on a given point with four values:</p>
 <pre><code class="language-javascript">// degreesX, degreesY, cx, cy
 matrix.skew(0, 45, 150, 100)</code></pre>
-<h2>around()</h2>
+<h2 id='around()'>around()</h2>
 <p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
 <p>Performs a given matrix transformation around a given center point:</p>
 <pre><code class="language-javascript">// cx, cy, matrix
 matrix.around(100, 150, new SVG.Matrix().skew(0, 45))</code></pre>
 <p>The matrix passed as the third argument will be used to multiply.</p>
-<h2>native()</h2>
+<h2 id='native()'>native()</h2>
 <p><code>returns</code> <strong><code>SVGMatrix</code></strong></p>
 <p>Returns a native <code>SVGMatrix</code> extracted from the <code>SVG.Matrix</code> instance:</p>
 <pre><code class="language-javascript">matrix.native()</code></pre>
-<h2>toString()</h2>
+<h2 id='tostring()'>toString()</h2>
 <p><code>returns</code> <strong><code>string</code></strong></p>
 <p>Converts the matrix to a transform string:</p>
 <pre><code class="language-javascript">matrix.toString()

@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Contributing</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//contributing" />
+    <meta property="og:title" content="Contributing" />
+    <meta property="og:description" content="We love contributions. Yes indeed, we used the word LOVE! But please make sure you follow the same coding style. Here are some guidelines." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -739,7 +734,93 @@
 
     <section id="main" class="main-content" role="main">
       <h1>Contributing</h1>
-<p>We love contributions. Yes indeed, we used the word LOVE! But please make sure you follow the same coding style. Here are some guidelines.</p>    </section>
+<p>We love contributions. Yes indeed, we used the word LOVE! But please make sure you follow the same coding style. Here are some guidelines.</p>
+<h2 id='building'>Building</h2>
+<p>After contributing you probably want to build the library to run some specs. Make sure you have Node.js installed on your system, <code>cd</code> to the svg.js directory and run:</p>
+<pre><code class="language-sh">$ npm install</code></pre>
+<p>Build SVG.js by running <code>gulp</code>:</p>
+<pre><code class="language-sh">$ npm run build</code></pre>
+<p>The resulting files are:</p>
+<ol>
+<li><code>dist/svg.js</code></li>
+<li><code>dist/svg.min.js</code></li>
+</ol>
+<h2 id='testing'>Testing</h2>
+<p>There is two ways to run the test suite. One is from the command line and the other is in your browser.<br />
+To run the test suite at the command line, you need to have Firefox installed.</p>
+<pre><code class="language-sh">$ npm test</code></pre>
+<p>To run the test suite in your default browser, simply open <code>/spec/SpecRunner.html</code>. Usually by double click.</p>
+<p>If you are the cautious type, you might want to read,<br />
+<a href="https://github.com/svgdotjs/svg.js/wiki/Before-you-push">before you push</a><br />
+, on how to prevent pushing failing commits.</p>
+<h2 id='before-you-push'>Before you push</h2>
+<p>Imagine that you're tweaking some part of svg.js and as the responsible person you are, you made sure to run <code>npm test</code> before pushing. Unfortunately <code>npm test</code> tests the current <code>dist/svg.js</code> which only has your edits if you first did <code>npm run build</code>.</p>
+<p>This has happen to me a couple of times and as a svg.js contributor, it's embarrassing.</p>
+<p>Fortunately <code>git</code> has a <code>pre-push</code> hook which can save yourself from the embarrassment.</p>
+<p>I have created a <code>pre-commit</code> hook that will build a new <code>dist/svg.js</code> and run the tests. It's developed on Ubuntu 16.04 but should work on all *nix platforms. You can disable this check with:</p>
+<pre><code>git push --no-verify</code></pre>
+<p><strong><a href="https://gist.github.com/dotnetCarpenter/bb6c2f040e11922cc8f81ef42a8054fd" rel="noopener noreferrer" target="_blank">pre-commit</a></strong></p>
+<pre><code class="language-sh">#!/bin/sh
+
+npm run build:test &amp;&amp; npm run test:quick
+
+# check how the test went
+testCode=$?
+[ "$testCode" = 0 ] || echo "Your current build does not pass our unit tests - please make them pass before you push"
+# revert artifacts created during build
+git reset --hard $(git log -1 --pretty=%H)
+# exit with the test exit code
+exit $testCode</code></pre>
+<p>A failed push looks something like this:</p>
+<pre><code>git push
+
+&gt; svg.js@2.3.6 build:test /home/dotnet/projects/opensource/svg.js
+&gt; gulp unify
+
+[14:20:12] Using gulpfile ~/projects/opensource/svg.js/gulpfile.js
+[14:20:12] Starting 'clean'...
+[14:20:12] Finished 'clean' after 34 ms
+[14:20:12] Starting 'unify'...
+[14:20:13] Full svg.js 137.14 kB
+[14:20:13] Finished 'unify' after 318 ms
+
+&gt; svg.js@2.3.6 test:quick /home/dotnet/projects/opensource/svg.js
+&gt; karma start .config/karma.quick.js
+
+PhantomJS 2.1.1 (Linux 0.0.0) ERROR
+  TypeError: undefined is not a function (evaluating 'root.callFailingFooBar()')
+  at dist/svg.js:21
+
+npm ERR! Linux 4.4.0-45-generic
+npm ERR! argv "/home/dotnet/.nvm/versions/node/v7.0.0/bin/node" "/home/dotnet/.nvm/versions/node/v7.0.0/bin/npm" "run" "test:quick"
+npm ERR! node v7.0.0
+npm ERR! npm  v3.10.8
+npm ERR! code ELIFECYCLE
+npm ERR! svg.js@2.3.6 test:quick: `karma start .config/karma.quick.js`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the svg.js@2.3.6 test:quick script 'karma start .config/karma.quick.js'.
+npm ERR! Make sure you have the latest version of node.js and npm installed.
+npm ERR! If you do, this is most likely a problem with the svg.js package,
+npm ERR! not with npm itself.
+npm ERR! Tell the author that this fails on your system:
+npm ERR!     karma start .config/karma.quick.js
+npm ERR! You can get information on how to open an issue for this project with:
+npm ERR!     npm bugs svg.js
+npm ERR! Or if that isn't available, you can get their info via:
+npm ERR!     npm owner ls svg.js
+npm ERR! There is likely additional logging output above.
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     /home/dotnet/projects/opensource/svg.js/npm-debug.log
+Your current build does not pass our unit tests - please make them pass before you push
+HEAD is now at b66f005 Calling new awesome method
+error: failed to push some refs to 'https://github.com/dotnetCarpenter/svg.js.git'</code></pre>
+<h2 id='install'>Install</h2>
+<p>Put <a href="https://gist.github.com/dotnetCarpenter/bb6c2f040e11922cc8f81ef42a8054fd" rel="noopener noreferrer" target="_blank">pre-commit</a> in your local svg.js repository, in the .git/hooks folder and make it executable:</p>
+<pre><code>sudo chmod +x .git/hooks/pre-push</code></pre>
+<p>To disable the check when you push, write:</p>
+<pre><code>git push --no-verify</code></pre>    </section>
 
   </div><!-- /.wrap content -->
 

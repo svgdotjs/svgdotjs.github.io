@@ -1,0 +1,29 @@
+Title: Circle
+
+----
+
+Text: 
+
+# Circle
+
+`returns` __`SVG.Circle`__ ` which inherits from ` __`SVG.Shape`__
+
+The only argument necessary for a circle is the diameter:
+
+```javascript
+var circle = draw.circle(100)
+```
+
+## radius()
+
+`returns` __`itself`__
+
+
+
+```javascript
+circle.radius(75)
+```
+
+----
+
+Description: The only argument necessary for a circle is the diameter. Circles can also be redefined by their radius.

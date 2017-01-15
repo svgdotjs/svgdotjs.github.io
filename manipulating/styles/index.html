@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Styles</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//manipulating/styles" />
+    <meta property="og:title" content="Styles" />
+    <meta property="og:description" content="Similar to attr() the style() method can also act as a getter. Multiple styles can be set at once using an object." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -739,7 +734,7 @@
 
     <section id="main" class="main-content" role="main">
       <h1>Styles</h1>
-<h2>style() <em>as getter</em></h2>
+<h2 id='style()-<em>as-getter</em>'>style() <em>as getter</em></h2>
 <p><code>returns</code> <strong><code>value</code></strong> <em>(string, number, ...)</em></p>
 <p>Similar to <code>attr()</code> the <code>style()</code> method can also act as a getter:</p>
 <pre><code class="language-javascript">rect.style('cursor')
@@ -747,7 +742,7 @@
 <p>Or even a full getter:</p>
 <pre><code class="language-javascript">rect.style()
 // =&gt; 'cursor:pointer;fill:#f03;'</code></pre>
-<h2>style() <em>as setter</em></h2>
+<h2 id='style()-<em>as-setter</em>'>style() <em>as setter</em></h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>With the <code>style()</code> method the <code>style</code> attribute can be managed like attributes with <code>attr</code>:</p>
 <pre><code class="language-javascript">rect.style('cursor', 'pointer')</code></pre>

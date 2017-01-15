@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Set</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//classes/set" />
+    <meta property="og:title" content="Set" />
+    <meta property="og:description" content="Sets are very useful if you want to modify or animate multiple elements at once. A set will accept all the same methods accessible on individual elements." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -752,52 +747,52 @@ set.add(rect).add(circle)
 // change the fill of all elements in the set at once
 set.fill('#ff0')</code></pre>
 <p>A single element can be a member of many sets. Sets also don't have a structural representation, in fact they are just fancy array's.</p>
-<h2>add()</h2>
+<h2 id='add()'>add()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Add an element to a set:</p>
 <pre><code class="language-javascript">set.add(rect)</code></pre>
 <p>Quite a useful feature of sets is the ability to accept multiple elements at once:</p>
 <pre><code class="language-javascript">set.add(rect, circle)</code></pre>
-<h2>each()</h2>
+<h2 id='each()'>each()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Iterating over all members in a set is the same as with svg containers:</p>
 <pre><code class="language-javascript">set.each(function(i) {
   this.attr('id', 'shiny_new_id_' + i)
 })</code></pre>
 <p>Note that <code>this</code> refers to the current child element.</p>
-<h2>has()</h2>
+<h2 id='has()'>has()</h2>
 <p><code>returns</code> <strong><code>boolean</code></strong></p>
 <p>Determine if an element is member of the set:</p>
 <pre><code class="language-javascript">set.has(rect)</code></pre>
-<h2>index()</h2>
+<h2 id='index()'>index()</h2>
 <p><code>returns</code> <strong><code>number</code></strong></p>
 <p>Returns the index of a given element in the set.</p>
 <pre><code class="language-javascript">set.index(rect) //-&gt; -1 if element is not a member</code></pre>
-<h2>get()</h2>
+<h2 id='get()'>get()</h2>
 <p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
 <p>Gets the element at a given index:</p>
 <pre><code class="language-javascript">set.get(1)</code></pre>
-<h2>first()</h2>
+<h2 id='first()'>first()</h2>
 <p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
 <p>Gets the first element:</p>
 <pre><code class="language-javascript">set.first()</code></pre>
-<h2>last()</h2>
+<h2 id='last()'>last()</h2>
 <p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
 <p>Gets the last element:</p>
 <pre><code class="language-javascript">set.last()</code></pre>
-<h2>bbox()</h2>
+<h2 id='bbox()'>bbox()</h2>
 <p><code>returns</code> <strong><code>SVG.BBox</code></strong></p>
 <p>Get the bounding box of all elements in the set:</p>
 <pre><code class="language-javascript">set.bbox()</code></pre>
-<h2>remove()</h2>
+<h2 id='remove()'>remove()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>To remove an element from a set:</p>
 <pre><code class="language-javascript">set.remove(rect)</code></pre>
-<h2>clear()</h2>
+<h2 id='clear()'>clear()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Or to remove all elements from a set:</p>
 <pre><code class="language-javascript">set.clear()</code></pre>
-<h2>animate()</h2>
+<h2 id='animate()'>animate()</h2>
 <p><code>returns</code> <strong><code>SVG.SetFX</code></strong></p>
 <p>Sets work with animations as well:</p>
 <pre><code class="language-javascript">set.animate(3000).fill('#ff0')</code></pre>    </section>

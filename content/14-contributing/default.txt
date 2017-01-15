@@ -1,8 +1,0 @@
-Title: Contributing
-
-----
-
-Text: 
-
-# Contributing
-We love contributions. Yes indeed, we used the word LOVE! But please make sure you follow the same coding style. Here are some guidelines.

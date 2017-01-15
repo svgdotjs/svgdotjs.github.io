@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | TextPath</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//elements/textpath" />
+    <meta property="og:title" content="TextPath" />
+    <meta property="og:description" content="A nice feature in SVG is the ability to run text along a path. Referencing the textPath can be done on the node directly." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -755,11 +750,11 @@ text
 <pre><code class="language-javascript">text.textPath().attr('startOffset', 0.5)</code></pre>
 <p>And they can be animated as well of course:</p>
 <pre><code class="language-javascript">text.textPath().animate(3000).attr('startOffset', 0.8)</code></pre>
-<h2>textPath()</h2>
+<h2 id='textpath()'>textPath()</h2>
 <p><code>returns</code> <strong><code>SVG.TextPath</code></strong></p>
 <p>Referencing the textPath node directly:</p>
 <pre><code class="language-javascript">var textPath = text.textPath()</code></pre>
-<h2>track()</h2>
+<h2 id='track()'>track()</h2>
 <p><code>returns</code> <strong><code>SVG.Path</code></strong></p>
 <p>Referencing the linked path element directly:</p>
 <pre><code class="language-javascript">var path = text.track()</code></pre>    </section>

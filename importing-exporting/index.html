@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Importing / Exporting</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//importing-exporting" />
+    <meta property="og:title" content="Importing / Exporting" />
+    <meta property="og:description" content="Exporting the full generated SVG, or a part of it, can be done with the svg() method. Importing works by passing a string of svg as the first argument." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -739,14 +734,14 @@
 
     <section id="main" class="main-content" role="main">
       <h1>Import / export SVG</h1>
-<h2>svg() <em>as getter</em></h2>
+<h2 id='svg()-<em>as-getter</em>'>svg() <em>as getter</em></h2>
 <p><code>returns</code> <strong><code>string</code></strong></p>
 <p>Exporting the full generated SVG, or a part of it, can be done with the <code>svg()</code> method:</p>
 <pre><code class="language-javascript">draw.svg()</code></pre>
 <p>Exporting works on individual elements as well:</p>
 <pre><code class="language-javascript">var rect = draw.rect()
 var svg  = rect.svg()</code></pre>
-<h2>svg() <em>as setter</em></h2>
+<h2 id='svg()-<em>as-setter</em>'>svg() <em>as setter</em></h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Importing is done with the same method by passing a string of svg as the first argument:</p>
 <pre><code class="language-javascript">draw.svg('&lt;g&gt;&lt;rect width="100" height="50" fill="#f06"&gt;&lt;/rect&gt;&lt;/g&gt;')</code></pre>

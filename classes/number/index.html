@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Number</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//classes/number" />
+    <meta property="og:title" content="Number" />
+    <meta property="og:description" content="Numbers in SVG.js have a dedicated number class to be able to process string values. Creating a new number is simple." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -744,31 +739,31 @@
 number.plus('3%').toString() //-&gt; returns '81%'
 number.valueOf() //-&gt; returns 0.81</code></pre>
 <p>Operators are defined as methods on the <code>SVG.Number</code> instance.</p>
-<h2>plus()</h2>
+<h2 id='plus()'>plus()</h2>
 <p><code>returns</code> <strong><code>SVG.Number</code></strong></p>
 <p>Addition:</p>
 <pre><code class="language-javascript">number.plus('3%')</code></pre>
-<h2>minus()</h2>
+<h2 id='minus()'>minus()</h2>
 <p><code>returns</code> <strong><code>SVG.Number</code></strong></p>
 <p>Subtraction:</p>
 <pre><code class="language-javascript">number.minus('3%')</code></pre>
-<h2>times()</h2>
+<h2 id='times()'>times()</h2>
 <p><code>returns</code> <strong><code>SVG.Number</code></strong></p>
 <p>Multiplication:</p>
 <pre><code class="language-javascript">number.times(2)</code></pre>
-<h2>divide()</h2>
+<h2 id='divide()'>divide()</h2>
 <p><code>returns</code> <strong><code>SVG.Number</code></strong></p>
 <p>Division:</p>
 <pre><code class="language-javascript">number.divide('3%')</code></pre>
-<h2>to()</h2>
+<h2 id='to()'>to()</h2>
 <p><code>returns</code> <strong><code>SVG.Number</code></strong></p>
 <p>Change number to another unit:</p>
 <pre><code class="language-javascript">number.to('px')</code></pre>
-<h2>morph()</h2>
+<h2 id='morph()'>morph()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Make a number morphable:</p>
 <pre><code class="language-javascript">number.morph('11%')</code></pre>
-<h2>at()</h2>
+<h2 id='at()'>at()</h2>
 <p><code>returns</code> <strong><code>SVG.Number</code></strong></p>
 <p>Get morphable number at given position:</p>
 <pre><code class="language-javascript">var number = new SVG.Number('79%').morph('3%')

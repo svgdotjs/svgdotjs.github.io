@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Tspan</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//elements/tspan" />
+    <meta property="og:title" content="Tspan" />
+    <meta property="og:description" content="The tspan elements are only available inside text elements or inside other tspan elements. Updating the content of the tspan can be done by passing a string." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -741,7 +736,7 @@
       <h1>Tspan</h1>
 <p><code>returns</code> <strong><code>SVG.Tspan</code></strong> <code>which inherits from</code> <strong><code>SVG.Shape</code></strong></p>
 <p>The tspan elements are only available inside text elements or inside other tspan elements.</p>
-<h2>text()</h2>
+<h2 id='text()'>text()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Update the content of the tspan. This can be done by either passing a string:</p>
 <pre><code class="language-javascript">tspan.text('Just a string.')</code></pre>
@@ -754,23 +749,23 @@
     addMore.tspan('And you can doo deeper and deeper...')
   })
 })</code></pre>
-<h2>tspan()</h2>
+<h2 id='tspan()'>tspan()</h2>
 <p><code>returns</code> <strong><code>SVG.Tspan</code></strong></p>
 <p>Add a nested tspan:</p>
 <pre><code class="language-javascript">tspan.tspan('I am a child of my parent').fill('#f06')</code></pre>
-<h2>plain()</h2>
+<h2 id='plain()'>plain()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Just adds some plain text:</p>
 <pre><code class="language-javascript">tspan.plain('I do not have any expectations.')</code></pre>
-<h2>dx()</h2>
+<h2 id='dx()'>dx()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Define the dynamic <code>x</code> value of the element, much like a html element with <code>position:relative</code> and <code>left</code> defined:</p>
 <pre><code class="language-javascript">tspan.dx(30)</code></pre>
-<h2>dy()</h2>
+<h2 id='dy()'>dy()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Define the dynamic <code>y</code> value of the element, much like a html element with <code>position:relative</code> and <code>top</code> defined:</p>
 <pre><code class="language-javascript">tspan.dy(30)</code></pre>
-<h2>newLine()</h2>
+<h2 id='newline()'>newLine()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>The <code>newLine()</code> is a convenience method for adding a new line with a <code>dy</code> attribute using the current &quot;leading&quot;:</p>
 <pre><code class="language-javascript">var text = draw.text(function(add) {
@@ -781,11 +776,11 @@
   add.tspan('Nunc ultrices lectus at erat').newLine()
   add.tspan('dictum pharetra elementum ante').newLine()
 })</code></pre>
-<h2>clear()</h2>
+<h2 id='clear()'>clear()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Clear all the contents of the called tspan element:</p>
 <pre><code class="language-javascript">tspan.clear()</code></pre>
-<h2>length()</h2>
+<h2 id='length()'>length()</h2>
 <p><code>returns</code> <strong><code>number</code></strong></p>
 <p>Gets the total computed text length:</p>
 <pre><code class="language-javascript">tspan.length()</code></pre>    </section>

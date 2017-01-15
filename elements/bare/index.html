@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Bare</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//elements/bare" />
+    <meta property="og:title" content="Bare" />
+    <meta property="og:description" content="For all SVG elements that are not described by SVG.js, the SVG.Bare class comes in handy. This class inherits directly from SVG.Element." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -741,7 +736,7 @@
       <h1>Bare</h1>
 <p><code>returns</code> <strong><code>SVG.Bare</code></strong> <code>which inherits from</code> <strong><code>SVG.Element</code></strong></p>
 <p>For all SVG elements that are not described by SVG.js, the <code>SVG.Bare</code> class comes in handy. This class inherits directly from <code>SVG.Element</code> and makes it possible to add custom methods in a separate namespace without polluting the main <code>SVG.Element</code> namespace. Consider it your personal playground.</p>
-<h2>element()</h2>
+<h2 id='element()'>element()</h2>
 <p><code>returns</code> <strong><code>SVG.Bare</code></strong></p>
 <p>The <code>SVG.Bare</code> class can be instantiated with the <code>element()</code> method on any parent element:</p>
 <pre><code class="language-javascript">var element = draw.element('title')</code></pre>
@@ -749,7 +744,7 @@
 <p>Additionally any existing class name can be passed as the second argument to define from which class the element should inherit:</p>
 <pre><code class="language-javascript">var element = draw.element('symbol', SVG.Parent)</code></pre>
 <p>This gives you as the user a lot of power. But remember, with great power comes great responsibility.</p>
-<h2>words()</h2>
+<h2 id='words()'>words()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>The <code>SVG.Bare</code> instance carries an additional method to add plain text:</p>
 <pre><code class="language-javascript">var element = draw.element('title').words('This is a title.')

@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Memory</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//classes/memory" />
+    <meta property="og:title" content="Memory" />
+    <meta property="og:description" content="Storing data in-memory is very much like setting attributes. Multiple values can also be remembered at once." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -739,11 +734,11 @@
 
     <section id="main" class="main-content" role="main">
       <h1>Memory</h1>
-<h2>remember() <em>as getter</em></h2>
+<h2 id='remember()-<em>as-getter</em>'>remember() <em>as getter</em></h2>
 <p><code>returns</code> <strong><code>value</code></strong></p>
 <p>To retrieve a memory</p>
 <pre><code class="language-javascript">rect.remember('oldBBox')</code></pre>
-<h2>remember() <em>as setter</em></h2>
+<h2 id='remember()-<em>as-setter</em>'>remember() <em>as setter</em></h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Storing data in-memory is very much like setting attributes:</p>
 <pre><code class="language-javascript">rect.remember('oldBBox', rect.bbox())</code></pre>
@@ -752,7 +747,7 @@
   oldFill:    rect.attr('fill')
 , oldStroke:  rect.attr('stroke')
 })</code></pre>
-<h2>forget()</h2>
+<h2 id='forget()'>forget()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Erasing a single memory:</p>
 <pre><code class="language-javascript">rect.forget('oldBBox')</code></pre>

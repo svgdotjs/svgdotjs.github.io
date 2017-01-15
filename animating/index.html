@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Animating</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//animating" />
+    <meta property="og:title" content="Animating" />
+    <meta property="og:description" content="Note that the animate() method will not return the targeted element but an instance of SVG.FX which will take the following methods." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -739,7 +734,7 @@
 
     <section id="main" class="main-content" role="main">
       <h1>Animating</h1>
-<h2>Method chain</h2>
+<h2 id='method-chain'>Method chain</h2>
 <p>Note that the <code>animate()</code> method will not return the targeted element but an instance of SVG.FX which will take the following methods:</p>
 <p>Of course <code>attr()</code>:</p>
 <pre><code class="language-javascript">rect.animate().attr({ fill: '#f03' })</code></pre>
@@ -751,7 +746,7 @@
 <pre><code class="language-javascript">rect.animate().rotate(45).skew(25, 0)</code></pre>
 <p>You can also animate non-numeric unit values using the <code>attr()</code> method:</p>
 <pre><code class="language-javascript">rect.attr('x', '10%').animate().attr('x', '50%')</code></pre>
-<h2>Easing</h2>
+<h2 id='easing'>Easing</h2>
 <p>All available ease types are:</p>
 <ul>
 <li><code>&lt;&gt;</code>: ease in and out</li>

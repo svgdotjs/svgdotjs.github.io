@@ -1,0 +1,45 @@
+Title: References
+
+----
+
+Text: 
+
+# References
+
+## target()
+
+`returns` __`SVG.Element`__
+
+The target method returns the element the animation is applied to:
+
+```javascript
+rect.fx.target() // returns rect
+```
+
+## situation
+
+`returns` __`object`__
+
+The current situation of an animation is stored in the `situation` object:
+
+```javascript
+rect.animate(3000).move(100, 100)
+rect.fx.situation //-> everything is in here
+```
+
+Available values are:
+
+- `start` (start time as a number in milliseconds)
+- `play` (animation playing or not; `true` or `false`)
+- `pause` (time when the animation was last paused)
+- `duration` (the chosen duration of the animation)
+- `ease` (the chosen easing calculation)
+- `finish` (start + duration)
+- `loop` (the current loop; counting down if a number; `true`, `false` or a number)
+- `loops` (if a number, the total number loops; `true`, `false` or a number)
+- `reverse` (whether or not the animation should run backwards)
+- `reversing` (`true` if the loop is currently reversing, otherwise `false`)
+
+----
+
+Description: The current situation of an animation is stored in the situation object. The target method returns the element the animation is applied to.

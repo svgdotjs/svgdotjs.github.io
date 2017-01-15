@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Position</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//manipulating/position" />
+    <meta property="og:title" content="Position" />
+    <meta property="og:description" content="Positioning an element by directly setting its attributes works only if the attributes are used natively by that element type. SVG.js offers various solutions." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -750,55 +745,55 @@ circle.attr({ x: 50, y: 40 })</code></pre>
 <pre><code class="language-javascript">rect.cx(20).cy(60)
 circle.x(50).y(40)</code></pre>
 <p>It is important to note, though, that these methods are only intended for use with user (unitless) coordinates. If, for example, an element has its size set via percentages or other units, the positioning methods that address its native attributes will most likely still work, but the ones that address non-native attributes will give unexpected results -- as both getters and setters!</p>
-<h2>move()</h2>
+<h2 id='move()'>move()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Move the element by its upper left corner to a given <code>x</code> and <code>y</code> position:</p>
 <pre><code class="language-javascript">rect.move(200, 350)</code></pre>
-<h2>x() <em>as getter</em></h2>
+<h2 id='x()-<em>as-getter</em>'>x() <em>as getter</em></h2>
 <p><code>returns</code> <strong><code>value</code></strong></p>
 <p>Without an argument the <code>x()</code> method serves as a getter:</p>
 <pre><code class="language-javascript">var x = rect.x()</code></pre>
-<h2>x() <em>as setter</em></h2>
+<h2 id='x()-<em>as-setter</em>'>x() <em>as setter</em></h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Move the element by its upper left corner along the x-axis only:</p>
 <pre><code class="language-javascript">rect.x(200)</code></pre>
-<h2>y() <em>as getter</em></h2>
+<h2 id='y()-<em>as-getter</em>'>y() <em>as getter</em></h2>
 <p><code>returns</code> <strong><code>value</code></strong></p>
 <p>Without an argument the <code>y()</code> method serves as a getter:</p>
 <pre><code class="language-javascript">var y = rect.y()</code></pre>
-<h2>y() <em>as setter</em></h2>
+<h2 id='y()-<em>as-setter</em>'>y() <em>as setter</em></h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Move the element by its upper left corner along the y-axis only:</p>
 <pre><code class="language-javascript">rect.y(350)</code></pre>
-<h2>center()</h2>
+<h2 id='center()'>center()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Move the element by its center to a given <code>cx</code> and <code>cy</code> position:</p>
 <pre><code class="language-javascript">rect.center(150, 150)</code></pre>
-<h2>cx() <em>as getter</em></h2>
+<h2 id='cx()-<em>as-getter</em>'>cx() <em>as getter</em></h2>
 <p><code>returns</code> <strong><code>value</code></strong></p>
 <p>Without an argument the <code>cx()</code> method serves as a getter:</p>
 <pre><code class="language-javascript">var cx = rect.cx()</code></pre>
-<h2>cx() <em>as setter</em></h2>
+<h2 id='cx()-<em>as-setter</em>'>cx() <em>as setter</em></h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Move the element by its center in the <code>x</code> direction only:</p>
 <pre><code class="language-javascript">rect.cx(200)</code></pre>
-<h2>cy() <em>as getter</em></h2>
+<h2 id='cy()-<em>as-getter</em>'>cy() <em>as getter</em></h2>
 <p><code>returns</code> <strong><code>value</code></strong></p>
 <p>Without an argument the <code>cy()</code> method serves as a getter as well:</p>
 <pre><code class="language-javascript">var cy = rect.cy()</code></pre>
-<h2>cy() <em>as setter</em></h2>
+<h2 id='cy()-<em>as-setter</em>'>cy() <em>as setter</em></h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Move the element by its center in the <code>y</code> direction only:</p>
 <pre><code class="language-javascript">rect.cy(350)</code></pre>
-<h2>dmove()</h2>
+<h2 id='dmove()'>dmove()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Shift the element in both the <code>x</code> and <code>y</code> directions relative to its current position:</p>
 <pre><code class="language-javascript">rect.dmove(10, 30)</code></pre>
-<h2>dx()</h2>
+<h2 id='dx()'>dx()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Shift the element in the <code>x</code> direction relative to its current position:</p>
 <pre><code class="language-javascript">rect.dx(200)</code></pre>
-<h2>dy()</h2>
+<h2 id='dy()'>dy()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Shift the element in the <code>y</code> direction relative to its current position:</p>
 <pre><code class="language-javascript">rect.dy(200)</code></pre>    </section>

@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Color</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//classes/color" />
+    <meta property="og:title" content="Color" />
+    <meta property="og:description" content="SVG.js has a dedicated color class handling different types of colors. The `SVG.Color` instance has a few methods of its own." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -747,24 +742,24 @@
 </ul>
 <p>Note that when working with objects is important to provide all three values every time.</p>
 <p>The <code>SVG.Color</code> instance has a few methods of its own.</p>
-<h2>toHex()</h2>
+<h2 id='tohex()'>toHex()</h2>
 <p><code>returns</code> <strong>hex color string</strong></p>
 <p>Get hex value:</p>
 <pre><code class="language-javascript">color.toHex() //-&gt; returns '#ff0066'</code></pre>
-<h2>toRgb()</h2>
+<h2 id='torgb()'>toRgb()</h2>
 <p><code>returns</code> <strong>rgb color string</strong></p>
 <p>Get rgb string value:</p>
 <pre><code class="language-javascript">color.toRgb() //-&gt; returns 'rgb(255,0,102)'</code></pre>
-<h2>brightness()</h2>
+<h2 id='brightness()'>brightness()</h2>
 <p><code>returns</code> <strong><code>number</code></strong></p>
 <p>Get the brightness of a color:</p>
 <pre><code class="language-javascript">color.brightness() //-&gt; returns 0.344</code></pre>
 <p>This is the perceived brighness where <code>0</code> is black and <code>1</code> is white.</p>
-<h2>morph()</h2>
+<h2 id='morph()'>morph()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Make a color morphable:</p>
 <pre><code class="language-javascript">color.morph('#000')</code></pre>
-<h2>at()</h2>
+<h2 id='at()'>at()</h2>
 <p><code>returns</code> <strong><code>SVG.Color</code></strong></p>
 <p>Get morphable color at given position:</p>
 <pre><code class="language-javascript">var color = new SVG.Color('#ff0066').morph('#000')

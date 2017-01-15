@@ -1,0 +1,22 @@
+Title: Symbol
+
+----
+
+Text: 
+
+# Symbol
+
+`returns` __`SVG.Bare`__ ` which inherits from ` __`SVG.Element`__
+
+Not unlike the `group` element, the `symbol` element is a container element. The only difference between symbols and groups is that symbols are not rendered. Therefore a `symbol` element is ideal in combination with the `use` element:
+
+```javascript
+var symbol = draw.symbol()
+symbol.rect(100, 100).fill('#f09')
+
+var use  = draw.use(symbol).move(200, 200)
+```
+
+----
+
+Description: Not unlike the group element, the symbol element is a container element. The only difference between symbols and groups is that symbols are not rendered.

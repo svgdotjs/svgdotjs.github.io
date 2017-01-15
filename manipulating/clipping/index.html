@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Clipping</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//manipulating/clipping" />
+    <meta property="og:title" content="Clipping" />
+    <meta property="og:description" content="Clipping elements works exactly the same as masking elements. The only difference is that clipped elements will adopt the geometry of the clipping element." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -740,12 +735,12 @@
     <section id="main" class="main-content" role="main">
       <h1>Clipping</h1>
 <p>Clipping elements works exactly the same as masking elements. The only difference is that clipped elements will adopt the geometry of the clipping element. Therefore events are only triggered when entering the clipping element whereas with masks the masked element triggers the event. Another difference is that masks can define opacity with their fill color and clipPaths don't.</p>
-<h2>clipWith()</h2>
+<h2 id='clipwith()'>clipWith()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <pre><code class="language-javascript">var ellipse = draw.ellipse(80, 40).move(10, 10)
 
 rect.clipWith(ellipse)</code></pre>
-<h2>clip()</h2>
+<h2 id='clip()'>clip()</h2>
 <p><code>returns</code> <strong><code>SVG.ClipPath</code></strong></p>
 <p>Clip multiple elements:</p>
 <pre><code class="language-javascript">var ellipse = draw.ellipse(80, 40).move(10, 10)
@@ -754,15 +749,15 @@ var text = draw.text('SVG.JS').move(10, 10).font({ size: 36 })
 var clip = draw.clip().add(text).add(ellipse)
 
 rect.clipWith(clip)</code></pre>
-<h2>unclip()</h2>
+<h2 id='unclip()'>unclip()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Unclipping the elements can be done with the <code>unclip()</code> method:</p>
 <pre><code class="language-javascript">rect.unclip()</code></pre>
-<h2>remove()</h2>
+<h2 id='remove()'>remove()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Removing the clip alltogether will also <code>unclip()</code> all clipped elements as well:</p>
 <pre><code class="language-javascript">clip.remove()</code></pre>
-<h2>clipper</h2>
+<h2 id='clipper'>clipper</h2>
 <p><code>returns</code> <strong><code>SVG.ClipPath</code></strong></p>
 <p>For your convenience, the clipping element is also referenced in the clipped element. This can be useful in case you want to change the clipPath:</p>
 <pre><code class="language-javascript">rect.clipper.move(10, 10)</code></pre>    </section>

@@ -1,0 +1,29 @@
+Title: Basic
+
+----
+
+Text: 
+
+# Basic events
+
+`returns` __`itself`__
+
+Events can be bound to elements as follows:
+
+```javascript
+rect.click(function() {
+  this.fill({ color: '#f06' })
+})
+```
+
+Removing it is quite as easy:
+
+```javascript
+rect.click(null)
+```
+
+All available events are: `click`, `dblclick`, `mousedown`, `mouseup`, `mouseover`, `mouseout`, `mousemove`, `touchstart`, `touchmove`, `touchleave`, `touchend` and `touchcancel`.
+
+----
+
+Description: All available events are click, dblclick, mousedown, mouseup, mouseover, mouseout, mousemove, touchstart, touchmove, touchleave, touchend and touchcancel.

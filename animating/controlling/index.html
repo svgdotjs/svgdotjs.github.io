@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Controlling</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//animating/controlling" />
+    <meta property="og:title" content="Controlling" />
+    <meta property="og:description" content="The play() method will start playing a paused animation. Obviously pausing an animations is fairly straightforward with the pause() method." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -739,20 +734,20 @@
 
     <section id="main" class="main-content" role="main">
       <h1>Controlling</h1>
-<h2>play()</h2>
+<h2 id='play()'>play()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Will start playing a paused animation:</p>
 <pre><code class="language-javascript">rect.animate().move(200, 200)
 
 rect.mouseover(function() { this.pause() })
 rect.mouseout(function() { this.play() })</code></pre>
-<h2>pause()</h2>
+<h2 id='pause()'>pause()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Pausing an animations is fairly straightforward:</p>
 <pre><code class="language-javascript">rect.animate().move(200, 200)
 
 rect.mouseover(function() { this.pause() })</code></pre>
-<h2>stop()</h2>
+<h2 id='stop()'>stop()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>If you just want to stop an animation you can call the <code>stop()</code> method which has two optional arguments:</p>
 <ul>
@@ -765,13 +760,13 @@ rect.stop()
 // or e.g.
 rect.stop(true)</code></pre>
 <p>Stopping an animation is irreversable.</p>
-<h2>finish()</h2>
+<h2 id='finish()'>finish()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>This method finishes the whole animation chain. All values are set to their corresponding end values and every situation gets fullfilled</p>
 <pre><code class="language-javascript">rect.animate().move(200, 200).animate().dmove(50,50).size(300,400)
 
 rect.finish() // rect at 250,250 with size 300,400</code></pre>
-<h2>reverse()</h2>
+<h2 id='reverse()'>reverse()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Toggles the direction of the animation or sets it to a specific direction:</p>
 <pre><code class="language-javascript">// will run from 100,100 to rects initial position

@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Parent reference</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//referencing/parent-references" />
+    <meta property="og:title" content="Parent reference" />
+    <meta property="og:description" content="Every element has a reference to its parent with the parent() method. Alternatively a class or css selector can be passed as the first argument." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -740,7 +735,7 @@
     <section id="main" class="main-content" role="main">
       <h1>Parent reference</h1>
 <p>Every element has a reference to its parent with the <code>parent()</code> method:</p>
-<h2>parent() <em>within the svg document</em></h2>
+<h2 id='parent()-<em>within-the-svg-document</em>'>parent() <em>within the svg document</em></h2>
 <p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
 <pre><code class="language-javascript">element.parent()</code></pre>
 <p>Alternatively a class or css selector can be passed as the first argument:</p>
@@ -754,19 +749,19 @@ rect.parent(SVG.Doc)    //-&gt; returns draw
 rect.parent(SVG.Nested) //-&gt; returns nested
 rect.parent(SVG.G)      //-&gt; returns group
 rect.parent('.test')    //-&gt; returns nested</code></pre>
-<h2>parent() <em>on the topmost svg document</em></h2>
+<h2 id='parent()-<em>on-the-topmost-svg-document</em>'>parent() <em>on the topmost svg document</em></h2>
 <p><code>returns</code> <strong><code>HTMLNode</code></strong></p>
 <pre><code class="language-javascript">var draw = SVG('drawing')
 
 draw.parent() //-&gt; returns the wrappig html element with id 'drawing'</code></pre>
-<h2>doc()</h2>
+<h2 id='doc()'>doc()</h2>
 <p><code>returns</code> <strong><code>SVG.Doc</code></strong></p>
 <p>For retrieving the root svg you can use <code>doc()</code></p>
 <pre><code class="language-javascript">var draw = SVG('drawing')
 var rect = draw.rect(100, 100)
 
 rect.doc() //-&gt; returns draw</code></pre>
-<h2>parents()</h2>
+<h2 id='parents()'>parents()</h2>
 <p><code>returns</code> <strong><code>Array</code></strong></p>
 <p>To get all ancestors of the element filtered by type or css selector (see <code>parent()</code> method)</p>
 <pre><code class="language-javascript">var group1 = draw.group().addClass('test')

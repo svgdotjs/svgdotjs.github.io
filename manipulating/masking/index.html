@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Masking</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//manipulating/masking" />
+    <meta property="og:title" content="Masking" />
+    <meta property="og:description" content="The easiest way to mask is to use a single element but you can also use multiple elements. The masking element is also referenced in the masked element." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -739,13 +734,13 @@
 
     <section id="main" class="main-content" role="main">
       <h1>Masking elements</h1>
-<h2>maskWith()</h2>
+<h2 id='maskwith()'>maskWith()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>The easiest way to mask is to use a single element:</p>
 <pre><code class="language-javascript">var ellipse = draw.ellipse(80, 40).move(10, 10).fill({ color: '#fff' })
 
 rect.maskWith(ellipse)</code></pre>
-<h2>mask()</h2>
+<h2 id='mask()'>mask()</h2>
 <p><code>returns</code> <strong><code>SVG.Mask</code></strong></p>
 <p>But you can also use multiple elements:</p>
 <pre><code class="language-javascript">var ellipse = draw.ellipse(80, 40).move(10, 10).fill({ color: '#fff' })
@@ -763,16 +758,16 @@ rect.maskWith(mask)</code></pre>
 var ellipse = draw.ellipse(80, 40).move(10, 10).fill({ color: gradient })
 
 rect.maskWith(ellipse)</code></pre>
-<h2>unmask()</h2>
+<h2 id='unmask()'>unmask()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Unmasking the elements can be done with the <code>unmask()</code> method:</p>
 <pre><code class="language-javascript">rect.unmask()</code></pre>
 <p>The <code>unmask()</code> method returns the masking element.</p>
-<h2>remove()</h2>
+<h2 id='remove()'>remove()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Removing the mask alltogether will also <code>unmask()</code> all masked elements as well:</p>
+<p>Removing the mask altogether will also <code>unmask()</code> all masked elements as well:</p>
 <pre><code class="language-javascript">mask.remove()</code></pre>
-<h2>masker</h2>
+<h2 id='masker'>masker</h2>
 <p><code>returns</code> <strong><code>SVG.Mask</code></strong></p>
 <p>For your convenience, the masking element is also referenced in the masked element. This can be useful in case you want to change the mask:</p>
 <pre><code class="language-javascript">rect.masker.fill('#fff')</code></pre>    </section>

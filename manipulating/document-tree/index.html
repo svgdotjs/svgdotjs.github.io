@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Document Tree</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//manipulating/document-tree" />
+    <meta property="og:title" content="Document Tree" />
+    <meta property="og:description" content="To make an exact copy of an element the clone() method comes in handy. This will create a new, unlinked copy." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -739,48 +734,48 @@
 
     <section id="main" class="main-content" role="main">
       <h1>Document Tree</h1>
-<h2>clone()</h2>
+<h2 id='clone()'>clone()</h2>
 <p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
 <p>To make an exact copy of an element the <code>clone()</code> method comes in handy:</p>
 <pre><code class="language-javascript">var clone = rect.clone()</code></pre>
 <p>This will create a new, unlinked copy. For making a linked clone, see the <a href="/elements/use">use</a> element.<br />
 By default the cloned element is placed directly after the orginal element.<br />
 When you pass a parent parameter to the <code>clone()</code> function it will append the cloned element to the given parent.</p>
-<h2>remove()</h2>
+<h2 id='remove()'>remove()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Removes the calling element from the svg document:</p>
 <pre><code class="language-javascript">rect.remove()</code></pre>
-<h2>replace()</h2>
+<h2 id='replace()'>replace()</h2>
 <p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
 <p>At the calling element's position in the svg document, replace the calling element with the element passed to the method.</p>
 <pre><code class="language-javascript">rect.replace(draw.circle(100))</code></pre>
-<h2>add()</h2>
+<h2 id='add()'>add()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Sets the calling element as the parent node of the argument. Returns the parent:</p>
 <pre><code class="language-javascript">var rect = draw.rect(100, 100)
 var group = draw.group()
 
 group.add(rect) //-&gt; returns group</code></pre>
-<h2>put()</h2>
+<h2 id='put()'>put()</h2>
 <p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
 <p>Sets the calling element as the parent node of the argument. Returns the child:</p>
 <pre><code class="language-javascript">group.put(rect) //-&gt; returns rect</code></pre>
-<h2>addTo()</h2>
+<h2 id='addto()'>addTo()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Sets the calling element as a child node of the argument. Returns the child:</p>
 <pre><code class="language-javascript">rect.addTo(group) //-&gt; returns rect</code></pre>
-<h2>putIn()</h2>
+<h2 id='putin()'>putIn()</h2>
 <p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
 <p>Sets the calling element as a child node of the argument. Returns the parent:</p>
 <pre><code class="language-javascript">rect.putIn(group) //-&gt; returns group</code></pre>
-<h2>toParent()</h2>
+<h2 id='toparent()'>toParent()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Moves an element to a different parent (similar to <code>addTo</code>), but without changing its visual representation. All transformations are merged and applied to the element.</p>
 <pre><code class="language-javascript">rect.toParent(group) // looks the same as before</code></pre>
-<h2>toDoc()</h2>
+<h2 id='todoc()'>toDoc()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Same as <code>toParent()</code> but with the root-node as parent</p>
-<h2>ungroup() / flatten()</h2>
+<h2 id='ungroup()-/-flatten()'>ungroup() / flatten()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Break up a group/container and move all the elements to a given parent node without changing their visual representations. The result is a flat svg structure, e.g. for exporting.</p>
 <pre><code class="language-javascript">// ungroups all elements in this group recursively and places them into the given parent

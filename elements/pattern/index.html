@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Pattern</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//elements/pattern" />
+    <meta property="og:title" content="Pattern" />
+    <meta property="og:description" content="Creating a pattern is very similar to creating gradients. You can add any available element to your pattern." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -739,7 +734,7 @@
 
     <section id="main" class="main-content" role="main">
       <h1>Pattern</h1>
-<h2>pattern()</h2>
+<h2 id='pattern()'>pattern()</h2>
 <p><code>returns</code> <strong><code>SVG.Pattern</code></strong></p>
 <p>Creating a pattern is very similar to creating gradients:</p>
 <pre><code class="language-javascript">var pattern = draw.pattern(20, 20, function(add) {
@@ -748,20 +743,20 @@
   add.rect(10,10).move(10,10)
 })</code></pre>
 <p>This creates a checkered pattern of 20 x 20 pixels. You can add any available element to your pattern.</p>
-<h2>update()</h2>
+<h2 id='update()'>update()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>A pattern can also be updated afterwards:</p>
 <pre><code class="language-javascript">pattern.update(function(add) {
   add.circle(15).center(10,10)
 })</code></pre>
-<h2>fill() <em>as setter</em></h2>
+<h2 id='fill()-<em>as-setter</em>'>fill() <em>as setter</em></h2>
 <p><code>returns</code> <strong><code>value</code></strong></p>
 <p>Finally, to use the pattern on an element:</p>
 <pre><code class="language-javascript">rect.attr({ fill: pattern })</code></pre>
 <p>Or:</p>
 <pre><code class="language-javascript">rect.fill(pattern)</code></pre>
 <p>By passing the pattern instance as the fill on any element, the <code>fill()</code> method will be called on the pattern instance.</p>
-<h2>fill() <em>as getter</em></h2>
+<h2 id='fill()-<em>as-getter</em>'>fill() <em>as getter</em></h2>
 <pre><code class="language-javascript">pattern.fill() //-&gt; returns 'url(#SvgjsPattern1234)'</code></pre>    </section>
 
   </div><!-- /.wrap content -->

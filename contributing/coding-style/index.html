@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Coding Style</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//contributing/coding-style" />
+    <meta property="og:title" content="Coding Style" />
+    <meta property="og:description" content="We try to keep the coding style consistent throughout the library. Here you'll find some necessary pointers." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -739,9 +734,9 @@
 
     <section id="main" class="main-content" role="main">
       <h1>Coding Style</h1>
-<h2>Indentation</h2>
+<h2 id='indentation'>Indentation</h2>
 <p>We do it with <strong>two spaces</strong>. Make sure you don't start using tabs because then things get messy.</p>
-<h2>Avoid hairy code</h2>
+<h2 id='avoid-hairy-code'>Avoid hairy code</h2>
 <p>We like to keep things simple and clean, don't write anything you don't need. So use <strong>single quotes</strong> where possible and <strong>avoid semicolons</strong>, we're not writing PHP here.</p>
 <p><strong>Good</strong>:</p>
 <pre><code class="language-javascript">var text = draw.text('with single quotes here')
@@ -759,7 +754,7 @@ for (var i = 0; i &lt; 5; i++) {
     nest.circle(100);
   };
 };</code></pre>
-<h2>Minimize variable declarations</h2>
+<h2 id='minimize-variable-declarations'>Minimize variable declarations</h2>
 <p>All local variables should be declared at the beginning of a function or method unless there is ony one variable to declare. Although it is not required to assign them at the same moment. When if statements are involved, requiring some variables only to be present in the statement, the necessary variables should be declared right after the if statement.</p>
 <p><strong>Good</strong>:</p>
 <pre><code class="language-javascript">function reading_board() {
@@ -775,7 +770,7 @@ for (var i = 0; i &lt; 5; i++) {
   var noot = 2
   var mies = aap + noot
 }</code></pre>
-<h2>Let your code breathe people!</h2>
+<h2 id='let-your-code-breathe-people!'>Let your code breathe people!</h2>
 <p>Don't try to be a code compressor yourself, they do way a better job anyway. Give your code some spaces and newlines.</p>
 <p><strong>Good</strong>:</p>
 <pre><code class="language-javascript">var nest = draw.nested().attr({
@@ -790,7 +785,7 @@ for (var i = 0; i &lt; 5; i++)
 <p><strong>Bad</strong>:</p>
 <pre><code class="language-javascript">var nest=draw.nested().attr({x:10,y:20,width:200,height:300});
 for(var i=0;i&lt;5;i++)nest.circle(100);</code></pre>
-<h2>It won't hurt to add a few comments</h2>
+<h2 id='it-won't-hurt-to-add-a-few-comments'>It won't hurt to add a few comments</h2>
 <p>Where necessary tell us what you are doing but be concise. We only use single-line comments. Also keep your variable and method names short while maintaining readability.</p>
 <p><strong>Good</strong>:</p>
 <pre><code class="language-javascript">// Adds orange-specific methods
@@ -815,9 +810,9 @@ SVG.extend(SVG.Rect, {
     return this.fill('orange').opacity(0.85)
   }
 })</code></pre>
-<h2>Refactor your code</h2>
+<h2 id='refactor-your-code'>Refactor your code</h2>
 <p>Once your implementation is ready, revisit and rework it. We like to keep it <a href="http://en.wikipedia.org/wiki/Don't_repeat_yourself">DRY</a>.</p>
-<h2>Test. Your. Code.</h2>
+<h2 id='test--your--code-'>Test. Your. Code.</h2>
 <p>It's not that hard to write at least one example per implementation, although we prefer more. Your code might seem to work by quickly testing it in your browser but more than often you can't forsee everything.</p>
 <p>Before running the specs you will need to build the library. Be aware that pull requests without specs will be declined.</p>    </section>
 

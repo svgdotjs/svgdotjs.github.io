@@ -1,0 +1,53 @@
+Title: Image
+
+----
+
+Text: 
+
+# Image
+
+`returns` __`SVG.Image`__ ` which inherits from ` __`SVG.Shape`__
+
+Creating images is as you might expect:
+
+```javascript
+var image = draw.image('/path/to/image.jpg')
+```
+
+If you know the size of the image, those parameters can be passed as the second and third arguments:
+
+```javascript
+var image = draw.image('/path/to/image.jpg', 200, 300)
+```
+
+## load()
+
+`returns` __`itself`__
+
+Loading another image can be done with the `load()` method:
+
+```javascript
+image.load('/path/to/another/image.jpg')
+```
+
+## loaded()
+
+`returns` __`itself`__
+
+If you don't know the size of the image, obviously you will have to wait for the image to be `loaded`:
+
+```javascript
+var image = draw.image('/path/to/image.jpg').loaded(function(loader) {
+  this.size(loader.width, loader.height)
+})
+```
+
+The returned `loader` object as first the argument of the loaded method contains four values:
+- `width`
+- `height`
+- `ratio` (width / height)
+- `url`
+
+----
+
+Description: If you know the size of the image, those parameters can be passed as the second and third arguments.

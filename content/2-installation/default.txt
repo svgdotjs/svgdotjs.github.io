@@ -1,0 +1,29 @@
+Title: Installation
+
+----
+
+Text: 
+
+# Installation
+
+## Download
+**(link: https://raw.githubusercontent.com/svgdotjs/svg.js/master/dist/svg.js text: svg.js [for development] target: _blank)** - lots of comments
+
+**(link: https://raw.githubusercontent.com/svgdotjs/svg.js/master/dist/svg.min.js text: svg.min.js [for production] target: _blank)** - ±16k when gzipped
+
+## CDN.js
+Grab the latest version **(link: https://cdnjs.com/libraries/svgjs text: here from cdnjs.com target: _blank)**.
+
+## Bower
+```
+bower install svg.js
+```
+
+## Node
+```
+npm install svg.js
+```
+
+----
+
+Description: The various installation methods to get started with SVG.js, whether you prefer package managers, a CDN or  simply including the JavaScript source in your HTML.

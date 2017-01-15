@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Image</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//elements/image" />
+    <meta property="og:title" content="Image" />
+    <meta property="og:description" content="If you know the size of the image, those parameters can be passed as the second and third arguments." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -744,11 +739,11 @@
 <pre><code class="language-javascript">var image = draw.image('/path/to/image.jpg')</code></pre>
 <p>If you know the size of the image, those parameters can be passed as the second and third arguments:</p>
 <pre><code class="language-javascript">var image = draw.image('/path/to/image.jpg', 200, 300)</code></pre>
-<h2>load()</h2>
+<h2 id='load()'>load()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Loading another image can be done with the <code>load()</code> method:</p>
 <pre><code class="language-javascript">image.load('/path/to/another/image.jpg')</code></pre>
-<h2>loaded()</h2>
+<h2 id='loaded()'>loaded()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>If you don't know the size of the image, obviously you will have to wait for the image to be <code>loaded</code>:</p>
 <pre><code class="language-javascript">var image = draw.image('/path/to/image.jpg').loaded(function(loader) {

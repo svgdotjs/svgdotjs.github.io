@@ -1,0 +1,128 @@
+Title: Document Tree
+
+----
+
+Text: 
+
+# Document Tree
+
+## clone()
+
+`returns` __`SVG.Element`__
+
+To make an exact copy of an element the `clone()` method comes in handy:
+
+```javascript
+var clone = rect.clone()
+```
+
+This will create a new, unlinked copy. For making a linked clone, see the [use](/elements/use) element.
+By default the cloned element is placed directly after the orginal element.
+When you pass a parent parameter to the `clone()` function it will append the cloned element to the given parent.
+
+## remove()
+
+`returns` __`itself`__
+
+Removes the calling element from the svg document:
+
+```javascript
+rect.remove()
+```
+
+## replace()
+
+`returns` __`SVG.Element`__
+
+At the calling element's position in the svg document, replace the calling element with the element passed to the method.
+
+```javascript
+rect.replace(draw.circle(100))
+```
+
+## add()
+
+`returns` __`itself`__
+
+Sets the calling element as the parent node of the argument. Returns the parent:
+
+```javascript
+var rect = draw.rect(100, 100)
+var group = draw.group()
+
+group.add(rect) //-> returns group
+```
+
+## put()
+
+`returns` __`SVG.Element`__
+
+Sets the calling element as the parent node of the argument. Returns the child:
+
+```javascript
+group.put(rect) //-> returns rect
+```
+
+## addTo()
+
+`returns` __`itself`__
+
+Sets the calling element as a child node of the argument. Returns the child:
+
+```javascript
+rect.addTo(group) //-> returns rect
+```
+
+## putIn()
+
+`returns` __`SVG.Element`__
+
+Sets the calling element as a child node of the argument. Returns the parent:
+
+```javascript
+rect.putIn(group) //-> returns group
+```
+
+## toParent()
+
+`returns` __`itself`__
+
+Moves an element to a different parent (similar to `addTo`), but without changing its visual representation. All transformations are merged and applied to the element.
+
+```javascript
+rect.toParent(group) // looks the same as before
+```
+
+## toDoc()
+
+`returns` __`itself`__
+
+Same as `toParent()` but with the root-node as parent
+
+## ungroup() / flatten()
+
+`returns` __`itself`__
+
+Break up a group/container and move all the elements to a given parent node without changing their visual representations. The result is a flat svg structure, e.g. for exporting.
+
+```javascript
+// ungroups all elements in this group recursively and places them into the given parent
+// (default: parent container of the calling element)
+group.ungroup(parent, depth)
+
+// call it on the whole document to get a flat svg structure
+drawing.ungroup()
+
+// breaks up the group and places all elements in drawing
+group.ungroup(drawing)
+
+// breaks up all groups until it reaches a depth of 3
+drawing.ungroup(null, 3)
+
+// flat and export svg
+var svgString = drawing.ungroup().svg()
+```
+
+----
+
+Description: To make an exact copy of an element the clone() method comes in handy. This will create a new, unlinked copy.

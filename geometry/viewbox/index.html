@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | ViewBox</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//geometry/viewbox" />
+    <meta property="og:title" content="ViewBox" />
+    <meta property="og:description" content="Without any arguments an instance of SVG.ViewBox will be returned. The best thing about the viewbox() method is that you can get the zoom of the viewbox." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -739,7 +734,7 @@
 
     <section id="main" class="main-content" role="main">
       <h1>ViewBox</h1>
-<h2>viewbox() <em>as getter</em></h2>
+<h2 id='viewbox()-<em>as-getter</em>'>viewbox() <em>as getter</em></h2>
 <p><code>returns</code> <strong><code>SVG.ViewBox</code></strong></p>
 <p>Without any arguments an instance of <code>SVG.ViewBox</code> will be returned:</p>
 <pre><code class="language-javascript">var box = draw.viewbox()</code></pre>
@@ -747,7 +742,7 @@
 <pre><code class="language-javascript">var box = draw.viewbox()
 var zoom = box.zoom</code></pre>
 <p>If the size of the viewbox equals the size of the svg drawing, the zoom value will be 1.</p>
-<h2>viewbox() <em>as setter</em></h2>
+<h2 id='viewbox()-<em>as-setter</em>'>viewbox() <em>as setter</em></h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>The <code>viewBox</code> attribute of an <code>&lt;svg&gt;</code> element can be managed with the <code>viewbox()</code> method. When supplied with four arguments it will act as a setter:</p>
 <pre><code class="language-javascript">draw.viewbox(0, 0, 297, 210)</code></pre>

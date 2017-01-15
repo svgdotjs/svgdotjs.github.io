@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Circular reference</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//referencing/circular-reference" />
+    <meta property="og:title" content="Circular reference" />
+    <meta property="og:description" content="Every element instance within SVG.js has a reference to the actual node. Similarly, the node carries a reference to the SVG.js instance." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -740,14 +735,14 @@
     <section id="main" class="main-content" role="main">
       <h1>Circular reference</h1>
 <p>Every element instance within SVG.js has a reference to the actual <code>node</code>:</p>
-<h2>node</h2>
+<h2 id='node'>node</h2>
 <p><code>returns</code> <strong><code>node</code></strong></p>
 <pre><code class="language-javascript">element.node</code></pre>
-<h2>native()</h2>
+<h2 id='native()'>native()</h2>
 <p><code>returns</code> <strong><code>node</code></strong></p>
 <p>The same can be achieved with the <code>native()</code> method:</p>
 <pre><code class="language-javascript">element.native()</code></pre>
-<h2>instance</h2>
+<h2 id='instance'>instance</h2>
 <p><code>returns</code> <strong><code>element</code></strong></p>
 <p>Similarly, the node carries a reference to the SVG.js <code>instance</code>:</p>
 <pre><code class="language-javascript">node.instance</code></pre>    </section>

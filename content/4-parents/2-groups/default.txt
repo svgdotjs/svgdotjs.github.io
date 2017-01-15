@@ -1,0 +1,28 @@
+Title: Groups
+
+----
+
+Text: 
+
+# Groups
+
+`returns` __`SVG.G`__ ` which inherits from ` __`SVG.Container`__
+
+Grouping elements is useful if you want to transform a set of elements as if it were one. All element within a group maintain their position relative to the group they belong to. A group has all the same element methods as the root svg document:
+
+```javascript
+var group = draw.group()
+group.path('M10,20L30,40')
+```
+
+Existing elements from the svg document can also be added to a group:
+
+```javascript
+group.add(rect)
+```
+
+__Note:__ Groups do not have a geometry of their own, it's inherited from their content. Therefore groups do not listen to `x`, `y`, `width` and `height` attributes. If that is what you are looking for, use a `nested()` svg instead.
+
+----
+
+Description: Grouping elements is useful if you want to transform a set of elements as one. All element within a group maintain their position relative to the group.

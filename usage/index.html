@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Usage</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//usage" />
+    <meta property="og:title" content="Usage" />
+    <meta property="og:description" content="Basic information you need to know to get started with SVG.js. From building a new SVG document to adopting one." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -739,7 +734,7 @@
 
     <section id="main" class="main-content" role="main">
       <h1>Usage</h1>
-<h2>Create an SVG document</h2>
+<h2 id='create-an-svg-document'>Create an SVG document</h2>
 <p>Use the <code>SVG()</code> function to create an SVG document within a given html element:</p>
 <pre><code class="language-javascript">var draw = SVG('drawing').size(300, 300)
 var rect = draw.rect(100, 100).attr({ fill: '#f06' })</code></pre>
@@ -755,7 +750,7 @@ Be aware that the HTML element must exist before running the SVG.js code.</p>
 &lt;/div&gt;</code></pre>
 <p>By default the svg drawing follows the dimensions of its parent, in this case <code>#drawing</code>:</p>
 <pre><code class="language-javascript">var draw = SVG('drawing').size('100%', '100%')</code></pre>
-<h2>Checking for SVG support</h2>
+<h2 id='checking-for-svg-support'>Checking for SVG support</h2>
 <p>By default this library assumes the client's browser supports SVG. You can test support as follows:</p>
 <pre><code class="language-javascript">if (SVG.supported) {
   var draw = SVG('drawing')
@@ -763,7 +758,7 @@ Be aware that the HTML element must exist before running the SVG.js code.</p>
 } else {
   alert('SVG not supported')
 }</code></pre>
-<h2>SVG document</h2>
+<h2 id='svg-document'>SVG document</h2>
 <p>Svg.js also works outside of the HTML DOM, inside an SVG document for example:</p>
 <pre><code class="language-xml">&lt;?xml version="1.0" encoding="utf-8" ?&gt;
 &lt;svg id="drawing" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" &gt;
@@ -775,7 +770,7 @@ Be aware that the HTML element must exist before running the SVG.js code.</p>
     ]]&gt;
   &lt;/script&gt;
 &lt;/svg&gt;</code></pre>
-<h2>Sub-pixel offset fix</h2>
+<h2 id='sub-pixel-offset-fix'>Sub-pixel offset fix</h2>
 <p>Call the <code>spof()</code> method to fix sub-pixel offset:</p>
 <pre><code class="language-javascript">var draw = SVG('drawing').spof()</code></pre>
 <p>To enable automatic sub-pixel offset correction when the window is resized:</p>

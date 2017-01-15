@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Misc</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//manipulating/misc" />
+    <meta property="og:title" content="Misc" />
+    <meta property="og:description" content="Check if a given point is inside the bounding box of an element with the inside() method. The x and y positions are tested against the relative position." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -739,12 +734,12 @@
 
     <section id="main" class="main-content" role="main">
       <h1>Misc</h1>
-<h2>point()</h2>
+<h2 id='point()'>point()</h2>
 <p><code>returns</code> <strong><code>SVG.Point</code></strong></p>
-<p>Transforms a point from screen coordinates to the elements coordinate system</p>
+<p>Transforms a point from screen coordinates to the elements coordinate system.</p>
 <pre><code class="language-javascript">// e is some mouseevent
 var point = path.point(e.screenX, e.screenY) // {x, y}</code></pre>
-<h2>inside()</h2>
+<h2 id='inside()'>inside()</h2>
 <p><code>returns</code> <strong><code>boolean</code></strong></p>
 <p>To check if a given point is inside the bounding box of an element you can use the <code>inside()</code> method:</p>
 <pre><code class="language-javascript">var rect = draw.rect(100, 100).move(50, 50)

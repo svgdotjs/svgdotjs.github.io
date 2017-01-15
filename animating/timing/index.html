@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Timing</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//animating/timing" />
+    <meta property="og:title" content="Timing" />
+    <meta property="og:description" content="If you want to call a custom function between two chained animations, you simply can queue them up..." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -739,11 +734,11 @@
 
     <section id="main" class="main-content" role="main">
       <h1>Timing</h1>
-<h2>delay()</h2>
+<h2 id='delay()'>delay()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Alternatively you can call <code>delay()</code> which will set an delay in ms before the next animation in the queue is run</p>
+<p>Alternatively, you can call <code>delay()</code> which will set a delay in ms before the next animation in the queue is run</p>
 <pre><code class="language-javascript">rect.animate({ ease: '&lt;', delay: '1.5s' }).attr({ fill: '#f03' }).delay(500).animate().dmove(50,50)</code></pre>
-<h2>queue()</h2>
+<h2 id='queue()'>queue()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>If you want to call a custom funtion between two chained animations, you simply can queue them up:</p>
 <pre><code class="language-javascript">rect.animate({ ease: '&lt;', delay: '1.5s' }).attr({ fill: '#f03' }).queue(function(){
@@ -752,7 +747,7 @@
     this.dequeue() // dont forget to call dequeue when the queue should continue running
 
 }).animate().dmove(50,50)</code></pre>
-<h2>loop()</h2>
+<h2 id='loop()'>loop()</h2>
 <p><code>returns</code> <strong><code>SVG.FX</code></strong></p>
 <p>By default the <code>loop()</code> method creates and eternal loop:</p>
 <pre><code class="language-javascript">rect.animate(3000).move(100, 100).loop()</code></pre>
@@ -762,7 +757,7 @@
 <p>There is also a reverse flag that should be passed as the second argument:</p>
 <pre><code class="language-javascript">rect.animate(3000).move(100, 100).loop(3, true)</code></pre>
 <p>Loops will then be completely reversed before starting over (<code>0-&gt;1-&gt;0-&gt;1-&gt;0-&gt;1.</code>).</p>
-<h2>once()</h2>
+<h2 id='once()'>once()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Finally, you can perform an action at a specific position only once. Just pass the position and the function which should be executed to the <code>once</code> method. You can also decide whether the position which is passed should be handled as position in time (not eased) or position in space (easing applied):</p>
 <pre><code class="language-javascript">// the 0.5 is handled as uneased value (you can omit the false)
@@ -774,7 +769,7 @@ rect.animate(3000).move(100, 100).once(0.5, function(pos, eased) {
   // do something
 }, true)</code></pre>
 <p>The callback function gets the current position uneased and eased.</p>
-<h2>at()</h2>
+<h2 id='at()'>at()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Say you want to control the position of an animation with an external event, then the <code>at()</code> method will prove very useful:</p>
 <pre><code class="language-javascript">var animation = draw.rect(100, 100).move(50, 50).animate('=').move(200, 200)

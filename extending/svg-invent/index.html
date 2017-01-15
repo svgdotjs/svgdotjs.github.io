@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | SVG.invent</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//extending/svg-invent" />
+    <meta property="og:title" content="SVG.invent" />
+    <meta property="og:description" content="Creating your own custom elements with SVG.js is a piece of cake thanks to the SVG.invent() function." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -772,7 +767,7 @@
 <p>To create the element in your drawing:</p>
 <pre><code class="language-javascript">var rounded = draw.rounded(200, 100)</code></pre>
 <p>That's it, the invention is now ready to be used!</p>
-<h3>Accepted values</h3>
+<h3 id='accepted-values'>Accepted values</h3>
 <p>The <code>SVG.invent()</code> function always expects an object. The object can have the following configuration values:</p>
 <ul>
 <li><code>create</code>: can be either a string with the node name (e.g. <code>rect</code>, <code>ellipse</code>, ...) or a custom initializer function; <code>[required]</code></li>
@@ -781,7 +776,7 @@
 <li><code>construct</code>: an object with the methods to create the element on the parent element; <code>[optional]</code></li>
 <li><code>parent</code>: an SVG.js parent class on which the methods in the passed <code>construct</code> object should be available - defaults to <code>SVG.Container</code>; <code>[optional]</code></li>
 </ul>
-<h3>Usage notes</h3>
+<h3 id='usage-notes'>Usage notes</h3>
 <p>It should be emphasized that in the configuration object passed to <code>SVG.invent()</code>:</p>
 <ul>
 <li><code>construct</code> does not supply constructors, but rather methods that are likely to <em>call</em> constructors;</li>

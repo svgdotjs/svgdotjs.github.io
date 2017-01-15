@@ -1,0 +1,35 @@
+Title: Rect
+
+----
+
+Text: 
+
+# Rect
+
+`returns` __`SVG.Rect`__ ` which inherits from ` __`SVG.Shape`__
+
+Rects have two arguments, their `width` and `height`:
+
+```javascript
+var rect = draw.rect(100, 100)
+```
+
+## radius()
+
+`returns` __`itself`__
+
+Rects can also have rounded corners:
+
+```javascript
+rect.radius(10)
+```
+
+This will set the `rx` and `ry` attributes to `10`. To set `rx` and `ry` individually:
+
+```javascript
+rect.radius(10, 20)
+```
+
+----
+
+Description: Rects have two arguments, their width and height. Rects can also have rounded corners with the rx and ry attributes.

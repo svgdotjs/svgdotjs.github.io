@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Line</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//elements/line" />
+    <meta property="og:title" content="Line" />
+    <meta property="og:description" content="Create a line from point A to point B. Creating a line element can be done in four ways. Look at the plot() method to see all the possibilities." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -742,8 +737,8 @@
 <p><code>returns</code> <strong><code>SVG.Line</code></strong> <code>which inherits from</code> <strong><code>SVG.Shape</code></strong></p>
 <p>Create a line from point A to point B:</p>
 <pre><code class="language-javascript">var line = draw.line(0, 0, 100, 150).stroke({ width: 1 })</code></pre>
-<p>Creating a line element can be done in four ways. Look at the <code>plot()</code> method to see all the possiblilities.</p>
-<h2>plot()</h2>
+<p>Creating a line element can be done in four ways. Look at the <code>plot()</code> method to see all the possibilities.</p>
+<h2 id='plot()'>plot()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Updating a line is done with the <code>plot()</code> method:</p>
 <pre><code class="language-javascript">line.plot(50, 30, 100, 150)</code></pre>
@@ -754,7 +749,7 @@
 <p>Or an instance of <code>SVG.PointArray</code>:</p>
 <pre><code class="language-javascript">var array = new SVG.PointArray([[0, 0], [100, 150]])
 line.plot(array)</code></pre>
-<h2>array()</h2>
+<h2 id='array()'>array()</h2>
 <p><code>returns</code> <strong><code>SVG.PointArray</code></strong></p>
 <p>References the <code>SVG.PointArray</code> instance. This method is rather intended for internal use:</p>
 <pre><code class="language-javascript">polyline.array()</code></pre>    </section>

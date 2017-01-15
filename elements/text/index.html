@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Text</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//elements/text" />
+    <meta property="og:title" content="Text" />
+    <meta property="og:description" content="Unlike html, text in svg is much harder to tame. There is no way to create flowing text, so newlines should be entered manually." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -756,23 +751,23 @@
 <p>If you want to go the other way and don't want to add tspans at all, just one line of text, you can use the <code>plain()</code> method instead:</p>
 <pre><code class="language-javascript">var text = draw.plain('Lorem ipsum dolor sit amet consectetur.')</code></pre>
 <p>This is a shortcut to the <code>plain</code> method on the <code>SVG.Text</code> instance which doesn't render newlines at all.</p>
-<h2>text() <em>as setter</em></h2>
+<h2 id='text()-<em>as-setter</em>'>text() <em>as setter</em></h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Changing text afterwards is also possible with the <code>text()</code> method:</p>
 <pre><code class="language-javascript">text.text('Brilliant!')</code></pre>
-<h2>text() <em>as getter</em></h2>
+<h2 id='text()-<em>as-getter</em>'>text() <em>as getter</em></h2>
 <p><code>returns</code> <strong><code>string</code></strong></p>
 <p>To get the raw text content:</p>
 <pre><code class="language-javascript">text.text()</code></pre>
-<h2>tspan()</h2>
+<h2 id='tspan()'>tspan()</h2>
 <p><code>returns</code> <strong><code>SVG.Tspan</code></strong></p>
 <p>Just adding one tspan is also possible:</p>
 <pre><code class="language-javascript">text.tspan(' on a train...').fill('#f06')</code></pre>
-<h2>plain()</h2>
+<h2 id='plain()'>plain()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>If the content of the element doesn't need any stying or multiple lines, it might be sufficient to just add some plain text:</p>
 <pre><code class="language-javascript">text.plain('I do not have any expectations.')</code></pre>
-<h2>font()</h2>
+<h2 id='font()'>font()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>The sugar.js module provides some syntax sugar specifically for this element type:</p>
 <pre><code class="language-javascript">text.font({
@@ -781,14 +776,14 @@
 , anchor:   'middle'
 , leading:  '1.5em'
 })</code></pre>
-<h2>leading()</h2>
+<h2 id='leading()'>leading()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>As opposed to html, where leading is defined by <code>line-height</code>, svg does not have a natural leading equivalent. In svg, lines are not defined naturally. They are defined by <code>&lt;tspan&gt;</code> nodes with a <code>dy</code> attribute defining the line height and a <code>x</code> value resetting the line to the <code>x</code> position of the parent text element. But you can also have many nodes in one line defining a different <code>y</code>, <code>dy</code>, <code>x</code> or even <code>dx</code> value. This gives us a lot of freedom, but also a lot more responsibility. We have to decide when a new line is defined, where it starts, what its offset is and what it's height is. The <code>leading()</code> method in SVG.js tries to ease the pain by giving you behaviour that is much closer to html. In combination with newline separated text, it works just like html:</p>
 <pre><code class="language-javascript">var text = draw.text("Lorem ipsum dolor sit amet consectetur.\nCras sodales imperdiet auctor.")
 text.leading(1.3)</code></pre>
 <p>This will render a text element with a tspan element for each line, with a <code>dy</code> value of <code>130%</code> of the font size.</p>
 <p>Note that the <code>leading()</code> method assumes that every first level tspan in a text node represents a new line. Using <code>leading()</code> on text elements containing multiple tspans in one line (e.g. without a wrapping tspan defining a new line) will render scrambeled. So it is advisable to use this method with care, preferably only when throwing newline separated text at the text element or calling the <code>newLine()</code> method on every first level tspan added in the block passed as argument to the text element.</p>
-<h2>build()</h2>
+<h2 id='build()'>build()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>The <code>build()</code> can be used to enable / disable build mode. With build mode disabled, the <code>plain()</code> and <code>tspan()</code> methods will first call the <code>clear()</code> bethod before adding the new content. So when build mode is enabled, <code>plain()</code> and <code>tspan()</code> will append the new content to the existing content. When passing a block to the <code>text()</code> method, build mode is toggled automatically before and after the block is called. But in some cases it might be useful to be able to toggle it manually:</p>
 <pre><code class="language-javascript">var text = draw.text('This is just the start, ')
@@ -801,25 +796,25 @@ text.plain('and again boring at the end.')
 text.build(false) // disables build mode
 
 tspan.animate('2s').fill('#f06')</code></pre>
-<h2>rebuild()</h2>
+<h2 id='rebuild()'>rebuild()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>This is an internal callback that probably never needs to be called manually. Basically it rebuilds the text element whenerver <code>font-size</code> and <code>x</code> attributes or the <code>leading()</code> of the text element are modified. This method also acts a setter to enable or disable rebuilding:</p>
 <pre><code class="language-javascript">text.rebuild(false) //-&gt; disables rebuilding
 text.rebuild(true)  //-&gt; enables rebuilding and instantaneously rebuilds the text element</code></pre>
-<h2>clear()</h2>
+<h2 id='clear()'>clear()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Clear all the contents of the called text element:</p>
 <pre><code class="language-javascript">text.clear()</code></pre>
-<h2>length()</h2>
+<h2 id='length()'>length()</h2>
 <p><code>returns</code> <strong><code>number</code></strong></p>
 <p>Gets the total computed text length of all tspans together:</p>
 <pre><code class="language-javascript">text.length()</code></pre>
-<h2>lines()</h2>
+<h2 id='lines()'>lines()</h2>
 <p><code>returns</code> <strong><code>SVG.Set</code></strong></p>
 <p>All first level tspans can be referenced with the <code>lines()</code> method:</p>
 <pre><code class="language-javascript">text.lines()</code></pre>
 <p>This will return an intance of <code>SVG.Set</code> including all <code>tspan</code> elements.</p>
-<h2>events</h2>
+<h2 id='events'>events</h2>
 <p>The text element has one event. It is fired every time the <code>rebuild()</code> method is called:</p>
 <pre><code class="language-javascript">text.on('rebuild', function() {
   // whatever you need to do after rebuilding

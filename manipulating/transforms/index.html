@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Transforms</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//manipulating/transforms" />
+    <meta property="og:title" content="Transforms" />
+    <meta property="og:description" content="The transform() method acts as a full getter without an argument. As a setter it has two ways of working. By default transformations are absolute." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -739,7 +734,7 @@
 
     <section id="main" class="main-content" role="main">
       <h1>Transforms</h1>
-<h2>transform() <em>as getter</em></h2>
+<h2 id='transform()-<em>as-getter</em>'>transform() <em>as getter</em></h2>
 <p><code>returns</code><strong> <code>value</code></strong></p>
 <p>The <code>transform()</code> method acts as a full getter without an argument:</p>
 <pre><code class="language-javascript">element.transform()</code></pre>
@@ -757,7 +752,7 @@
 </ul>
 <p>Additionally a string value for the required property can be passed:</p>
 <pre><code class="language-javascript">element.transform('rotation')</code></pre>
-<h2>transform() <em>as setter</em></h2>
+<h2 id='transform()-<em>as-setter</em>'>transform() <em>as setter</em></h2>
 <p><code>returns</code><strong> <code>itself</code></strong></p>
 <p>As a setter it has two ways of working. By default transformations are absolute. For example, if you call:</p>
 <pre><code class="language-javascript">element.transform({ rotation: 125 }).transform({ rotation: 37.5 })</code></pre>
@@ -777,7 +772,7 @@
 <li><code>y</code></li>
 <li><code>a</code>, <code>b</code>, <code>c</code>, <code>d</code>, <code>e</code> and/or <code>f</code> or an existing matrix instead of the object</li>
 </ul>
-<h2>rotate()</h2>
+<h2 id='rotate()'>rotate()</h2>
 <p><code>returns</code><strong> <code>itself</code></strong></p>
 <p>The <code>rotate()</code> method will automatically rotate elements according to the center of the element:</p>
 <pre><code class="language-javascript">// rotate(degrees)
@@ -785,17 +780,17 @@ rect.rotate(45)</code></pre>
 <p>Although you can also define a specific rotation point:</p>
 <pre><code class="language-javascript">// rotate(degrees, cx, cy)
 rect.rotate(45, 50, 50)</code></pre>
-<h2>skew()</h2>
+<h2 id='skew()'>skew()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>The <code>skew()</code> method will take an <code>x</code> and <code>y</code> value:</p>
 <pre><code class="language-javascript">// skew(x, y)
 rect.skew(0, 45)</code></pre>
-<h2>scale()</h2>
+<h2 id='scale()'>scale()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>The <code>scale()</code> method will take an <code>x</code> and <code>y</code> value:</p>
 <pre><code class="language-javascript">// scale(x, y)
 rect.scale(0.5, -1)</code></pre>
-<h2>translate()</h2>
+<h2 id='translate()'>translate()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>The <code>translate()</code> method will take an <code>x</code> and <code>y</code> value:</p>
 <pre><code class="language-javascript">// translate(x, y)

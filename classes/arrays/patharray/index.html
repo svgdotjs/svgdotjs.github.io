@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | PathArray</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//classes/arrays/patharray" />
+    <meta property="og:title" content="PathArray" />
+    <meta property="og:description" content="Path arrays carry arrays representing every segment in a path string. Note that every instance of SVG.Path carries a reference to the SVG.PathArray instance." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -756,17 +751,17 @@
 ])</code></pre>
 <p>Note that every instance of <code>SVG.Path</code> carries a reference to the <code>SVG.PathArray</code> instance:</p>
 <pre><code class="language-javascript">path.array() //-&gt; returns the SVG.PathArray instance</code></pre>
-<h3>Syntax</h3>
+<h3 id='syntax'>Syntax</h3>
 <p>The syntax for patharrays is very predictable. They are basically literal representations in the form of two dimentional arrays.</p>
-<h4>Move To</h4>
+<h4 id='move-to'>Move To</h4>
 <p>Original syntax is <code>M0 0</code> or <code>m0 0</code>. The SVG.js syntax <code>['M',0,0]</code> or <code>['m',0,0]</code>.</p>
-<h4>Line To</h4>
+<h4 id='line-to'>Line To</h4>
 <p>Original syntax is <code>L100 100</code> or <code>l100 100</code>. The SVG.js syntax <code>['L',100,100]</code> or <code>['l',100,100]</code>.</p>
-<h4>Horizontal line</h4>
+<h4 id='horizontal-line'>Horizontal line</h4>
 <p>Original syntax is <code>H200</code> or <code>h200</code>. The SVG.js syntax <code>['H',200]</code> or <code>['h',200]</code>.</p>
-<h4>Vertical line</h4>
+<h4 id='vertical-line'>Vertical line</h4>
 <p>Original syntax is <code>V300</code> or <code>v300</code>. The SVG.js syntax <code>['V',300]</code> or <code>['v',300]</code>.</p>
-<h4>Bezier curve</h4>
+<h4 id='bezier-curve'>Bezier curve</h4>
 <p>Original syntax is <code>C20 20 40 20 50 10</code> or <code>c20 20 40 20 50 10</code>. The SVG.js syntax <code>['C',20,20,40,20,50,10]</code> or <code>['c',20,20,40,20,50,10]</code>.</p>
 <p>Or mirrored with <code>S</code>:</p>
 <p>Original syntax is <code>S40 20 50 10</code> or <code>s40 20 50 10</code>. The SVG.js syntax <code>['S',40,20,50,10]</code> or <code>['s',40,20,50,10]</code>.</p>
@@ -774,9 +769,9 @@
 <p>Original syntax is <code>Q20 20 50 10</code> or <code>q20 20 50 10</code>. The SVG.js syntax <code>['Q',20,20,50,10]</code> or <code>['q',20,20,50,10]</code>.</p>
 <p>Or a complete shortcut with <code>T</code>:</p>
 <p>Original syntax is <code>T50 10</code> or <code>t50 10</code>. The SVG.js syntax <code>['T',50,10]</code> or <code>['t',50,10]</code>.</p>
-<h4>Arc</h4>
+<h4 id='arc'>Arc</h4>
 <p>Original syntax is <code>A 30 50 0 0 1 162 163</code> or <code>a 30 50 0 0 1 162 163</code>. The SVG.js syntax <code>['A',30,50,0,0,1,162,163]</code> or <code>['a',30,50,0,0,1,162,163]</code>.</p>
-<h4>Close</h4>
+<h4 id='close'>Close</h4>
 <p>Original syntax is <code>Z</code> or <code>z</code>. The SVG.js syntax <code>['Z']</code> or <code>['z']</code>.</p>
 <p>The best documentation on paths can be found at <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths" rel="noopener noreferrer" target="_blank">MDN</a>.</p>    </section>
 

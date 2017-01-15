@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js | Referencing</title>
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgdotjs.github.io//referencing" />
+    <meta property="og:title" content="Referencing" />
+    <meta property="og:description" content="You can get an element created by SVG.js by its id. There are two ways to select elements using CSS selectors." />
+    <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
+
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css">  </head>
@@ -697,20 +706,6 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//contributing/building">Building</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//contributing/before-you-push">Before you push</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
                                     <a href="https://svgdotjs.github.io//contributing/documentation">Documentation</a>
 
                         
@@ -739,20 +734,20 @@
 
     <section id="main" class="main-content" role="main">
       <h1>Referencing</h1>
-<h2>By id</h2>
+<h2 id='by-id'>By id</h2>
 <p><code>returns</code> <strong><code>SVG.Element</code></strong> (or the most relevant subclass of <code>SVG.Element</code>)</p>
 <p>If you want to get an element created by SVG.js by its id, you can use the <code>SVG.get()</code> method:</p>
 <pre><code class="language-javascript">var element = SVG.get('my_element')
 
 element.fill('#f06')</code></pre>
-<h2>Using CSS selectors</h2>
+<h2 id='using-css-selectors'>Using CSS selectors</h2>
 <p><code>returns</code> <strong><code>SVG.Set</code></strong></p>
 <p>There are two ways to select elements using CSS selectors.</p>
 <p>The first is to search globally. This will search in all svg elements in a document and return them in an instance of <code>SVG.Set</code>:</p>
 <pre><code class="language-javascript">var elements = SVG.select('rect.my-class').fill('#f06')</code></pre>
 <p>The second is to search within a parent element:</p>
 <pre><code class="language-javascript">var elements = group.select('rect.my-class').fill('#f06')</code></pre>
-<h2>Using jQuery or Zepto</h2>
+<h2 id='using-jquery-or-zepto'>Using jQuery or Zepto</h2>
 <p>Another way is to use <a href="http://jquery.com/" rel="noopener noreferrer" target="_blank">jQuery</a> or <a href="http://zeptojs.com/" rel="noopener noreferrer" target="_blank">Zepto</a>. Here is an example:</p>
 <pre><code class="language-javascript">// add elements
 var draw   = SVG('drawing')

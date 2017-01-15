@@ -1,0 +1,87 @@
+Title: Usage
+
+----
+
+Text: 
+
+# Usage
+
+## Create an SVG document
+
+Use the `SVG()` function to create an SVG document within a given html element:
+
+```javascript
+var draw = SVG('drawing').size(300, 300)
+var rect = draw.rect(100, 100).attr({ fill: '#f06' })
+```
+The first argument can either be an id of the element or the selected element itself.
+Be aware that the HTML element must exist before running the SVG.js code.
+
+Given this HTML:
+
+```html
+<div id="drawing"></div>
+```
+
+This will generate the following output:
+
+```html
+<div id="drawing">
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="300">
+    <rect width="100" height="100" fill="#f06"></rect>
+  </svg>
+</div>
+```
+
+By default the svg drawing follows the dimensions of its parent, in this case `#drawing`:
+
+```javascript
+var draw = SVG('drawing').size('100%', '100%')
+```
+
+## Checking for SVG support
+
+By default this library assumes the client's browser supports SVG. You can test support as follows:
+
+```javascript
+if (SVG.supported) {
+  var draw = SVG('drawing')
+  var rect = draw.rect(100, 100)
+} else {
+  alert('SVG not supported')
+}
+```
+
+
+## SVG document
+Svg.js also works outside of the HTML DOM, inside an SVG document for example:
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<svg id="drawing" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" >
+  <script type="text/javascript" xlink:href="svg.min.js"></script>
+  <script type="text/javascript">
+    <![CDATA[
+      var draw = SVG('drawing')
+      draw.rect(100,100).animate().fill('#f03').move(100,100)
+    ]]>
+  </script>
+</svg>
+```
+
+## Sub-pixel offset fix
+Call the `spof()` method to fix sub-pixel offset:
+
+```javascript
+var draw = SVG('drawing').spof()
+```
+
+To enable automatic sub-pixel offset correction when the window is resized:
+
+```javascript
+SVG.on(window, 'resize', function() { draw.spof() })
+```
+
+----
+
+Description: Basic information you need to know to get started with SVG.js. From building a new SVG document to adopting one.

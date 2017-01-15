@@ -1,0 +1,13 @@
+Title: Extending
+
+----
+
+Text: 
+
+# Extending
+
+Due to the Object Oriented nature of SVG.js, objects/prototypes can be extended on any level. The `invent()` method provides a convenient way to implement your own functionality.
+
+----
+
+Description: Due to the Object Oriented nature of SVG.js, objects/prototypes can be extended on any level. The invent() method provides a convenient way.

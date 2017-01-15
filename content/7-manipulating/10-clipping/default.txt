@@ -1,0 +1,69 @@
+Title: Clipping
+
+----
+
+Text: 
+
+# Clipping
+
+
+Clipping elements works exactly the same as masking elements. The only difference is that clipped elements will adopt the geometry of the clipping element. Therefore events are only triggered when entering the clipping element whereas with masks the masked element triggers the event. Another difference is that masks can define opacity with their fill color and clipPaths don't.
+
+## clipWith()
+
+`returns` __`itself`__
+
+```javascript
+var ellipse = draw.ellipse(80, 40).move(10, 10)
+
+rect.clipWith(ellipse)
+```
+
+## clip()
+
+`returns` __`SVG.ClipPath`__
+
+Clip multiple elements:
+
+```javascript
+var ellipse = draw.ellipse(80, 40).move(10, 10)
+var text = draw.text('SVG.JS').move(10, 10).font({ size: 36 })
+
+var clip = draw.clip().add(text).add(ellipse)
+
+rect.clipWith(clip)
+```
+
+## unclip()
+
+`returns` __`itself`__
+
+Unclipping the elements can be done with the `unclip()` method:
+
+```javascript
+rect.unclip()
+```
+
+## remove()
+
+`returns` __`itself`__
+
+Removing the clip alltogether will also `unclip()` all clipped elements as well:
+
+```javascript
+clip.remove()
+```
+
+## clipper
+
+`returns` __`SVG.ClipPath`__
+
+For your convenience, the clipping element is also referenced in the clipped element. This can be useful in case you want to change the clipPath:
+
+```javascript
+rect.clipper.move(10, 10)
+```
+
+----
+
+Description: Clipping elements works exactly the same as masking elements. The only difference is that clipped elements will adopt the geometry of the clipping element.
