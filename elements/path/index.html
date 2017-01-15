@@ -738,7 +738,7 @@
 <p>The path string is similar to the polygon string but much more complex in order to support curves:</p>
 <pre><code class="language-javascript">draw.path('M 100 200 C 200 100 300  0 400 100 C 500 200 600 300 700 200 C 800 100 900 100 900 100')</code></pre>
 <p>For more details on path data strings, please refer to the <a href="http://www.w3.org/TR/SVG/paths.html#PathData">SVG documentation on path data</a>.</p>
-<h2 id='plot()'>plot()</h2>
+<h2 id='plot-'>plot()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Paths can be updated using the <code>plot()</code> method:</p>
 <pre><code class="language-javascript">path.plot('M10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80')</code></pre>
@@ -746,15 +746,15 @@
 <pre><code class="language-javascript">path.animate(2000).plot('M10 80 C 40 150, 65 150, 95 80 S 150 10, 180 80').loop(true, true)</code></pre>
 <p>There is only basic support for animating paths baked into SVG.js, which means that only paths with the same commands (<code>M</code>,<code>C</code>,<code>S</code> etc.) are animatable.</p>
 <p>If you need to animate paths that does not share the same commands in order, you can use <a href="https://github.com/Fuzzyma/svg.pathmorphing.js">svg.pathmorphing.js</a></p>
-<h2 id='array()'>array()</h2>
+<h2 id='array-'>array()</h2>
 <p><code>returns</code> <strong><code>SVG.PathArray</code></strong></p>
 <p>References the <code>SVG.PathArray</code> instance. This method is rather intended for internal use:</p>
 <pre><code class="language-javascript">path.array()</code></pre>
-<h2 id='length()'>length()</h2>
+<h2 id='length-'>length()</h2>
 <p><code>returns</code> <strong><code>number</code></strong></p>
 <p>Get the total length of a path element:</p>
 <pre><code class="language-javascript">var length = path.length()</code></pre>
-<h2 id='pointat()'>pointAt()</h2>
+<h2 id='pointat-'>pointAt()</h2>
 <p><code>returns</code> <strong><code>object</code></strong></p>
 <p>Get point on a path at given length:</p>
 <pre><code class="language-javascript">var point = path.pointAt(105) //-&gt; returns { x : 96.88497924804688, y : 58.062747955322266 }</code></pre>    </section>

@@ -741,44 +741,44 @@
               , .249, -.626, .130, 0,   0
               , .172,  .334, .111, 0,   0
               , .000,  .000, .000, 1,  -0 ])</code></pre>
-<h2 id='morph()'>morph()</h2>
+<h2 id='morph-'>morph()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>In order to animate array values the <code>morph()</code> method lets you pass a destination value. This can be either the string value, a plain array or an instance of the same type of SVG.js array:</p>
 <pre><code class="language-javascript">var array = new SVG.PointArray([[0, 0], [100, 100]])
 array.morph('100,0 0,100 200,200')</code></pre>
 <p>This method will prepare the array ensuring both the source and destination arrays have the same length.</p>
 <p>In order to morph paths you need to include the <a href="https://github.com/svgdotjs/svg.pathmorphing.js">svg.pathmorphing.js</a> extension.</p>
-<h2 id='at()'>at()</h2>
+<h2 id='at-'>at()</h2>
 <p><code>returns</code> <strong>new instance</strong></p>
 <p>This method will morph the array to a given position between <code>0</code> and <code>1</code>. Continuing with the previous example:</p>
 <pre><code class="language-javascript">array.at(0.27).toString() //-&gt; returns '27,0 73,100 127,127'</code></pre>
 <p>Note that this method is currently not available on <code>SVG.PathArray</code> but will be soon.</p>
-<h2 id='settle()'>settle()</h2>
+<h2 id='settle-'>settle()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>When morphing is done the <code>settle()</code> method will eliminate any transitional points like duplicates:</p>
 <pre><code class="language-javascript">array.settle()</code></pre>
 <p>Note that this method is currently not available on <code>SVG.PathArray</code> but will be soon.</p>
-<h2 id='move()'>move()</h2>
+<h2 id='move-'>move()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Moves geometry of the array with the given <code>x</code> and <code>y</code> values:</p>
 <pre><code class="language-javascript">var array = new SVG.PointArray([[0, 0], [100, 100]])
 array.move(33,75)
 array.toString() //-&gt; returns '33,75 133,175'</code></pre>
 <p>Note that this method is only available on <code>SVG.PointArray</code> and <code>SVG.PathArray</code></p>
-<h2 id='size()'>size()</h2>
+<h2 id='size-'>size()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Resizes geometry of the array by the given <code>width</code> and <code>height</code> values:</p>
 <pre><code class="language-javascript">var array = new SVG.PointArray([[0, 0], [100, 100]])
 array.move(100,100).size(222,333)
 array.toString() //-&gt; returns '100,100 322,433'</code></pre>
 <p>Note that this method is only available on <code>SVG.PointArray</code> and <code>SVG.PathArray</code></p>
-<h2 id='reverse()'>reverse()</h2>
+<h2 id='reverse-'>reverse()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Reverses the order of the array:</p>
 <pre><code class="language-javascript">var array = new SVG.PointArray([[0, 0], [100, 100]])
 array.reverse()
 array.toString() //-&gt; returns '100,100 0,0'</code></pre>
-<h2 id='bbox()'>bbox()</h2>
+<h2 id='bbox-'>bbox()</h2>
 <p><code>returns</code> <strong><code>object</code></strong></p>
 <p>Gets the bounding box of the geometry of the array:</p>
 <pre><code class="language-javascript">array.bbox()</code></pre>

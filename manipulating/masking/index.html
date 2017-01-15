@@ -734,13 +734,13 @@
 
     <section id="main" class="main-content" role="main">
       <h1>Masking elements</h1>
-<h2 id='maskwith()'>maskWith()</h2>
+<h2 id='maskwith-'>maskWith()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>The easiest way to mask is to use a single element:</p>
 <pre><code class="language-javascript">var ellipse = draw.ellipse(80, 40).move(10, 10).fill({ color: '#fff' })
 
 rect.maskWith(ellipse)</code></pre>
-<h2 id='mask()'>mask()</h2>
+<h2 id='mask-'>mask()</h2>
 <p><code>returns</code> <strong><code>SVG.Mask</code></strong></p>
 <p>But you can also use multiple elements:</p>
 <pre><code class="language-javascript">var ellipse = draw.ellipse(80, 40).move(10, 10).fill({ color: '#fff' })
@@ -758,12 +758,12 @@ rect.maskWith(mask)</code></pre>
 var ellipse = draw.ellipse(80, 40).move(10, 10).fill({ color: gradient })
 
 rect.maskWith(ellipse)</code></pre>
-<h2 id='unmask()'>unmask()</h2>
+<h2 id='unmask-'>unmask()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Unmasking the elements can be done with the <code>unmask()</code> method:</p>
 <pre><code class="language-javascript">rect.unmask()</code></pre>
 <p>The <code>unmask()</code> method returns the masking element.</p>
-<h2 id='remove()'>remove()</h2>
+<h2 id='remove-'>remove()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Removing the mask altogether will also <code>unmask()</code> all masked elements as well:</p>
 <pre><code class="language-javascript">mask.remove()</code></pre>

@@ -739,11 +739,11 @@
 <pre><code class="language-javascript">var image = draw.image('/path/to/image.jpg')</code></pre>
 <p>If you know the size of the image, those parameters can be passed as the second and third arguments:</p>
 <pre><code class="language-javascript">var image = draw.image('/path/to/image.jpg', 200, 300)</code></pre>
-<h2 id='load()'>load()</h2>
+<h2 id='load-'>load()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Loading another image can be done with the <code>load()</code> method:</p>
 <pre><code class="language-javascript">image.load('/path/to/another/image.jpg')</code></pre>
-<h2 id='loaded()'>loaded()</h2>
+<h2 id='loaded-'>loaded()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>If you don't know the size of the image, obviously you will have to wait for the image to be <code>loaded</code>:</p>
 <pre><code class="language-javascript">var image = draw.image('/path/to/image.jpg').loaded(function(loader) {

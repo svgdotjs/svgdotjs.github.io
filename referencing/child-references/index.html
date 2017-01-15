@@ -734,19 +734,19 @@
 
     <section id="main" class="main-content" role="main">
       <h1>Child references</h1>
-<h2 id='first()'>first()</h2>
+<h2 id='first-'>first()</h2>
 <p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
 <p>To get the first child of a parent element:</p>
 <pre><code class="language-javascript">draw.first()</code></pre>
-<h2 id='last()'>last()</h2>
+<h2 id='last-'>last()</h2>
 <p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
 <p>To get the last child of a parent element:</p>
 <pre><code class="language-javascript">draw.last()</code></pre>
-<h2 id='children()'>children()</h2>
+<h2 id='children-'>children()</h2>
 <p><code>returns</code> <strong><code>array</code></strong></p>
 <p>An array of all children will can be retrieves with the <code>children</code> method:</p>
 <pre><code class="language-javascript">draw.children()</code></pre>
-<h2 id='each()'>each()</h2>
+<h2 id='each-'>each()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>The <code>each()</code> allows you to iterate over the all children of a parent element:</p>
 <pre><code class="language-javascript">draw.each(function(i, children) {
@@ -758,7 +758,7 @@ draw.each(function(i, children) {
   this.fill({ color: '#f06' })
 }, true)</code></pre>
 <p>Note that <code>this</code> refers to the current child element.</p>
-<h2 id='has()'>has()</h2>
+<h2 id='has-'>has()</h2>
 <p><code>returns</code> <strong><code>boolean</code></strong></p>
 <p>Checking the existence of an element within a parent:</p>
 <pre><code class="language-javascript">var rect  = draw.rect(100, 50)
@@ -766,7 +766,7 @@ var group = draw.group()
 
 draw.has(rect)  //-&gt; returns true
 group.has(rect) //-&gt; returns false</code></pre>
-<h2 id='index()'>index()</h2>
+<h2 id='index-'>index()</h2>
 <p><code>returns</code> <strong><code>number</code></strong></p>
 <p>Returns the index of given element and returns -1 when it is not a child:</p>
 <pre><code class="language-javascript">var rect  = draw.rect(100, 50)
@@ -774,7 +774,7 @@ var group = draw.group()
 
 draw.index(rect)  //-&gt; returns 0
 group.index(rect) //-&gt; returns -1</code></pre>
-<h2 id='get()'>get()</h2>
+<h2 id='get-'>get()</h2>
 <p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
 <p>Get an element on a given position in the children array:</p>
 <pre><code class="language-javascript">var rect   = draw.rect(20, 30)
@@ -782,7 +782,7 @@ var circle = draw.circle(50)
 
 draw.get(0) //-&gt; returns rect
 draw.get(1) //-&gt; returns circle</code></pre>
-<h2 id='clear()'>clear()</h2>
+<h2 id='clear-'>clear()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>To remove all elements from a parent element:</p>
 <pre><code class="language-javascript">draw.clear()</code></pre>    </section>

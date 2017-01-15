@@ -734,7 +734,7 @@
 
     <section id="main" class="main-content" role="main">
       <h1>Callbacks</h1>
-<h2 id='during-/-duringall()'>during / duringAll()</h2>
+<h2 id='during-duringall-'>during / duringAll()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>If you want to perform your own actions during one/all animation you can use the <code>during()/duringAll()</code> method:</p>
 <pre><code class="language-javascript">var position
@@ -766,7 +766,7 @@ rect.animate(3000).move(100, 100).during(function(pos, morph, eased, situation) 
 <p>The <code>eased</code> parameter contains the position after the easing function was applied.<br />
 The last parameter holds the current situation related to the current <code>during</code> call.<br />
 You can call <code>during()/duringAll()</code> multiple times to add more functions which should be executed.</p>
-<h2 id='after-/-afterall()'>after / afterAll()</h2>
+<h2 id='after-afterall-'>after / afterAll()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Furthermore, you can add callback methods using <code>after()/afterAll()</code>:</p>
 <pre><code class="language-javascript">rect.animate(3000).move(100, 100).after(function(situation) {
