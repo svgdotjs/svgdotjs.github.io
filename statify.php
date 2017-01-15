@@ -81,7 +81,7 @@ file_put_contents( __DIR__ . DS . 'static' . DS . 'index.json',  'var documents 
 function retitle( $match ) {
   list( $_unused, $hx, $title ) = $match;
 
-  $id = strtolower( strtr( $title, ' .', '--' ) );
+  $id = strtolower( preg_replace( '/[^A-Za-z0-9-]+/', '-', $title ) );
 
   return "<$hx id='$id'>$title</$hx>";
 }
