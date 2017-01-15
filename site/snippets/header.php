@@ -32,5 +32,16 @@
         <input type="search" name="q" value="<?php echo esc( isset($query) ? $query : '' ) ?>" placeholder="Search...">
         <input type="submit" value="⚲">
       </form> */ ?>
+      <script>
+        // get all h* tags
+        var htags = document.querySelectorAll( 'h2[id],h3[id],h4[id],h5[id],h6[id]' )
+
+        // make them clickable
+        htags.forEach( function( h ) {
+          h.onclick = function() {
+            window.location.hash = this.id
+          }
+        })
+      </script>
     </div>
   </header>
