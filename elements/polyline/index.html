@@ -742,13 +742,13 @@ var polyline = draw.polyline('0,0 100,50 50,100').fill('none').stroke({ width: 1
 <p>As an alternative an array of points will work as well:</p>
 <pre><code class="language-javascript">// polyline([[x,y], [x,y], [x,y]])
 var polyline = draw.polyline([[0,0], [100,50], [50,100]]).fill('none').stroke({ width: 1 })</code></pre>
-<h2 id='plot-'>plot()</h2>
+<h2 id='plot'>plot()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Polylines can be updated using the <code>plot()</code> method:</p>
 <pre><code class="language-javascript">polyline.plot([[0,0], [100,50], [50,100], [150,50], [200,50]])</code></pre>
 <p>The <code>plot()</code> method can also be animated:</p>
 <pre><code class="language-javascript">polyline.animate(3000).plot([[0,0], [100,50], [50,100], [150,50], [200,50], [250,100], [300,50], [350,50]])</code></pre>
-<h2 id='array-'>array()</h2>
+<h2 id='array'>array()</h2>
 <p><code>returns</code> <strong><code>SVG.PointArray</code></strong></p>
 <p>References the <code>SVG.PointArray</code> instance. This method is rather intended for internal use:</p>
 <pre><code class="language-javascript">polyline.array()</code></pre>    </section>

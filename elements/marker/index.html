@@ -734,7 +734,7 @@
 
     <section id="main" class="main-content" role="main">
       <h1>Marker</h1>
-<h2 id='marker-'>marker()</h2>
+<h2 id='marker'>marker()</h2>
 <p>Markers can be added to every individual point of a <code>line</code>, <code>polyline</code>, <code>polygon</code> and <code>path</code>. There are three types of markers: <code>start</code>, <code>mid</code> and <code>end</code>. Where <code>start</code> represents the first point, <code>end</code> the last and <code>mid</code> every point in between.</p>
 <pre><code class="language-javascript">var path = draw.path('M 100 200 C 200 100 300  0 400 100 C 500 200 600 300 700 200 C 800 100 900 100 900 100z')
 
@@ -766,25 +766,25 @@ path.marker('end', 20, 20, function(add) {
 <pre><code class="language-javascript">path.marker('mid', marker)</code></pre>
 <p>Finally, to get a marker instance from the target element reference:</p>
 <pre><code class="language-javascript">path.reference('marker-end')</code></pre>
-<h2 id='ref-'>ref()</h2>
+<h2 id='ref'>ref()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>By default the <code>refX</code> and <code>refY</code> attributes of a marker are set to respectively half the <code>width</code> nd <code>height</code> values. To define the <code>refX</code> and <code>refY</code> of a marker differently:</p>
 <pre><code class="language-javascript">marker.ref(2, 7)</code></pre>
-<h2 id='update-'>update()</h2>
+<h2 id='update'>update()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Updating the contents of a marker will <code>clear()</code> the existing content and add the content defined in the block passed as the first argument:</p>
 <pre><code class="language-javascript">marker.update(function(add) {
   add.circle(10)
 })</code></pre>
-<h2 id='width-'>width()</h2>
+<h2 id='width'>width()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Defines the <code>markerWidth</code> attribute:</p>
 <pre><code class="language-javascript">marker.width(10)</code></pre>
-<h2 id='height-'>height()</h2>
+<h2 id='height'>height()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Defines the <code>markerHeight</code> attribute:</p>
 <pre><code class="language-javascript">marker.height(10)</code></pre>
-<h2 id='size-'>size()</h2>
+<h2 id='size'>size()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Defines the <code>markerWidth</code> and <code>markerHeight</code> attributes:</p>
 <pre><code class="language-javascript">marker.size(10, 10)</code></pre>    </section>

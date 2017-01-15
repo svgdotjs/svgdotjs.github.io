@@ -734,7 +734,7 @@
 
     <section id="main" class="main-content" role="main">
       <h1>Syntactic sugar</h1>
-<h2 id='fill-'>fill()</h2>
+<h2 id='fill'>fill()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>The <code>fill()</code> method is a pretty alternative to the <code>attr()</code> method:</p>
 <pre><code class="language-javascript">rect.fill({ color: '#f06', opacity: 0.6 })</code></pre>
@@ -744,7 +744,7 @@
 <pre><code class="language-javascript">rect.fill('images/shade.jpg')</code></pre>
 <p>Or if you want more control over the size of the image, you can pass an image instance as well:</p>
 <pre><code class="language-javascript">rect.fill(draw.image('images/shade.jpg', 20, 20))</code></pre>
-<h3 id='stroke-'>stroke()</h3>
+<h3 id='stroke'>stroke()</h3>
 <p>The <code>stroke()</code> method is similar to <code>fill()</code>:</p>
 <pre><code class="language-javascript">rect.stroke({ color: '#f06', opacity: 0.6, width: 5 })</code></pre>
 <p>Like fill, a single hex string will work as well:</p>
@@ -754,26 +754,26 @@
 <p>Or if you want more control over the size of the image, you can pass an image instance as well:</p>
 <pre><code class="language-javascript">rect.stroke(draw.image('images/shade.jpg', 20, 20))</code></pre>
 <p><strong><code>returns</code>: <code>itself</code></strong></p>
-<h3 id='opacity-'>opacity()</h3>
+<h3 id='opacity'>opacity()</h3>
 <p>To set the overall opacity of an element:</p>
 <pre><code class="language-javascript">rect.opacity(0.5)</code></pre>
 <p><strong><code>returns</code>: <code>itself</code></strong></p>
-<h3 id='reference-'>reference()</h3>
+<h3 id='reference'>reference()</h3>
 <p>In cases where an element is linked to another element through an attribute, the linked element instance can be fetched with the <code>reference()</code> method. The only thing required is the attribute name:</p>
 <pre><code class="language-javascript">use.reference('href') //-&gt; returns used element instance
 // or
 rect.reference('fill') //-&gt; returns gradient or pattern instance for example
 // or
 circle.reference('clip-path') //-&gt; returns clip instance</code></pre>
-<h3 id='hide-'>hide()</h3>
+<h3 id='hide'>hide()</h3>
 <p>Hide element:</p>
 <pre><code class="language-javascript">rect.hide()</code></pre>
 <p><strong><code>returns</code>: <code>itself</code></strong></p>
-<h3 id='show-'>show()</h3>
+<h3 id='show'>show()</h3>
 <p>Show element:</p>
 <pre><code class="language-javascript">rect.show()</code></pre>
 <p><strong><code>returns</code>: <code>itself</code></strong></p>
-<h3 id='visible-'>visible()</h3>
+<h3 id='visible'>visible()</h3>
 <p>To check if the element is visible:</p>
 <pre><code class="language-javascript">rect.visible()</code></pre>
 <p><strong><code>returns</code>: <code>boolean</code></strong></p>    </section>

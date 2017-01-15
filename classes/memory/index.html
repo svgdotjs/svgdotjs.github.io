@@ -734,11 +734,11 @@
 
     <section id="main" class="main-content" role="main">
       <h1>Memory</h1>
-<h2 id='remember-em-as-getter-em-'>remember() <em>as getter</em></h2>
+<h2 id='remember-as-getter'>remember() <em>as getter</em></h2>
 <p><code>returns</code> <strong><code>value</code></strong></p>
 <p>To retrieve a memory</p>
 <pre><code class="language-javascript">rect.remember('oldBBox')</code></pre>
-<h2 id='remember-em-as-setter-em-'>remember() <em>as setter</em></h2>
+<h2 id='remember-as-setter'>remember() <em>as setter</em></h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Storing data in-memory is very much like setting attributes:</p>
 <pre><code class="language-javascript">rect.remember('oldBBox', rect.bbox())</code></pre>
@@ -747,7 +747,7 @@
   oldFill:    rect.attr('fill')
 , oldStroke:  rect.attr('stroke')
 })</code></pre>
-<h2 id='forget-'>forget()</h2>
+<h2 id='forget'>forget()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Erasing a single memory:</p>
 <pre><code class="language-javascript">rect.forget('oldBBox')</code></pre>

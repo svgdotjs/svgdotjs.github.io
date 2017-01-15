@@ -736,7 +736,7 @@
       <h1>Boxes</h1>
 <p>Getting a bounding box of an element is often influenced by context. SVG.js offers various methods to get a bounding box of an element.</p>
 <p>All <code>SVG.*Box</code>instances have one method in common: <code>merge()</code>.</p>
-<h2 id='merge-'>merge()</h2>
+<h2 id='merge'>merge()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>All <code>SVG.*Box</code> prototypes have a nifty little feature. With <code>merge()</code>, two <code>SVG.*Box</code> instances can be merged into one new instance, basically being the bounding box of the two original boxes. For example:</p>
 <pre><code class="language-javascript">var box1 = draw.rect(100,100).move(50,50).bbox()

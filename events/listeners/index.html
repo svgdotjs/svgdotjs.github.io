@@ -734,7 +734,7 @@
 
     <section id="main" class="main-content" role="main">
       <h1>Event listeners</h1>
-<h2 id='on-'>on()</h2>
+<h2 id='on'>on()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <pre><code class="language-javascript">var click = function() {
   this.fill({ color: '#f06' })
@@ -743,7 +743,7 @@
 rect.on('click', click)</code></pre>
 <p><strong>Note:</strong> The context of <code>this</code> in the callback is bound to the element. You can change this context by applying your own object:</p>
 <pre><code class="language-javascript">rect.on('click', click, window) // context of this is window</code></pre>
-<h2 id='off-'>off()</h2>
+<h2 id='off'>off()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Unbinding events is just as easy:</p>
 <pre><code class="language-javascript">rect.off('click', click)</code></pre>
