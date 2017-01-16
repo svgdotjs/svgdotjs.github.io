@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title><?= $site->title()->html() ?> | <?= $page->title()->html() ?></title>
-
+    <meta name="description" content="<?= $page->description()->html() ?>">
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@svg_js" />
     <meta name="twitter:creator" content="@svg_js" />
