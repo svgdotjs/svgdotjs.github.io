@@ -1,7 +1,17 @@
 
-<aside>
+<aside class="sidebar-menu">
   <p class="intro"><?php echo $site->description()->kirbytext() ?></p>
   <a class="skip-link visuallyhidden focusable" href="#main">Skip to Main Content</a>
+
+  <div class="search">
+    <input name="q" type="text" placeholder="Search..." autocomplete="off">
+    <ul class="results">
+      <li class="result">
+        nothing yet
+      </li>
+    </ul>
+  </div>
+
   <nav class="sidebar-nav" role="navigation">
     <ul>
       <?php foreach($pages->visible() as $p): ?>

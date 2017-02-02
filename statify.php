@@ -1,7 +1,5 @@
 <?php
 
-header( 'Content-Type: text/html' );
-
 /**
  * Instructions:
  *
@@ -56,7 +54,15 @@ foreach($site->index() as $page) {
   $site->visit( $page->uri() );
   $html = $kirby->render( $page );
 
-  // convert h2 tags
+  // get all h2-6-tag content
+  preg_match_all( "#<(h[2-6])>(.*?)</\\1>#", $html, $match );
+
+  // remove tags
+  $headings = array_map( function( $h ) {
+    return strip_tags( $h );
+  }, $match[2]);
+
+  // convert h2-6 tags
   $html = preg_replace_callback( "#<(h[2-6])>(.*?)</\\1>#", 'retitle', $html );
 
   // set root base
@@ -68,14 +74,20 @@ foreach($site->index() as $page) {
   
   // add every page as json object to index
   array_push( $index, [
-    'uri'  => $page->uri()
-  , 'text' => str_replace( PHP_EOL, ' ', strip_tags( html_entity_decode( $page->text()->kirbytext() )))
+    'uri'      => $page->uri()
+  , 'title'    => strip_tags( html_entity_decode( $page->title() ))
+  , 'priority' => implode( ' ', $headings )
+  , 'headings' => $headings
+  , 'text'     => str_replace( PHP_EOL, ' ', strip_tags( html_entity_decode( $page->text()->kirbytext() )))
   ]);
 
 }
 
+// fuse.je config
+$fuse_config = 'var options={include:["score"],shouldSort:!0,threshold:.6,location:0,distance:100,maxPatternLength:32,minMatchCharLength:1,keys:["priority","text"]};window.fuse=new Fuse(list,options);';
+
 // write json index
-file_put_contents( __DIR__ . DS . 'static' . DS . 'index.json',  'var documents = ' . json_encode( $index ) );
+file_put_contents( __DIR__ . DS . 'static' . DS . 'search.js',  'var list = ' . json_encode( $index ) . "; $fuse_config" );
 
 // helpers
 function retitle( $match ) {

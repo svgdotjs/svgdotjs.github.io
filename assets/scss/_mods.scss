@@ -140,3 +140,66 @@ div > code {
     }
   }
 }
+
+aside {
+  .results {
+    display: none;
+  }
+
+  &.searched {
+    .results {
+      display: block;
+    }
+  }
+}
+
+.search {
+  position: relative;
+  margin-bottom: 1em;
+
+  input {
+    width: 100%;
+    outline: none;
+    padding: 5px; 
+  }
+
+  .results {
+    background-color: white;
+    position: absolute;
+    top: 36px;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.25);
+    z-index: 300;
+  }
+
+  .result {
+    padding: 5px;
+
+    &:hover, &.selected {
+      background-color: #e5e5e5;
+    }
+    
+    a {
+      display: block;
+      outline: none;
+    }
+  }
+}
+
+.fork-me-on-github {
+  transform: scale(0.75);
+  transform-origin: top right;
+}
+
+@media screen and ( max-width: 480px ) {
+  .fork-me-on-github {
+    transform: scale(0.5);
+    transform-origin: top right;
+  }
+}
+
+

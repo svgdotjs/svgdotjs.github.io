@@ -11,8 +11,10 @@
 
 <?= js('assets/js/libs/highlight.pack.js') ?>
 <?= js('assets/js/libs/accordion-plain.js') ?>
-<?= js('assets/js/kdoc.js') ?>
 <?= js('https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js') ?>
+<?= js('https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js') ?>
+<?= js('search.js') ?>
+<?= js('assets/js/kdoc.js') ?>
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <script src="//static.getclicky.com/js" type="text/javascript"></script>
 <script type="text/javascript">try{ clicky.init(101014746); }catch(e){}</script>
