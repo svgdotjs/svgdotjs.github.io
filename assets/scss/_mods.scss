@@ -195,11 +195,10 @@ aside {
   transform-origin: top right;
 }
 
-@media screen and ( max-width: 480px ) {
-  .fork-me-on-github {
-    transform: scale(0.5);
-    transform-origin: top right;
-  }
+.ad {
+  margin-top: 50px;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 
