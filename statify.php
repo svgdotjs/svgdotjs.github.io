@@ -84,7 +84,7 @@ foreach($site->index() as $page) {
 }
 
 // fuse.je config
-$fuse_config = 'var options={include:["score"],shouldSort:!0,threshold:.6,location:0,distance:100,maxPatternLength:32,minMatchCharLength:1,keys:["priority","text"]};window.fuse=new Fuse(list,options);';
+$fuse_config = 'var options={include:["score"],shouldSort:!0,tokenize:true,threshold:.6,location:0,distance:100,maxPatternLength:32,minMatchCharLength:1,keys:["priority","text"]};window.fuse=new Fuse(list,options);';
 
 // write json index
 file_put_contents( __DIR__ . DS . 'static' . DS . 'search.js',  'var list = ' . json_encode( $index ) . "; $fuse_config" );
