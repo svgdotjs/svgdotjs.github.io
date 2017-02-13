@@ -6,7 +6,139 @@ Text:
 
 # Events
 
-SVG.js supports named events, event listeners and custom events.
+## Basic events
+
+`returns` __`itself`__
+
+Events can be bound to elements as follows:
+
+```javascript
+rect.click(function() {
+  this.fill({ color: '#f06' })
+})
+```
+
+Removing it is quite as easy:
+
+```javascript
+rect.click(null)
+```
+
+All available events are: `click`, `dblclick`, `mousedown`, `mouseup`, `mouseover`, `mouseout`, `mousemove`, `touchstart`, `touchmove`, `touchleave`, `touchend` and `touchcancel`...
+
+## Event listeners
+
+### on()
+
+`returns` __`itself`__
+
+```javascript
+var click = function() {
+  this.fill({ color: '#f06' })
+}
+
+rect.on('click', click)
+```
+
+**Note:** The context of `this` in the callback is bound to the element. You can change this context by applying your own object:
+
+```javascript
+rect.on('click', click, window) // context of this is window
+```
+
+### off()
+
+`returns` __`itself`__
+
+Unbinding events is just as easy:
+
+```javascript
+rect.off('click', click)
+```
+
+Or to unbind all listeners for a given event:
+
+```javascript
+rect.off('click')
+```
+
+Or even unbind all listeners for all events:
+
+```javascript
+rect.off()
+```
+
+### other elements
+But there is more to event listeners. You can bind events to html elements as well:
+
+```javascript
+SVG.on(window, 'click', click)
+```
+
+Obviously unbinding is practically the same:
+
+```javascript
+SVG.off(window, 'click', click)
+```
+
+## Custom events
+You can even use your own events.
+
+Just add an event listener for your event:
+```javascript
+rect.on('myevent', function() {
+  alert('ta-da!')
+})
+```
+
+Now you are ready to fire the event whenever you need:
+
+```javascript
+function whenSomethingHappens() {
+  rect.fire('myevent')
+}
+
+// or if you want to pass an event
+function whenSomethingHappens(event) {
+  rect.fire(event)
+}
+```
+
+You can also pass some data to the event:
+
+```javascript
+function whenSomethingHappens() {
+  rect.fire('myevent', {some:'data'})
+}
+
+rect.on('myevent', function(e) {
+  alert(e.detail.some) // outputs 'data'
+})
+```
+
+SVG.js supports namespaced events following the syntax `event.namespace`.
+
+A namespaced event behaves like a normal event with the difference that you can remove it without touching handlers from other namespaces.
+
+```
+// attach
+rect.on('myevent.namespace', function(e) {
+  // do something
+})
+
+// detach all handlers of namespace for myevent
+rect.off('myevent.namespace')
+
+// detach all handlers of namespace
+rect.off('.namespace')
+
+// detach all handlers including all namespaces
+rect.off('myevent)
+```
+
+However you can't fire a specific namespaced event. Calling `rect.fire('myevent.namespace')` won't do anything while `rect.fire('myevent')` works and fires all attached handlers of the event
+
+_Important: always make sure you namespace your event to avoid conflicts. Preferably use something very specific. So `event.wicked` for example would be better than something generic like `event.svg`._
 
 ----
 

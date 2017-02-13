@@ -16,7 +16,7 @@
 
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
-    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170213194318">  </head>
+    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170213195344">  </head>
   <body class="docs-svgjs">
   <div class="container">
   <header role="banner">
@@ -440,33 +440,9 @@
       </li>
             <li class="group sidebar-nav-active">
 
-                  <button class="expand-subnav" aria-expanded="true" aria-controls="nav-collapsible-events">+</button>
                         <a href="https://svgdotjs.github.io//events">Events</a>
 
-                  <ul class="submenu nav-children" id="nav-collapsible-events" aria-hidden="false">
                 
-                            <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//events/basic">Basic</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//events/listeners">Listeners</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//events/custom">Custom</a>
-
-                        
-            
-          </li>
-                  </ul>
         
       </li>
             <li class="group">
@@ -478,21 +454,9 @@
         
                             <li class="">
             
-                                      <button class="expand-subnav expand-sub-subnav" aria-expanded="false" aria-controls="nav-collapsible-arrays">+</button>
-                        <a href="https://svgdotjs.github.io//classes/arrays">Arrays</a>
+                                    <a href="https://svgdotjs.github.io//classes/arrays">Arrays</a>
 
-                                    <ul class="submenu nav-children" id="nav-collapsible-arrays" aria-hidden="true">
-            
-                                        <li class="sidebar-nav-sub ">
-                <a href="https://svgdotjs.github.io//classes/arrays/array">Array</a>
-              </li>
-                            <li class="sidebar-nav-sub ">
-                <a href="https://svgdotjs.github.io//classes/arrays/pointarray">PointArray</a>
-              </li>
-                            <li class="sidebar-nav-sub ">
-                <a href="https://svgdotjs.github.io//classes/arrays/patharray">PathArray</a>
-              </li>
-                          </ul>
+                        
             
           </li>
                     <li class="">
@@ -744,7 +708,78 @@
 
     <section id="main" class="main-content" role="main">
       <h1>Events</h1>
-<p>SVG.js supports named events, event listeners and custom events.</p>    </section>
+<h2 id='basic-events'>Basic events</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Events can be bound to elements as follows:</p>
+<pre><code class="language-javascript">rect.click(function() {
+  this.fill({ color: '#f06' })
+})</code></pre>
+<p>Removing it is quite as easy:</p>
+<pre><code class="language-javascript">rect.click(null)</code></pre>
+<p>All available events are: <code>click</code>, <code>dblclick</code>, <code>mousedown</code>, <code>mouseup</code>, <code>mouseover</code>, <code>mouseout</code>, <code>mousemove</code>, <code>touchstart</code>, <code>touchmove</code>, <code>touchleave</code>, <code>touchend</code> and <code>touchcancel</code>...</p>
+<h2 id='event-listeners'>Event listeners</h2>
+<h3 id='on'>on()</h3>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<pre><code class="language-javascript">var click = function() {
+  this.fill({ color: '#f06' })
+}
+
+rect.on('click', click)</code></pre>
+<p><strong>Note:</strong> The context of <code>this</code> in the callback is bound to the element. You can change this context by applying your own object:</p>
+<pre><code class="language-javascript">rect.on('click', click, window) // context of this is window</code></pre>
+<h3 id='off'>off()</h3>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Unbinding events is just as easy:</p>
+<pre><code class="language-javascript">rect.off('click', click)</code></pre>
+<p>Or to unbind all listeners for a given event:</p>
+<pre><code class="language-javascript">rect.off('click')</code></pre>
+<p>Or even unbind all listeners for all events:</p>
+<pre><code class="language-javascript">rect.off()</code></pre>
+<h3 id='other-elements'>other elements</h3>
+<p>But there is more to event listeners. You can bind events to html elements as well:</p>
+<pre><code class="language-javascript">SVG.on(window, 'click', click)</code></pre>
+<p>Obviously unbinding is practically the same:</p>
+<pre><code class="language-javascript">SVG.off(window, 'click', click)</code></pre>
+<h2 id='custom-events'>Custom events</h2>
+<p>You can even use your own events.</p>
+<p>Just add an event listener for your event:</p>
+<pre><code class="language-javascript">rect.on('myevent', function() {
+  alert('ta-da!')
+})</code></pre>
+<p>Now you are ready to fire the event whenever you need:</p>
+<pre><code class="language-javascript">function whenSomethingHappens() {
+  rect.fire('myevent')
+}
+
+// or if you want to pass an event
+function whenSomethingHappens(event) {
+  rect.fire(event)
+}</code></pre>
+<p>You can also pass some data to the event:</p>
+<pre><code class="language-javascript">function whenSomethingHappens() {
+  rect.fire('myevent', {some:'data'})
+}
+
+rect.on('myevent', function(e) {
+  alert(e.detail.some) // outputs 'data'
+})</code></pre>
+<p>SVG.js supports namespaced events following the syntax <code>event.namespace</code>.</p>
+<p>A namespaced event behaves like a normal event with the difference that you can remove it without touching handlers from other namespaces.</p>
+<pre><code>// attach
+rect.on('myevent.namespace', function(e) {
+  // do something
+})
+
+// detach all handlers of namespace for myevent
+rect.off('myevent.namespace')
+
+// detach all handlers of namespace
+rect.off('.namespace')
+
+// detach all handlers including all namespaces
+rect.off('myevent)</code></pre>
+<p>However you can't fire a specific namespaced event. Calling <code>rect.fire('myevent.namespace')</code> won't do anything while <code>rect.fire('myevent')</code> works and fires all attached handlers of the event</p>
+<p><em>Important: always make sure you namespace your event to avoid conflicts. Preferably use something very specific. So <code>event.wicked</code> for example would be better than something generic like <code>event.svg</code>.</em></p>    </section>
 
   </div><!-- /.wrap content -->
 
@@ -758,7 +793,7 @@
   <img src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" class="fork-me-on-github">
 </a>
 
-<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170213194318"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170213194318"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170213195345"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170213195345"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
 <script src="//static.getclicky.com/js" type="text/javascript"></script>
 <script type="text/javascript">try{ clicky.init(101014746); }catch(e){}</script>
 <script>
