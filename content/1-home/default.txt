@@ -33,6 +33,18 @@ Svg.js is licensed under the terms of the (link: https://github.com/svgdotjs/svg
 ### Changelog
 Wondering what has changed in the latest releases? Have a look at the (link: https://github.com/svgdotjs/svg.js/blob/master/CHANGELOG.md text: change log target: _blank).
 
+<div class="ad">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- svgjs -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:100%;height:90px"
+     data-ad-client="ca-pub-8995113402914386"
+     data-ad-slot="9803338858"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
 ----
 
 Description: A lightweight library for manipulating and animating SVG. SVG.js has no dependencies and aims to be as small as possible.
