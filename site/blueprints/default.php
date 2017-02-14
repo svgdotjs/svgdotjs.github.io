@@ -1,7 +1,9 @@
 <?php if(!defined('KIRBY')) exit ?>
 
 title: Page
-pages: true
+pages:
+  - default
+  - anchor
 files: true
 fields:
   title:

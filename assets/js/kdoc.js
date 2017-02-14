@@ -41,6 +41,7 @@ function getParameterByName(name, url) {
   return decodeURIComponent( results[2].replace( /\+/g, ' ' ))
 }
 
+
 // Activate search
 ;( function() {
   var input = document.querySelector( '.search input[name=q]' )

@@ -54,8 +54,8 @@ foreach($site->index() as $page) {
   $site->visit( $page->uri() );
   $html = $kirby->render( $page );
 
-  // get all h2-6-tag content
-  preg_match_all( "#<(h[2-6])>(.*?)</\\1>#", $html, $match );
+  // get all h1-6-tag content
+  preg_match_all( "#<(h[1-6])>(.*?)</\\1>#", $html, $match );
 
   // remove tags
   $headings = array_map( function( $h ) {
@@ -63,7 +63,7 @@ foreach($site->index() as $page) {
   }, $match[2]);
 
   // convert h2-6 tags
-  $html = preg_replace_callback( "#<(h[2-6])>(.*?)</\\1>#", 'retitle', $html );
+  $html = preg_replace_callback( "#<(h[1-6])>(.*?)</\\1>#", 'retitle', $html );
 
   // set root base
   $root  = __DIR__ . DS . 'static' . DS;
