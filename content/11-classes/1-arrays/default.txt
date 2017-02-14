@@ -4,9 +4,7 @@ Title: Arrays
 
 Text: 
 
-# Arrays
-
-## SVG.Array
+# SVG.Array
 Is for simple, whitespace separated value strings:
 
 ```javascript
@@ -22,7 +20,7 @@ new SVG.Array([ .343,  .669, .119, 0,   0
               , .000,  .000, .000, 1,  -0 ])
 ```
 
-### morph()
+## morph()
 
 `returns` __`itself`__
 
@@ -37,7 +35,7 @@ This method will prepare the array ensuring both the source and destination arra
 
 In order to morph paths you need to include the [svg.pathmorphing.js](https://github.com/svgdotjs/svg.pathmorphing.js) extension.
 
-### at()
+## at()
 
 `returns` __new instance__
 
@@ -49,7 +47,7 @@ array.at(0.27).toString() //-> returns '27,0 73,100 127,127'
 
 Note that this method is currently not available on `SVG.PathArray` but will be soon.
 
-### settle()
+## settle()
 
 `returns` __`itself`__
 
@@ -61,7 +59,7 @@ array.settle()
 
 Note that this method is currently not available on `SVG.PathArray` but will be soon.
 
-### move()
+## move()
 
 `returns` __`itself`__
 
@@ -75,7 +73,7 @@ array.toString() //-> returns '33,75 133,175'
 
 Note that this method is only available on `SVG.PointArray` and `SVG.PathArray`
 
-### size()
+## size()
 
 `returns` __`itself`__
 
@@ -89,7 +87,7 @@ array.toString() //-> returns '100,100 322,433'
 
 Note that this method is only available on `SVG.PointArray` and `SVG.PathArray`
 
-### reverse()
+## reverse()
 
 `returns` __`itself`__
 
@@ -101,7 +99,7 @@ array.reverse()
 array.toString() //-> returns '100,100 0,0'
 ```
 
-### bbox()
+## bbox()
 
 `returns` __`object`__
 
@@ -113,7 +111,7 @@ array.bbox()
 
 Note that this method is only available on `SVG.PointArray` and `SVG.PathArray`
 
-## SVG.PointArray
+# SVG.PointArray
 
 `inherits from` __`SVG.Array`__
 
@@ -147,7 +145,7 @@ Note that every instance of `SVG.Polyline` and `SVG.Polygon` carries a reference
 polygon.array() //-> returns the SVG.PointArray instance
 ```
 
-## SVG.PathArray
+# SVG.PathArray
 
 `inherits from` __`SVG.Array`__
 
@@ -183,22 +181,22 @@ Note that every instance of `SVG.Path` carries a reference to the `SVG.PathArray
 path.array() //-> returns the SVG.PathArray instance
 ```
 
-### Syntax
+## Syntax
 The syntax for patharrays is very predictable. They are basically literal representations in the form of two dimentional arrays.
 
-#### Move To
+### Move To
 Original syntax is `M0 0` or `m0 0`. The SVG.js syntax `['M',0,0]` or `['m',0,0]`.
 
-#### Line To
+### Line To
 Original syntax is `L100 100` or `l100 100`. The SVG.js syntax `['L',100,100]` or `['l',100,100]`.
 
-#### Horizontal line
+### Horizontal line
 Original syntax is `H200` or `h200`. The SVG.js syntax `['H',200]` or `['h',200]`.
 
-#### Vertical line
+### Vertical line
 Original syntax is `V300` or `v300`. The SVG.js syntax `['V',300]` or `['v',300]`.
 
-#### Bezier curve
+### Bezier curve
 Original syntax is `C20 20 40 20 50 10` or `c20 20 40 20 50 10`. The SVG.js syntax `['C',20,20,40,20,50,10]` or `['c',20,20,40,20,50,10]`.
 
 Or mirrored with `S`:
@@ -213,10 +211,10 @@ Or a complete shortcut with `T`:
 
 Original syntax is `T50 10` or `t50 10`. The SVG.js syntax `['T',50,10]` or `['t',50,10]`.
 
-#### Arc
+### Arc
 Original syntax is `A 30 50 0 0 1 162 163` or `a 30 50 0 0 1 162 163`. The SVG.js syntax `['A',30,50,0,0,1,162,163]` or `['a',30,50,0,0,1,162,163]`.
 
-#### Close
+### Close
 Original syntax is `Z` or `z`. The SVG.js syntax `['Z']` or `['z']`.
 
 The best documentation on paths can be found at (link: https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths text: MDN target: _blank).

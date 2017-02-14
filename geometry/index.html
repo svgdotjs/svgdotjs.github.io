@@ -16,7 +16,7 @@
 
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
-    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170213195703">  </head>
+    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170214103433">  </head>
   <body class="docs-svgjs">
   <div class="container">
   <header role="banner">
@@ -364,28 +364,28 @@
                 
                             <li class="">
             
-                                    <a href="https://svgdotjs.github.io//geometry/viewbox">ViewBox</a>
+                                    <a href="#viewbox">ViewBox</a>
 
                         
             
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//geometry/bbox">BBox</a>
+                                    <a href="#bbox">BBox</a>
 
                         
             
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//geometry/rbox">RBox</a>
+                                    <a href="#rbox">RBox</a>
 
                         
             
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//geometry/tbox">TBox</a>
+                                    <a href="#tbox">TBox</a>
 
                         
             
@@ -440,9 +440,33 @@
       </li>
             <li class="group">
 
-                        <a href="https://svgdotjs.github.io//events">Events</a>
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-events">+</button>
+                <a href="https://svgdotjs.github.io//events">Events</a>
 
-                
+                        <ul class="submenu nav-children" id="nav-collapsible-events" aria-hidden="true">
+        
+                            <li class="">
+            
+                                    <a href="#basic-events">Basic events</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="#event-listeners">Event listeners</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="#custom-events">Custom events</a>
+
+                        
+            
+          </li>
+                  </ul>
         
       </li>
             <li class="group">
@@ -454,9 +478,21 @@
         
                             <li class="">
             
-                                    <a href="https://svgdotjs.github.io//classes/arrays">Arrays</a>
+                                      <button class="expand-subnav expand-sub-subnav" aria-expanded="false" aria-controls="nav-collapsible-arrays">+</button>
+                        <a href="https://svgdotjs.github.io//classes/arrays">Arrays</a>
 
-                        
+                                    <ul class="submenu nav-children" id="nav-collapsible-arrays" aria-hidden="true">
+            
+                                        <li class="sidebar-nav-sub ">
+                <a href="#svg-array">SVG.Array</a>
+              </li>
+                            <li class="sidebar-nav-sub ">
+                <a href="#svg-pointarray">SVG.PointArray</a>
+              </li>
+                            <li class="sidebar-nav-sub ">
+                <a href="#svg-patharray">SVG.PathArray</a>
+              </li>
+                          </ul>
             
           </li>
                     <li class="">
@@ -707,7 +743,7 @@
 </aside>
 
     <section id="main" class="main-content" role="main">
-      <h1>Boxes</h1>
+      <h1 id='boxes'>Boxes</h1>
 <p>Getting a bounding box of an element is often influenced by context. SVG.js offers various methods to get a bounding box of an element.</p>
 <p>All <code>SVG.*Box</code>instances have one method in common: <code>merge()</code>.</p>
 <h2 id='merge'>merge()</h2>
@@ -715,7 +751,85 @@
 <p>All <code>SVG.*Box</code> prototypes have a nifty little feature. With <code>merge()</code>, two <code>SVG.*Box</code> instances can be merged into one new instance, basically being the bounding box of the two original boxes. For example:</p>
 <pre><code class="language-javascript">var box1 = draw.rect(100,100).move(50,50).bbox()
 var box2 = draw.rect(100,100).move(200,200).bbox()
-var box3 = box1.merge(box2)</code></pre>    </section>
+var box3 = box1.merge(box2)</code></pre>
+<h1 id='viewbox'>ViewBox</h1>
+<p>The viewBox specifies a rectangle in user space which should be mapped to the bounds of the viewport established by the given element, taking into account attribute preserveAspectRatio.</p>
+<h2 id='viewbox-as-getter'>viewbox() <em>as getter</em></h2>
+<p><code>returns</code> <strong><code>SVG.ViewBox</code></strong></p>
+<p>Without any arguments an instance of <code>SVG.ViewBox</code> will be returned:</p>
+<pre><code class="language-javascript">var box = draw.viewbox()</code></pre>
+<p>But the best thing about the <code>viewbox()</code> method is that you can get the zoom of the viewbox:</p>
+<pre><code class="language-javascript">var box = draw.viewbox()
+var zoom = box.zoom</code></pre>
+<p>If the size of the viewbox equals the size of the svg drawing, the zoom value will be 1.</p>
+<h2 id='viewbox-as-setter'>viewbox() <em>as setter</em></h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>The <code>viewBox</code> attribute of an <code>&lt;svg&gt;</code> element can be managed with the <code>viewbox()</code> method. When supplied with four arguments it will act as a setter:</p>
+<pre><code class="language-javascript">draw.viewbox(0, 0, 297, 210)</code></pre>
+<p>Alternatively you can also supply an object as the first argument:</p>
+<pre><code class="language-javascript">draw.viewbox({ x: 0, y: 0, width: 297, height: 210 })</code></pre>
+<h1 id='bbox'>BBox</h1>
+<p>Stands for Bounding Box.</p>
+<iframe width="100%" height="200" src="//jsfiddle.net/wout/ear3azfb/embedded/result/?fontColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<h2 id='bbox'>bbox()</h2>
+<p><code>returns</code> <strong><code>SVG.BBox</code></strong></p>
+<p>Get the bounding box of an element. This is a wrapper for the native <code>getBBox()</code> method but adds more values:</p>
+<pre><code class="language-javascript">path.bbox()</code></pre>
+<p>This will return an instance of <code>SVG.BBox</code> containing the following values:</p>
+<ul>
+<li><code>width</code> (value from native <code>getBBox</code>)</li>
+<li><code>height</code> (value from native <code>getBBox</code>)</li>
+<li><code>w</code> (shorthand for <code>width</code>)</li>
+<li><code>h</code> (shorthand for <code>height</code>)</li>
+<li><code>x</code> (value from native <code>getBBox</code>)</li>
+<li><code>y</code> (value from native <code>getBBox</code>)</li>
+<li><code>cx</code> (center <code>x</code> of the bounding box)</li>
+<li><code>cy</code> (center <code>y</code> of the bounding box)</li>
+<li><code>x2</code> (lower right <code>x</code> of the bounding box)</li>
+<li><code>y2</code> (lower right <code>y</code> of the bounding box)</li>
+</ul>
+<h1 id='rbox'>RBox</h1>
+<p>Stands for Rect Box. It wraps the native <code>getBoundingClientRect()</code> method. It's different from the BBox because it calculates the bounding box around the visual representation of the element, including all transformations.</p>
+<iframe width="100%" height="200" src="//jsfiddle.net/wout/2ryg8v28/2/embedded/result/?fontColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<h2 id='rbox'>rbox()</h2>
+<p><code>returns</code> <strong><code>SVG.RBox</code></strong></p>
+<p>Is similar to <code>bbox()</code> but will give you the box around the exact visual representation of the element, taking all transformations into account.</p>
+<pre><code class="language-javascript">path.rbox()</code></pre>
+<p>This will return an instance of <code>SVG.RBox</code> containing the following values:</p>
+<ul>
+<li><code>width</code> (the actual visual width)</li>
+<li><code>height</code> (the actual visual height)</li>
+<li><code>w</code> (shorthand for <code>width</code>)</li>
+<li><code>h</code> (shorthand for <code>height</code>)</li>
+<li><code>x</code> (the actual visual position on the x-axis)</li>
+<li><code>y</code> (the actual visual position on the y-axis)</li>
+<li><code>cx</code> (center <code>x</code> of the bounding box)</li>
+<li><code>cy</code> (center <code>y</code> of the bounding box)</li>
+<li><code>x2</code> (lower right <code>x</code> of the bounding box)</li>
+<li><code>y2</code> (lower right <code>y</code> of the bounding box)</li>
+</ul>
+<p><strong>Important</strong>: Mozilla browsers include stroke widths where other browsers do not. Therefore the resulting box might be different in Mozilla browsers. It is very hard to modify this behavior so for the time being this is an inconvenience we have to live with.</p>
+<h1 id='tbox'>TBox</h1>
+<p>Stands for Transformed Box. It starts from a BBox but adds the scale transformations.</p>
+<iframe width="100%" height="200" src="//jsfiddle.net/wout/qa8y7qp2/embedded/result/?fontColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<h2 id='tbox'>tbox()</h2>
+<p><code>returns</code> <strong><code>SVG.TBox</code></strong></p>
+<p>Where <code>bbox()</code> returns a bounding box mindless of any transformations, the <code>tbox()</code> method does take transformations into account. So any translation or scale will be applied to the resulting values to get closer to the actual visual representation:</p>
+<pre><code class="language-javascript">path.tbox()</code></pre>
+<p>This will return an instance of <code>SVG.TBox</code> containing the following values:</p>
+<ul>
+<li><code>width</code> (value from native getBBox influenced by the <code>scaleX</code> of the current matrix)</li>
+<li><code>height</code> (value from native getBBox influenced by the <code>scaleY</code> of the current matrix)</li>
+<li><code>w</code> (shorthand for <code>width</code>)</li>
+<li><code>h</code> (shorthand for <code>height</code>)</li>
+<li><code>x</code> (value from native getBBox influenced by the <code>x</code> of the current matrix)</li>
+<li><code>y</code> (value from native getBBox influenced by the <code>y</code> of the current matrix)</li>
+<li><code>cx</code> (center <code>x</code> of the bounding box)</li>
+<li><code>cy</code> (center <code>y</code> of the bounding box)</li>
+<li><code>x2</code> (lower right <code>x</code> of the bounding box)</li>
+<li><code>y2</code> (lower right <code>y</code> of the bounding box)</li>
+</ul>
+<p>Note that the rotation of the element will not be added to the calculation.</p>    </section>
 
   </div><!-- /.wrap content -->
 
@@ -729,7 +843,7 @@ var box3 = box1.merge(box2)</code></pre>    </section>
   <img src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" class="fork-me-on-github">
 </a>
 
-<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170213195703"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170213195703"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170214103433"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170214103433"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
 <script src="//static.getclicky.com/js" type="text/javascript"></script>
 <script type="text/javascript">try{ clicky.init(101014746); }catch(e){}</script>
 <script>
