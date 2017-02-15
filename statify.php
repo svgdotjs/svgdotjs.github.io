@@ -89,6 +89,9 @@ $fuse_config = 'var options={include:["score"],shouldSort:!0,tokenize:true,thres
 // write json index
 file_put_contents( __DIR__ . DS . 'static' . DS . 'search.js',  'var list = ' . json_encode( $index ) . "; $fuse_config" );
 
+// write CNAME file
+file_put_contents( __DIR__ . DS . 'static' . DS . 'CNAME', 'svgjs.com' );
+
 // helpers
 function retitle( $match ) {
   list( $_unused, $hx, $title ) = $match;

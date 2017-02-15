@@ -65,7 +65,7 @@ draw.viewbox({ x: 0, y: 0, width: 297, height: 210 })
 
 Stands for Bounding Box.
 
-<iframe width="100%" height="200" src="//jsfiddle.net/wout/ear3azfb/embedded/result/?fontColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<script async src="//jsfiddle.net/wout/ear3azfb/22/embed/js,result/?fontColor=f06&accentColor=f06"></script>
 
 ## bbox()
 
@@ -94,7 +94,7 @@ This will return an instance of `SVG.BBox` containing the following values:
 
 Stands for Rect Box. It wraps the native `getBoundingClientRect()` method. It's different from the BBox because it calculates the bounding box around the visual representation of the element, including all transformations.
 
-<iframe width="100%" height="200" src="//jsfiddle.net/wout/2ryg8v28/2/embedded/result/?fontColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<script async src="//jsfiddle.net/wout/2ryg8v28/3/embed/result,js/?fontColor=f06&accentColor=f06"></script>
 
 ## rbox()
 
@@ -125,7 +125,7 @@ __Important__: Mozilla browsers include stroke widths where other browsers do no
 
 Stands for Transformed Box. It starts from a BBox but adds the scale transformations.
 
-<iframe width="100%" height="200" src="//jsfiddle.net/wout/qa8y7qp2/embedded/result/?fontColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<script async src="//jsfiddle.net/wout/qa8y7qp2/embed/result,js/?fontColor=f06&accentColor=f06"></script>
 
 ## tbox()
 
