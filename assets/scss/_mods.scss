@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+
 .sidebar-nav {
   .sidebar-nav-sub {
     padding-left: 1em;
@@ -199,6 +201,17 @@ aside {
   margin-top: 50px;
   max-width: 100%;
   overflow: hidden;
+}
+
+pre {
+  background-color: #F5F6F7;
+}
+
+.hljs {
+  font-family: "Inconsolata", "Monaco", "Andale Mono", "Lucida Console", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+  -webkit-font-smoothing: antialiased;
+  font-size: 14px;
+  background-color: #F5F6F7;
 }
 
 

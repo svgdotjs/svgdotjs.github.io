@@ -8,9 +8,111 @@ Text:
 
 The `SVG.Parent` prototype is the base wrapper for all elements that can contain other elements. `SVG.Parent` inherits directly from the lowest level of all SVG.js prototypes: `SVG.Element`.
 
-`SVG.Container` adds another level to the parent inheritance stack. Where `SVG.Parent` brings some low level methods like `add()`, `remove()` and `has()` to name a few, `SVG.Container` can and should be used if you want to add your won methods. That way the `SVG.Parent` prototype remains clean. Therefore you should always inherit from `SVG.Container` when implementing your own parent elements.
+`SVG.Container` adds another level to the parent inheritance stack. Where `SVG.Parent` brings some low level methods like `add()`, `remove()` and `has()` to name a few, `SVG.Container` can and should be used if you want to add your own methods. That way the `SVG.Parent` prototype remains clean. Therefore you should always inherit from `SVG.Container` when implementing your own parent elements.
 
 The parent inheritance stack is: `SVG.Element` > `SVG.Parent` > `SVG.Container`.
+
+# Main svg document
+
+`returns` __`SVG.Doc`__ ` which inherits from ` __`SVG.Container`__
+
+The main SVG.js initializer function creates a root svg node in the given element and returns an instance of `SVG.Doc`:
+
+```javascript
+var draw = SVG('drawing')
+```
+
+# Groups
+
+`returns` __`SVG.G`__ ` which inherits from ` __`SVG.Container`__
+
+Grouping elements is useful if you want to transform a set of elements as if it were one. All element within a group maintain their position relative to the group they belong to. A group has all the same element methods as the root svg document:
+
+```javascript
+var group = draw.group()
+group.path('M10,20L30,40')
+```
+
+Existing elements from the svg document can also be added to a group:
+
+```javascript
+group.add(rect)
+```
+
+__Note:__ Groups do not have a geometry of their own, it's inherited from their content. Therefore groups do not listen to `x`, `y`, `width` and `height` attributes. If that is what you are looking for, use a `nested()` svg instead.
+
+# Nested svg
+
+`returns` __`SVG.Nested`__ ` which inherits from ` __`SVG.Container`__
+
+With this feature you can nest svg documents within each other. Nested svg documents have exactly the same features as the main, top-level svg document:
+
+```javascript
+var nested = draw.nested()
+
+var rect = nested.rect(200, 200)
+```
+
+# Defs
+
+`returns` __`SVG.Defs`__ ` which inherits from ` __`SVG.Container`__
+
+The `<defs>` element is a container element for referenced elements. Elements that are descendants of a ‘defs’ are not rendered directly. The `<defs>` node lives in the main `<svg>` document and can be accessed with the `defs()` method:
+
+```javascript
+var defs = draw.defs()
+```
+
+The defs are also available on any other element through the `doc()` method:
+
+```javascript
+var defs = rect.doc().defs()
+```
+
+The defs node works exactly the same as groups.
+
+# Hyperlink
+
+`returns` __`SVG.A`__ ` which inherits from ` __`SVG.Container`__
+
+A hyperlink or `<a>` tag creates a container that enables a link on all children:
+
+```javascript
+var link = draw.link('http://svgdotjs.github.io/')
+var rect = link.rect(100, 100)
+```
+
+The link url can be updated with the `to()` method:
+
+```javascript
+link.to('http://apple.com')
+```
+
+Furthermore, the link element has a `show()` method to create the `xlink:show` attribute:
+
+```javascript
+link.show('replace')
+```
+
+And the `target()` method to create the `target` attribute:
+
+```javascript
+link.target('_blank')
+```
+
+Elements can also be linked the other way around with the `linkTo()` method:
+
+```javascript
+rect.linkTo('http://svgdotjs.github.io/')
+```
+
+Alternatively a block can be passed instead of a url for more options on the link element:
+
+```javascript
+rect.linkTo(function(link) {
+  link.to('http://svgdotjs.github.io/').target('_blank')
+})
+```
 
 ----
 

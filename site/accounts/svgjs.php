@@ -9,8 +9,8 @@ role: admin
 firstname: SVG
 lastname: JS
 history:
-  - geometry
-  - geometry/bbox
-  - classes/arrays
   - elements/textpath
-  - events
+  - geometry
+  - parents
+  - parents/hyperlink
+  - parents/defs
