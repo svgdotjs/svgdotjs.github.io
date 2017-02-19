@@ -42,6 +42,26 @@ text.textPath().animate(3000).attr('startOffset', '80%')
 
 **Note**: If a `startOffset` other than a percentage is given, then the value represents a distance along the path measured in the current user coordinate system.
 
+## array()
+
+`returns` __`SVG.PathArray`__
+
+Get the path array of the underlying path:
+
+```javascript
+var array = text.textPath().array()
+```
+
+## plot()
+
+`returns` __`itself`__
+
+Change the path on the textpath element:
+
+```javascript
+text.textPath().path('M 300 500 C 200 100 300 0 400 100 C 500 200 600 300 700 200')
+```
+
 ## textPath()
 
 `returns` __`SVG.TextPath`__
