@@ -207,11 +207,15 @@ pre {
   background-color: #F5F6F7;
 }
 
-.hljs {
+code, .hljs {
   font-family: "Inconsolata", "Monaco", "Andale Mono", "Lucida Console", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
   -webkit-font-smoothing: antialiased;
   font-size: 14px;
   background-color: #F5F6F7;
+}
+
+strong code {
+  background-color: #fff;
 }
 
 

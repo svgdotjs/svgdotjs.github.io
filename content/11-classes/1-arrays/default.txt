@@ -20,6 +20,20 @@ new SVG.Array([ .343,  .669, .119, 0,   0
               , .000,  .000, .000, 1,  -0 ])
 ```
 
+## clone()
+
+`returns` __`SVG.Array`__
+
+Makes a clone of the array and returns it: 
+
+```javascript
+var array = new SVG.Array()
+var clone = array.clone()
+```
+
+**Note:** This method performs a deep clone on multi-dimensional arrays like `SVG.PointArray` and `SVG.PathArray`. 
+**Note 2**: Obviously, the returned array is of the same class as the cloned array (e.g. `SVG.Array`, `SVG.PointArray` or `SVG.PathArray`).
+
 ## morph()
 
 `returns` __`itself`__
@@ -33,7 +47,7 @@ array.morph('100,0 0,100 200,200')
 
 This method will prepare the array ensuring both the source and destination arrays have the same length.
 
-In order to morph paths you need to include the [svg.pathmorphing.js](https://github.com/svgdotjs/svg.pathmorphing.js) extension.
+**Note**: In order to morph paths with different lengths, you need to include the [svg.pathmorphing.js](/plugins/svg-pathmorphing-js) plugin.
 
 ## at()
 

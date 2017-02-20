@@ -86,11 +86,18 @@ foreach($site->index() as $page) {
 // fuse.je config
 $fuse_config = 'var options={include:["score"],shouldSort:!0,tokenize:true,threshold:.6,location:0,distance:100,maxPatternLength:32,minMatchCharLength:1,keys:["priority","text"]};window.fuse=new Fuse(list,options);';
 
+// root dir
+$root = __DIR__ . DS . 'static' . DS;
+
 // write json index
-file_put_contents( __DIR__ . DS . 'static' . DS . 'search.js',  'var list = ' . json_encode( $index ) . "; $fuse_config" );
+file_put_contents(  $root . 'search.js',  'var list = ' . json_encode( $index ) . "; $fuse_config" );
 
 // write CNAME file
-file_put_contents( __DIR__ . DS . 'static' . DS . 'CNAME', 'svgjs.com' );
+file_put_contents( $root . 'CNAME', 'svgjs.com' );
+
+// move 404 file
+rename( $root . '404/index.html', $root . '404.html' );
+rmdir( $root . '404' );
 
 // helpers
 function retitle( $match ) {
