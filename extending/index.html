@@ -16,7 +16,7 @@
 
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
-    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170219152115">  </head>
+    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170220153428">  </head>
   <body class="docs-svgjs">
   <div class="container">
   <header role="banner">
@@ -556,14 +556,14 @@
                 
                             <li class="">
             
-                                    <a href="https://svgdotjs.github.io//extending/svg-invent">SVG.invent</a>
+                                    <a href="#svg-invent">SVG.invent</a>
 
                         
             
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//extending/svg-extend">SVG.extend</a>
+                                    <a href="#svg-extend">SVG.extend</a>
 
                         
             
@@ -744,7 +744,89 @@
 
     <section id="main" class="main-content" role="main">
       <h1 id='extending'>Extending</h1>
-<p>Due to the Object Oriented nature of SVG.js, objects/prototypes can be extended on any level. The <code>invent()</code> method provides a convenient way to implement your own functionality.</p>    </section>
+<p>Due to the Object Oriented nature of SVG.js, objects/prototypes can be extended on any level. The <code>invent()</code> method provides a convenient way to implement your own functionality.</p>
+<h2 id='svg-invent'>SVG.invent()</h2>
+<p>Creating your own custom elements with SVG.js is a piece of cake thanks to the <code>SVG.invent</code> function. For the sake of this example, lets &quot;invent&quot; a shape. We want a <code>rect</code> with rounded corners that are always proportional to the height of the element. The new shape lives in the <code>SVG</code> namespace and is called <code>Rounded</code>. Here is how we achieve that.</p>
+<pre><code class="language-javascript">SVG.Rounded = SVG.invent({
+  // Define the type of element that should be created
+  create: 'rect'
+
+  // Specify from which existing class this shape inherits
+, inherit: SVG.Shape
+
+  // Add custom methods to invented shape
+, extend: {
+    // Create method to proportionally scale the rounded corners
+    size: function(width, height) {
+      return this.attr({
+        width:  width
+      , height: height
+      , rx:     height / 5
+      , ry:     height / 5
+      })
+    }
+  }
+
+  // Add method to parent elements
+, construct: {
+    // Create a rounded element
+    rounded: function(width, height) {
+      return this.put(new SVG.Rounded).size(width, height)
+    }
+
+  }
+})</code></pre>
+<p>To create the element in your drawing:</p>
+<pre><code class="language-javascript">var rounded = draw.rounded(200, 100)</code></pre>
+<p>That's it, the invention is now ready to be used!</p>
+<h3 id='accepted-values'>Accepted values</h3>
+<p>The <code>SVG.invent()</code> function always expects an object. The object can have the following configuration values:</p>
+<ul>
+<li><code>create</code>: can be either a string with the node name (e.g. <code>rect</code>, <code>ellipse</code>, ...) or a custom initializer function; <code>[required]</code></li>
+<li><code>inherit</code>: the desired SVG.js class to inherit from (e.g. <code>SVG.Shape</code>, <code>SVG.Element</code>, <code>SVG.Container</code>, <code>SVG.Rect</code>, ...); <code>[optional but recommended]</code></li>
+<li><code>extend</code>: an object with the methods that should be applied to the element's prototype; <code>[optional]</code></li>
+<li><code>construct</code>: an object with the methods to create the element on the parent element; <code>[optional]</code></li>
+<li><code>parent</code>: an SVG.js parent class on which the methods in the passed <code>construct</code> object should be available - defaults to <code>SVG.Container</code>; <code>[optional]</code></li>
+</ul>
+<h3 id='usage-notes'>Usage notes</h3>
+<p>It should be emphasized that in the configuration object passed to <code>SVG.invent()</code>:</p>
+<ul>
+<li><code>construct</code> does not supply constructors, but rather methods that are likely to <em>call</em> constructors;</li>
+<li><code>create</code> specifies the constructor for the type you are defining, and is not analogous to <code>Object.create()</code>.</li>
+</ul>
+<p>When defining specialized svg elements (such as <code>SVG.Rounded</code> in the example above), the function specified by <code>create</code> needs to do all the work of adding the element to the DOM for the svg document and connecting the DOM node to the SVG.js interface. All this is done automatically when the value of <code>create</code> is a string identifying an element type. If needed, see the source for a sense of how to do it explicitly.</p>
+<p>Though the defaults are geared toward creating svg elements for the SVG.js framework, <code>SVG.invent()</code> can be used as a generalized function for defining types in Javascript. When used in this more general way, the function supplied as a value for <code>create</code> should be written as an ordinary JS constructor. (Indeed, the function is simply returned as the constructor for your newly defined type.)</p>
+<p>Svg.js uses the <code>SVG.invent()</code> function to create all internal elements. A look at the source will show how this function is used in various ways.</p>
+<h2 id='svg-extend'>SVG.extend()</h2>
+<p>SVG.js has a modular structure. It is very easy to add your own methods at different levels. Let's say we want to add a method to all shape types then we would add our method to SVG.Shape:</p>
+<pre><code class="language-javascript">SVG.extend(SVG.Shape, {
+  paintRed: function() {
+    return this.fill('red')
+  }
+})</code></pre>
+<p>Now all shapes will have the paintRed method available. Say we want to have the paintRed method on an ellipse apply a slightly different color:</p>
+<pre><code class="language-javascript">SVG.extend(SVG.Ellipse, {
+  paintRed: function() {
+    return this.fill('orangered')
+  }
+})
+</code></pre>
+<p>The complete inheritance stack for <code>SVG.Ellipse</code> is:</p>
+<p><em><code>SVG.Ellipse</code> &lt; <code>SVG.Shape</code> &lt; <code>SVG.Element</code></em></p>
+<p>The SVG document can be extended by using:</p>
+<pre><code class="language-javascript">SVG.extend(SVG.Doc, {
+  paintAllPink: function() {
+    this.each(function() {
+      this.fill('pink')
+    })
+  }
+})</code></pre>
+<p>You can also extend multiple elements at once:</p>
+<pre><code class="language-javascript">SVG.extend(SVG.Ellipse, SVG.Path, SVG.Polygon, {
+  paintRed: function() {
+    return this.fill('orangered')
+  }
+})</code></pre>    </section>
 
   </div><!-- /.wrap content -->
 
@@ -758,7 +840,7 @@
   <img src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" class="fork-me-on-github">
 </a>
 
-<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170219152115"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170219152115"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170220153428"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170220153428"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
 <script src="//static.getclicky.com/js" type="text/javascript"></script>
 <script type="text/javascript">try{ clicky.init(101014746); }catch(e){}</script>
 <script>
