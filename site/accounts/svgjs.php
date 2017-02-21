@@ -9,8 +9,8 @@ role: admin
 firstname: SVG
 lastname: JS
 history:
-  - "404"
   - classes/arrays
-  - extending
-  - extending/svg-extend
-  - extending/svg-invent
+  - elements/path
+  - elements/polygon
+  - elements/polyline
+  - elements/line

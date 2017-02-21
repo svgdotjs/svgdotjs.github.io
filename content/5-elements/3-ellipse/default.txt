@@ -8,8 +8,6 @@ Text:
 
 `returns` __`SVG.Circle`__ ` which inherits from ` __`SVG.Shape`__
 
-
-
 ```javascript
 var ellipse = draw.ellipse(200, 100)
 ```

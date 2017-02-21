@@ -17,6 +17,16 @@ var polygon = draw.polygon('0,0 100,50 50,100').fill('none').stroke({ width: 1 }
 
 Polygon strings are exactly the same as polyline strings. There is no need to close the shape as the first and last point will be connected automatically.
 
+## array()
+
+`returns` __`SVG.PointArray`__
+
+References the `SVG.PointArray` instance. This method is rather intended for internal use:
+
+```javascript
+polygon.array()
+```
+
 ## plot()
 
 `returns` __`itself`__
@@ -31,16 +41,6 @@ The `plot()` method can also be animated:
 
 ```javascript
 polygon.animate(3000).plot([[0,0], [100,50], [50,100], [150,50], [200,50], [250,100], [300,50], [350,50]])
-```
-
-## array()
-
-`returns` __`SVG.PointArray`__
-
-References the `SVG.PointArray` instance. This method is rather intended for internal use:
-
-```javascript
-polygon.array()
 ```
 
 ----

@@ -20,9 +20,31 @@ new SVG.Array([ .343,  .669, .119, 0,   0
               , .000,  .000, .000, 1,  -0 ])
 ```
 
+## at()
+
+`returns` __`new instance`__
+
+This method will morph the array to a given position between `0` and `1`. Continuing with the previous example:
+
+```javascript
+array.at(0.27).toString() //-> returns '27,0 73,100 127,127'
+```
+
+## bbox()
+
+`returns` __`object`__
+
+Gets the bounding box of the geometry of the array:
+
+```javascript
+array.bbox()
+```
+
+**Note**: this method is only available on `SVG.PointArray` and `SVG.PathArray`.
+
 ## clone()
 
-`returns` __`SVG.Array`__
+`returns` __`new instance`__
 
 Makes a clone of the array and returns it: 
 
@@ -49,30 +71,6 @@ This method will prepare the array ensuring both the source and destination arra
 
 **Note**: In order to morph paths with different lengths, you need to include the [svg.pathmorphing.js](/plugins/svg-pathmorphing-js) plugin.
 
-## at()
-
-`returns` __new instance__
-
-This method will morph the array to a given position between `0` and `1`. Continuing with the previous example:
-
-```javascript
-array.at(0.27).toString() //-> returns '27,0 73,100 127,127'
-```
-
-Note that this method is currently not available on `SVG.PathArray` but will be soon.
-
-## settle()
-
-`returns` __`itself`__
-
-When morphing is done the `settle()` method will eliminate any transitional points like duplicates:
-
-```javascript
-array.settle()
-```
-
-Note that this method is currently not available on `SVG.PathArray` but will be soon.
-
 ## move()
 
 `returns` __`itself`__
@@ -85,21 +83,7 @@ array.move(33,75)
 array.toString() //-> returns '33,75 133,175'
 ```
 
-Note that this method is only available on `SVG.PointArray` and `SVG.PathArray`
-
-## size()
-
-`returns` __`itself`__
-
-Resizes geometry of the array by the given `width` and `height` values:
-
-```javascript
-var array = new SVG.PointArray([[0, 0], [100, 100]])
-array.move(100,100).size(222,333)
-array.toString() //-> returns '100,100 322,433'
-```
-
-Note that this method is only available on `SVG.PointArray` and `SVG.PathArray`
+**Note**: this method is only available on `SVG.PointArray` and `SVG.PathArray`
 
 ## reverse()
 
@@ -113,17 +97,29 @@ array.reverse()
 array.toString() //-> returns '100,100 0,0'
 ```
 
-## bbox()
+## settle()
 
-`returns` __`object`__
+`returns` __`itself`__
 
-Gets the bounding box of the geometry of the array:
+When morphing is done the `settle()` method will eliminate any transitional points like duplicates:
 
 ```javascript
-array.bbox()
+array.settle()
 ```
 
-Note that this method is only available on `SVG.PointArray` and `SVG.PathArray`
+## size()
+
+`returns` __`itself`__
+
+Resizes geometry of the array by the given `width` and `height` values:
+
+```javascript
+var array = new SVG.PointArray([[0, 0], [100, 100]])
+array.move(100,100).size(222,333)
+array.toString() //-> returns '100,100 322,433'
+```
+
+**Note**: this method is only available on `SVG.PointArray` and `SVG.PathArray`
 
 # SVG.PointArray
 
@@ -133,9 +129,19 @@ Is a bit more complex and is used for polyline and polygon elements. This is a p
 
 ```javascript
 '0,0 100,100'
+// or
+'0 0 100 100'
+// or
+'0, 0, 100, 100'
 ```
 
-The dynamic representation:
+The flat array representation:
+
+```javascript
+[0, 0, 100, 100]
+```
+
+The multi-dimensional array representation:
 
 ```javascript
 [
@@ -169,7 +175,13 @@ Path arrays carry arrays representing every segment in a path string:
 'M0 0L100 100z'
 ```
 
-The dynamic representation:
+The flat array representation:
+
+```javascript
+[ 'M', 0, 0, 'L', 100, 100, 'z' ]
+```
+
+The multi-dimensional array representation:
 
 ```javascript
 [
