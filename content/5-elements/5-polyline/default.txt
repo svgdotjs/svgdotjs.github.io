@@ -36,7 +36,7 @@ polyline.array()
 
 ## plot()
 
-`returns` __`itself`__
+`returns` __`itself`__<br>`animate` __`yes`__
 
 Polylines can be updated using the `plot()` method:
 

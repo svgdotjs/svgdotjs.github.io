@@ -6,37 +6,9 @@ Text:
 
 # Transforms
 
-## transform() _as getter_
-
-`returns`__ `value`__
-
-The `transform()` method acts as a full getter without an argument:
-
-```javascript
-element.transform()
-```
-
-The returned __`object`__ contains the following values:
-
-- `x` (translation on the x-axis)
-- `y` (translation on the y-axis)
-- `skewX` (calculated skew on x-axis)
-- `skewY` (calculated skew on y-axis)
-- `scaleX` (calculated scale on x-axis)
-- `scaleY` (calculated scale on y-axis)
-- `rotation` (calculated rotation)
-- `cx` (last used rotation centre on x-axis)
-- `cy` (last used rotation centre on y-axis)
-
-Additionally a string value for the required property can be passed:
-
-```javascript
-element.transform('rotation')
-```
-
 ## transform() _as setter_
 
-`returns`__ `itself`__
+`returns`__ `itself`__<br>`animate`__ `yes`__
 
 As a setter it has two ways of working. By default transformations are absolute. For example, if you call:
 
@@ -69,9 +41,37 @@ Available transformations are:
 - `y`
 - `a`, `b`, `c`, `d`, `e` and/or `f` or an existing matrix instead of the object
 
+## transform() _as getter_
+
+`returns`__ `value`__
+
+The `transform()` method acts as a full getter without an argument:
+
+```javascript
+element.transform()
+```
+
+The returned __`object`__ contains the following values:
+
+- `x` (translation on the x-axis)
+- `y` (translation on the y-axis)
+- `skewX` (calculated skew on x-axis)
+- `skewY` (calculated skew on y-axis)
+- `scaleX` (calculated scale on x-axis)
+- `scaleY` (calculated scale on y-axis)
+- `rotation` (calculated rotation)
+- `cx` (last used rotation centre on x-axis)
+- `cy` (last used rotation centre on y-axis)
+
+Additionally a string value for the required property can be passed:
+
+```javascript
+element.transform('rotation')
+```
+
 ## rotate()
 
-`returns`__ `itself`__
+`returns`__ `itself`__<br>`animate`__ `yes`__
 
 The `rotate()` method will automatically rotate elements according to the center of the element:
 
@@ -89,7 +89,7 @@ rect.rotate(45, 50, 50)
 
 ## skew()
 
-`returns` __`itself`__
+`returns` __`itself`__<br>`animate`__ `yes`__
 
 The `skew()` method will take an `x` and `y` value:
 
@@ -100,7 +100,7 @@ rect.skew(0, 45)
 
 ## scale()
 
-`returns` __`itself`__
+`returns` __`itself`__<br>`animate`__ `yes`__
 
 The `scale()` method will take an `x` and `y` value:
 
@@ -111,7 +111,7 @@ rect.scale(0.5, -1)
 
 ## translate()
 
-`returns` __`itself`__
+`returns` __`itself`__<br>`animate`__ `yes`__
 
 The `translate()` method will take an `x` and `y` value:
 

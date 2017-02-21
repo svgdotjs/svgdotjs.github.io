@@ -16,7 +16,7 @@
 
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
-    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170221093314">  </head>
+    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170221202553">  </head>
   <body class="docs-svgjs">
   <div class="container">
   <header role="banner">
@@ -246,21 +246,21 @@
         
                             <li class="">
             
-                                    <a href="https://svgdotjs.github.io//referencing/circular-reference">Circular reference</a>
+                                    <a href="#circular-reference">Circular reference</a>
 
                         
             
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//referencing/parent-references">Parent reference</a>
+                                    <a href="#parent-references">Parent reference</a>
 
                         
             
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//referencing/child-references">Child references</a>
+                                    <a href="#child-references">Child references</a>
 
                         
             
@@ -744,26 +744,8 @@
 
     <section id="main" class="main-content" role="main">
       <h1 id='transforms'>Transforms</h1>
-<h2 id='transform-as-getter'>transform() <em>as getter</em></h2>
-<p><code>returns</code><strong> <code>value</code></strong></p>
-<p>The <code>transform()</code> method acts as a full getter without an argument:</p>
-<pre><code class="language-javascript">element.transform()</code></pre>
-<p>The returned <strong><code>object</code></strong> contains the following values:</p>
-<ul>
-<li><code>x</code> (translation on the x-axis)</li>
-<li><code>y</code> (translation on the y-axis)</li>
-<li><code>skewX</code> (calculated skew on x-axis)</li>
-<li><code>skewY</code> (calculated skew on y-axis)</li>
-<li><code>scaleX</code> (calculated scale on x-axis)</li>
-<li><code>scaleY</code> (calculated scale on y-axis)</li>
-<li><code>rotation</code> (calculated rotation)</li>
-<li><code>cx</code> (last used rotation centre on x-axis)</li>
-<li><code>cy</code> (last used rotation centre on y-axis)</li>
-</ul>
-<p>Additionally a string value for the required property can be passed:</p>
-<pre><code class="language-javascript">element.transform('rotation')</code></pre>
 <h2 id='transform-as-setter'>transform() <em>as setter</em></h2>
-<p><code>returns</code><strong> <code>itself</code></strong></p>
+<p><code>returns</code><strong> <code>itself</code></strong><br><code>animate</code><strong> <code>yes</code></strong></p>
 <p>As a setter it has two ways of working. By default transformations are absolute. For example, if you call:</p>
 <pre><code class="language-javascript">element.transform({ rotation: 125 }).transform({ rotation: 37.5 })</code></pre>
 <p>The resulting rotation will be <code>37.5</code> and not the sum of the two transformations. But if that's what you want there is a way out by adding the <code>relative</code> parameter. That would be:</p>
@@ -782,8 +764,26 @@
 <li><code>y</code></li>
 <li><code>a</code>, <code>b</code>, <code>c</code>, <code>d</code>, <code>e</code> and/or <code>f</code> or an existing matrix instead of the object</li>
 </ul>
+<h2 id='transform-as-getter'>transform() <em>as getter</em></h2>
+<p><code>returns</code><strong> <code>value</code></strong></p>
+<p>The <code>transform()</code> method acts as a full getter without an argument:</p>
+<pre><code class="language-javascript">element.transform()</code></pre>
+<p>The returned <strong><code>object</code></strong> contains the following values:</p>
+<ul>
+<li><code>x</code> (translation on the x-axis)</li>
+<li><code>y</code> (translation on the y-axis)</li>
+<li><code>skewX</code> (calculated skew on x-axis)</li>
+<li><code>skewY</code> (calculated skew on y-axis)</li>
+<li><code>scaleX</code> (calculated scale on x-axis)</li>
+<li><code>scaleY</code> (calculated scale on y-axis)</li>
+<li><code>rotation</code> (calculated rotation)</li>
+<li><code>cx</code> (last used rotation centre on x-axis)</li>
+<li><code>cy</code> (last used rotation centre on y-axis)</li>
+</ul>
+<p>Additionally a string value for the required property can be passed:</p>
+<pre><code class="language-javascript">element.transform('rotation')</code></pre>
 <h2 id='rotate'>rotate()</h2>
-<p><code>returns</code><strong> <code>itself</code></strong></p>
+<p><code>returns</code><strong> <code>itself</code></strong><br><code>animate</code><strong> <code>yes</code></strong></p>
 <p>The <code>rotate()</code> method will automatically rotate elements according to the center of the element:</p>
 <pre><code class="language-javascript">// rotate(degrees)
 rect.rotate(45)</code></pre>
@@ -791,17 +791,17 @@ rect.rotate(45)</code></pre>
 <pre><code class="language-javascript">// rotate(degrees, cx, cy)
 rect.rotate(45, 50, 50)</code></pre>
 <h2 id='skew'>skew()</h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code><strong> <code>yes</code></strong></p>
 <p>The <code>skew()</code> method will take an <code>x</code> and <code>y</code> value:</p>
 <pre><code class="language-javascript">// skew(x, y)
 rect.skew(0, 45)</code></pre>
 <h2 id='scale'>scale()</h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code><strong> <code>yes</code></strong></p>
 <p>The <code>scale()</code> method will take an <code>x</code> and <code>y</code> value:</p>
 <pre><code class="language-javascript">// scale(x, y)
 rect.scale(0.5, -1)</code></pre>
 <h2 id='translate'>translate()</h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code><strong> <code>yes</code></strong></p>
 <p>The <code>translate()</code> method will take an <code>x</code> and <code>y</code> value:</p>
 <pre><code class="language-javascript">// translate(x, y)
 rect.translate(0.5, -1)</code></pre>    </section>
@@ -818,7 +818,7 @@ rect.translate(0.5, -1)</code></pre>    </section>
   <img src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" class="fork-me-on-github">
 </a>
 
-<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170221093314"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170221093314"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170221202553"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170221202553"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
 <script src="//static.getclicky.com/js" type="text/javascript"></script>
 <script type="text/javascript">try{ clicky.init(101014746); }catch(e){}</script>
 <script>

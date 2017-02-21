@@ -16,7 +16,7 @@
 
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
-    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170221093315">  </head>
+    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170221202553">  </head>
   <body class="docs-svgjs">
   <div class="container">
   <header role="banner">
@@ -246,21 +246,21 @@
         
                             <li class="">
             
-                                    <a href="https://svgdotjs.github.io//referencing/circular-reference">Circular reference</a>
+                                    <a href="#circular-reference">Circular reference</a>
 
                         
             
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//referencing/parent-references">Parent reference</a>
+                                    <a href="#parent-references">Parent reference</a>
 
                         
             
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//referencing/child-references">Child references</a>
+                                    <a href="#child-references">Child references</a>
 
                         
             
@@ -744,13 +744,32 @@
 
     <section id="main" class="main-content" role="main">
       <h1 id='document-tree'>Document Tree</h1>
+<h2 id='add'>add()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Sets the calling element as the parent node of the argument. Returns the parent:</p>
+<pre><code class="language-javascript">var rect = draw.rect(100, 100)
+var group = draw.group()
+
+group.add(rect) //-&gt; returns group</code></pre>
+<h2 id='addto'>addTo()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Sets the calling element as a child node of the argument. Returns the child:</p>
+<pre><code class="language-javascript">rect.addTo(group) //-&gt; returns rect</code></pre>
 <h2 id='clone'>clone()</h2>
 <p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
 <p>To make an exact copy of an element the <code>clone()</code> method comes in handy:</p>
 <pre><code class="language-javascript">var clone = rect.clone()</code></pre>
 <p>This will create a new, unlinked copy. For making a linked clone, see the <a href="/elements/use">use</a> element.<br />
-By default the cloned element is placed directly after the orginal element.<br />
+By default, the cloned element is placed directly after the original element.<br />
 When you pass a parent parameter to the <code>clone()</code> function it will append the cloned element to the given parent.</p>
+<h2 id='put'>put()</h2>
+<p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
+<p>Sets the calling element as the parent node of the argument. Returns the child:</p>
+<pre><code class="language-javascript">group.put(rect) //-&gt; returns rect</code></pre>
+<h2 id='putin'>putIn()</h2>
+<p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
+<p>Sets the calling element as a child node of the argument. Returns the parent:</p>
+<pre><code class="language-javascript">rect.putIn(group) //-&gt; returns group</code></pre>
 <h2 id='remove'>remove()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Removes the calling element from the svg document:</p>
@@ -759,50 +778,27 @@ When you pass a parent parameter to the <code>clone()</code> function it will ap
 <p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
 <p>At the calling element's position in the svg document, replace the calling element with the element passed to the method.</p>
 <pre><code class="language-javascript">rect.replace(draw.circle(100))</code></pre>
-<h2 id='add'>add()</h2>
+<h2 id='todoc'>toDoc()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Sets the calling element as the parent node of the argument. Returns the parent:</p>
-<pre><code class="language-javascript">var rect = draw.rect(100, 100)
-var group = draw.group()
-
-group.add(rect) //-&gt; returns group</code></pre>
-<h2 id='put'>put()</h2>
-<p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
-<p>Sets the calling element as the parent node of the argument. Returns the child:</p>
-<pre><code class="language-javascript">group.put(rect) //-&gt; returns rect</code></pre>
-<h2 id='addto'>addTo()</h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Sets the calling element as a child node of the argument. Returns the child:</p>
-<pre><code class="language-javascript">rect.addTo(group) //-&gt; returns rect</code></pre>
-<h2 id='putin'>putIn()</h2>
-<p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
-<p>Sets the calling element as a child node of the argument. Returns the parent:</p>
-<pre><code class="language-javascript">rect.putIn(group) //-&gt; returns group</code></pre>
+<p>Same as <code>toParent()</code> but with the root-node as parent</p>
 <h2 id='toparent'>toParent()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Moves an element to a different parent (similar to <code>addTo</code>), but without changing its visual representation. All transformations are merged and applied to the element.</p>
 <pre><code class="language-javascript">rect.toParent(group) // looks the same as before</code></pre>
-<h2 id='todoc'>toDoc()</h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Same as <code>toParent()</code> but with the root-node as parent</p>
 <h2 id='ungroup-flatten'>ungroup() / flatten()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Break up a group/container and move all the elements to a given parent node without changing their visual representations. The result is a flat svg structure, e.g. for exporting.</p>
-<pre><code class="language-javascript">// ungroups all elements in this group recursively and places them into the given parent
-// (default: parent container of the calling element)
-group.ungroup(parent, depth)
-
-// call it on the whole document to get a flat svg structure
-drawing.ungroup()
-
-// breaks up the group and places all elements in drawing
-group.ungroup(drawing)
-
-// breaks up all groups until it reaches a depth of 3
-drawing.ungroup(null, 3)
-
-// flat and export svg
-var svgString = drawing.ungroup().svg()</code></pre>    </section>
+<p>Ungroup all elements in this group recursively and places them into the given parent</p>
+<pre><code class="language-javascript">group.ungroup(parent, depth)
+// (default: parent container of the calling element)</code></pre>
+<p>Call it on the whole document to get a flat svg structure:</p>
+<pre><code class="language-javascript">drawing.ungroup()</code></pre>
+<p>Break up the group and places all elements in the drawing:</p>
+<pre><code class="language-javascript">group.ungroup(drawing)</code></pre>
+<p>Break up all groups until it reaches a depth of 3:</p>
+<pre><code class="language-javascript">drawing.ungroup(null, 3)</code></pre>
+<p>Flat and export svg:</p>
+<pre><code class="language-javascript">var svgString = drawing.ungroup().svg()</code></pre>    </section>
 
   </div><!-- /.wrap content -->
 
@@ -816,7 +812,7 @@ var svgString = drawing.ungroup().svg()</code></pre>    </section>
   <img src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" class="fork-me-on-github">
 </a>
 
-<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170221093315"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170221093315"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170221202553"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170221202553"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
 <script src="//static.getclicky.com/js" type="text/javascript"></script>
 <script type="text/javascript">try{ clicky.init(101014746); }catch(e){}</script>
 <script>

@@ -16,7 +16,7 @@
 
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
-    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170221093315">  </head>
+    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170221202553">  </head>
   <body class="docs-svgjs">
   <div class="container">
   <header role="banner">
@@ -246,21 +246,21 @@
         
                             <li class="">
             
-                                    <a href="https://svgdotjs.github.io//referencing/circular-reference">Circular reference</a>
+                                    <a href="#circular-reference">Circular reference</a>
 
                         
             
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//referencing/parent-references">Parent reference</a>
+                                    <a href="#parent-references">Parent reference</a>
 
                         
             
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//referencing/child-references">Child references</a>
+                                    <a href="#child-references">Child references</a>
 
                         
             
@@ -745,48 +745,48 @@
     <section id="main" class="main-content" role="main">
       <h1 id='arranging'>Arranging</h1>
 <p>You can arrange elements within their parent SVG document using the following methods.</p>
-<h2 id='front'>front()</h2>
+<h2 id='after'>after()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Move element to the front:</p>
-<pre><code class="language-javascript">rect.front()</code></pre>
-<h2 id='back'>back()</h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Move element to the back:</p>
-<pre><code class="language-javascript">rect.back()</code></pre>
-<h2 id='forward'>forward()</h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Move element one step forward:</p>
-<pre><code class="language-javascript">rect.forward()</code></pre>
-<h2 id='backward'>backward()</h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Move element one step backward:</p>
-<pre><code class="language-javascript">rect.backward()</code></pre>
-<h2 id='siblings'>siblings()</h2>
-<p><code>returns</code> <strong><code>array</code></strong></p>
-<p>The arrange.js module brings some additional methods. To get all siblings of rect, including rect itself:</p>
-<pre><code class="language-javascript">rect.siblings()</code></pre>
-<h2 id='position'>position()</h2>
-<p><code>returns</code> <strong><code>number</code></strong></p>
-<p>Get the position (a number) of rect between its siblings:</p>
-<pre><code class="language-javascript">rect.position()</code></pre>
-<h2 id='next'>next()</h2>
-<p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
-<p>Get the next sibling:</p>
-<pre><code class="language-javascript">rect.next()</code></pre>
-<h2 id='previous'>previous()</h2>
-<p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
-<p>Get the previous sibling:</p>
-<pre><code class="language-javascript">rect.previous()</code></pre>
+<p>Insert an element after another:</p>
+<pre><code class="language-javascript">// inserts circle after rect
+rect.after(circle)</code></pre>
 <h2 id='before'>before()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Insert an element before another:</p>
 <pre><code class="language-javascript">// inserts circle before rect
 rect.before(circle)</code></pre>
-<h2 id='after'>after()</h2>
+<h2 id='back'>back()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Insert an element after another:</p>
-<pre><code class="language-javascript">// inserts circle after rect
-rect.after(circle)</code></pre>    </section>
+<p>Move element to the back:</p>
+<pre><code class="language-javascript">rect.back()</code></pre>
+<h2 id='backward'>backward()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Move element one step backward:</p>
+<pre><code class="language-javascript">rect.backward()</code></pre>
+<h2 id='front'>front()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Move element to the front:</p>
+<pre><code class="language-javascript">rect.front()</code></pre>
+<h2 id='forward'>forward()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Move element one step forward:</p>
+<pre><code class="language-javascript">rect.forward()</code></pre>
+<h2 id='next'>next()</h2>
+<p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
+<p>Get the next sibling:</p>
+<pre><code class="language-javascript">rect.next()</code></pre>
+<h2 id='position'>position()</h2>
+<p><code>returns</code> <strong><code>number</code></strong></p>
+<p>Get the position (a number) of rect between its siblings:</p>
+<pre><code class="language-javascript">rect.position()</code></pre>
+<h2 id='previous'>previous()</h2>
+<p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
+<p>Get the previous sibling:</p>
+<pre><code class="language-javascript">rect.previous()</code></pre>
+<h2 id='siblings'>siblings()</h2>
+<p><code>returns</code> <strong><code>array</code></strong></p>
+<p>The arrange.js module brings some additional methods. To get all siblings of rect, including rect itself:</p>
+<pre><code class="language-javascript">rect.siblings()</code></pre>    </section>
 
   </div><!-- /.wrap content -->
 
@@ -800,7 +800,7 @@ rect.after(circle)</code></pre>    </section>
   <img src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" class="fork-me-on-github">
 </a>
 
-<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170221093315"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170221093315"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170221202553"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170221202553"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
 <script src="//static.getclicky.com/js" type="text/javascript"></script>
 <script type="text/javascript">try{ clicky.init(101014746); }catch(e){}</script>
 <script>

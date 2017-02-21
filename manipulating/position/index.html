@@ -16,7 +16,7 @@
 
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
-    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170221093315">  </head>
+    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170221202553">  </head>
   <body class="docs-svgjs">
   <div class="container">
   <header role="banner">
@@ -246,21 +246,21 @@
         
                             <li class="">
             
-                                    <a href="https://svgdotjs.github.io//referencing/circular-reference">Circular reference</a>
+                                    <a href="#circular-reference">Circular reference</a>
 
                         
             
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//referencing/parent-references">Parent reference</a>
+                                    <a href="#parent-references">Parent reference</a>
 
                         
             
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//referencing/child-references">Child references</a>
+                                    <a href="#child-references">Child references</a>
 
                         
             
@@ -748,63 +748,63 @@
 <p>For example, the following code works because each element is positioned by setting native attributes:</p>
 <pre><code class="language-javascript">rect.attr({ x: 20, y: 60 })
 circle.attr({ cx: 50, cy: 40 })</code></pre>
-<p>The <code>rect</code> will be moved by its upper left corner to the new coordinates, and the <code>circle</code> will be moved by its center. However, trying to move a <code>circle</code> by its 'corner' or a <code>rect</code> by its center in this way will fail. The following lines will get silently ignored as the attributes that are addressed are not natively used by the element setting them:</p>
+<p>The <code>rect</code> will be moved by its upper left corner to the new coordinates, and the <code>circle</code> will be moved by its centre. However, trying to move a <code>circle</code> by its 'corner' or a <code>rect</code> by its centre in this way will fail. The following lines will get silently ignored as the attributes that are addressed are not natively used by the element setting them:</p>
 <pre><code class="language-javascript">rect.attr({ cx: 20, cy: 60 })
 circle.attr({ x: 50, y: 40 })</code></pre>
 <p>However, the positioning methods detailed below will work for all element types, regardless of whether the attributes being addressed are native to the type. So, unlike the lines above, these lines work just fine:</p>
 <pre><code class="language-javascript">rect.cx(20).cy(60)
 circle.x(50).y(40)</code></pre>
-<p>It is important to note, though, that these methods are only intended for use with user (unitless) coordinates. If, for example, an element has its size set via percentages or other units, the positioning methods that address its native attributes will most likely still work, but the ones that address non-native attributes will give unexpected results -- as both getters and setters!</p>
+<p>It is important to note, though, that these methods are only intended for use with user (unitless) coordinates. If for example, an element has its size set via percentages or other units, the positioning methods that address its native attributes will most likely still work, but the ones that address non-native attributes will give unexpected results -- as both getters and setters!</p>
 <h2 id='move'>move()</h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
 <p>Move the element by its upper left corner to a given <code>x</code> and <code>y</code> position:</p>
 <pre><code class="language-javascript">rect.move(200, 350)</code></pre>
+<h2 id='x-as-setter'>x() <em>as setter</em></h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Move the element by its upper left corner along the x-axis only:</p>
+<pre><code class="language-javascript">rect.x(200)</code></pre>
 <h2 id='x-as-getter'>x() <em>as getter</em></h2>
 <p><code>returns</code> <strong><code>value</code></strong></p>
 <p>Without an argument the <code>x()</code> method serves as a getter:</p>
 <pre><code class="language-javascript">var x = rect.x()</code></pre>
-<h2 id='x-as-setter'>x() <em>as setter</em></h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Move the element by its upper left corner along the x-axis only:</p>
-<pre><code class="language-javascript">rect.x(200)</code></pre>
+<h2 id='y-as-setter'>y() <em>as setter</em></h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Move the element by its upper left corner along the y-axis only:</p>
+<pre><code class="language-javascript">rect.y(350)</code></pre>
 <h2 id='y-as-getter'>y() <em>as getter</em></h2>
 <p><code>returns</code> <strong><code>value</code></strong></p>
 <p>Without an argument the <code>y()</code> method serves as a getter:</p>
 <pre><code class="language-javascript">var y = rect.y()</code></pre>
-<h2 id='y-as-setter'>y() <em>as setter</em></h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Move the element by its upper left corner along the y-axis only:</p>
-<pre><code class="language-javascript">rect.y(350)</code></pre>
 <h2 id='center'>center()</h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
 <p>Move the element by its center to a given <code>cx</code> and <code>cy</code> position:</p>
 <pre><code class="language-javascript">rect.center(150, 150)</code></pre>
+<h2 id='cx-as-setter'>cx() <em>as setter</em></h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Move the element by its centre in the <code>x</code> direction only:</p>
+<pre><code class="language-javascript">rect.cx(200)</code></pre>
 <h2 id='cx-as-getter'>cx() <em>as getter</em></h2>
 <p><code>returns</code> <strong><code>value</code></strong></p>
 <p>Without an argument the <code>cx()</code> method serves as a getter:</p>
 <pre><code class="language-javascript">var cx = rect.cx()</code></pre>
-<h2 id='cx-as-setter'>cx() <em>as setter</em></h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Move the element by its center in the <code>x</code> direction only:</p>
-<pre><code class="language-javascript">rect.cx(200)</code></pre>
+<h2 id='cy-as-setter'>cy() <em>as setter</em></h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Move the element by its centre in the <code>y</code> direction only:</p>
+<pre><code class="language-javascript">rect.cy(350)</code></pre>
 <h2 id='cy-as-getter'>cy() <em>as getter</em></h2>
 <p><code>returns</code> <strong><code>value</code></strong></p>
 <p>Without an argument the <code>cy()</code> method serves as a getter as well:</p>
 <pre><code class="language-javascript">var cy = rect.cy()</code></pre>
-<h2 id='cy-as-setter'>cy() <em>as setter</em></h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Move the element by its center in the <code>y</code> direction only:</p>
-<pre><code class="language-javascript">rect.cy(350)</code></pre>
 <h2 id='dmove'>dmove()</h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
 <p>Shift the element in both the <code>x</code> and <code>y</code> directions relative to its current position:</p>
 <pre><code class="language-javascript">rect.dmove(10, 30)</code></pre>
 <h2 id='dx'>dx()</h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
 <p>Shift the element in the <code>x</code> direction relative to its current position:</p>
 <pre><code class="language-javascript">rect.dx(200)</code></pre>
 <h2 id='dy'>dy()</h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
 <p>Shift the element in the <code>y</code> direction relative to its current position:</p>
 <pre><code class="language-javascript">rect.dy(200)</code></pre>    </section>
 
@@ -820,7 +820,7 @@ circle.x(50).y(40)</code></pre>
   <img src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" class="fork-me-on-github">
 </a>
 
-<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170221093315"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170221093315"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170221202553"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170221202553"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
 <script src="//static.getclicky.com/js" type="text/javascript"></script>
 <script type="text/javascript">try{ clicky.init(101014746); }catch(e){}</script>
 <script>

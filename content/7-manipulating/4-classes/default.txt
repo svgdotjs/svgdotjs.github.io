@@ -6,11 +6,21 @@ Text:
 
 # Class Names
 
+## addClass()
+
+`returns` __`itself`__
+
+Adds a given css class:
+
+```javascript
+rect.addClass('pink-flower')
+```
+
 ## classes()
 
 `returns` __`array`__
 
-Fetches the css classes for the node as an array:
+Fetches the CSS classes for the node as an array:
 
 ```javascript
 rect.classes()
@@ -24,16 +34,6 @@ Test the presence of a given css class:
 
 ```javascript
 rect.hasClass('purple-rain')
-```
-
-## addClass()
-
-`returns` __`itself`__
-
-Adds a given css class:
-
-```javascript
-rect.addClass('pink-flower')
 ```
 
 ## removeClass()

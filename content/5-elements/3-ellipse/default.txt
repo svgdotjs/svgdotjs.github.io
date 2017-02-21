@@ -14,7 +14,7 @@ var ellipse = draw.ellipse(200, 100)
 
 ## radius()
 
-`returns` __`itself`__
+`returns` __`itself`__<br>`animate` __`yes`__
 
 Ellipses can also be redefined by their radii:
 

@@ -16,7 +16,7 @@
 
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
-    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170221093314">  </head>
+    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170221202553">  </head>
   <body class="docs-svgjs">
   <div class="container">
   <header role="banner">
@@ -246,21 +246,21 @@
         
                             <li class="">
             
-                                    <a href="https://svgdotjs.github.io//referencing/circular-reference">Circular reference</a>
+                                    <a href="#circular-reference">Circular reference</a>
 
                         
             
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//referencing/parent-references">Parent reference</a>
+                                    <a href="#parent-references">Parent reference</a>
 
                         
             
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//referencing/child-references">Child references</a>
+                                    <a href="#child-references">Child references</a>
 
                         
             
@@ -753,12 +753,6 @@
   add.rect(10,10).move(10,10)
 })</code></pre>
 <p>This creates a checkered pattern of 20 x 20 pixels. You can add any available element to your pattern.</p>
-<h2 id='update'>update()</h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>A pattern can also be updated afterwards:</p>
-<pre><code class="language-javascript">pattern.update(function(add) {
-  add.circle(15).center(10,10)
-})</code></pre>
 <h2 id='fill-as-setter'>fill() <em>as setter</em></h2>
 <p><code>returns</code> <strong><code>value</code></strong></p>
 <p>Finally, to use the pattern on an element:</p>
@@ -767,7 +761,14 @@
 <pre><code class="language-javascript">rect.fill(pattern)</code></pre>
 <p>By passing the pattern instance as the fill on any element, the <code>fill()</code> method will be called on the pattern instance.</p>
 <h2 id='fill-as-getter'>fill() <em>as getter</em></h2>
-<pre><code class="language-javascript">pattern.fill() //-&gt; returns 'url(#SvgjsPattern1234)'</code></pre>    </section>
+<p><code>returns</code> <strong><code>value</code></strong></p>
+<pre><code class="language-javascript">pattern.fill() //-&gt; returns 'url(#SvgjsPattern1234)'</code></pre>
+<h2 id='update'>update()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>A pattern can also be updated afterwards:</p>
+<pre><code class="language-javascript">pattern.update(function(add) {
+  add.circle(15).center(10,10)
+})</code></pre>    </section>
 
   </div><!-- /.wrap content -->
 
@@ -781,7 +782,7 @@
   <img src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" class="fork-me-on-github">
 </a>
 
-<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170221093314"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170221093314"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170221202553"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170221202553"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
 <script src="//static.getclicky.com/js" type="text/javascript"></script>
 <script type="text/javascript">try{ clicky.init(101014746); }catch(e){}</script>
 <script>

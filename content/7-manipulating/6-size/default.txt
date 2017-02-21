@@ -8,7 +8,7 @@ Text:
 
 ## size()
 
-`returns` __`itself`__
+`returns` __`itself`__<br>`animate` __`yes`__
 
 Set the size of an element to a given `width` and `height`:
 
@@ -32,6 +32,16 @@ As with positioning, the size of an element could be set by using `attr()`. But 
 
 There is one exception though: for `SVG.Text` elements, this method takes only one argument and applies the given value to the `font-size` attribute.
 
+## width() _as setter_
+
+`returns` __`itself`__<br>`animate` __`yes`__
+
+Set the width of an element:
+
+```javascript
+rect.width(200)
+```
+
 ## width() _as getter_
 
 `returns` __`value`__
@@ -40,14 +50,14 @@ There is one exception though: for `SVG.Text` elements, this method takes only o
 var width = rect.width()
 ```
 
-## width() _as setter_
+## height() _as setter_
 
-`returns` __`itself`__
+`returns` __`itself`__<br>`animate` __`yes`__
 
-Set the width of an element:
+Set the height of an element:
 
 ```javascript
-rect.width(200)
+rect.height(325)
 ```
 
 ## height() _as getter_
@@ -58,19 +68,9 @@ rect.width(200)
 rect.height()
 ```
 
-## height() _as setter_
-
-`returns` __`itself`__
-
-Set the height of an element:
-
-```javascript
-rect.height(325)
-```
-
 ## radius()
 
-`returns` __`itself`__
+`returns` __`itself`__<br>`animate` __`yes`__
 
 Circles, ellipses, and rects may use the `radius()` method. On rects, it defines rounded corners.
 

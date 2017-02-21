@@ -6,24 +6,6 @@ Text:
 
 # Styles
 
-## style() _as getter_
-
-`returns` __`value`__ _(string, number, ...)_
-
-Similar to `attr()` the `style()` method can also act as a getter:
-
-```javascript
-rect.style('cursor')
-// => pointer
-```
-
-Or even a full getter:
-
-```javascript
-rect.style()
-// => 'cursor:pointer;fill:#f03;'
-```
-
 ## style() _as setter_
 
 `returns` __`itself`__
@@ -50,6 +32,24 @@ Explicitly deleting individual style definitions works the same as with the `att
 
 ```javascript
 rect.style('cursor', null)
+```
+
+## style() _as getter_
+
+`returns` __`value`__ _(string, number, ...)_
+
+Similar to `attr()` the `style()` method can also act as a getter:
+
+```javascript
+rect.style('cursor')
+// => pointer
+```
+
+Or even a full getter:
+
+```javascript
+rect.style()
+// => 'cursor:pointer;fill:#f03;'
 ```
 
 ----

@@ -54,7 +54,7 @@ var array = text.textPath().array()
 
 ## plot()
 
-`returns` __`itself`__
+`returns` __`itself`__<br>`animate` __`yes`__
 
 Change the path on the textpath element:
 

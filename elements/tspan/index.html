@@ -16,7 +16,7 @@
 
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
-    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170221093314">  </head>
+    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170221202553">  </head>
   <body class="docs-svgjs">
   <div class="container">
   <header role="banner">
@@ -246,21 +246,21 @@
         
                             <li class="">
             
-                                    <a href="https://svgdotjs.github.io//referencing/circular-reference">Circular reference</a>
+                                    <a href="#circular-reference">Circular reference</a>
 
                         
             
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//referencing/parent-references">Parent reference</a>
+                                    <a href="#parent-references">Parent reference</a>
 
                         
             
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//referencing/child-references">Child references</a>
+                                    <a href="#child-references">Child references</a>
 
                         
             
@@ -746,35 +746,26 @@
       <h1 id='tspan'>Tspan</h1>
 <p><code>returns</code> <strong><code>SVG.Tspan</code></strong> <code>which inherits from</code> <strong><code>SVG.Shape</code></strong></p>
 <p>The tspan elements are only available inside text elements or inside other tspan elements.</p>
-<h2 id='text'>text()</h2>
+<h2 id='clear'>clear()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Update the content of the tspan. This can be done by either passing a string:</p>
-<pre><code class="language-javascript">tspan.text('Just a string.')</code></pre>
-<p>Which will basicly call the <code>plain()</code> method.</p>
-<p>Or by passing a block to add more specific content inside the called tspan:</p>
-<pre><code class="language-javascript">tspan.text(function(add) {
-  add.plain('Just plain text.')
-  add.tspan('Fancy text wrapped in a tspan.').fill('#f06')
-  add.tspan(function(addMore) {
-    addMore.tspan('And you can doo deeper and deeper...')
-  })
-})</code></pre>
-<h2 id='tspan'>tspan()</h2>
-<p><code>returns</code> <strong><code>SVG.Tspan</code></strong></p>
-<p>Add a nested tspan:</p>
-<pre><code class="language-javascript">tspan.tspan('I am a child of my parent').fill('#f06')</code></pre>
+<p>Clear all the contents of the called tspan element:</p>
+<pre><code class="language-javascript">tspan.clear()</code></pre>
+<h2 id='dx'>dx()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Define the dynamic <code>x</code> value of the element, much like a html element with <code>position:relative</code> and <code>left</code> defined:</p>
+<pre><code class="language-javascript">tspan.dx(30)</code></pre>
+<h2 id='dy'>dy()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Define the dynamic <code>y</code> value of the element, much like a html element with <code>position:relative</code> and <code>top</code> defined:</p>
+<pre><code class="language-javascript">tspan.dy(30)</code></pre>
 <h2 id='plain'>plain()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Just adds some plain text:</p>
 <pre><code class="language-javascript">tspan.plain('I do not have any expectations.')</code></pre>
-<h2 id='dx'>dx()</h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Define the dynamic <code>x</code> value of the element, much like a html element with <code>position:relative</code> and <code>left</code> defined:</p>
-<pre><code class="language-javascript">tspan.dx(30)</code></pre>
-<h2 id='dy'>dy()</h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Define the dynamic <code>y</code> value of the element, much like a html element with <code>position:relative</code> and <code>top</code> defined:</p>
-<pre><code class="language-javascript">tspan.dy(30)</code></pre>
+<h2 id='length'>length()</h2>
+<p><code>returns</code> <strong><code>number</code></strong></p>
+<p>Gets the total computed text length:</p>
+<pre><code class="language-javascript">tspan.length()</code></pre>
 <h2 id='newline'>newLine()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>The <code>newLine()</code> is a convenience method for adding a new line with a <code>dy</code> attribute using the current &quot;leading&quot;:</p>
@@ -786,14 +777,23 @@
   add.tspan('Nunc ultrices lectus at erat').newLine()
   add.tspan('dictum pharetra elementum ante').newLine()
 })</code></pre>
-<h2 id='clear'>clear()</h2>
+<h2 id='text'>text()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Clear all the contents of the called tspan element:</p>
-<pre><code class="language-javascript">tspan.clear()</code></pre>
-<h2 id='length'>length()</h2>
-<p><code>returns</code> <strong><code>number</code></strong></p>
-<p>Gets the total computed text length:</p>
-<pre><code class="language-javascript">tspan.length()</code></pre>    </section>
+<p>Update the content of the tspan. This can be done by either passing a string:</p>
+<pre><code class="language-javascript">tspan.text('Just a string.')</code></pre>
+<p>Which will basicly call the <code>plain()</code> method:</p>
+<p>Or by passing a block to add more specific content inside the called tspan:</p>
+<pre><code class="language-javascript">tspan.text(function(add) {
+  add.plain('Just plain text.')
+  add.tspan('Fancy text wrapped in a tspan.').fill('#f06')
+  add.tspan(function(addMore) {
+    addMore.tspan('And you can doo deeper and deeper...')
+  })
+})</code></pre>
+<h2 id='tspan'>tspan()</h2>
+<p><code>returns</code> <strong><code>SVG.Tspan</code></strong></p>
+<p>Add a nested tspan:</p>
+<pre><code class="language-javascript">tspan.tspan('I am a child of my parent').fill('#f06')</code></pre>    </section>
 
   </div><!-- /.wrap content -->
 
@@ -807,7 +807,7 @@
   <img src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" class="fork-me-on-github">
 </a>
 
-<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170221093314"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170221093314"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170221202553"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170221202553"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
 <script src="//static.getclicky.com/js" type="text/javascript"></script>
 <script type="text/javascript">try{ clicky.init(101014746); }catch(e){}</script>
 <script>

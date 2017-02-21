@@ -16,7 +16,7 @@ var circle = draw.circle(100)
 
 ## radius()
 
-`returns` __`itself`__
+`returns` __`itself`__<br>`animate` __`yes`__
 
 ```javascript
 circle.radius(75)

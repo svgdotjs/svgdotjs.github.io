@@ -15,14 +15,14 @@ var rect = draw.rect(100, 100).fill('#f09')
 var use  = draw.use(rect).move(200, 200)
 ```
 
-In the case of the example above two rects will appear on the svg drawing, the original and the `use` instance. In some cases you might want to hide the original element. the best way to do this is to create the original element in the defs node:
+In the case of the example above two rects will appear on the svg drawing, the original and the `use` instance. In some cases, you might want to hide the original element. The best way to do this is to create the original element in the defs node:
 
 ```javascript
 var rect = draw.defs().rect(100, 100).fill('#f09')
 var use  = draw.use(rect).move(200, 200)
 ```
 
-In this way the rect element acts as a library element. You can edit it but it won't be rendered.
+In this way, the rect element acts as a library element. You can edit it, but it won't be rendered.
 
 Another way is to point an external SVG file, just specified the element `id` and path to file.
 

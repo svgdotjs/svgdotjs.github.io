@@ -48,7 +48,7 @@ var point = path.pointAt(105) //-> returns { x : 96.88497924804688, y : 58.06274
 
 ## plot()
 
-`returns` __`itself`__
+`returns` __`itself`__<br>`animate` __`yes`__
 
 Paths can be updated using the `plot()` method:
 

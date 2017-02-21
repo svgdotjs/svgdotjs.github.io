@@ -7,84 +7,15 @@ Text:
 # Arranging
 You can arrange elements within their parent SVG document using the following methods.
 
-## front()
+## after()
 
 `returns` __`itself`__
 
-Move element to the front:
+Insert an element after another:
 
 ```javascript
-rect.front()
-```
-
-## back()
-
-`returns` __`itself`__
-
-Move element to the back:
-
-```javascript
-rect.back()
-```
-
-## forward()
-
-`returns` __`itself`__
-
-Move element one step forward:
-
-```javascript
-rect.forward()
-```
-
-## backward()
-
-`returns` __`itself`__
-
-Move element one step backward:
-
-```javascript
-rect.backward()
-```
-
-## siblings()
-
-`returns` __`array`__
-
-The arrange.js module brings some additional methods. To get all siblings of rect, including rect itself:
-
-```javascript
-rect.siblings()
-```
-
-## position()
-
-`returns` __`number`__
-
-Get the position (a number) of rect between its siblings:
-
-```javascript
-rect.position()
-```
-
-## next()
-
-`returns` __`SVG.Element`__
-
-Get the next sibling:
-
-```javascript
-rect.next()
-```
-
-## previous()
-
-`returns` __`SVG.Element`__
-
-Get the previous sibling:
-
-```javascript
-rect.previous()
+// inserts circle after rect
+rect.after(circle)
 ```
 
 ## before()
@@ -98,15 +29,84 @@ Insert an element before another:
 rect.before(circle)
 ```
 
-## after()
+## back()
 
 `returns` __`itself`__
 
-Insert an element after another:
+Move element to the back:
 
 ```javascript
-// inserts circle after rect
-rect.after(circle)
+rect.back()
+```
+
+## backward()
+
+`returns` __`itself`__
+
+Move element one step backward:
+
+```javascript
+rect.backward()
+```
+
+## front()
+
+`returns` __`itself`__
+
+Move element to the front:
+
+```javascript
+rect.front()
+```
+
+## forward()
+
+`returns` __`itself`__
+
+Move element one step forward:
+
+```javascript
+rect.forward()
+```
+
+## next()
+
+`returns` __`SVG.Element`__
+
+Get the next sibling:
+
+```javascript
+rect.next()
+```
+
+## position()
+
+`returns` __`number`__
+
+Get the position (a number) of rect between its siblings:
+
+```javascript
+rect.position()
+```
+
+## previous()
+
+`returns` __`SVG.Element`__
+
+Get the previous sibling:
+
+```javascript
+rect.previous()
+```
+
+## siblings()
+
+`returns` __`array`__
+
+The arrange.js module brings some additional methods. To get all siblings of rect, including rect itself:
+
+```javascript
+rect.siblings()
 ```
 
 ----

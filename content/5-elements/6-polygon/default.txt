@@ -29,7 +29,7 @@ polygon.array()
 
 ## plot()
 
-`returns` __`itself`__
+`returns` __`itself`__<br>`animate` __`yes`__
 
 Like polylines, polygons can be updated using the `plot()` method:
 
