@@ -22,18 +22,6 @@ var pattern = draw.pattern(20, 20, function(add) {
 
 This creates a checkered pattern of 20 x 20 pixels. You can add any available element to your pattern.
 
-## update()
-
-`returns` __`itself`__
-
-A pattern can also be updated afterwards:
-
-```javascript
-pattern.update(function(add) {
-  add.circle(15).center(10,10)
-})
-```
-
 ## fill() _as setter_
 
 `returns` __`value`__
@@ -54,8 +42,22 @@ By passing the pattern instance as the fill on any element, the `fill()` method 
 
 ## fill() _as getter_
 
+`returns` __`value`__
+
 ```javascript
 pattern.fill() //-> returns 'url(#SvgjsPattern1234)'
+```
+
+## update()
+
+`returns` __`itself`__
+
+A pattern can also be updated afterwards:
+
+```javascript
+pattern.update(function(add) {
+  add.circle(15).center(10,10)
+})
 ```
 
 ----

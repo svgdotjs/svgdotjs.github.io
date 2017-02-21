@@ -28,7 +28,7 @@ polyline.array()
 
 ## plot()
 
-`returns` __`itself`__
+`returns` __`itself`__<br>`animate` __`yes`__
 
 Updating a line is done with the `plot()` method:
 
@@ -53,6 +53,11 @@ Or an instance of `SVG.PointArray`:
 ```javascript
 var array = new SVG.PointArray([[0, 0], [100, 150]])
 line.plot(array)
+```
+
+The `plot()` method can also be animated:
+```javascript
+line.animate(3000).plot([[200, 200], [100, 150]])
 ```
 
 ----

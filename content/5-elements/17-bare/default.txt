@@ -21,7 +21,7 @@ var element = draw.element('title')
 ```
 The string value passed as the first argument is the node name that should be generated.
 
-Additionally any existing class name can be passed as the second argument to define from which class the element should inherit:
+Additionally, any existing class name can be passed as the second argument to define from which class the element should inherit:
 
 ```javascript
 var element = draw.element('symbol', SVG.Parent)

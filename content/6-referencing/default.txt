@@ -52,6 +52,208 @@ var elements = $('#drawing g.my-group .my-element').each(function() {
 })
 ```
 
+# Circular reference
+Every element instance within SVG.js has a reference to the actual `node`:
+
+## node
+
+`returns` __`node`__
+
+```javascript
+element.node
+```
+
+## native()
+
+`returns` __`node`__
+
+The same can be achieved with the `native()` method:
+```javascript
+element.native()
+```
+
+## instance
+
+`returns` __`element`__
+
+Similarly, the node carries a reference to the SVG.js `instance`:
+
+```javascript
+node.instance
+```
+
+# Parent reference
+Every element has a reference to its parent with the `parent()` method:
+
+## doc()
+
+`returns` __`SVG.Doc`__
+
+For retrieving the root SVG you can use `doc()`
+
+```javascript
+var draw = SVG('drawing')
+var rect = draw.rect(100, 100)
+
+rect.doc() //-> returns draw
+```
+
+## parent() _within the svg document_
+
+`returns` __`SVG.Element`__
+
+```javascript
+element.parent()
+```
+
+Alternatively a class or css selector can be passed as the first argument:
+
+```javascript
+var draw   = SVG('drawing')
+var nested = draw.nested().addClass('test')
+var group  = nested.group()
+var rect   = group.rect(100, 100)
+
+rect.parent()           //-> returns group
+rect.parent(SVG.Doc)    //-> returns draw
+rect.parent(SVG.Nested) //-> returns nested
+rect.parent(SVG.G)      //-> returns group
+rect.parent('.test')    //-> returns nested
+```
+
+## parent() _on the topmost svg document_
+
+`returns` __`HTMLNode`__
+
+```javascript
+var draw = SVG('drawing')
+
+draw.parent() //-> returns the wrappig html element with id 'drawing'
+```
+
+## parents()
+
+`returns` __`array`__
+
+To get all ancestors of the element filtered by type or CSS selector (see `parent()` method)
+
+```javascript
+var group1 = draw.group().addClass('test')
+  , group2 = group1.group()
+  , rect   = group2.rect(100,100)
+
+rect.parents()        // returns [group1, group2, draw]
+rect.parents('.test') // returns [group1]
+rect.parents(SVG.G)   // returns [group1, group2]
+```
+
+# Child references
+
+## children()
+
+`returns` __`array`__
+
+An array of all children can be retrieved with the `children` method:
+
+```javascript
+draw.children()
+```
+
+## clear()
+
+`returns` __`itself`__
+
+To remove all elements from a parent element:
+
+```javascript
+draw.clear()
+```
+
+## each()
+
+`returns` __`itself`__
+
+The `each()` allows you to iterate over the all children of a parent element:
+
+```javascript
+draw.each(function(i, children) {
+  this.fill({ color: '#f06' })
+})
+```
+
+Deep traversing is also possible by passing true as the second argument:
+
+```javascript
+// draw.each(block, deep)
+draw.each(function(i, children) {
+  this.fill({ color: '#f06' })
+}, true)
+```
+
+**Note**: `this` refers to the current child element.
+
+## first()
+
+`returns` __`SVG.Element`__
+
+To get the first child of a parent element:
+
+```javascript
+draw.first()
+```
+
+## get()
+
+`returns` __`SVG.Element`__
+
+Get an element on a given position in the children array:
+
+```javascript
+var rect   = draw.rect(20, 30)
+var circle = draw.circle(50)
+
+draw.get(0) //-> returns rect
+draw.get(1) //-> returns circle
+```
+
+## has()
+
+`returns` __`boolean`__
+
+Checking the existence of an element within a parent:
+
+```javascript
+var rect  = draw.rect(100, 50)
+var group = draw.group()
+
+draw.has(rect)  //-> returns true
+group.has(rect) //-> returns false
+```
+
+## index()
+
+`returns` __`number`__
+
+Returns the index of given element and returns -1 when it is not a child:
+
+```javascript
+var rect  = draw.rect(100, 50)
+var group = draw.group()
+
+draw.index(rect)  //-> returns 0
+group.index(rect) //-> returns -1
+```
+
+## last()
+
+`returns` __`SVG.Element`__
+
+To get the last child of a parent element:
+
+```javascript
+draw.last()
+```
+
 ----
 
 Description: You can get an element created by SVG.js by its id. There are two ways to select elements using CSS selectors.

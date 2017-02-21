@@ -9,8 +9,8 @@ role: admin
 firstname: SVG
 lastname: JS
 history:
-  - classes/arrays
-  - elements/path
-  - elements/polygon
-  - elements/polyline
-  - elements/line
+  - manipulating/arranging
+  - manipulating/document-tree
+  - manipulating/size
+  - manipulating/position
+  - manipulating/classes
