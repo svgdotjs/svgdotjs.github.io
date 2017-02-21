@@ -760,16 +760,14 @@
 To run the test suite at the command line, you need to have Firefox installed.</p>
 <pre><code class="language-sh">$ npm test</code></pre>
 <p>To run the test suite in your default browser, simply open <code>/spec/SpecRunner.html</code>. Usually by double click.</p>
-<p>If you are the cautious type, you might want to read,<br />
-<a href="https://github.com/svgdotjs/svg.js/wiki/Before-you-push">before you push</a><br />
-, on how to prevent pushing failing commits.</p>
+<p>If you are the cautious type, you might want to read, <a href="#before-you-push">before you push</a>, on how to prevent pushing failing commits.</p>
 <h2 id='before-you-push'>Before you push</h2>
 <p>Imagine that you're tweaking some part of svg.js and as the responsible person you are, you made sure to run <code>npm test</code> before pushing. Unfortunately <code>npm test</code> tests the current <code>dist/svg.js</code> which only has your edits if you first did <code>npm run build</code>.</p>
 <p>This has happen to me a couple of times and as a svg.js contributor, it's embarrassing.</p>
 <p>Fortunately <code>git</code> has a <code>pre-push</code> hook which can save yourself from the embarrassment.</p>
-<p>I have created a <code>pre-commit</code> hook that will build a new <code>dist/svg.js</code> and run the tests. It's developed on Ubuntu 16.04 but should work on all *nix platforms. You can disable this check with:</p>
+<p>I have created a <code>pre-push</code> hook that will build a new <code>dist/svg.js</code> and run the tests. It's developed on Ubuntu 16.04 but should work on all *nix platforms. You can disable this check with:</p>
 <pre><code>git push --no-verify</code></pre>
-<p><strong><a href="https://gist.github.com/dotnetCarpenter/bb6c2f040e11922cc8f81ef42a8054fd" rel="noopener noreferrer" target="_blank">pre-commit</a></strong></p>
+<p><strong><a href="https://gist.github.com/dotnetCarpenter/bb6c2f040e11922cc8f81ef42a8054fd" rel="noopener noreferrer" target="_blank">pre-push</a></strong></p>
 <pre><code class="language-sh">#!/bin/sh
 
 npm run build:test &amp;&amp; npm run test:quick
@@ -817,7 +815,7 @@ npm ERR! Tell the author that this fails on your system:
 npm ERR!     karma start .config/karma.quick.js
 npm ERR! You can get information on how to open an issue for this project with:
 npm ERR!     npm bugs svg.js
-npm ERR! Or if that isn't available, you can get their info via:
+npm ERR! Or if that isn`t available, you can get their info via:
 npm ERR!     npm owner ls svg.js
 npm ERR! There is likely additional logging output above.
 
@@ -827,7 +825,7 @@ Your current build does not pass our unit tests - please make them pass before y
 HEAD is now at b66f005 Calling new awesome method
 error: failed to push some refs to 'https://github.com/dotnetCarpenter/svg.js.git'</code></pre>
 <h2 id='install'>Install</h2>
-<p>Put <a href="https://gist.github.com/dotnetCarpenter/bb6c2f040e11922cc8f81ef42a8054fd" rel="noopener noreferrer" target="_blank">pre-commit</a> in your local svg.js repository, in the .git/hooks folder and make it executable:</p>
+<p>Put <a href="https://gist.github.com/dotnetCarpenter/bb6c2f040e11922cc8f81ef42a8054fd" rel="noopener noreferrer" target="_blank">pre-push</a> in your local svg.js repository, in the .git/hooks folder and make it executable:</p>
 <pre><code>sudo chmod +x .git/hooks/pre-push</code></pre>
 <p>To disable the check when you push, write:</p>
 <pre><code>git push --no-verify</code></pre>    </section>
