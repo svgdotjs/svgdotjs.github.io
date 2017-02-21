@@ -18,8 +18,6 @@ var circle = draw.circle(100)
 
 `returns` __`itself`__
 
-
-
 ```javascript
 circle.radius(75)
 ```

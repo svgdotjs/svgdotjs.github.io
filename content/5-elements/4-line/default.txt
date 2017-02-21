@@ -16,6 +16,16 @@ var line = draw.line(0, 0, 100, 150).stroke({ width: 1 })
 
 Creating a line element can be done in four ways. Look at the `plot()` method to see all the possibilities.
 
+## array()
+
+`returns` __`SVG.PointArray`__
+
+References the `SVG.PointArray` instance. This method is rather intended for internal use:
+
+```javascript
+polyline.array()
+```
+
 ## plot()
 
 `returns` __`itself`__
@@ -43,16 +53,6 @@ Or an instance of `SVG.PointArray`:
 ```javascript
 var array = new SVG.PointArray([[0, 0], [100, 150]])
 line.plot(array)
-```
-
-## array()
-
-`returns` __`SVG.PointArray`__
-
-References the `SVG.PointArray` instance. This method is rather intended for internal use:
-
-```javascript
-polyline.array()
 ```
 
 ----
