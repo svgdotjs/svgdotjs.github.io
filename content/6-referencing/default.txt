@@ -82,7 +82,7 @@ Similarly, the node carries a reference to the SVG.js `instance`:
 node.instance
 ```
 
-# Parent reference
+# Parent references
 Every element has a reference to its parent with the `parent()` method:
 
 ## doc()

@@ -9,8 +9,8 @@ role: admin
 firstname: SVG
 lastname: JS
 history:
+  - referencing
+  - extending
+  - home
+  - acknowledgements-thanks
   - manipulating/arranging
-  - manipulating/document-tree
-  - manipulating/size
-  - manipulating/position
-  - manipulating/classes

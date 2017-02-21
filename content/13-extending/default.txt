@@ -99,7 +99,7 @@ SVG.extend(SVG.Ellipse, {
 ```
 The complete inheritance stack for `SVG.Ellipse` is:
 
-_`SVG.Ellipse` < `SVG.Shape` < `SVG.Element`_
+_`SVG.Element` > `SVG.Shape` > `SVG.Ellipse`_
 
 The SVG document can be extended by using:
 
