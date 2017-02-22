@@ -54,6 +54,13 @@ var draw = SVG('drawing')
 
 That's just **two** lines of code instead of **ten**! And a whole lot less repetition.
 
+
+<br>
+## Go crazy with animations
+
+<iframe width="100%" height="400" src="//jsfiddle.net/wout/7wL1uv8n/5/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+
 <br>
 ## There is more...
 - (link: /animating/ text: animations) on size, position, transformations, color, ...
