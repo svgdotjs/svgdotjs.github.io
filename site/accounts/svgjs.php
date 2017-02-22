@@ -10,7 +10,7 @@ firstname: SVG
 lastname: JS
 history:
   - elements/textpath
+  - home
   - animating/references
   - animating/callbacks
   - animating/timing
-  - animating/controlling
