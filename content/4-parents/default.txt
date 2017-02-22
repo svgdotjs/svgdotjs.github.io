@@ -12,6 +12,7 @@ The `SVG.Parent` prototype is the base wrapper for all elements that can contain
 
 The parent inheritance stack is: `SVG.Element` > `SVG.Parent` > `SVG.Container`.
 
+<br>
 # Main svg document
 
 `returns` __`SVG.Doc`__ ` which inherits from ` __`SVG.Container`__
@@ -22,6 +23,7 @@ The main SVG.js initializer function creates a root svg node in the given elemen
 var draw = SVG('drawing')
 ```
 
+<br>
 # Groups
 
 `returns` __`SVG.G`__ ` which inherits from ` __`SVG.Container`__
@@ -41,6 +43,7 @@ group.add(rect)
 
 __Note:__ Groups do not have a geometry of their own, it's inherited from their content. Therefore groups do not listen to `x`, `y`, `width` and `height` attributes. If that is what you are looking for, use a `nested()` svg instead.
 
+<br>
 # Nested svg
 
 `returns` __`SVG.Nested`__ ` which inherits from ` __`SVG.Container`__
@@ -53,6 +56,7 @@ var nested = draw.nested()
 var rect = nested.rect(200, 200)
 ```
 
+<br>
 # Defs
 
 `returns` __`SVG.Defs`__ ` which inherits from ` __`SVG.Container`__
@@ -71,6 +75,7 @@ var defs = rect.doc().defs()
 
 The defs node works exactly the same as groups.
 
+<br>
 # Hyperlink
 
 `returns` __`SVG.A`__ ` which inherits from ` __`SVG.Container`__

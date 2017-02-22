@@ -52,6 +52,7 @@ var elements = $('#drawing g.my-group .my-element').each(function() {
 })
 ```
 
+<br>
 # Circular reference
 Every element instance within SVG.js has a reference to the actual `node`:
 
@@ -82,71 +83,7 @@ Similarly, the node carries a reference to the SVG.js `instance`:
 node.instance
 ```
 
-# Parent references
-Every element has a reference to its parent with the `parent()` method:
-
-## doc()
-
-`returns` __`SVG.Doc`__
-
-For retrieving the root SVG you can use `doc()`
-
-```javascript
-var draw = SVG('drawing')
-var rect = draw.rect(100, 100)
-
-rect.doc() //-> returns draw
-```
-
-## parent() _within the svg document_
-
-`returns` __`SVG.Element`__
-
-```javascript
-element.parent()
-```
-
-Alternatively a class or css selector can be passed as the first argument:
-
-```javascript
-var draw   = SVG('drawing')
-var nested = draw.nested().addClass('test')
-var group  = nested.group()
-var rect   = group.rect(100, 100)
-
-rect.parent()           //-> returns group
-rect.parent(SVG.Doc)    //-> returns draw
-rect.parent(SVG.Nested) //-> returns nested
-rect.parent(SVG.G)      //-> returns group
-rect.parent('.test')    //-> returns nested
-```
-
-## parent() _on the topmost svg document_
-
-`returns` __`HTMLNode`__
-
-```javascript
-var draw = SVG('drawing')
-
-draw.parent() //-> returns the wrappig html element with id 'drawing'
-```
-
-## parents()
-
-`returns` __`array`__
-
-To get all ancestors of the element filtered by type or CSS selector (see `parent()` method)
-
-```javascript
-var group1 = draw.group().addClass('test')
-  , group2 = group1.group()
-  , rect   = group2.rect(100,100)
-
-rect.parents()        // returns [group1, group2, draw]
-rect.parents('.test') // returns [group1]
-rect.parents(SVG.G)   // returns [group1, group2]
-```
-
+<br>
 # Child references
 
 ## children()
@@ -252,6 +189,89 @@ To get the last child of a parent element:
 
 ```javascript
 draw.last()
+```
+
+<br>
+# Parent references
+Every element has a reference to its parent with the `parent()` method:
+
+## doc()
+
+`returns` __`SVG.Doc`__
+
+For retrieving the root SVG you can use `doc()`
+
+```javascript
+var draw = SVG('drawing')
+var rect = draw.rect(100, 100)
+
+rect.doc() //-> returns draw
+```
+
+## parent() _within the svg document_
+
+`returns` __`SVG.Element`__
+
+```javascript
+element.parent()
+```
+
+Alternatively a class or css selector can be passed as the first argument:
+
+```javascript
+var draw   = SVG('drawing')
+var nested = draw.nested().addClass('test')
+var group  = nested.group()
+var rect   = group.rect(100, 100)
+
+rect.parent()           //-> returns group
+rect.parent(SVG.Doc)    //-> returns draw
+rect.parent(SVG.Nested) //-> returns nested
+rect.parent(SVG.G)      //-> returns group
+rect.parent('.test')    //-> returns nested
+```
+
+## parent() _on the topmost svg document_
+
+`returns` __`HTMLNode`__
+
+```javascript
+var draw = SVG('drawing')
+
+draw.parent() //-> returns the wrappig html element with id 'drawing'
+```
+
+## parents()
+
+`returns` __`array`__
+
+To get all ancestors of the element filtered by type or CSS selector (see `parent()` method)
+
+```javascript
+var group1 = draw.group().addClass('test')
+  , group2 = group1.group()
+  , rect   = group2.rect(100,100)
+
+rect.parents()        // returns [group1, group2, draw]
+rect.parents('.test') // returns [group1]
+rect.parents(SVG.G)   // returns [group1, group2]
+```
+
+<br>
+# URI references
+
+In cases where an element is linked to another element through an attribute, the linked element instance can be fetched with the `reference()` method.
+
+## reference()
+
+The only thing required is the attribute name:
+
+```javascript
+use.reference('href') //-> returns used element instance
+// or
+rect.reference('fill') //-> returns gradient or pattern instance for example
+// or
+circle.reference('clip-path') //-> returns clip instance
 ```
 
 ----

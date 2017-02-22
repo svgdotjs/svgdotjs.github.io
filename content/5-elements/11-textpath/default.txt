@@ -6,7 +6,7 @@ Text:
 
 # TextPath
 
-`returns` __`SVG.TextPath`__ ` which inherits from ` __`SVG.Shape`__
+`returns` __`SVG.TextPath`__ ` which inherits from ` __`SVG.Text`__
 
 A nice feature in svg is the ability to run text along a path:
 
@@ -81,6 +81,9 @@ Referencing the linked path element directly:
 ```javascript
 var path = text.track()
 ```
+
+<br>
+**Note**: `SVG.TextPath` inherits from `SVG.Text`, so all those methods are inherited as well.
 
 ----
 

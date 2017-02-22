@@ -16,34 +16,15 @@ number.valueOf() //-> returns 0.81
 
 Operators are defined as methods on the `SVG.Number` instance.
 
-## plus()
+## at()
 
 `returns` __`SVG.Number`__
 
-Addition:
+Get morphable number at given position:
 
 ```javascript
-number.plus('3%')
-```
-
-## minus()
-
-`returns` __`SVG.Number`__
-
-Subtraction:
-
-```javascript
-number.minus('3%')
-```
-
-## times()
-
-`returns` __`SVG.Number`__
-
-Multiplication:
-
-```javascript
-number.times(2)
+var number = new SVG.Number('79%').morph('3%')
+number.at(0.55).toString() //-> '37.2%'
 ```
 
 ## divide()
@@ -56,14 +37,14 @@ Division:
 number.divide('3%')
 ```
 
-## to()
+## minus()
 
 `returns` __`SVG.Number`__
 
-Change number to another unit:
+Subtraction:
 
 ```javascript
-number.to('px')
+number.minus('3%')
 ```
 
 ## morph()
@@ -76,15 +57,34 @@ Make a number morphable:
 number.morph('11%')
 ```
 
-## at()
+## plus()
 
 `returns` __`SVG.Number`__
 
-Get morphable number at given position:
+Addition:
 
 ```javascript
-var number = new SVG.Number('79%').morph('3%')
-number.at(0.55).toString() //-> '37.2%'
+number.plus('3%')
+```
+
+## times()
+
+`returns` __`SVG.Number`__
+
+Multiplication:
+
+```javascript
+number.times(2)
+```
+
+## to()
+
+`returns` __`SVG.Number`__
+
+Change number to another unit:
+
+```javascript
+number.to('px')
 ```
 
 ----

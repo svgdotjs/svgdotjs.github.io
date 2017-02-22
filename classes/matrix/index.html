@@ -16,7 +16,7 @@
 
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
-    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170221203612">  </head>
+    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170222192508">  </head>
   <body class="docs-svgjs">
   <div class="container">
   <header role="banner">
@@ -253,14 +253,21 @@
           </li>
                     <li class="">
             
-                                    <a href="#parent-references">Parent reference</a>
+                                    <a href="#child-references">Child references</a>
 
                         
             
           </li>
                     <li class="">
             
-                                    <a href="#child-references">Child references</a>
+                                    <a href="#parent-references">Parent references</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="#uri-references">URI references</a>
 
                         
             
@@ -299,6 +306,20 @@
                     <li class="">
             
                                     <a href="https://svgdotjs.github.io//manipulating/classes">Classes</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io//manipulating/data">Data</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io//manipulating/memory">Memory</a>
 
                         
             
@@ -347,7 +368,7 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//manipulating/misc">Misc</a>
+                                    <a href="https://svgdotjs.github.io//manipulating/geometry">Geometry</a>
 
                         
             
@@ -498,20 +519,6 @@
                     <li class="">
             
                                     <a href="https://svgdotjs.github.io//classes/color">Color</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//classes/data">Data</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//classes/memory">Memory</a>
 
                         
             
@@ -767,6 +774,21 @@ matrix.toString() //-&gt; returns matrix(1,0,0,1,0,0)</code></pre>
 <pre><code class="language-javascript">var rect = draw.rect(50, 25)
 var matrix = new SVG.Matrix(rect)
 matrix.toString() //-&gt; returns matrix(1,0,0,1,0,0)</code></pre>
+<h2 id='around'>around()</h2>
+<p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
+<p>Performs a given matrix transformation around a given center point:</p>
+<pre><code class="language-javascript">// cx, cy, matrix
+matrix.around(100, 150, new SVG.Matrix().skew(0, 45))</code></pre>
+<p>The matrix passed as the third argument will be used to multiply.</p>
+<h2 id='at'>at()</h2>
+<p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
+<p>This method will morph the matrix to a given position between <code>0</code> and <code>1</code>:</p>
+<pre><code class="language-javascript">matrix.at(0.27)</code></pre>
+<p>This will only work when a destination matirx is defined using the <code>morph()</code> method.</p>
+<h2 id='clone'>clone()</h2>
+<p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
+<p>Returns an exact copy of the matrix:</p>
+<pre><code class="language-javascript">matrix.clone()</code></pre>
 <h2 id='extract'>extract()</h2>
 <p><code>returns</code> <strong><code>object</code></strong></p>
 <p>Gets the calculated values of the matrix as an object:</p>
@@ -781,31 +803,40 @@ matrix.toString() //-&gt; returns matrix(1,0,0,1,0,0)</code></pre>
 <li><code>scaleY</code> (calculated scale on y-axis)</li>
 <li><code>rotation</code> (calculated rotation)</li>
 </ul>
-<h2 id='clone'>clone()</h2>
+<h2 id='flip'>flip()</h2>
 <p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
-<p>Returns an exact copy of the matrix:</p>
-<pre><code class="language-javascript">matrix.clone()</code></pre>
-<h2 id='morph'>morph()</h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>In order to animate matrices the <code>morph()</code> method lets you pass a destination matrix. This can be any value a <code>SVG.Matrix</code> would accept on initialization:</p>
-<pre><code class="language-javascript">matrix.morph('matrix(2,0,0,2,100,150)')</code></pre>
-<h2 id='at'>at()</h2>
-<p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
-<p>This method will morph the matrix to a given position between <code>0</code> and <code>1</code>:</p>
-<pre><code class="language-javascript">matrix.at(0.27)</code></pre>
-<p>This will only work when a destination matirx is defined using the <code>morph()</code> method.</p>
-<h2 id='multiply'>multiply()</h2>
-<p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
-<p>Multiplies by another given matrix:</p>
-<pre><code class="language-javascript">matrix.matrix(matrix2)</code></pre>
+<p>Flips matrix over a given axis:</p>
+<pre><code class="language-javascript">matrix.flip('x')</code></pre>
+<p>or</p>
+<pre><code class="language-javascript">matrix.flip('y')</code></pre>
+<p>By default elements are flipped over their center point. The flip axis position can be defined with the second argument:</p>
+<pre><code class="language-javascript">matrix.flip('x', 150)</code></pre>
+<p>or</p>
+<pre><code class="language-javascript">matrix.flip('y', 100)</code></pre>
 <h2 id='inverse'>inverse()</h2>
 <p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
 <p>Creates an inverted matix:</p>
 <pre><code class="language-javascript">matrix.inverse()</code></pre>
-<h2 id='translate'>translate()</h2>
+<h2 id='morph'>morph()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>In order to animate matrices the <code>morph()</code> method lets you pass a destination matrix. This can be any value a <code>SVG.Matrix</code> would accept on initialization:</p>
+<pre><code class="language-javascript">matrix.morph('matrix(2,0,0,2,100,150)')</code></pre>
+<h2 id='multiply'>multiply()</h2>
 <p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
-<p>Translates matrix by a given x and y value:</p>
-<pre><code class="language-javascript">matrix.translate(10, 20)</code></pre>
+<p>Multiplies by another given matrix:</p>
+<pre><code class="language-javascript">matrix.matrix(matrix2)</code></pre>
+<h2 id='native'>native()</h2>
+<p><code>returns</code> <strong><code>SVGMatrix</code></strong></p>
+<p>Returns a native <code>SVGMatrix</code> extracted from the <code>SVG.Matrix</code> instance:</p>
+<pre><code class="language-javascript">matrix.native()</code></pre>
+<h2 id='rotate'>rotate()</h2>
+<p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
+<p>Rotates matrix by degrees with one value given:</p>
+<pre><code class="language-javascript">// degrees
+matrix.rotate(45)</code></pre>
+<p>Rotates a matrix by degrees around a given point with three values:</p>
+<pre><code class="language-javascript">// degrees, cx, cy
+matrix.rotate(45, 100, 150)</code></pre>
 <h2 id='scale'>scale()</h2>
 <p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
 <p>Scales matrix uniformal with one value:</p>
@@ -820,24 +851,6 @@ matrix.scale(2, 100, 150)</code></pre>
 <p>Scales matrix non-uniformal on a given center point with four values:</p>
 <pre><code class="language-javascript">// scaleX, scaleY, cx, cy
 matrix.scale(2, 3, 100, 150)</code></pre>
-<h2 id='rotate'>rotate()</h2>
-<p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
-<p>Rotates matrix by degrees with one value given:</p>
-<pre><code class="language-javascript">// degrees
-matrix.rotate(45)</code></pre>
-<p>Rotates a matrix by degrees around a given point with three values:</p>
-<pre><code class="language-javascript">// degrees, cx, cy
-matrix.rotate(45, 100, 150)</code></pre>
-<h2 id='flip'>flip()</h2>
-<p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
-<p>Flips matrix over a given axis:</p>
-<pre><code class="language-javascript">matrix.flip('x')</code></pre>
-<p>or</p>
-<pre><code class="language-javascript">matrix.flip('y')</code></pre>
-<p>By default elements are flipped over their center point. The flip axis position can be defined with the second argument:</p>
-<pre><code class="language-javascript">matrix.flip('x', 150)</code></pre>
-<p>or</p>
-<pre><code class="language-javascript">matrix.flip('y', 100)</code></pre>
 <h2 id='skew'>skew()</h2>
 <p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
 <p>Skews matrix a given degrees over x and or y axis with two values:</p>
@@ -846,21 +859,15 @@ matrix.skew(0, 45)</code></pre>
 <p>Skews matrix a given degrees over x and or y axis on a given point with four values:</p>
 <pre><code class="language-javascript">// degreesX, degreesY, cx, cy
 matrix.skew(0, 45, 150, 100)</code></pre>
-<h2 id='around'>around()</h2>
-<p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
-<p>Performs a given matrix transformation around a given center point:</p>
-<pre><code class="language-javascript">// cx, cy, matrix
-matrix.around(100, 150, new SVG.Matrix().skew(0, 45))</code></pre>
-<p>The matrix passed as the third argument will be used to multiply.</p>
-<h2 id='native'>native()</h2>
-<p><code>returns</code> <strong><code>SVGMatrix</code></strong></p>
-<p>Returns a native <code>SVGMatrix</code> extracted from the <code>SVG.Matrix</code> instance:</p>
-<pre><code class="language-javascript">matrix.native()</code></pre>
 <h2 id='tostring'>toString()</h2>
 <p><code>returns</code> <strong><code>string</code></strong></p>
 <p>Converts the matrix to a transform string:</p>
 <pre><code class="language-javascript">matrix.toString()
-// -&gt; matrix(1,0,0,1,0,0)</code></pre>    </section>
+// -&gt; matrix(1,0,0,1,0,0)</code></pre>
+<h2 id='translate'>translate()</h2>
+<p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
+<p>Translates matrix by a given x and y value:</p>
+<pre><code class="language-javascript">matrix.translate(10, 20)</code></pre>    </section>
 
   </div><!-- /.wrap content -->
 
@@ -874,7 +881,7 @@ matrix.around(100, 150, new SVG.Matrix().skew(0, 45))</code></pre>
   <img src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" class="fork-me-on-github">
 </a>
 
-<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170221203612"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170221203612"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170222192508"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170222192508"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
 <script src="//static.getclicky.com/js" type="text/javascript"></script>
 <script type="text/javascript">try{ clicky.init(101014746); }catch(e){}</script>
 <script>

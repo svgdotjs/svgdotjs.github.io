@@ -16,7 +16,7 @@
 
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
-    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170221203611">  </head>
+    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170222192508">  </head>
   <body class="docs-svgjs">
   <div class="container">
   <header role="banner">
@@ -253,14 +253,21 @@
           </li>
                     <li class="">
             
-                                    <a href="#parent-references">Parent reference</a>
+                                    <a href="#child-references">Child references</a>
 
                         
             
           </li>
                     <li class="">
             
-                                    <a href="#child-references">Child references</a>
+                                    <a href="#parent-references">Parent references</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="#uri-references">URI references</a>
 
                         
             
@@ -299,6 +306,20 @@
                     <li class="">
             
                                     <a href="https://svgdotjs.github.io//manipulating/classes">Classes</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io//manipulating/data">Data</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io//manipulating/memory">Memory</a>
 
                         
             
@@ -347,7 +368,7 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//manipulating/misc">Misc</a>
+                                    <a href="https://svgdotjs.github.io//manipulating/geometry">Geometry</a>
 
                         
             
@@ -498,20 +519,6 @@
                     <li class="">
             
                                     <a href="https://svgdotjs.github.io//classes/color">Color</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//classes/data">Data</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//classes/memory">Memory</a>
 
                         
             
@@ -744,19 +751,20 @@
 
     <section id="main" class="main-content" role="main">
       <h1 id='timing'>Timing</h1>
+<h2 id='at'>at()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Say you want to control the position of an animation with an external event, then the <code>at()</code> method will prove very useful:</p>
+<pre><code class="language-javascript">var animation = draw.rect(100, 100).move(50, 50).animate('=').move(200, 200)
+
+document.onmousemove = function(event) {
+  animation.at(event.clientX / 1000)
+}</code></pre>
+<p>The value passed as the first argument of <code>at()</code> should be a number between <code>0</code> and <code>1</code>, <code>0</code> being the beginning of the animation and <code>1</code> being the end. Note that any values below <code>0</code> and above <code>1</code> will be normalized.</p>
+<p>Also note that the value is eased after calling the function. Therefore the position specifies a position in time not in space.</p>
 <h2 id='delay'>delay()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Alternatively, you can call <code>delay()</code> which will set a delay in ms before the next animation in the queue is run</p>
 <pre><code class="language-javascript">rect.animate({ ease: '&lt;', delay: '1.5s' }).attr({ fill: '#f03' }).delay(500).animate().dmove(50,50)</code></pre>
-<h2 id='queue'>queue()</h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>If you want to call a custom funtion between two chained animations, you simply can queue them up:</p>
-<pre><code class="language-javascript">rect.animate({ ease: '&lt;', delay: '1.5s' }).attr({ fill: '#f03' }).queue(function(){
-
-    this.target().fill('#000')
-    this.dequeue() // dont forget to call dequeue when the queue should continue running
-
-}).animate().dmove(50,50)</code></pre>
 <h2 id='loop'>loop()</h2>
 <p><code>returns</code> <strong><code>SVG.FX</code></strong></p>
 <p>By default the <code>loop()</code> method creates and eternal loop:</p>
@@ -779,16 +787,15 @@ rect.animate(3000).move(100, 100).once(0.5, function(pos, eased) {
   // do something
 }, true)</code></pre>
 <p>The callback function gets the current position uneased and eased.</p>
-<h2 id='at'>at()</h2>
+<h2 id='queue'>queue()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Say you want to control the position of an animation with an external event, then the <code>at()</code> method will prove very useful:</p>
-<pre><code class="language-javascript">var animation = draw.rect(100, 100).move(50, 50).animate('=').move(200, 200)
+<p>If you want to call a custom funtion between two chained animations, you simply can queue them up:</p>
+<pre><code class="language-javascript">rect.animate({ ease: '&lt;', delay: '1.5s' }).attr({ fill: '#f03' }).queue(function(){
 
-document.onmousemove = function(event) {
-  animation.at(event.clientX / 1000)
-}</code></pre>
-<p>The value passed as the first argument of <code>at()</code> should be a number between <code>0</code> and <code>1</code>, <code>0</code> being the beginning of the animation and <code>1</code> being the end. Note that any values below <code>0</code> and above <code>1</code> will be normalized.</p>
-<p>Also note that the value is eased after calling the function. Therefore the position specifies a position in time not in space.</p>    </section>
+    this.target().fill('#000')
+    this.dequeue() // dont forget to call dequeue when the queue should continue running
+
+}).animate().dmove(50,50)</code></pre>    </section>
 
   </div><!-- /.wrap content -->
 
@@ -802,7 +809,7 @@ document.onmousemove = function(event) {
   <img src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" class="fork-me-on-github">
 </a>
 
-<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170221203611"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170221203611"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170222192508"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170222192508"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
 <script src="//static.getclicky.com/js" type="text/javascript"></script>
 <script type="text/javascript">try{ clicky.init(101014746); }catch(e){}</script>
 <script>

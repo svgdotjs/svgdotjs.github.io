@@ -6,6 +6,30 @@ Text:
 
 # Controlling
 
+## finish()
+
+`returns` __`itself`__
+
+This method finishes the whole animation chain. All values are set to their corresponding end values and every situation gets fullfilled
+
+```javascript
+rect.animate().move(200, 200).animate().dmove(50,50).size(300,400)
+
+rect.finish() // rect at 250,250 with size 300,400
+```
+
+## pause()
+
+`returns` __`itself`__
+
+Pausing an animations is fairly straightforward:
+
+```javascript
+rect.animate().move(200, 200)
+
+rect.mouseover(function() { this.pause() })
+```
+
 ## play()
 
 `returns` __`itself`__
@@ -19,16 +43,21 @@ rect.mouseover(function() { this.pause() })
 rect.mouseout(function() { this.play() })
 ```
 
-## pause()
+## reverse()
 
 `returns` __`itself`__
 
-Pausing an animations is fairly straightforward:
+Toggles the direction of the animation or sets it to a specific direction:
 
 ```javascript
-rect.animate().move(200, 200)
+// will run from 100,100 to rects initial position
+rect.animate(3000).move(100, 100).reverse()
 
-rect.mouseover(function() { this.pause() })
+// sets direction to backwards
+rect.animate(3000).move(100, 100).reverse(true)
+
+// sets direction to forwards (same as not calling reverse ever)
+rect.animate(3000).move(100, 100).reverse(false)
 ```
 
 ## stop()
@@ -49,35 +78,6 @@ rect.stop(true)
 ```
 
 Stopping an animation is irreversable.
-
-## finish()
-
-`returns` __`itself`__
-
-This method finishes the whole animation chain. All values are set to their corresponding end values and every situation gets fullfilled
-
-```javascript
-rect.animate().move(200, 200).animate().dmove(50,50).size(300,400)
-
-rect.finish() // rect at 250,250 with size 300,400
-```
-
-## reverse()
-
-`returns` __`itself`__
-
-Toggles the direction of the animation or sets it to a specific direction:
-
-```javascript
-// will run from 100,100 to rects initial position
-rect.animate(3000).move(100, 100).reverse()
-
-// sets direction to backwards
-rect.animate(3000).move(100, 100).reverse(true)
-
-// sets direction to forwards (same as not calling reverse ever)
-rect.animate(3000).move(100, 100).reverse(false)
-```
 
 ----
 

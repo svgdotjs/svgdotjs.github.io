@@ -2,6 +2,10 @@ Title: Memory
 
 ----
 
+Description: Storing data in-memory is very much like setting attributes. Multiple values can also be remembered at once.
+
+----
+
 Text: 
 
 # Memory
@@ -57,7 +61,3 @@ And finally, just erasing the whole memory:
 ```javascript
 rect.forget()
 ```
-
-----
-
-Description: Storing data in-memory is very much like setting attributes. Multiple values can also be remembered at once.

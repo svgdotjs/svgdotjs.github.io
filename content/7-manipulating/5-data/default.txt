@@ -2,6 +2,10 @@ Title: Data
 
 ----
 
+Description: The data() method allows you to bind arbitrary objects, strings and numbers to SVG elements, just like it's done in jQuery.
+
+----
+
 Text: 
 
 # Data
@@ -49,7 +53,3 @@ Your values will always be stored as JSON and in some cases this might not be de
 ```javascript
 rect.data('key', 'value', true)
 ```
-
-----
-
-Description: The data() method allows you to bind arbitrary objects, strings and numbers to SVG elements, just like it's don in jQuery.

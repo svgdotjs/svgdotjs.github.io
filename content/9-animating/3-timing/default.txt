@@ -6,6 +6,24 @@ Text:
 
 # Timing
 
+## at()
+
+`returns` __`itself`__
+
+Say you want to control the position of an animation with an external event, then the `at()` method will prove very useful:
+
+```javascript
+var animation = draw.rect(100, 100).move(50, 50).animate('=').move(200, 200)
+
+document.onmousemove = function(event) {
+  animation.at(event.clientX / 1000)
+}
+```
+
+The value passed as the first argument of `at()` should be a number between `0` and `1`, `0` being the beginning of the animation and `1` being the end. Note that any values below `0` and above `1` will be normalized.
+
+Also note that the value is eased after calling the function. Therefore the position specifies a position in time not in space.
+
 ## delay()
 
 `returns` __`itself`__
@@ -14,21 +32,6 @@ Alternatively, you can call `delay()` which will set a delay in ms before the ne
 
 ```javascript
 rect.animate({ ease: '<', delay: '1.5s' }).attr({ fill: '#f03' }).delay(500).animate().dmove(50,50)
-```
-
-## queue()
-
-`returns` __`itself`__
-
-If you want to call a custom funtion between two chained animations, you simply can queue them up:
-
-```javascript
-rect.animate({ ease: '<', delay: '1.5s' }).attr({ fill: '#f03' }).queue(function(){
-
-    this.target().fill('#000')
-    this.dequeue() // dont forget to call dequeue when the queue should continue running
-
-}).animate().dmove(50,50)
 ```
 
 ## loop()
@@ -79,23 +82,20 @@ rect.animate(3000).move(100, 100).once(0.5, function(pos, eased) {
 
 The callback function gets the current position uneased and eased.
 
-## at()
+## queue()
 
 `returns` __`itself`__
 
-Say you want to control the position of an animation with an external event, then the `at()` method will prove very useful:
+If you want to call a custom funtion between two chained animations, you simply can queue them up:
 
 ```javascript
-var animation = draw.rect(100, 100).move(50, 50).animate('=').move(200, 200)
+rect.animate({ ease: '<', delay: '1.5s' }).attr({ fill: '#f03' }).queue(function(){
 
-document.onmousemove = function(event) {
-  animation.at(event.clientX / 1000)
-}
+    this.target().fill('#000')
+    this.dequeue() // dont forget to call dequeue when the queue should continue running
+
+}).animate().dmove(50,50)
 ```
-
-The value passed as the first argument of `at()` should be a number between `0` and `1`, `0` being the beginning of the animation and `1` being the end. Note that any values below `0` and above `1` will be normalized.
-
-Also note that the value is eased after calling the function. Therefore the position specifies a position in time not in space.
 
 ----
 

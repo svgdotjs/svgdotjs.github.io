@@ -16,7 +16,7 @@
 
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
-    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170221203612">  </head>
+    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170222192508">  </head>
   <body class="docs-svgjs">
   <div class="container">
   <header role="banner">
@@ -253,14 +253,21 @@
           </li>
                     <li class="">
             
-                                    <a href="#parent-references">Parent reference</a>
+                                    <a href="#child-references">Child references</a>
 
                         
             
           </li>
                     <li class="">
             
-                                    <a href="#child-references">Child references</a>
+                                    <a href="#parent-references">Parent references</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="#uri-references">URI references</a>
 
                         
             
@@ -299,6 +306,20 @@
                     <li class="">
             
                                     <a href="https://svgdotjs.github.io//manipulating/classes">Classes</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io//manipulating/data">Data</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io//manipulating/memory">Memory</a>
 
                         
             
@@ -347,7 +368,7 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//manipulating/misc">Misc</a>
+                                    <a href="https://svgdotjs.github.io//manipulating/geometry">Geometry</a>
 
                         
             
@@ -498,20 +519,6 @@
                     <li class="">
             
                                     <a href="https://svgdotjs.github.io//classes/color">Color</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//classes/data">Data</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//classes/memory">Memory</a>
 
                         
             
@@ -744,6 +751,20 @@
 
     <section id="main" class="main-content" role="main">
       <h1 id='callbacks'>Callbacks</h1>
+<h2 id='after-afterall'>after / afterAll()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Furthermore, you can add callback methods using <code>after()/afterAll()</code>:</p>
+<pre><code class="language-javascript">rect.animate(3000).move(100, 100).after(function(situation) {
+  this.animate().attr({ fill: '#f06' })
+})
+
+// or
+rect.animate(3000).move(100, 100).afterAll(function() {
+  this.animate().attr({ fill: '#f06' })
+})</code></pre>
+<p>The function gets the situation which was finished as first parameter. This doesn't apply to afterAll where no parameter is passed<br />
+Note that the <code>after()/afterAll()</code> method will never be called if the animation is looping eternally.<br />
+You can call <code>after()/afterAll()</code> multiple times to add more functions which should be executed.</p>
 <h2 id='during-duringall'>during / duringAll()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>If you want to perform your own actions during one/all animation you can use the <code>during()/duringAll()</code> method:</p>
@@ -775,21 +796,7 @@ rect.animate(3000).move(100, 100).during(function(pos, morph, eased, situation) 
 })</code></pre>
 <p>The <code>eased</code> parameter contains the position after the easing function was applied.<br />
 The last parameter holds the current situation related to the current <code>during</code> call.<br />
-You can call <code>during()/duringAll()</code> multiple times to add more functions which should be executed.</p>
-<h2 id='after-afterall'>after / afterAll()</h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Furthermore, you can add callback methods using <code>after()/afterAll()</code>:</p>
-<pre><code class="language-javascript">rect.animate(3000).move(100, 100).after(function(situation) {
-  this.animate().attr({ fill: '#f06' })
-})
-
-// or
-rect.animate(3000).move(100, 100).afterAll(function() {
-  this.animate().attr({ fill: '#f06' })
-})</code></pre>
-<p>The function gets the situation which was finished as first parameter. This doesn't apply to afterAll where no parameter is passed<br />
-Note that the <code>after()/afterAll()</code> method will never be called if the animation is looping eternally.<br />
-You can call <code>after()/afterAll()</code> multiple times to add more functions which should be executed.</p>    </section>
+You can call <code>during()/duringAll()</code> multiple times to add more functions which should be executed.</p>    </section>
 
   </div><!-- /.wrap content -->
 
@@ -803,7 +810,7 @@ You can call <code>after()/afterAll()</code> multiple times to add more function
   <img src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" class="fork-me-on-github">
 </a>
 
-<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170221203612"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170221203612"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170222192508"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170222192508"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
 <script src="//static.getclicky.com/js" type="text/javascript"></script>
 <script type="text/javascript">try{ clicky.init(101014746); }catch(e){}</script>
 <script>

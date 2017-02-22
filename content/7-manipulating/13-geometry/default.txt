@@ -1,10 +1,10 @@
-Title: Misc
+Title: Geometry
 
 ----
 
 Text: 
 
-# Misc
+# Geometry
 
 ## point()
 

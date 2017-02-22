@@ -4,19 +4,19 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
-    <title>SVG.js | Syntactic sugar</title>
-    <meta name="description" content="Various convenience methods provide syntactic sugar. Like fill(), stroke(), hide(), show() and opacity() to name a few.">
+    <title>SVG.js | Geometry</title>
+    <meta name="description" content="Check if a given point is inside the bounding box of an element with the inside() method. The x and y positions are tested against the relative position.">
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@svg_js" />
     <meta name="twitter:creator" content="@svg_js" />
-    <meta property="og:url" content="https://svgdotjs.github.io//manipulating/syntactic-sugar" />
-    <meta property="og:title" content="Syntactic sugar" />
-    <meta property="og:description" content="Various convenience methods provide syntactic sugar. Like fill(), stroke(), hide(), show() and opacity() to name a few." />
+    <meta property="og:url" content="https://svgdotjs.github.io//manipulating/geometry" />
+    <meta property="og:title" content="Geometry" />
+    <meta property="og:description" content="Check if a given point is inside the bounding box of an element with the inside() method. The x and y positions are tested against the relative position." />
     <meta property="og:image" content="https://svgdotjs.github.io//assets/images/logo-svg-js-01d.png" />
 
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
-    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170221203611">  </head>
+    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170222192508">  </head>
   <body class="docs-svgjs">
   <div class="container">
   <header role="banner">
@@ -253,14 +253,21 @@
           </li>
                     <li class="">
             
-                                    <a href="#parent-references">Parent reference</a>
+                                    <a href="#child-references">Child references</a>
 
                         
             
           </li>
                     <li class="">
             
-                                    <a href="#child-references">Child references</a>
+                                    <a href="#parent-references">Parent references</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="#uri-references">URI references</a>
 
                         
             
@@ -299,6 +306,20 @@
                     <li class="">
             
                                     <a href="https://svgdotjs.github.io//manipulating/classes">Classes</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io//manipulating/data">Data</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io//manipulating/memory">Memory</a>
 
                         
             
@@ -345,9 +366,9 @@
                         
             
           </li>
-                    <li class="">
+                    <li class="sidebar-nav-active">
             
-                                    <a href="https://svgdotjs.github.io//manipulating/misc">Misc</a>
+                                    <a href="https://svgdotjs.github.io//manipulating/geometry">Geometry</a>
 
                         
             
@@ -498,20 +519,6 @@
                     <li class="">
             
                                     <a href="https://svgdotjs.github.io//classes/color">Color</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//classes/data">Data</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//classes/memory">Memory</a>
 
                         
             
@@ -743,50 +750,20 @@
 </aside>
 
     <section id="main" class="main-content" role="main">
-      <h1 id='syntactic-sugar'>Syntactic sugar</h1>
-<h2 id='fill'>fill()</h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>The <code>fill()</code> method is a pretty alternative to the <code>attr()</code> method:</p>
-<pre><code class="language-javascript">rect.fill({ color: '#f06', opacity: 0.6 })</code></pre>
-<p>A single hex string will work as well:</p>
-<pre><code class="language-javascript">rect.fill('#f06')</code></pre>
-<p>Last but not least, you can also use an image as fill, simply by passing an image url:</p>
-<pre><code class="language-javascript">rect.fill('images/shade.jpg')</code></pre>
-<p>Or if you want more control over the size of the image, you can pass an image instance as well:</p>
-<pre><code class="language-javascript">rect.fill(draw.image('images/shade.jpg', 20, 20))</code></pre>
-<h3 id='stroke'>stroke()</h3>
-<p>The <code>stroke()</code> method is similar to <code>fill()</code>:</p>
-<pre><code class="language-javascript">rect.stroke({ color: '#f06', opacity: 0.6, width: 5 })</code></pre>
-<p>Like fill, a single hex string will work as well:</p>
-<pre><code class="language-javascript">rect.stroke('#f06')</code></pre>
-<p>Not unlike the <code>fill()</code> method, you can also use an image as stroke, simply by passing an image url:</p>
-<pre><code class="language-javascript">rect.stroke('images/shade.jpg')</code></pre>
-<p>Or if you want more control over the size of the image, you can pass an image instance as well:</p>
-<pre><code class="language-javascript">rect.stroke(draw.image('images/shade.jpg', 20, 20))</code></pre>
-<p><strong><code>returns</code>: <code>itself</code></strong></p>
-<h3 id='opacity'>opacity()</h3>
-<p>To set the overall opacity of an element:</p>
-<pre><code class="language-javascript">rect.opacity(0.5)</code></pre>
-<p><strong><code>returns</code>: <code>itself</code></strong></p>
-<h3 id='reference'>reference()</h3>
-<p>In cases where an element is linked to another element through an attribute, the linked element instance can be fetched with the <code>reference()</code> method. The only thing required is the attribute name:</p>
-<pre><code class="language-javascript">use.reference('href') //-&gt; returns used element instance
-// or
-rect.reference('fill') //-&gt; returns gradient or pattern instance for example
-// or
-circle.reference('clip-path') //-&gt; returns clip instance</code></pre>
-<h3 id='hide'>hide()</h3>
-<p>Hide element:</p>
-<pre><code class="language-javascript">rect.hide()</code></pre>
-<p><strong><code>returns</code>: <code>itself</code></strong></p>
-<h3 id='show'>show()</h3>
-<p>Show element:</p>
-<pre><code class="language-javascript">rect.show()</code></pre>
-<p><strong><code>returns</code>: <code>itself</code></strong></p>
-<h3 id='visible'>visible()</h3>
-<p>To check if the element is visible:</p>
-<pre><code class="language-javascript">rect.visible()</code></pre>
-<p><strong><code>returns</code>: <code>boolean</code></strong></p>    </section>
+      <h1 id='geometry'>Geometry</h1>
+<h2 id='point'>point()</h2>
+<p><code>returns</code> <strong><code>SVG.Point</code></strong></p>
+<p>Transforms a point from screen coordinates to the elements coordinate system.</p>
+<pre><code class="language-javascript">// e is some mouseevent
+var point = path.point(e.screenX, e.screenY) // {x, y}</code></pre>
+<h2 id='inside'>inside()</h2>
+<p><code>returns</code> <strong><code>boolean</code></strong></p>
+<p>To check if a given point is inside the bounding box of an element you can use the <code>inside()</code> method:</p>
+<pre><code class="language-javascript">var rect = draw.rect(100, 100).move(50, 50)
+
+rect.inside(25, 30) //-&gt; returns false
+rect.inside(60, 70) //-&gt; returns true</code></pre>
+<p>Note: the <code>x</code> and <code>y</code> positions are tested against the relative position of the element. Any offset on the parent element is not taken into account.</p>    </section>
 
   </div><!-- /.wrap content -->
 
@@ -800,7 +777,7 @@ circle.reference('clip-path') //-&gt; returns clip instance</code></pre>
   <img src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" class="fork-me-on-github">
 </a>
 
-<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170221203611"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170221203611"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170222192508"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170222192508"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
 <script src="//static.getclicky.com/js" type="text/javascript"></script>
 <script type="text/javascript">try{ clicky.init(101014746); }catch(e){}</script>
 <script>

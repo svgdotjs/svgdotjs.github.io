@@ -16,7 +16,7 @@
 
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
-    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170221203612">  </head>
+    <link rel="stylesheet" href="https://svgdotjs.github.io//assets/css/main.css?r=20170222192508">  </head>
   <body class="docs-svgjs">
   <div class="container">
   <header role="banner">
@@ -253,14 +253,21 @@
           </li>
                     <li class="">
             
-                                    <a href="#parent-references">Parent reference</a>
+                                    <a href="#child-references">Child references</a>
 
                         
             
           </li>
                     <li class="">
             
-                                    <a href="#child-references">Child references</a>
+                                    <a href="#parent-references">Parent references</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="#uri-references">URI references</a>
 
                         
             
@@ -299,6 +306,20 @@
                     <li class="">
             
                                     <a href="https://svgdotjs.github.io//manipulating/classes">Classes</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io//manipulating/data">Data</a>
+
+                        
+            
+          </li>
+                    <li class="">
+            
+                                    <a href="https://svgdotjs.github.io//manipulating/memory">Memory</a>
 
                         
             
@@ -347,7 +368,7 @@
           </li>
                     <li class="">
             
-                                    <a href="https://svgdotjs.github.io//manipulating/misc">Misc</a>
+                                    <a href="https://svgdotjs.github.io//manipulating/geometry">Geometry</a>
 
                         
             
@@ -498,20 +519,6 @@
                     <li class="">
             
                                     <a href="https://svgdotjs.github.io//classes/color">Color</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//classes/data">Data</a>
-
-                        
-            
-          </li>
-                    <li class="">
-            
-                                    <a href="https://svgdotjs.github.io//classes/memory">Memory</a>
 
                         
             
@@ -763,6 +770,18 @@ set.fill('#ff0')</code></pre>
 <pre><code class="language-javascript">set.add(rect)</code></pre>
 <p>Quite a useful feature of sets is the ability to accept multiple elements at once:</p>
 <pre><code class="language-javascript">set.add(rect, circle)</code></pre>
+<h2 id='animate'>animate()</h2>
+<p><code>returns</code> <strong><code>SVG.SetFX</code></strong></p>
+<p>Sets work with animations as well:</p>
+<pre><code class="language-javascript">set.animate(3000).fill('#ff0')</code></pre>
+<h2 id='bbox'>bbox()</h2>
+<p><code>returns</code> <strong><code>SVG.BBox</code></strong></p>
+<p>Get the bounding box of all elements in the set:</p>
+<pre><code class="language-javascript">set.bbox()</code></pre>
+<h2 id='clear'>clear()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Or to remove all elements from a set:</p>
+<pre><code class="language-javascript">set.clear()</code></pre>
 <h2 id='each'>each()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Iterating over all members in a set is the same as with svg containers:</p>
@@ -770,6 +789,14 @@ set.fill('#ff0')</code></pre>
   this.attr('id', 'shiny_new_id_' + i)
 })</code></pre>
 <p>Note that <code>this</code> refers to the current child element.</p>
+<h2 id='first'>first()</h2>
+<p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
+<p>Gets the first element:</p>
+<pre><code class="language-javascript">set.first()</code></pre>
+<h2 id='get'>get()</h2>
+<p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
+<p>Gets the element at a given index:</p>
+<pre><code class="language-javascript">set.get(1)</code></pre>
 <h2 id='has'>has()</h2>
 <p><code>returns</code> <strong><code>boolean</code></strong></p>
 <p>Determine if an element is member of the set:</p>
@@ -778,34 +805,14 @@ set.fill('#ff0')</code></pre>
 <p><code>returns</code> <strong><code>number</code></strong></p>
 <p>Returns the index of a given element in the set.</p>
 <pre><code class="language-javascript">set.index(rect) //-&gt; -1 if element is not a member</code></pre>
-<h2 id='get'>get()</h2>
-<p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
-<p>Gets the element at a given index:</p>
-<pre><code class="language-javascript">set.get(1)</code></pre>
-<h2 id='first'>first()</h2>
-<p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
-<p>Gets the first element:</p>
-<pre><code class="language-javascript">set.first()</code></pre>
 <h2 id='last'>last()</h2>
 <p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
 <p>Gets the last element:</p>
 <pre><code class="language-javascript">set.last()</code></pre>
-<h2 id='bbox'>bbox()</h2>
-<p><code>returns</code> <strong><code>SVG.BBox</code></strong></p>
-<p>Get the bounding box of all elements in the set:</p>
-<pre><code class="language-javascript">set.bbox()</code></pre>
 <h2 id='remove'>remove()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>To remove an element from a set:</p>
-<pre><code class="language-javascript">set.remove(rect)</code></pre>
-<h2 id='clear'>clear()</h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Or to remove all elements from a set:</p>
-<pre><code class="language-javascript">set.clear()</code></pre>
-<h2 id='animate'>animate()</h2>
-<p><code>returns</code> <strong><code>SVG.SetFX</code></strong></p>
-<p>Sets work with animations as well:</p>
-<pre><code class="language-javascript">set.animate(3000).fill('#ff0')</code></pre>    </section>
+<pre><code class="language-javascript">set.remove(rect)</code></pre>    </section>
 
   </div><!-- /.wrap content -->
 
@@ -819,7 +826,7 @@ set.fill('#ff0')</code></pre>
   <img src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" class="fork-me-on-github">
 </a>
 
-<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170221203612"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170221203612"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="https://svgdotjs.github.io//assets/js/libs/highlight.pack.js"></script><script src="https://svgdotjs.github.io//assets/js/libs/accordion-plain.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js"></script><script src="https://svgdotjs.github.io//search.js?r=20170222192508"></script><script src="https://svgdotjs.github.io//assets/js/kdoc.js?r=20170222192508"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
 <script src="//static.getclicky.com/js" type="text/javascript"></script>
 <script type="text/javascript">try{ clicky.init(101014746); }catch(e){}</script>
 <script>

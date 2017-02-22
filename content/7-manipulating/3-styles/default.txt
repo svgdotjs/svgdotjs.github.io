@@ -52,6 +52,36 @@ rect.style()
 // => 'cursor:pointer;fill:#f03;'
 ```
 
+## hide()
+
+`returns` __`itself`__
+
+Hide element:
+
+```javascript
+rect.hide()
+```
+
+## show()
+
+`returns` __`itself`__
+
+Show (unhide) element:
+
+```javascript
+rect.show()
+```
+
+## visible()
+
+`returns` __`boolean`__
+
+To check if the element is visible:
+
+```javascript
+rect.visible()
+```
+
 ----
 
 Description: Similar to attr() the style() method can also act as a getter. Multiple styles can be set at once using an object.
