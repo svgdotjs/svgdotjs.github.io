@@ -55,6 +55,41 @@ var matrix = new SVG.Matrix(rect)
 matrix.toString() //-> returns matrix(1,0,0,1,0,0)
 ```
 
+## around()
+
+`returns` __`SVG.Matrix`__
+
+Performs a given matrix transformation around a given center point:
+
+```javascript
+// cx, cy, matrix
+matrix.around(100, 150, new SVG.Matrix().skew(0, 45))
+```
+
+The matrix passed as the third argument will be used to multiply.
+
+## at()
+
+`returns` __`SVG.Matrix`__
+
+This method will morph the matrix to a given position between `0` and `1`:
+
+```javascript
+matrix.at(0.27)
+```
+
+This will only work when a destination matirx is defined using the `morph()` method.
+
+## clone()
+
+`returns` __`SVG.Matrix`__
+
+Returns an exact copy of the matrix:
+
+```javascript
+matrix.clone()
+```
+
 ## extract()
 
 `returns` __`object`__
@@ -75,46 +110,32 @@ The returned object contains the following values:
 - `scaleY` (calculated scale on y-axis)
 - `rotation` (calculated rotation)
 
-## clone()
+## flip()
 
 `returns` __`SVG.Matrix`__
 
-Returns an exact copy of the matrix:
+Flips matrix over a given axis:
 
 ```javascript
-matrix.clone()
+matrix.flip('x')
 ```
 
-## morph()
-
-`returns` __`itself`__
-
-In order to animate matrices the `morph()` method lets you pass a destination matrix. This can be any value a `SVG.Matrix` would accept on initialization:
+or
 
 ```javascript
-matrix.morph('matrix(2,0,0,2,100,150)')
+matrix.flip('y')
 ```
 
-## at()
-
-`returns` __`SVG.Matrix`__
-
-This method will morph the matrix to a given position between `0` and `1`:
+By default elements are flipped over their center point. The flip axis position can be defined with the second argument:
 
 ```javascript
-matrix.at(0.27)
+matrix.flip('x', 150)
 ```
 
-This will only work when a destination matirx is defined using the `morph()` method.
-
-## multiply()
-
-`returns` __`SVG.Matrix`__
-
-Multiplies by another given matrix:
+or
 
 ```javascript
-matrix.matrix(matrix2)
+matrix.flip('y', 100)
 ```
 
 ## inverse()
@@ -127,14 +148,52 @@ Creates an inverted matix:
 matrix.inverse()
 ```
 
-## translate()
+## morph()
+
+`returns` __`itself`__
+
+In order to animate matrices the `morph()` method lets you pass a destination matrix. This can be any value a `SVG.Matrix` would accept on initialization:
+
+```javascript
+matrix.morph('matrix(2,0,0,2,100,150)')
+```
+
+## multiply()
 
 `returns` __`SVG.Matrix`__
 
-Translates matrix by a given x and y value:
+Multiplies by another given matrix:
 
 ```javascript
-matrix.translate(10, 20)
+matrix.matrix(matrix2)
+```
+
+## native()
+
+`returns` __`SVGMatrix`__
+
+Returns a native `SVGMatrix` extracted from the `SVG.Matrix` instance:
+
+```javascript
+matrix.native()
+```
+
+## rotate()
+
+`returns` __`SVG.Matrix`__
+
+Rotates matrix by degrees with one value given:
+
+```javascript
+// degrees
+matrix.rotate(45)
+```
+
+Rotates a matrix by degrees around a given point with three values:
+
+```javascript
+// degrees, cx, cy
+matrix.rotate(45, 100, 150)
 ```
 
 ## scale()
@@ -169,52 +228,6 @@ Scales matrix non-uniformal on a given center point with four values:
 matrix.scale(2, 3, 100, 150)
 ```
 
-## rotate()
-
-`returns` __`SVG.Matrix`__
-
-Rotates matrix by degrees with one value given:
-
-```javascript
-// degrees
-matrix.rotate(45)
-```
-
-Rotates a matrix by degrees around a given point with three values:
-
-```javascript
-// degrees, cx, cy
-matrix.rotate(45, 100, 150)
-```
-
-## flip()
-
-`returns` __`SVG.Matrix`__
-
-Flips matrix over a given axis:
-
-```javascript
-matrix.flip('x')
-```
-
-or
-
-```javascript
-matrix.flip('y')
-```
-
-By default elements are flipped over their center point. The flip axis position can be defined with the second argument:
-
-```javascript
-matrix.flip('x', 150)
-```
-
-or
-
-```javascript
-matrix.flip('y', 100)
-```
-
 ## skew()
 
 `returns` __`SVG.Matrix`__
@@ -233,29 +246,6 @@ Skews matrix a given degrees over x and or y axis on a given point with four val
 matrix.skew(0, 45, 150, 100)
 ```
 
-## around()
-
-`returns` __`SVG.Matrix`__
-
-Performs a given matrix transformation around a given center point:
-
-```javascript
-// cx, cy, matrix
-matrix.around(100, 150, new SVG.Matrix().skew(0, 45))
-```
-
-The matrix passed as the third argument will be used to multiply.
-
-## native()
-
-`returns` __`SVGMatrix`__
-
-Returns a native `SVGMatrix` extracted from the `SVG.Matrix` instance:
-
-```javascript
-matrix.native()
-```
-
 ## toString()
 
 `returns` __`string`__
@@ -265,6 +255,16 @@ Converts the matrix to a transform string:
 ```javascript
 matrix.toString()
 // -> matrix(1,0,0,1,0,0)
+```
+
+## translate()
+
+`returns` __`SVG.Matrix`__
+
+Translates matrix by a given x and y value:
+
+```javascript
+matrix.translate(10, 20)
 ```
 
 ----

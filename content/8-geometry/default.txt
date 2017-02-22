@@ -22,6 +22,7 @@ var box2 = draw.rect(100,100).move(200,200).bbox()
 var box3 = box1.merge(box2)
 ```
 
+<br>
 # ViewBox
 
 The viewBox specifies a rectangle in user space which should be mapped to the bounds of the viewport established by the given element, taking into account attribute preserveAspectRatio.
@@ -61,6 +62,7 @@ Alternatively you can also supply an object as the first argument:
 draw.viewbox({ x: 0, y: 0, width: 297, height: 210 })
 ```
 
+<br>
 # BBox
 
 Stands for Bounding Box.
@@ -90,6 +92,7 @@ This will return an instance of `SVG.BBox` containing the following values:
 - `x2` (lower right `x` of the bounding box)
 - `y2` (lower right `y` of the bounding box)
 
+<br>
 # RBox
 
 Stands for Rect Box. It wraps the native `getBoundingClientRect()` method. It's different from the BBox because it calculates the bounding box around the visual representation of the element, including all transformations.
@@ -121,6 +124,7 @@ This will return an instance of `SVG.RBox` containing the following values:
 
 __Important__: Mozilla browsers include stroke widths where other browsers do not. Therefore the resulting box might be different in Mozilla browsers. It is very hard to modify this behavior so for the time being this is an inconvenience we have to live with.
 
+<br>
 # TBox
 
 Stands for Transformed Box. It starts from a BBox but adds the scale transformations.

@@ -6,16 +6,6 @@ Text:
 
 # References
 
-## target()
-
-`returns` __`SVG.Element`__
-
-The target method returns the element the animation is applied to:
-
-```javascript
-rect.fx.target() // returns rect
-```
-
 ## situation
 
 `returns` __`object`__
@@ -39,6 +29,16 @@ Available values are:
 - `loops` (if a number, the total number loops; `true`, `false` or a number)
 - `reverse` (whether or not the animation should run backwards)
 - `reversing` (`true` if the loop is currently reversing, otherwise `false`)
+
+## target()
+
+`returns` __`SVG.Element`__
+
+The target method returns the element the animation is applied to:
+
+```javascript
+rect.fx.target() // returns rect
+```
 
 ----
 

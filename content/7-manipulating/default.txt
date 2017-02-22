@@ -6,7 +6,9 @@ Text:
 
 # Manipulating
 
-Everything you need to know about manipulating elements using their attributes.
+Everything you need to know about manipulating elements.
+
+<script>window.location.href = '/manipulating/attributes'</script>
 
 ----
 

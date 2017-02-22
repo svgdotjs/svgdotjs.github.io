@@ -6,6 +6,27 @@ Text:
 
 # Callbacks
 
+## after / afterAll()
+
+`returns` __`itself`__
+
+Furthermore, you can add callback methods using `after()/afterAll()`:
+
+```javascript
+rect.animate(3000).move(100, 100).after(function(situation) {
+  this.animate().attr({ fill: '#f06' })
+})
+
+// or
+rect.animate(3000).move(100, 100).afterAll(function() {
+  this.animate().attr({ fill: '#f06' })
+})
+```
+
+The function gets the situation which was finished as first parameter. This doesn't apply to afterAll where no parameter is passed
+Note that the `after()/afterAll()` method will never be called if the animation is looping eternally.
+You can call `after()/afterAll()` multiple times to add more functions which should be executed.
+
 ## during / duringAll()
 
 `returns` __`itself`__
@@ -47,28 +68,6 @@ rect.animate(3000).move(100, 100).during(function(pos, morph, eased, situation) 
 The `eased` parameter contains the position after the easing function was applied.
 The last parameter holds the current situation related to the current `during` call.
 You can call `during()/duringAll()` multiple times to add more functions which should be executed.
-
-
-## after / afterAll()
-
-`returns` __`itself`__
-
-Furthermore, you can add callback methods using `after()/afterAll()`:
-
-```javascript
-rect.animate(3000).move(100, 100).after(function(situation) {
-  this.animate().attr({ fill: '#f06' })
-})
-
-// or
-rect.animate(3000).move(100, 100).afterAll(function() {
-  this.animate().attr({ fill: '#f06' })
-})
-```
-
-The function gets the situation which was finished as first parameter. This doesn't apply to afterAll where no parameter is passed
-Note that the `after()/afterAll()` method will never be called if the animation is looping eternally.
-You can call `after()/afterAll()` multiple times to add more functions which should be executed.
 
 ----
 

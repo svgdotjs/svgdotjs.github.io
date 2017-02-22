@@ -6,29 +6,69 @@ Text:
 
 # SVG.js
 
-A lightweight library for manipulating and animating SVG.
-
-SVG.js has no dependencies and aims to be as small as possible while providing close to complete coverage of the SVG spec.
+The lightweight library for manipulating and animating SVG.
 
 <a class="github-button" href="https://github.com/svgdotjs/svg.js" data-icon="octicon-star" data-style="mega" data-count-href="/svgdotjs/svg.js/stargazers" data-count-api="/repos/svgdotjs/svg.js#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star svgdotjs/svg.js on GitHub">Star</a>
 
 <br>
-### Not convinced yet? Here are a few highlights:
-- easy readable uncluttered syntax
-- very small, about 16k gzipped
-- animations on size, position, transformations, color, ...
-- painless extension thanks to the modular structure
-- various useful plugins available
-- unified api between shape types with move, size, center, ...
-- binding events to elements
-- full support for opacity masks and clipping paths
-- text paths, even animated
-- element groups and sets
-- dynamic gradients
-- fully documented
+## Why choose SVG.js?
+SVG.js has no dependencies and aims to be as small as possible while providing close to complete coverage of the SVG spec. If you're not convinced yet, here are a few highlights.
+
+
+<br>
+## It's lean.
+SVG.js is lightweight. Numbers don't lie, so here is how it compares to the competition:
+
+<iframe width="100%" height="310" src="//jsfiddle.net/wout/kdy3ssqx/21/embedded/result/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+<small>_Less is better._</small>
+
+Keep in mind it does the same thing, with nearly half the amount of code!
+
+
+<br>
+## It's speedy.
+SVG.js is fast. Obviously not as fast as vanilla js, but many times faster than the competition:
+
+<iframe width="100%" height="310" src="//jsfiddle.net/wout/xutwzmg5/3/embedded/result/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+Index:
+- `rects`:    __`generate 10000 rects`__
+- `fill`:     __`generate 10000 rects with fill color`__
+- `gradient`: __`generate 10000 rects with gradient fill`__
+
+<small>_Less is better. Tested on an Intel Core m5 @ 1.2GHz._</small>
+
+<br>
+## Easy readable, uncluttered syntax.
+Creating and manipulating SVG using JavaScript alone is pretty verbose.  For example, just creating a simple pink square requires quite a lot of code:
+<iframe width="100%" height="310" src="//jsfiddle.net/wout/wsss6rj9/4/embedded/js,result/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+SVG.js provides a syntax that is concise and easy to read. Doing the same as the vanilla js example above:
+
+```javascript
+// SVG.js
+var draw = SVG('drawing')
+  , rect = draw.rect(100, 100).fill('#f06')
+```
+
+That's just **two** lines of code instead of **ten**! And a whole lot less repetition.
+
+<br>
+## There is more...
+- (link: /animating/ text: animations) on size, position, transformations, color, ...
+- (link: /extending/ text: painless extension) thanks to the modular structure
+- various (link: /plugins/ text: useful plugins) available
+- unified api between shape types with (link: /manipulating/position/#move text: move), (link: /manipulating/size/#size text: size), (link: /manipulating/position/#center text: center), ...
+- (link: /events/ text: binding events) to elements
+- full support for opacity (link: /manipulating/masking/ text: masks) and (link: /manipulating/clipping/ text: clipping paths)
+- (link: /elements/textpath/ text: text paths), even animated
+- element (link: /parents/#groups text: groups) and (link: /classes/set/ text: sets)
+- dynamic (link: /elements/gradient/ text: gradients) and (link: /elements/pattern/ text: patterns)
+- fully documented (you're looking at it :)
 
 ### License
-Svg.js is licensed under the terms of the (link: https://github.com/svgdotjs/svg.js/blob/master/LICENSE.txt text: MIT License target: _blank).
+SVG.js is licensed under the terms of the (link: https://github.com/svgdotjs/svg.js/blob/master/LICENSE.txt text: MIT License target: _blank).
 
 ### Changelog
 Wondering what has changed in the latest releases? Have a look at the (link: https://github.com/svgdotjs/svg.js/blob/master/CHANGELOG.md text: change log target: _blank).
@@ -47,4 +87,4 @@ Wondering what has changed in the latest releases? Have a look at the (link: htt
 
 ----
 
-Description: A lightweight library for manipulating and animating SVG. SVG.js has no dependencies and aims to be as small as possible.
+Description: The lightweight library for manipulating and animating SVG. SVG.js has no dependencies and aims to be as small as possible.

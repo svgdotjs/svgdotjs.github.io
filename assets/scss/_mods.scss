@@ -192,6 +192,12 @@ aside {
   }
 }
 
+.main-content {
+  li {
+    margin-bottom: 0;
+  }
+}
+
 .fork-me-on-github {
   transform: scale(0.75);
   transform-origin: top right;

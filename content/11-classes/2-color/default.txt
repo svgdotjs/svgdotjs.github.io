@@ -16,24 +16,15 @@ Note that when working with objects is important to provide all three values eve
 
 The `SVG.Color` instance has a few methods of its own.
 
-## toHex()
+## at()
 
-`returns` __hex color string__
+`returns` __`SVG.Color`__
 
-Get hex value:
-
-```javascript
-color.toHex() //-> returns '#ff0066'
-```
-
-## toRgb()
-
-`returns` __rgb color string__
-
-Get rgb string value:
+Get morphable color at given position:
 
 ```javascript
-color.toRgb() //-> returns 'rgb(255,0,102)'
+var color = new SVG.Color('#ff0066').morph('#000')
+color.at(0.5).toHex() //-> '#7f0033'
 ```
 
 ## brightness()
@@ -46,7 +37,7 @@ Get the brightness of a color:
 color.brightness() //-> returns 0.344
 ```
 
-This is the perceived brighness where `0` is black and `1` is white.
+This is the perceived brightness where `0` is black and `1` is white.
 
 ## morph()
 
@@ -58,15 +49,24 @@ Make a color morphable:
 color.morph('#000')
 ```
 
-## at()
+## toHex()
 
-`returns` __`SVG.Color`__
+`returns` __`string`__
 
-Get morphable color at given position:
+Get hex value:
 
 ```javascript
-var color = new SVG.Color('#ff0066').morph('#000')
-color.at(0.5).toHex() //-> '#7f0033'
+color.toHex() //-> returns '#ff0066'
+```
+
+## toRgb()
+
+`returns` __`string`__
+
+Get rgb string value:
+
+```javascript
+color.toRgb() //-> returns 'rgb(255,0,102)'
 ```
 
 ----
