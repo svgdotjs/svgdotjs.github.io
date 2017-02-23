@@ -122,39 +122,7 @@ This will return an instance of `SVG.RBox` containing the following values:
 - `x2` (lower right `x` of the bounding box)
 - `y2` (lower right `y` of the bounding box)
 
-__Important__: Mozilla browsers include stroke widths where other browsers do not. Therefore the resulting box might be different in Mozilla browsers. It is very hard to modify this behavior so for the time being this is an inconvenience we have to live with.
-
-<br>
-# TBox
-
-Stands for Transformed Box. It starts from a BBox but adds the scale transformations.
-
-<iframe width="100%" height="375" src="//jsfiddle.net/wout/qa8y7qp2/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-
-## tbox()
-
-`returns` __`SVG.TBox`__
-
-Where `bbox()` returns a bounding box mindless of any transformations, the `tbox()` method does take transformations into account. So any translation or scale will be applied to the resulting values to get closer to the actual visual representation:
-
-```javascript
-path.tbox()
-```
-
-This will return an instance of `SVG.TBox` containing the following values:
-
-- `width` (value from native getBBox influenced by the `scaleX` of the current matrix)
-- `height` (value from native getBBox influenced by the `scaleY` of the current matrix)
-- `w` (shorthand for `width`)
-- `h` (shorthand for `height`)
-- `x` (value from native getBBox influenced by the `x` of the current matrix)
-- `y` (value from native getBBox influenced by the `y` of the current matrix)
-- `cx` (center `x` of the bounding box)
-- `cy` (center `y` of the bounding box)
-- `x2` (lower right `x` of the bounding box)
-- `y2` (lower right `y` of the bounding box)
-
-Note that the rotation of the element will not be added to the calculation.
+__Important__: Mozilla browsers include stroke widths where other browsers do not. Therefore the resulting box might be different in Mozilla browsers. It is very hard to modify this behaviour so for the time being this is an inconvenience we have to live with.
 
 ----
 
