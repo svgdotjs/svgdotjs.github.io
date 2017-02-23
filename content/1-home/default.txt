@@ -30,7 +30,7 @@ Keep in mind it does the same thing, with nearly half the amount of code!
 ## It's speedy.
 SVG.js is fast. Obviously not as fast as vanilla js, but many times faster than the competition:
 
-<iframe width="100%" height="310" src="//jsfiddle.net/wout/xutwzmg5/3/embedded/result/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="310" src="//jsfiddle.net/wout/xutwzmg5/embedded/result/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 Index:
 - `rects`:    __`generate 10000 rects`__
@@ -58,7 +58,7 @@ That's just **two** lines of code instead of **ten**! And a whole lot less repet
 <br>
 ## Go crazy with animations
 
-<iframe width="100%" height="400" src="//jsfiddle.net/wout/7wL1uv8n/5/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="400" src="//jsfiddle.net/wout/7wL1uv8n/12/embedded/result/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 
 <br>
@@ -69,7 +69,7 @@ That's just **two** lines of code instead of **ten**! And a whole lot less repet
 - unified api between shape types with (link: /manipulating/position/#move text: move), (link: /manipulating/size/#size text: size), (link: /manipulating/position/#center text: center), ...
 - (link: /events/ text: binding events) to elements
 - full support for opacity (link: /manipulating/masking/ text: masks) and (link: /manipulating/clipping/ text: clipping paths)
-- (link: /elements/textpath/ text: text paths), even animated
+- (link: /elements/text#textpath text: text paths), even animated
 - element (link: /parents/#groups text: groups) and (link: /classes/set/ text: sets)
 - dynamic (link: /elements/gradient/ text: gradients) and (link: /elements/pattern/ text: patterns)
 - fully documented (you're looking at it :)
