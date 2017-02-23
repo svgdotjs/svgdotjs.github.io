@@ -99,7 +99,7 @@ Available properties are:
 - `family` (will set the `font-family` attribute)
 - `size` (will set the `font-size` attribute)
 - `stretch` (will set the `font-stretch` attribute)
-- `style (will set the `font-style` attribute)
+- `style` (will set the `font-style` attribute)
 - `variant` (will set the `font-variant` attribute)
 - `weight` (will set the `font-weight` attribute)
 
