@@ -148,3 +148,18 @@ function getParameterByName(name, url) {
   }
 
 })()
+
+
+// Make h1-h6 clickable
+var htags = document.querySelectorAll( 'h1,h2,h3,h4,h5,h6' )
+
+htags.forEach( function( h ) {
+  if ( h.id ) {
+    h.onclick = function() {
+      window.location.hash = this.id
+    }
+  }
+})
+
+
+
