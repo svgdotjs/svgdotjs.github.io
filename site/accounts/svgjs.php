@@ -9,8 +9,8 @@ role: admin
 firstname: SVG
 lastname: JS
 history:
+  - home
   - geometry
   - elements/text
   - contributing
   - elements/textpath
-  - home
