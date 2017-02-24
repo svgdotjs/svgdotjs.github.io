@@ -18,16 +18,5 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <script src="//static.getclicky.com/js" type="text/javascript"></script>
 <script type="text/javascript">try{ clicky.init(101014746); }catch(e){}</script>
-<script>
-  // get all h* tags
-  var htags = document.querySelectorAll( 'h2,h3,h4,h5,h6' )
-
-  // make them clickable
-  htags.forEach( function( h ) {
-    h.onclick = function() {
-      window.location.hash = this.id
-    }
-  })
-</script>
 </body>
 </html>
