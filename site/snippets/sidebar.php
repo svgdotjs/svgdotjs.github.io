@@ -23,7 +23,15 @@
         <?php if($p->hasVisibleChildren() && !$p->isOpen()): ?>
           <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-<?php echo $p->uid() ?>">+</button>
         <?php endif ?>
-        <a href="<?= $p->template() == 'anchor' ? "#{$p->uid()}" : $p->template() == 'link' ? $p->link() : $p->url() ?>"><?= $p->title()->html() ?></a>
+
+        <?php if ($p->template() == 'anchor'): ?>
+          <?php $href = "#{$p->uid()}" ?>
+        <?php elseif ($p->template() == 'link'): ?>
+          <?php $href = $p->link() ?>
+        <?php else: ?>
+          <?php $href = $p->url() ?>
+        <?php endif ?>
+        <a href="<?= $href ?>"><?= $p->title()->html() ?></a>
 
         <?php if($p->hasVisibleChildren() && $p->isOpen()): ?>
           <ul class="submenu nav-children" id="nav-collapsible-<?php echo $p->uid() ?>" aria-hidden="false">
@@ -42,7 +50,15 @@
             <?php if($sp->hasVisibleChildren() && !$sp->isOpen()): ?>
               <button class="expand-subnav expand-sub-subnav" aria-expanded="false" aria-controls="nav-collapsible-<?php echo $sp->uid() ?>">+</button>
             <?php endif ?>
-            <a href="<?= $sp->template() == 'anchor' ? "#{$sp->uid()}" : $sp->template() == 'link' ? $sp->link() : $sp->url() ?>"><?= $sp->title()->html() ?></a>
+
+            <?php if ($sp->template() == 'anchor'): ?>
+              <?php $href = "#{$sp->uid()}" ?>
+            <?php elseif ($sp->template() == 'link'): ?>
+              <?php $href = $sp->link() ?>
+            <?php else: ?>
+              <?php $href = $sp->url() ?>
+            <?php endif ?>
+            <a href="<?= $href ?>"><?= $sp->title()->html() ?></a>
 
             <?php if($sp->hasVisibleChildren() && $sp->isOpen()): ?>
               <ul class="submenu nav-children" id="nav-collapsible-<?php echo $sp->uid() ?>" aria-hidden="false">
@@ -54,7 +70,14 @@
             <?php if($sp->hasVisibleChildren()) : ?>
               <?php foreach($sp->children()->visible() as $ssp): ?>
               <li class="sidebar-nav-sub <?php e($ssp->isOpen(), 'sidebar-nav-active') ?>">
-                <a href="<?= $ssp->template() == 'anchor' ? "#{$ssp->uid()}" : $ssp->template() == 'link' ? $ssp->link() : $ssp->url() ?>"><?= $ssp->title()->html() ?></a>
+                <?php if ($ssp->template() == 'anchor'): ?>
+                  <?php $href = "#{$ssp->uid()}" ?>
+                <?php elseif ($ssp->template() == 'link'): ?>
+                  <?php $href = $ssp->link() ?>
+                <?php else: ?>
+                  <?php $href = $ssp->url() ?>
+                <?php endif ?>
+                <a href="<?= $href ?>"><?= $ssp->title()->html() ?></a>
               </li>
               <?php endforeach ?>
             </ul>
