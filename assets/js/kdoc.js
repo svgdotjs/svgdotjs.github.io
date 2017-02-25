@@ -56,6 +56,13 @@ function removeClass(el, className) {
     if ( q ) {
       var id = stringToSlug( q )
 
+      // mark results
+      var instance = new Mark( document.getElementById( 'main' ) )
+      instance.mark( q, {
+        'element':   'span'
+      , 'className': 'highlight'
+      })
+
       // jump to element by id
       if ( document.getElementById( id ) ) {
         window.location.hash = id
@@ -71,13 +78,6 @@ function removeClass(el, className) {
           return true
         }
       }
-
-      // mark results
-      var instance = new Mark( document.getElementById( 'main' ) )
-      instance.mark( q, {
-        'element':   'span'
-      , 'className': 'highlight'
-      })
     }
   }
 
