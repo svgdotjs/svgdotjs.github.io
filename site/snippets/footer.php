@@ -13,6 +13,7 @@
 <?= js('assets/js/libs/accordion-plain.js') ?>
 <?= js('https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js') ?>
 <?= js('https://cdnjs.cloudflare.com/ajax/libs/fuse.js/2.6.1/fuse.min.js') ?>
+<?= js('https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.8.3/mark.min.js') ?>
 <?= js('search.js?r=' . date( 'YmdHis' )) ?>
 <?= js('assets/js/kdoc.js?r=' . date( 'YmdHis' ) ) ?>
 <script async defer src="https://buttons.github.io/buttons.js"></script>

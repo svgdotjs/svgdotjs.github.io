@@ -25,21 +25,65 @@ function removeClass(el, className) {
 }
 
 
-// Get parameters
-function getParameterByName(name, url) {
-  if (! url)
-    url = window.location.href;
+// Keyword finder
+;( function() {
 
-  name = name.replace( /[\[\]]/g, "\\$&" )
+  // Get parameters
+  function getParameterByName(name, url) {
+    if (! url)
+      url = window.location.href;
 
-  var regex   = new RegExp( "[?&]" + name + "(=([^&#]*)|&|#|$)" )
-    , results = regex.exec( url )
+    name = name.replace( /[\[\]]/g, "\\$&" )
 
-  if ( ! results )    return null
-  if ( ! results[2] ) return ''
+    var regex   = new RegExp( "[?&]" + name + "(=([^&#]*)|&|#|$)" )
+      , results = regex.exec( url )
 
-  return decodeURIComponent( results[2].replace( /\+/g, ' ' ))
-}
+    if ( ! results )    return null
+    if ( ! results[2] ) return ''
+
+    return decodeURIComponent( results[2].replace( /\+/g, ' ' ))
+  }
+
+  // Convert string to slug
+  function stringToSlug( string ) {
+    return string.toLowerCase().replace( / /g, '-' ).replace( /[^\w-]+/g, '' )
+  }
+
+  // Find keyword/id
+  function findKeyword() {
+    var q  = getParameterByName( 'q' )
+    
+    if ( q ) {
+      var id = stringToSlug( q )
+
+      // jump to element by id
+      if ( document.getElementById( id ) ) {
+        window.location.hash = id
+        return true
+      }
+
+      // find h-tag content
+      var hs = document.querySelectorAll( 'h1,h2,h3,h4,h5,h6' )
+
+      for ( var i = hs.length - 1; i >= 0; i-- ) {
+        if ( hs[i].innerHTML == q && hs[i].id ) {
+          window.location.hash = hs[i].id
+          return true
+        }
+      }
+
+      // mark results
+      var instance = new Mark( document.getElementById( 'main' ) )
+      instance.mark( q, {
+        'element':   'span'
+      , 'className': 'highlight'
+      })
+    }
+  }
+
+  addEvent( window, 'load', findKeyword )
+
+})()
 
 
 // Activate search
