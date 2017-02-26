@@ -28,8 +28,11 @@ if($site->multilang()) {
   die('Multilanguage sites are not supported');
 }
 
-dir::copy(__DIR__ . DS . 'assets',  __DIR__ . DS . 'static' . DS . 'assets');
-dir::copy(__DIR__ . DS . 'content', __DIR__ . DS . 'static' . DS . 'content');
+// root dir
+$root = __DIR__ . DS . 'static' . DS;
+
+dir::copy(__DIR__ . DS . 'assets',  $root . 'assets');
+dir::copy(__DIR__ . DS . 'content', $root . 'content');
 
 // set the timezone for all date functions
 date_default_timezone_set($kirby->options['timezone']);
@@ -46,51 +49,20 @@ $kirby->models();
 // load all language variables
 $kirby->localize();
 
-// build json index for static search
-$index = [];
-
 foreach($site->index() as $page) {
   // render page
   $site->visit( $page->uri() );
   $html = $kirby->render( $page );
 
-  // get all h1-6-tag content
-  preg_match_all( "#<(h[1-6])>(.*?)</\\1>#", $html, $match );
-
-  // remove tags
-  $headings = array_map( function( $h ) {
-    return strip_tags( $h );
-  }, $match[2]);
-
   // convert h2-6 tags
   $html = preg_replace_callback( "#<(h[1-6])>(.*?)</\\1>#", 'retitle', $html );
 
   // set root base
-  $root  = __DIR__ . DS . 'static' . DS;
-  $root .= $page->isHomePage() ? 'index.html' : $page->uri() . DS . 'index.html';
+  $name = $page->isHomePage() ? 'index.html' : $page->uri() . DS . 'index.html';
 
   // write static file
-  f::write($root, $html);
-  
-  // add every page as json object to index
-  array_push( $index, [
-    'uri'      => $page->uri()
-  , 'title'    => strip_tags( html_entity_decode( $page->title() ))
-  , 'priority' => implode( ' ', $headings )
-  , 'headings' => $headings
-  , 'text'     => str_replace( PHP_EOL, ' ', strip_tags( html_entity_decode( $page->text()->kirbytext() )))
-  ]);
-
+  f::write($root . $name, $html);
 }
-
-// fuse.je config
-$fuse_config = 'var options={include:["score"],shouldSort:!0,tokenize:true,matchAllTokens:true,threshold:.6,location:0,distance:100,maxPatternLength:32,minMatchCharLength:1,keys:["headings","text"]};window.fuse=new Fuse(list,options);';
-
-// root dir
-$root = __DIR__ . DS . 'static' . DS;
-
-// write json index
-file_put_contents(  $root . 'search.js',  'var list = ' . json_encode( $index ) . "; $fuse_config" );
 
 // write CNAME file
 file_put_contents( $root . 'CNAME', 'svgjs.com' );
