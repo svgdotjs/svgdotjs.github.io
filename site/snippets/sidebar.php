@@ -4,12 +4,7 @@
   <a class="skip-link visuallyhidden focusable" href="#main">Skip to Main Content</a>
 
   <div class="search">
-    <input name="q" type="text" placeholder="Search..." autocomplete="off">
-    <ul class="results">
-      <li class="result">
-        nothing yet
-      </li>
-    </ul>
+    <input name="q" type="text" placeholder="Search..." autocomplete="off" id="agolia">
   </div>
 
   <nav class="sidebar-nav" role="navigation">

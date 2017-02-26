@@ -148,10 +148,9 @@ aside {
     display: none;
   }
 
-  &.searched {
-    .results {
-      display: block;
-    }
+  
+  .algolia-autocomplete {
+    width: 100%;
   }
 }
 
