@@ -42,7 +42,7 @@ Index:
 <br>
 ## Easy readable, uncluttered syntax.
 Creating and manipulating SVG using JavaScript alone is pretty verbose.  For example, just creating a simple pink square requires quite a lot of code:
-<iframe width="100%" height="330" src="//jsfiddle.net/wout/wsss6rj9/embedded/js,result/?accentColor=" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="330" src="//jsfiddle.net/wout/wsss6rj9/embedded/js,result/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 SVG.js provides a syntax that is concise and easy to read. Doing the same as the vanilla js example above:
 
@@ -58,7 +58,7 @@ That's just **two** lines of code instead of **ten**! And a whole lot less repet
 <br>
 ## Go crazy with animations
 
-<iframe width="100%" height="400" src="//jsfiddle.net/wout/7wL1uv8n/12/embedded/result/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="400" src="//jsfiddle.net/wout/7wL1uv8n/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 
 <br>

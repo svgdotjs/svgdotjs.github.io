@@ -233,7 +233,7 @@ text.textPath().animate(3000).attr('startOffset', '80%')
 
 **Note**: If a `startOffset` other than a percentage is given, then the value represents a distance along the path measured in the current user coordinate system.
 
-<iframe width="100%" height="400" src="//jsfiddle.net/wout/7wL1uv8n/12/embedded/result/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="400" src="//jsfiddle.net/wout/7wL1uv8n/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 ## array()
 
