@@ -12,7 +12,7 @@ Text:
 **(link: https://raw.githubusercontent.com/svgdotjs/svg.js/master/dist/svg.min.js text: svg.min.js [for production] target: _blank)** - ±16k when gzipped
 
 ## CDN.js
-Grab the latest version **(link: https://cdnjs.com/libraries/svgjs text: here from cdnjs.com target: _blank)**.
+Grab the latest version **(link: https://cdnjs.com/libraries/svg.js text: here from cdnjs.com target: _blank)**.
 
 ## Bower
 ```
