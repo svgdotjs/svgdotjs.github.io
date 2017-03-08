@@ -11,19 +11,19 @@
 
 <?= js('assets/js/libs/highlight.pack.js') ?>
 <?= js('assets/js/libs/accordion-plain.js') ?>
-<?= js('https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js') ?>
-<?= js('https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.8.3/mark.min.js') ?>
 <?= js('assets/js/kdoc.js?r=' . date( 'YmdHis' ) ) ?>
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <script src="//static.getclicky.com/js" type="text/javascript"></script>
 <script type="text/javascript">try{ clicky.init(101014746); }catch(e){}</script>
+
 <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
 <script type="text/javascript"> docsearch({
-apiKey: '5be1b33ea56eabd305f59aaf7ac5a50f',
+apiKey: 'a01bac6cbc400d1cd9b3ae22bb918066',
 indexName: 'svgjs',
 inputSelector: '#agolia',
 debug: false // Set debug to true if you want to inspect the dropdown
 });
 </script>
+
 </body>
 </html>
