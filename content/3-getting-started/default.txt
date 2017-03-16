@@ -1,29 +1,36 @@
-Title: Usage
+Title: Getting started
 
 ----
 
 Text: 
 
-# Usage
+# Getting started
+
+## Preparation
+
+SVG.js assumes you have an HTML element with an `id` attribute created and ready to serve as the wrapper. Something like:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SVG.js</title>
+</head>
+<body>
+  <div id="drawing"></div>
+</body>
+</html>
+```
 
 ## Create an SVG document
 
-Use the `SVG()` function to create an SVG document within a given html element:
+Next, use the `SVG()` function to create an SVG document within the wrapper element:
 
 ```javascript
 var draw = SVG('drawing').size(300, 300)
 var rect = draw.rect(100, 100).attr({ fill: '#f06' })
 ```
-The first argument can either be an id of the element or the selected element itself.
-Be aware that the HTML element must exist before running the SVG.js code.
-
-Given this HTML:
-
-```html
-<div id="drawing"></div>
-```
-
-This will generate the following output:
+The first argument can either be an id of the element or the selected element itself. This will generate the following output:
 
 ```html
 <div id="drawing">
@@ -41,7 +48,7 @@ var draw = SVG('drawing').size('100%', '100%')
 
 ## Checking for SVG support
 
-By default this library assumes the client's browser supports SVG. You can test support as follows:
+By default, SVG.js assumes the client's browser supports SVG. You can test support as follows:
 
 ```javascript
 if (SVG.supported) {
@@ -53,8 +60,8 @@ if (SVG.supported) {
 ```
 
 
-## SVG document
-Svg.js also works outside of the HTML DOM, inside an SVG document for example:
+## Pure SVG
+SVG.js also works outside of the HTML DOM, inside an SVG document for example:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -67,19 +74,6 @@ Svg.js also works outside of the HTML DOM, inside an SVG document for example:
     ]]>
   </script>
 </svg>
-```
-
-## Sub-pixel offset fix
-Call the `spof()` method to fix sub-pixel offset:
-
-```javascript
-var draw = SVG('drawing').spof()
-```
-
-To enable automatic sub-pixel offset correction when the window is resized:
-
-```javascript
-SVG.on(window, 'resize', function() { draw.spof() })
 ```
 
 ----
