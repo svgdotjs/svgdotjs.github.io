@@ -2,7 +2,7 @@ Title: Referencing
 
 ----
 
-Text: 
+Text:
 
 # Referencing
 
@@ -34,6 +34,20 @@ The second is to search within a parent element:
 
 ```javascript
 var elements = group.select('rect.my-class').fill('#f06')
+```
+
+## By existing DOM element
+
+`returns` __`SVG.Element`__
+
+If you want SVG.js to adopt an existing DOM element, you can use the `SVG.adopt()` method:
+
+```javascript
+var polygon = document.createElement('polygon')
+
+var element = SVG.adopt(polygon)
+
+element.fill('#f06')
 ```
 
 ## Using jQuery or Zepto
