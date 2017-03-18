@@ -190,6 +190,8 @@ Shift the element in both the `x` and `y` directions relative to its current pos
 rect.dmove(10, 30)
 ```
 
+**Note**: when using `dmove()` (and `dx()` or `dy()` too for that matter), always make sure you provide values of the same unit the element is originally positioned in. So if the element is at `x:10%`, use `element.dx('5%')` and not `element.dx('5px')`.
+
 ## dx()
 
 `returns` __`itself`__<br>`animate` __`yes`__
@@ -364,7 +366,7 @@ rect.opacity(0.5)
 ```
 
 <br>
-# Transforms
+# Transforming
 
 ## transform() _as setter_
 
@@ -429,6 +431,46 @@ Additionally a string value for the required property can be passed:
 element.transform('rotation')
 ```
 
+## flip()
+
+`returns`__ `itself`__<br>`animate`__ `yes`__
+
+Flips element over a given axis:
+
+```javascript
+element.flip('x')
+```
+
+or
+
+```javascript
+element.flip('y')
+```
+
+By default, elements are flipped over their centre point. The flip axis position can be defined with the second argument:
+
+```javascript
+element.flip('x', 150)
+```
+
+or
+
+```javascript
+element.flip('y', 100)
+```
+
+Finally, an element can also be flipped over two axes at once by not providing an axis value:
+
+```javascript
+element.flip()
+```
+
+And flipping on both axes at the same offset can be done by passing only a numeric value:
+
+```javascript
+element.flip(5)
+```
+
 ## rotate()
 
 `returns`__ `itself`__<br>`animate`__ `yes`__
@@ -437,14 +479,14 @@ The `rotate()` method will automatically rotate elements according to the center
 
 ```javascript
 // rotate(degrees)
-rect.rotate(45)
+element.rotate(45)
 ```
 
 Although you can also define a specific rotation point:
 
 ```javascript
 // rotate(degrees, cx, cy)
-rect.rotate(45, 50, 50)
+element.rotate(45, 50, 50)
 ```
 
 ## skew()
@@ -455,7 +497,7 @@ The `skew()` method will take an `x` and `y` value:
 
 ```javascript
 // skew(x, y)
-rect.skew(0, 45)
+element.skew(0, 45)
 ```
 
 ## scale()
@@ -466,7 +508,7 @@ The `scale()` method will take an `x` and `y` value:
 
 ```javascript
 // scale(x, y)
-rect.scale(0.5, -1)
+element.scale(0.5, -1)
 ```
 
 ## translate()
@@ -477,7 +519,7 @@ The `translate()` method will take an `x` and `y` value:
 
 ```javascript
 // translate(x, y)
-rect.translate(0.5, -1)
+element.translate(0.5, -1)
 ```
 
 <br>
@@ -490,25 +532,25 @@ rect.translate(0.5, -1)
 With the `style()` method the `style` attribute can be managed like attributes with `attr`:
 
 ```javascript
-rect.style('cursor', 'pointer')
+element.style('cursor', 'pointer')
 ```
 
 Multiple styles can be set at once using an object:
 
 ```javascript
-rect.style({ cursor: 'pointer', fill: '#f03' })
+element.style({ cursor: 'pointer', fill: '#f03' })
 ```
 
 Or a css string:
 
 ```javascript
-rect.style('cursor:pointer;fill:#f03;')
+element.style('cursor:pointer;fill:#f03;')
 ```
 
 Explicitly deleting individual style definitions works the same as with the `attr()` method:
 
 ```javascript
-rect.style('cursor', null)
+element.style('cursor', null)
 ```
 
 ## style() _as getter_
@@ -518,14 +560,14 @@ rect.style('cursor', null)
 Similar to `attr()` the `style()` method can also act as a getter:
 
 ```javascript
-rect.style('cursor')
+element.style('cursor')
 // => pointer
 ```
 
 Or even a full getter:
 
 ```javascript
-rect.style()
+element.style()
 // => 'cursor:pointer;fill:#f03;'
 ```
 
@@ -536,7 +578,7 @@ rect.style()
 Hide element:
 
 ```javascript
-rect.hide()
+element.hide()
 ```
 
 ## show()
@@ -546,7 +588,7 @@ rect.hide()
 Show (unhide) element:
 
 ```javascript
-rect.show()
+element.show()
 ```
 
 ## visible()
@@ -556,7 +598,7 @@ rect.show()
 To check if the element is visible:
 
 ```javascript
-rect.visible()
+element.visible()
 ```
 
 <br>
@@ -569,7 +611,7 @@ rect.visible()
 Adds a given css class:
 
 ```javascript
-rect.addClass('pink-flower')
+element.addClass('pink-flower')
 ```
 
 ## classes()
@@ -579,7 +621,7 @@ rect.addClass('pink-flower')
 Fetches the CSS classes for the node as an array:
 
 ```javascript
-rect.classes()
+element.classes()
 ```
 
 ## hasClass()
@@ -589,7 +631,7 @@ rect.classes()
 Test the presence of a given css class:
 
 ```javascript
-rect.hasClass('purple-rain')
+element.hasClass('purple-rain')
 ```
 
 ## removeClass()
@@ -599,7 +641,7 @@ rect.hasClass('purple-rain')
 Removes a given css class:
 
 ```javascript
-rect.removeClass('pink-flower')
+element.removeClass('pink-flower')
 ```
 
 ## toggleClass()
@@ -609,7 +651,7 @@ rect.removeClass('pink-flower')
 Toggles a given css class:
 
 ```javascript
-rect.toggleClass('pink-flower')
+element.toggleClass('pink-flower')
 ```
 
 <br>

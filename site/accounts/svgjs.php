@@ -9,8 +9,8 @@ role: admin
 firstname: SVG
 lastname: JS
 history:
+  - manipulating
+  - events
+  - manipulating/transforming
+  - plugins/svg-colorat-js
   - elements
-  - referencing
-  - geometry
-  - geometry/svg-rbox
-  - parents

@@ -4,16 +4,16 @@ Title: Events
 
 Text: 
 
-# Events
+# Basic events
 
-## Basic events
+## <span class="subject">element.</span>click()
 
 `returns` __`itself`__
 
 Events can be bound to elements as follows:
 
 ```javascript
-rect.click(function() {
+element.click(function() {
   this.fill({ color: '#f06' })
 })
 ```
@@ -21,14 +21,42 @@ rect.click(function() {
 Removing it is quite as easy:
 
 ```javascript
-rect.click(null)
+element.click(null)
 ```
 
-All available events are: `click`, `dblclick`, `mousedown`, `mouseup`, `mouseover`, `mouseout`, `mousemove`, `touchstart`, `touchmove`, `touchleave`, `touchend` and `touchcancel`...
+All available other events are: `click`, `dblclick`, `mousedown`, `mouseup`, `mouseover`, `mouseout`, `mousemove`, `touchstart`, `touchmove`, `touchleave`, `touchend` and `touchcancel`...
 
-## Event listeners
+<br>
+# Event listeners
 
-### on()
+## <span class="subject">element.</span>fire()
+
+`returns` __`itself`__
+
+Fire an event:
+
+```javascript
+element.fire(event)
+```
+
+Optionally, an object with arbitrary data can be passed as the second argument:
+
+```javascript
+element.fire(event, { arbitrary: data })
+```
+
+## <span class="subject">element.</span>event()
+
+`returns` __`event`__
+
+When a given event is fired using `fire()`, the passed event will be stored locally. The `event()` method provides access to that stored event:
+
+```javascript
+var event = element.event()
+```
+
+
+## <span class="subject">element.</span>on()
 
 `returns` __`itself`__
 
@@ -37,56 +65,61 @@ var click = function() {
   this.fill({ color: '#f06' })
 }
 
-rect.on('click', click)
+element.on('click', click)
 ```
 
 **Note:** The context of `this` in the callback is bound to the element. You can change this context by applying your own object:
 
 ```javascript
-rect.on('click', click, window) // context of this is window
+element.on('click', click, window) // context of this is window
 ```
 
-### off()
+## <span class="subject">element.</span>off()
 
 `returns` __`itself`__
 
 Unbinding events is just as easy:
 
 ```javascript
-rect.off('click', click)
+element.off('click', click)
 ```
 
 Or to unbind all listeners for a given event:
 
 ```javascript
-rect.off('click')
+element.off('click')
 ```
 
 Or even unbind all listeners for all events:
 
 ```javascript
-rect.off()
+element.off()
 ```
 
-### other elements
-But there is more to event listeners. You can bind events to html elements as well:
+<br>
+# Other elements
+
+Adding and removing event listeners from elements also works on other elements
+
+## <span class="subject">SVG.</span>on()
 
 ```javascript
 SVG.on(window, 'click', click)
 ```
 
-Obviously unbinding is practically the same:
+## <span class="subject">SVG.</span>off()
 
 ```javascript
 SVG.off(window, 'click', click)
 ```
 
-## Custom events
+<br>
+# Custom events
 You can even use your own events.
 
 Just add an event listener for your event:
 ```javascript
-rect.on('myevent', function() {
+element.on('myevent', function() {
   alert('ta-da!')
 })
 ```
@@ -95,12 +128,12 @@ Now you are ready to fire the event whenever you need:
 
 ```javascript
 function whenSomethingHappens() {
-  rect.fire('myevent')
+  element.fire('myevent')
 }
 
 // or if you want to pass an event
 function whenSomethingHappens(event) {
-  rect.fire(event)
+  element.fire(event)
 }
 ```
 
@@ -108,10 +141,10 @@ You can also pass some data to the event:
 
 ```javascript
 function whenSomethingHappens() {
-  rect.fire('myevent', {some:'data'})
+  element.fire('myevent', {some:'data'})
 }
 
-rect.on('myevent', function(e) {
+element.on('myevent', function(e) {
   alert(e.detail.some) // outputs 'data'
 })
 ```
@@ -120,23 +153,23 @@ SVG.js supports namespaced events following the syntax `event.namespace`.
 
 A namespaced event behaves like a normal event with the difference that you can remove it without touching handlers from other namespaces.
 
-```
+```javascript
 // attach
-rect.on('myevent.namespace', function(e) {
+element.on('myevent.namespace', function(e) {
   // do something
 })
 
 // detach all handlers of namespace for myevent
-rect.off('myevent.namespace')
+element.off('myevent.namespace')
 
 // detach all handlers of namespace
-rect.off('.namespace')
+element.off('.namespace')
 
 // detach all handlers including all namespaces
-rect.off('myevent)
+element.off('myevent')
 ```
 
-However you can't fire a specific namespaced event. Calling `rect.fire('myevent.namespace')` won't do anything while `rect.fire('myevent')` works and fires all attached handlers of the event
+However, you can't fire a specific namespaced event. Calling `element.fire('myevent.namespace')` won't do anything while `element.fire('myevent')` works and fires all attached handlers of the event
 
 _Important: always make sure you namespace your event to avoid conflicts. Preferably use something very specific. So `event.wicked` for example would be better than something generic like `event.svg`._
 
