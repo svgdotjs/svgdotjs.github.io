@@ -2,11 +2,11 @@ Title: Referencing
 
 ----
 
-Text:
+Text: 
 
-# Referencing
+# By id
 
-## By id
+## SVG.get()
 
 `returns` __`SVG.Element`__ (or the most relevant subclass of `SVG.Element`)
 
@@ -18,7 +18,10 @@ var element = SVG.get('my_element')
 element.fill('#f06')
 ```
 
-## Using CSS selectors
+<br>
+# Using CSS selectors
+
+## SVG.select()
 
 `returns` __`SVG.Set`__
 
@@ -36,7 +39,10 @@ The second is to search within a parent element:
 var elements = group.select('rect.my-class').fill('#f06')
 ```
 
-## By existing DOM element
+<br>
+# Existing DOM elements
+
+## SVG.adopt()
 
 `returns` __`SVG.Element`__
 
@@ -50,7 +56,8 @@ var element = SVG.adopt(polygon)
 element.fill('#f06')
 ```
 
-## Using jQuery or Zepto
+<br>
+# Using jQuery or Zepto
 Another way is to use (link: http://jquery.com/ text: jQuery target: _blank) or (link: http://zeptojs.com/ text: Zepto target: _blank). Here is an example:
 
 ```javascript
@@ -68,11 +75,11 @@ var elements = $('#drawing g.my-group .my-element').each(function() {
 
 <br>
 # Circular reference
-Every element instance within SVG.js has a reference to the actual `node`:
+Every element instance within SVG.js has a reference to the actual `node`.
 
 ## node
 
-`returns` __`node`__
+`returns` __`SVGElement`__
 
 ```javascript
 element.node
@@ -80,22 +87,24 @@ element.node
 
 ## native()
 
-`returns` __`node`__
+`returns` __`SVGElement`__
 
-The same can be achieved with the `native()` method:
 ```javascript
-element.native()
+element.node
 ```
 
 ## instance
 
-`returns` __`element`__
+`returns` __`SVG.Element`__
 
-Similarly, the node carries a reference to the SVG.js `instance`:
+Similarly, the `node` carries a reference to the SVG.js `instance`:
 
 ```javascript
 node.instance
 ```
+<br>
+**Note the difference in return values.**
+The `node` references a native `SVGElement` while `instance` references the `SVG.Element` instance.
 
 <br>
 # Child references
@@ -277,6 +286,8 @@ rect.parents(SVG.G)   // returns [group1, group2]
 In cases where an element is linked to another element through an attribute, the linked element instance can be fetched with the `reference()` method.
 
 ## reference()
+
+`returns` __`SVG.Element`__
 
 The only thing required is the attribute name:
 

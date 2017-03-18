@@ -9,8 +9,8 @@ role: admin
 firstname: SVG
 lastname: JS
 history:
-  - getting-started
-  - installation
-  - parents
-  - parents/svg-g
-  - parents/svg-a
+  - elements
+  - faq
+  - faq/how-can-i-modify-an-element-that-already-exists-in-the-dom
+  - manipulating
+  - manipulating/positioning

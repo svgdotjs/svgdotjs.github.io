@@ -1,0 +1,39 @@
+Title: FAQ
+
+----
+
+Description: We get a lot of questions many times, over and over again. So here is a list of the most important ones.
+
+----
+
+Text: 
+
+# FAQ
+
+## Two SVG's are generated when I initialize SVG.js. Is that a bug?
+
+No, this is most definitely not a bug. SVG.js creates one invisible `<svg>` to calculate path data, bounding boxes for invisible elements and so on.
+
+We don't want to modify the documents created by users because that could result in unwanted effects. That's why we create this one extra document for us to work on. Note that we only create one extra document, no matter how many SVG's you initialize.
+
+We could implement this functionality ourselves to avoid the creation of this little "parser" as we call it. But that would result in a lot of extra code, and it would affect performance.
+
+## Can SVG.js run on Node.js?
+
+Yes, you can! Have a look at (link: https://github.com/svgdotjs/svgdom text: github.com/svgdotjs/svgdom target: _blank).
+
+## How can I modify an element that already exists in the dom?
+
+There are many ways of referencing existing elements. Take a look at the (link: /referencing text: referencing) section to get elements by id, using CSS selectors, using Zepto or jQuery, ...
+
+## I need help getting something to work...
+
+The best place to ask questions of this kind is (link: http://stackoverflow.com text: Stack Overflow target: _blank). We even have a (link: http://stackoverflow.com/search?q=svg.js text: dedicated tag).
+
+## I found a bug. Where do I report it?
+
+Thanks for taking the time to report it! You can (link: https://github.com/svgdotjs/svg.js/issues text: create an issue on Github target: _blank) and we will attend to it as soon as possible.
+
+## Where can I find tutorials?
+
+(link: https://css-tricks.com/search-results/?q=svgjs text: CSS-Tricks target: _blank) has some good ones and more will be coming soon!
