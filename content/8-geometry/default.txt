@@ -4,11 +4,9 @@ Title: Boxes
 
 Text: 
 
-# Boxes
+# SVG.Box
 
-Getting a bounding box of an element is often influenced by context. SVG.js offers various methods to get a bounding box of an element.
-
-All `SVG.*Box`instances have one method in common: `merge()`.
+All `SVG.*Box`instances inherit from `SVG.Box`.
 
 ## merge()
 
@@ -22,14 +20,25 @@ var box2 = draw.rect(100,100).move(200,200).bbox()
 var box3 = box1.merge(box2)
 ```
 
+## transform()
+
+`returns` __`SVG.Box`__
+
+Transforms the box with given a matrix:
+
+```javascript
+var transformedBox = box.transform(matrix)
+```
+
 <br>
-# ViewBox
+# SVG.ViewBox
 
 The viewBox specifies a rectangle in user space which should be mapped to the bounds of the viewport established by the given element, taking into account attribute preserveAspectRatio.
 
 ## viewbox() _as getter_
 
-`returns` __`SVG.ViewBox`__
+`constructor on` __`SVG.Element`__
+`returns` __`SVG.ViewBox`__ `which inherits from ` __`SVG.Box`__
 
 Without any arguments an instance of `SVG.ViewBox` will be returned:
 
@@ -63,7 +72,7 @@ draw.viewbox({ x: 0, y: 0, width: 297, height: 210 })
 ```
 
 <br>
-# BBox
+# SVG.BBox
 
 Stands for Bounding Box.
 
@@ -71,7 +80,8 @@ Stands for Bounding Box.
 
 ## bbox()
 
-`returns` __`SVG.BBox`__
+`constructor on` __`SVG.Element`__
+`returns` __`SVG.BBox`__ `which inherits from ` __`SVG.Box`__
 
 Get the bounding box of an element. This is a wrapper for the native `getBBox()` method but adds more values:
 
@@ -93,7 +103,7 @@ This will return an instance of `SVG.BBox` containing the following values:
 - `y2` (lower right `y` of the bounding box)
 
 <br>
-# RBox
+# SVG.RBox
 
 Stands for Rect Box. It wraps the native `getBoundingClientRect()` method. It's different from the BBox because it calculates the bounding box around the visual representation of the element, including all transformations.
 
@@ -101,7 +111,8 @@ Stands for Rect Box. It wraps the native `getBoundingClientRect()` method. It's 
 
 ## rbox()
 
-`returns` __`SVG.RBox`__
+`constructor on` __`SVG.Element`__
+`returns` __`SVG.RBox`__ `which inherits from ` __`SVG.Box`__
 
 Is similar to `bbox()` but will give you the box around the exact visual representation of the element, taking all transformations into account.
 
@@ -123,6 +134,16 @@ This will return an instance of `SVG.RBox` containing the following values:
 - `y2` (lower right `y` of the bounding box)
 
 __Important__: Mozilla browsers include stroke widths where other browsers do not. Therefore the resulting box might be different in Mozilla browsers. It is very hard to modify this behaviour so for the time being this is an inconvenience we have to live with.
+
+## addOffset()
+
+`returns` __`itself`__
+
+Adds the offset by the current window scroll position because the native `getBoundingClientRect` changes when window is scrolled.
+
+```javascript
+box.addOffset()
+```
 
 ----
 

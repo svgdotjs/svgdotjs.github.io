@@ -30,7 +30,7 @@ new SVG.Array([ .343,  .669, .119, 0,   0
 
 `returns` __`new instance`__
 
-This method will morph the array to a given position between `0` and `1`. Continuing with the previous example:
+This method will morph the array to a given position between `0` and `1`:
 
 ```javascript
 array.at(0.27).toString() //-> returns '27,0 73,100 127,127'
@@ -470,7 +470,7 @@ matrix.inverse()
 In order to animate matrices the `morph()` method lets you pass a destination matrix. This can be any value a `SVG.Matrix` would accept on initialization:
 
 ```javascript
-matrix.morph('matrix(2,0,0,2,100,150)')
+matrix.morph('2,0,0,2,100,150')
 ```
 
 ## multiply()
