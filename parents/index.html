@@ -16,7 +16,7 @@
 
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
-    <link rel="stylesheet" href="http://svgjs.com/assets/css/main.css?r=20170318181334">    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+    <link rel="stylesheet" href="http://svgjs.com/assets/css/main.css?r=20170318181828">    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
   </head>
   <body class="docs-svgjs">
   <div class="container">
@@ -963,6 +963,8 @@
 <h2 id='svg-constructor'>SVG() <span class="suffix">constructor</span></h2>
 <p><code>returns</code> <strong><code>SVG.Doc</code></strong> <code>which inherits from</code> <strong><code>SVG.Container</code></strong></p>
 <pre><code class="language-javascript">var draw = SVG('drawing')</code></pre>
+<p><br><br />
+<strong>Note</strong>: The first time <code>SVG()</code> is called, a second, invisible <code>&lt;svg&gt;</code> will be created. This is our parser <a href="http://svgjs.com/faq">as explained in the FAQ</a>.</p>
 <p><br></p>
 <h1 id='svg-nested'>SVG.Nested</h1>
 <p>Nest SVG documents within each other.</p>
@@ -1016,7 +1018,7 @@ var rect = link.rect(100, 100)</code></pre>
 <pre><code class="language-javascript">link.target('_blank')</code></pre>
 <p>Elements can also be linked the other way around with the <code>linkTo()</code> method:</p>
 <pre><code class="language-javascript">rect.linkTo('http://svgdotjs.github.io/')</code></pre>
-<p>Alternatively a block can be passed instead of a url for more options on the link element:</p>
+<p>Alternatively, a block can be passed instead of a URL for more options on the link element:</p>
 <pre><code class="language-javascript">rect.linkTo(function(link) {
   link.to('http://svgdotjs.github.io/').target('_blank')
 })</code></pre>    </section>
@@ -1033,7 +1035,7 @@ var rect = link.rect(100, 100)</code></pre>
   <img src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" class="fork-me-on-github">
 </a>
 
-<script src="http://svgjs.com/assets/js/libs/highlight.pack.js"></script><script src="http://svgjs.com/assets/js/libs/accordion-plain.js"></script><script src="http://svgjs.com/assets/js/kdoc.js?r=20170318181334"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="http://svgjs.com/assets/js/libs/highlight.pack.js"></script><script src="http://svgjs.com/assets/js/libs/accordion-plain.js"></script><script src="http://svgjs.com/assets/js/kdoc.js?r=20170318181828"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
 <script src="//static.getclicky.com/js" type="text/javascript"></script>
 <script type="text/javascript">try{ clicky.init(101014746); }catch(e){}</script>
 

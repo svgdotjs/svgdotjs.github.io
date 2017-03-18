@@ -30,6 +30,9 @@ var draw = SVG('drawing')
 ```
 
 <br>
+**Note**: The first time `SVG()` is called, a second, invisible `<svg>` will be created. This is our parser (link: /faq text: as explained in the FAQ).
+
+<br>
 # SVG.Nested
 
 Nest SVG documents within each other.
@@ -145,7 +148,7 @@ Elements can also be linked the other way around with the `linkTo()` method:
 rect.linkTo('http://svgdotjs.github.io/')
 ```
 
-Alternatively a block can be passed instead of a url for more options on the link element:
+Alternatively, a block can be passed instead of a URL for more options on the link element:
 
 ```javascript
 rect.linkTo(function(link) {
