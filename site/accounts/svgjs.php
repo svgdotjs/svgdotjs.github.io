@@ -10,7 +10,7 @@ firstname: SVG
 lastname: JS
 history:
   - elements
-  - faq
-  - faq/how-can-i-modify-an-element-that-already-exists-in-the-dom
-  - manipulating
-  - manipulating/positioning
+  - referencing
+  - geometry
+  - geometry/svg-rbox
+  - parents

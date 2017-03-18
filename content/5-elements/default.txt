@@ -6,13 +6,12 @@ Text:
 
 # Elements
 
-
 `SVG.Element` is the base prototype wrapping all elements (or nodes for that matter) in SVG.js. An extra level of refinement is added with `SVG.Shape`. Every element that can take a `fill` and/or `stroke` attribute. It is preferred to extend elements with your own methods on `SVG.Shape`, rather than on `SVG.Element`.
 
 <br>
 # SVG.Rect
 
-## rect()
+## rect() <span class="suffix">constructor</span>
 
 `constructor on` __`SVG.Container`__
 `returns` __`SVG.Rect`__ ` which inherits from ` __`SVG.Shape`__
@@ -23,7 +22,7 @@ Rects have two arguments, their `width` and `height`:
 var rect = draw.rect(100, 100)
 ```
 
-## radius()
+## <span class="subject">rect.</span>radius()
 
 `returns` __`itself`__<br>`animate` __`yes`__
 
@@ -42,7 +41,7 @@ rect.radius(10, 20)
 <br>
 # SVG.Circle
 
-## circle()
+## circle() <span class="suffix">constructor</span>
 
 `constructor on` __`SVG.Container`__
 `returns` __`SVG.Circle`__ ` which inherits from ` __`SVG.Shape`__
@@ -53,7 +52,7 @@ The only argument necessary for a circle is the diameter:
 var circle = draw.circle(100)
 ```
 
-## radius()
+## <span class="subject">circle.</span>radius()
 
 `returns` __`itself`__<br>`animate` __`yes`__
 
@@ -64,7 +63,7 @@ circle.radius(75)
 <br>
 # SVG.Ellipse
 
-## ellipse()
+## ellipse() <span class="suffix">constructor</span>
 
 `constructor on` __`SVG.Container`__
 `returns` __`SVG.Circle`__ ` which inherits from ` __`SVG.Shape`__
@@ -75,7 +74,7 @@ Ellipses have two arguments, their `width` and `height`:
 var ellipse = draw.ellipse(200, 100)
 ```
 
-## radius()
+## <span class="subject">ellipse.</span>radius()
 
 `returns` __`itself`__<br>`animate` __`yes`__
 
@@ -88,7 +87,7 @@ ellipse.radius(75, 50)
 <br>
 # SVG.Line
 
-## line()
+## line() <span class="suffix">constructor</span>
 
 `constructor on` __`SVG.Container`__
 `returns` __`SVG.Line`__ ` which inherits from ` __`SVG.Shape`__
@@ -101,7 +100,7 @@ var line = draw.line(0, 0, 100, 150).stroke({ width: 1 })
 
 Creating a line element can be done in four ways. Look at the `plot()` method to see all the possibilities.
 
-## array()
+## <span class="subject">line.</span>array()
 
 `returns` __`SVG.PointArray`__
 
@@ -111,7 +110,7 @@ References the `SVG.PointArray` instance. This method is rather intended for int
 polyline.array()
 ```
 
-## plot()
+## <span class="subject">line.</span>plot()
 
 `returns` __`itself`__<br>`animate` __`yes`__
 
@@ -148,7 +147,7 @@ line.animate(3000).plot([[200, 200], [100, 150]])
 <br>
 # SVG.Polyline
 
-## polyline()
+## polyline() <span class="suffix">constructor</span>
 
 `constructor on` __`SVG.Container`__
 `returns` __`SVG.Polyine`__ ` which inherits from ` __`SVG.Shape`__
@@ -169,7 +168,7 @@ As an alternative an array of points will work as well:
 var polyline = draw.polyline([[0,0], [100,50], [50,100]]).fill('none').stroke({ width: 1 })
 ```
 
-## array()
+## <span class="subject">polyline.</span>array()
 
 `returns` __`SVG.PointArray`__
 
@@ -179,7 +178,7 @@ References the `SVG.PointArray` instance. This method is rather intended for int
 polyline.array()
 ```
 
-## plot()
+## <span class="subject">polyline.</span>plot()
 
 `returns` __`itself`__<br>`animate` __`yes`__
 
@@ -198,7 +197,7 @@ polyline.animate(3000).plot([[0,0], [100,50], [50,100], [150,50], [200,50], [250
 <br>
 # SVG.Polygon
 
-## polygon()
+## polygon() <span class="suffix">constructor</span>
 
 `constructor on` __`SVG.Container`__
 `returns` __`SVG.Polygon`__ ` which inherits from ` __`SVG.Shape`__
@@ -212,7 +211,7 @@ var polygon = draw.polygon('0,0 100,50 50,100').fill('none').stroke({ width: 1 }
 
 Polygon strings are exactly the same as polyline strings. There is no need to close the shape as the first and last point will be connected automatically.
 
-## array()
+## <span class="subject">polygon.</span>array()
 
 `returns` __`SVG.PointArray`__
 
@@ -222,7 +221,7 @@ References the `SVG.PointArray` instance. This method is rather intended for int
 polygon.array()
 ```
 
-## plot()
+## <span class="subject">polygon.</span>plot()
 
 `returns` __`itself`__<br>`animate` __`yes`__
 
@@ -241,7 +240,7 @@ polygon.animate(3000).plot([[0,0], [100,50], [50,100], [150,50], [200,50], [250,
 <br>
 # SVG.Path
 
-## path()
+## path() <span class="suffix">constructor</span>
 
 `constructor on` __`SVG.Container`__
 `returns` __`SVG.Path`__ ` which inherits from ` __`SVG.Shape`__
@@ -254,7 +253,7 @@ draw.path('M 100 200 C 200 100 300  0 400 100 C 500 200 600 300 700 200 C 800 10
 
 For more details on path data strings, please refer to the [SVG documentation on path data](http://www.w3.org/TR/SVG/paths.html#PathData).
 
-## array()
+## <span class="subject">path.</span>array()
 
 `returns` __`SVG.PathArray`__
 
@@ -264,7 +263,7 @@ References the `SVG.PathArray` instance. This method is rather intended for inte
 path.array()
 ```
 
-## length()
+## <span class="subject">path.</span>length()
 
 `returns` __`number`__
 
@@ -274,7 +273,7 @@ Get the total length of a path element:
 var length = path.length()
 ```
 
-## pointAt()
+## <span class="subject">path.</span>pointAt()
 
 `returns` __`object`__
 
@@ -284,7 +283,7 @@ Get point on a path at given length:
 var point = path.pointAt(105) //-> returns { x : 96.88497924804688, y : 58.062747955322266 }
 ```
 
-## plot()
+## <span class="subject">path.</span>plot()
 
 `returns` __`itself`__<br>`animate` __`yes`__
 
@@ -306,6 +305,8 @@ If you need to animate paths that do not share the same commands in order, you c
 
 <br>
 # SVG.Text
+
+## text() <span class="suffix">constructor</span>
 
 `constructor on` __`SVG.Container`__
 `returns` __`SVG.Text`__ ` which inherits from ` __`SVG.Shape`__
@@ -341,7 +342,7 @@ var text = draw.plain('Lorem ipsum dolor sit amet consectetur.')
 
 This is a shortcut to the `plain` method on the `SVG.Text` instance which doesn't render newlines at all.
 
-## build()
+## <span class="subject">text.</span>build()
 
 `returns` __`itself`__
 
@@ -360,7 +361,7 @@ text.build(false) // disables build mode
 tspan.animate('2s').fill('#f06')
 ```
 
-## clear()
+## <span class="subject">text.</span>clear()
 
 `returns` __`itself`__
 
@@ -370,7 +371,7 @@ Clear all the contents of the called text element:
 text.clear()
 ```
 
-## length()
+## <span class="subject">text.</span>length()
 
 `returns` __`number`__
 
@@ -380,7 +381,7 @@ Gets the total computed text length of all tspans together:
 text.length()
 ```
 
-## font()
+## <span class="subject">text.</span>font() _as setter_
 
 `returns` __`itself`__
 
@@ -395,6 +396,12 @@ text.font({
 })
 ```
 
+Not unlike the `attr()` method, the `font()` method also accepts a key/value pair:
+
+```javascript
+text.font('family', 'Menlo')
+```
+
 Available properties are:
 - `leading` (will do the same as calling the `leading()` method as setter)
 - `anchor` (will set the `text-anchor` attribute)
@@ -405,10 +412,17 @@ Available properties are:
 - `variant` (will set the `font-variant` attribute)
 - `weight` (will set the `font-weight` attribute)
 
-Any other property will be applied as given. So for example the `letter-spacing` property will just be applied as it would be given to the `attr()` method. More on (link: https://www.w3.org/TR/SVG/text.html#FontPropertiesUsedBySVG text: font-related properties here target: _blank).
+Any other property will be applied as given. So, for example, the `letter-spacing` property will just be applied as it would be given to the `attr()` method. More on (link: https://www.w3.org/TR/SVG/text.html#FontPropertiesUsedBySVG text: font-related properties here target: _blank).
 
+## <span class="subject">text.</span>font() _as getter_
 
-## leading() _as setter_
+As you might expect, the `font()` method also acts as a getter:
+
+```javascript
+var leading = text.font('leading')
+```
+
+## <span class="subject">text.</span>leading() _as setter_
 
 `returns` __`itself`__<br>`animate` __`yes`__
 
@@ -423,7 +437,7 @@ This will render a text element with a tspan element for each line, with a `dy` 
 
 Note that the `leading()` method assumes that every first level tspan in a text node represents a new line. Using `leading()` on text elements containing multiple tspans in one line (e.g. without a wrapping tspan defining a new line) will render scrambled. So it is advisable to use this method with care, preferably only when throwing newline separated text at the text element or calling the `newLine()` method on every first level tspan added in the block passed as an argument to the text element.
 
-## leading() _as getter_
+## <span class="subject">text.</span>leading() _as getter_
 
 `returns` __`value`__
 
@@ -433,7 +447,7 @@ Get the current leading value:
 var leading = text.leading()
 ```
 
-## lines()
+## <span class="subject">text.</span>lines()
 
 `returns` __`SVG.Set`__
 
@@ -445,7 +459,7 @@ text.lines()
 
 This will return an instance of `SVG.Set` including all `tspan` elements.
 
-## plain()
+## <span class="subject">text.</span>plain()
 
 `returns` __`itself`__
 
@@ -455,7 +469,7 @@ If the content of the element doesn't need any styling or multiple lines, it mig
 text.plain('I do not have any expectations.')
 ```
 
-## rebuild()
+## <span class="subject">text.</span>rebuild()
 
 `returns` __`itself`__
 
@@ -466,7 +480,7 @@ text.rebuild(false) //-> disables rebuilding
 text.rebuild(true)  //-> enables rebuilding and instantaneously rebuilds the text element
 ```
 
-## text() _as setter_
+## <span class="subject">text.</span>text() _as setter_
 
 `returns` __`itself`__
 
@@ -476,7 +490,7 @@ Changing text afterwards is also possible with the `text()` method:
 text.text('Brilliant!')
 ```
 
-## text() _as getter_
+## <span class="subject">text.</span>text() _as getter_
 
 `returns` __`string`__
 
@@ -486,7 +500,7 @@ To get the raw text content:
 text.text()
 ```
 
-## tspan()
+## <span class="subject">text.</span>tspan()
 
 `returns` __`SVG.Tspan`__
 
@@ -499,7 +513,7 @@ text.tspan(' on a train...').fill('#f06')
 <br>
 # SVG.TextPath
 
-## path()
+## path() <span class="suffix">constructor for textPath</span>
 
 `constructor on` __`SVG.Text`__
 `returns` __`SVG.TextPath`__ ` which inherits from ` __`SVG.Text`__
@@ -540,7 +554,7 @@ text.textPath().animate(3000).attr('startOffset', '80%')
 
 <iframe width="100%" height="400" src="//jsfiddle.net/wout/7wL1uv8n/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
-## array()
+## <span class="subject">textPath.</span>array()
 
 `returns` __`SVG.PathArray`__
 
@@ -550,7 +564,7 @@ Get the path array of the underlying path:
 var array = text.textPath().array()
 ```
 
-## plot()
+## <span class="subject">textPath.</span>plot()
 
 `returns` __`itself`__<br>`animate` __`yes`__
 
@@ -560,7 +574,7 @@ Change the path on the textpath element:
 text.textPath().plot('M 300 500 C 200 100 300 0 400 100 C 500 200 600 300 700 200')
 ```
 
-## textPath()
+## <span class="subject">textPath.</span>textPath()
 
 `returns` __`SVG.TextPath`__
 
@@ -570,7 +584,7 @@ Referencing the textPath node directly:
 var textPath = text.textPath()
 ```
 
-## track()
+## <span class="subject">textPath.</span>track()
 
 `returns` __`SVG.Path`__
 
@@ -595,7 +609,7 @@ text.on('rebuild', function() {
 <br>
 # SVG.Tspan
 
-## tspan()
+## tspan() <span class="suffix">constructor</span>
 
 `constructor on` __`SVG.Text`__
 `returns` __`SVG.Tspan`__ ` which inherits from ` __`SVG.Shape`__
@@ -606,7 +620,7 @@ The tspan elements are only available inside text elements or inside other tspan
 text.tspan('spannened')
 ```
 
-## clear()
+## <span class="subject">tspan.</span>clear()
 
 `returns` __`itself`__
 
@@ -616,7 +630,7 @@ Clear all the contents of the called tspan element:
 tspan.clear()
 ```
 
-## dx()
+## <span class="subject">tspan.</span>dx()
 
 `returns` __`itself`__<br>`animate` __`yes`__
 
@@ -626,7 +640,7 @@ Define the dynamic `x` value of the element, much like a html element with `posi
 tspan.dx(30)
 ```
 
-## dy()
+## <span class="subject">tspan.</span>dy()
 
 `returns` __`itself`__<br>`animate` __`yes`__
 
@@ -636,7 +650,7 @@ Define the dynamic `y` value of the element, much like a html element with `posi
 tspan.dy(30)
 ```
 
-## plain()
+## <span class="subject">tspan.</span>plain()
 
 `returns` __`itself`__
 
@@ -646,7 +660,7 @@ Just adds some plain text:
 tspan.plain('I do not have any expectations.')
 ```
 
-## length()
+## <span class="subject">tspan.</span>length()
 
 `returns` __`number`__
 
@@ -656,7 +670,7 @@ Gets the total computed text length:
 tspan.length()
 ```
 
-## newLine()
+## <span class="subject">tspan.</span>newLine()
 
 `returns` __`itself`__
 
@@ -673,7 +687,7 @@ var text = draw.text(function(add) {
 })
 ```
 
-## text()
+## <span class="subject">tspan.</span>text()
 
 `returns` __`itself`__
 
@@ -697,7 +711,7 @@ tspan.text(function(add) {
 })
 ```
 
-## tspan()
+## <span class="subject">tspan.</span>tspan()
 
 `returns` __`SVG.Tspan`__
 
@@ -710,7 +724,7 @@ tspan.tspan('I am a child of my parent').fill('#f06')
 <br>
 # SVG.Image
 
-## image()
+## image() <span class="suffix">constructor</span>
 
 `constructor on` __`SVG.Container`__
 `returns` __`SVG.Image`__ ` which inherits from ` __`SVG.Shape`__
@@ -727,7 +741,7 @@ If you know the size of the image, those parameters can be passed as the second 
 var image = draw.image('/path/to/image.jpg', 200, 300)
 ```
 
-## load()
+## <span class="subject">image.</span>load()
 
 `returns` __`itself`__
 
@@ -737,7 +751,7 @@ Loading another image can be done with the `load()` method:
 image.load('/path/to/another/image.jpg')
 ```
 
-## loaded()
+## <span class="subject">image.</span>loaded()
 
 `returns` __`itself`__
 
@@ -758,7 +772,7 @@ The returned `loader` object as first the argument of the loaded method contains
 <br>
 # SVG.Gradient
 
-## gradient()
+## gradient() <span class="suffix">constructor</span>
 
 `constructor on` __`SVG.Container`__
 `returns` __`SVG.Gradient`__ ` which inherits from ` __`SVG.Container`__
@@ -788,7 +802,7 @@ By passing the gradient instance as the fill on any element, the `fill()` method
 
 (link:https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Gradients text: MDN target: _blank) has a great example page on how SVG Gradients work.
 
-## at()
+## <span class="subject">gradient.</span>at()
 
 `returns` __`itself`__
 
@@ -804,7 +818,7 @@ or
 stop.at({ offset: 0, color: '#333', opacity: 1 })
 ```
 
-## fill()
+## <span class="subject">gradient.</span>fill()
 
 `returns` __`string`__
 
@@ -812,7 +826,7 @@ stop.at({ offset: 0, color: '#333', opacity: 1 })
 gradient.fill() //-> returns 'url(#SvgjsGradient1234)'
 ```
 
-## from()
+## <span class="subject">gradient.</span>from()
 
 `returns` __`itself`__<br>`animate` __`yes`__
 
@@ -824,7 +838,7 @@ gradient.from(0, 0).to(0, 1)
 
 The from and to values are also expressed in percent.
 
-## get()
+## <span class="subject">gradient.</span>get()
 
 `returns` __`SVG.Stop`__
 
@@ -840,7 +854,7 @@ var gradient = draw.gradient('radial', function(stop) {
 var s1 = gradient.get(0) // -> returns "first" stop
 ```
 
-## radius()
+## <span class="subject">gradient.</span>radius()
 
 `returns` __`itself`__<br>`animate` __`yes`__
 
@@ -855,7 +869,7 @@ var gradient = draw.gradient('radial', function(stop) {
 gradient.from(0.5, 0.5).to(0.5, 0.5).radius(0.5)
 ```
 
-## to()
+## <span class="subject">gradient.</span>to()
 
 `returns` __`itself`__<br>`animate` __`yes`__
 
@@ -867,7 +881,7 @@ gradient.from(0, 0).to(0, 1)
 
 The from and to values are also expressed in percent.
 
-## update()
+## <span class="subject">gradient.</span>update()
 
 `returns` __`itself`__
 
@@ -914,7 +928,7 @@ or
 var stop = gradient.at({ offset: 0.5, color: '#f06', opacity: 1 })
 ```
 
-## update() <span class="suffix">on stop</span>
+## <span class="subject">stop.</span>update()
 
 `returns` __`itself`__
 
@@ -933,7 +947,7 @@ stop.update({ offset: 0, color: '#333', opacity: 1 })
 <br>
 # SVG.Pattern
 
-## pattern()
+## pattern() <span class="suffix">constructor</span>
 
 `constructor on` __`SVG.Container`__
 `returns` __`SVG.Pattern`__ ` which inherits from ` __`SVG.Container`__
@@ -964,7 +978,7 @@ rect.fill(pattern)
 
 By passing the pattern instance as the fill on any element, the `fill()` method will be called on the pattern instance.
 
-## fill()
+## <span class="subject">pattern.</span>fill()
 
 `returns` __`string`__
 
@@ -972,7 +986,7 @@ By passing the pattern instance as the fill on any element, the `fill()` method 
 pattern.fill() //-> returns 'url(#SvgjsPattern1234)'
 ```
 
-## update()
+## <span class="subject">pattern.</span>update()
 
 `returns` __`itself`__
 
@@ -987,7 +1001,7 @@ pattern.update(function(add) {
 <br>
 # SVG.Mask
 
-## mask()
+## mask() <span class="suffix">constructor</span>
 
 `constructor on` __`SVG.Container`__
 `returns` __`SVG.Mask`__ ` which inherits from ` __`SVG.Container`__
@@ -1011,7 +1025,7 @@ var mask = draw.mask().add(text).add(ellipse)
 rect.maskWith(mask)
 ```
 
-## maskWith()
+## <span class="subject">mask.</span>maskWith()
 
 `returns` __`itself`__
 
@@ -1036,7 +1050,7 @@ var ellipse = draw.ellipse(80, 40).move(10, 10).fill({ color: gradient })
 rect.maskWith(ellipse)
 ```
 
-## unmask()
+## <span class="subject">mask.</span>unmask()
 
 `returns` __`itself`__
 
@@ -1048,7 +1062,7 @@ rect.unmask()
 
 The `unmask()` method returns the masking element.
 
-## remove()
+## <span class="subject">mask.</span>remove()
 
 `returns` __`itself`__
 
@@ -1073,7 +1087,7 @@ rect.masker.fill('#fff')
 
 Clipping elements works exactly the same as masking elements. The only difference is that clipped elements will adopt the geometry of the clipping element. Therefore events are only triggered when entering the clipping element whereas with masks the masked element triggers the event. Another difference is that masks can define opacity with their fill colour and clipPaths can't.
 
-## clip()
+## clip() <span class="suffix">constructor</span>
 
 `constructor on` __`SVG.Container`__
 `returns` __`SVG.ClipPath`__ ` which inherits from ` __`SVG.Container`__
@@ -1089,7 +1103,7 @@ var clip = draw.clip().add(text).add(ellipse)
 rect.clipWith(clip)
 ```
 
-## clipWith()
+## <span class="subject">clipPath.</span>clipWith()
 
 `returns` __`itself`__
 
@@ -1099,7 +1113,7 @@ var ellipse = draw.ellipse(80, 40).move(10, 10)
 rect.clipWith(ellipse)
 ```
 
-## unclip()
+## <span class="subject">clipPath.</span>unclip()
 
 `returns` __`itself`__
 
@@ -1109,7 +1123,7 @@ Unclipping the elements can be done with the `unclip()` method:
 rect.unclip()
 ```
 
-## remove()
+## <span class="subject">clipPath.</span>remove()
 
 `returns` __`itself`__
 
@@ -1131,6 +1145,8 @@ rect.clipper.move(10, 10)
 
 <br>
 # SVG.Use
+
+## use() <span class="suffix">constructor</span>
 
 `constructor on` __`SVG.Container`__
 `returns` __`SVG.Use`__ ` which inherits from ` __`SVG.Shape`__
@@ -1163,7 +1179,7 @@ Note that, for external images (outside your domain) it may be necessary to load
 <br>
 # SVG.Marker
 
-## marker()
+## marker() <span class="suffix">constructor</span>
 
 `constructor on` __`SVG.Container`__
 `returns` __`SVG.Marker`__ ` which inherits from ` __`SVG.Container`__
@@ -1220,7 +1236,7 @@ Finally, to get a marker instance from the target element reference:
 path.reference('marker-end')
 ```
 
-## height()
+## <span class="subject">marker.</span>height()
 
 `returns` __`itself`__<br>`animate` __`yes`__
 
@@ -1230,7 +1246,7 @@ Defines the `markerHeight` attribute:
 marker.height(10)
 ```
 
-## ref()
+## <span class="subject">marker.</span>ref()
 
 `returns` __`itself`__
 
@@ -1240,7 +1256,7 @@ By default, the `refX` and `refY` attributes of a marker are set to respectively
 marker.ref(2, 7)
 ```
 
-## size()
+## <span class="subject">marker.</span>size()
 
 `returns` __`itself`__<br>`animate` __`yes`__
 
@@ -1250,7 +1266,7 @@ Defines the `markerWidth` and `markerHeight` attributes:
 marker.size(10, 10)
 ```
 
-## update()
+## <span class="subject">marker.</span>update()
 
 `returns` __`itself`__
 
@@ -1262,7 +1278,7 @@ marker.update(function(add) {
 })
 ```
 
-## width()
+## <span class="subject">marker.</span>width()
 
 `returns` __`itself`__<br>`animate` __`yes`__
 
@@ -1277,7 +1293,7 @@ marker.width(10)
 
 For all SVG elements that are not described by SVG.js, the `SVG.Bare` class comes in handy. This class inherits directly from `SVG.Element` and makes it possible to add custom methods in a separate namespace without polluting the main `SVG.Element` namespace. Consider it your personal playground.
 
-## element()
+## element() <span class="suffix">constructor</span>
 
 `returns` __`SVG.Bare`__ ` which inherits from ` __`SVG.Element`__
 
@@ -1296,7 +1312,7 @@ var element = draw.element('symbol', SVG.Parent)
 
 This gives you as the user a lot of power. But remember, with great power comes great responsibility.
 
-## words()
+## <span class="subject">element.</span>words()
 
 `returns` __`itself`__
 

@@ -21,7 +21,7 @@ The parent inheritance stack is: `SVG.Element` > `SVG.Parent` > `SVG.Container`.
 
 The main SVG.js initializer function creates a root svg node in the given element and returns an instance of `SVG.Doc`.
 
-## SVG()
+## SVG() <span class="suffix">constructor</span>
 
 `returns` __`SVG.Doc`__ ` which inherits from ` __`SVG.Container`__
 
@@ -34,7 +34,7 @@ var draw = SVG('drawing')
 
 Nest SVG documents within each other.
 
-## nested()
+## nested() <span class="suffix">constructor</span>
 
 `returns` __`SVG.Nested`__ ` which inherits from ` __`SVG.Container`__
 
@@ -53,7 +53,7 @@ Grouping elements can be useful if you want to transform a set of elements as if
 
 __Note:__ Groups do not have a geometry of their own, it's inherited from their content. Therefore groups do not listen to `x`, `y`, `width` and `height` attributes. If that is what you are looking for, use a `nested()` svg instead.
 
-## group()
+## group() <span class="suffix">constructor</span>
 
 `returns` __`SVG.G`__ ` which inherits from ` __`SVG.Container`__
 
@@ -89,7 +89,7 @@ var use  = draw.use(symbol).move(200, 200)
 
 The `<defs>` element is a container for referenced elements. Descendants of a `<defs>`node are not rendered directly. The `<defs>` node lives in the main `<svg>` document and can be accessed with the `defs()` method.
 
-## defs()
+## defs() <span class="suffix">constructor</span>
 
 `returns` __`SVG.Defs`__ ` which inherits from ` __`SVG.Container`__
 
@@ -110,7 +110,7 @@ The defs node works exactly the same as groups.
 
 Create a hyperlink that will be activated on all child elements.
 
-## link()
+## link() <span class="suffix">constructor</span>
 
 `returns` __`SVG.A`__ ` which inherits from ` __`SVG.Container`__
 

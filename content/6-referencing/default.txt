@@ -6,7 +6,7 @@ Text:
 
 # By id
 
-## SVG.get()
+## <span class="subject">SVG.</span>get()
 
 `returns` __`SVG.Element`__ (or the most relevant subclass of `SVG.Element`)
 
@@ -21,19 +21,27 @@ element.fill('#f06')
 <br>
 # Using CSS selectors
 
-## SVG.select()
+## <span class="subject">SVG.</span>select()
 
 `returns` __`SVG.Set`__
 
-There are two ways to select elements using CSS selectors.
-
-The first is to search globally. This will search in all svg elements in a document and return them in an instance of `SVG.Set`:
+This will search in all svg elements in a document and return them in an instance of `SVG.Set`:
 
 ```javascript
 var elements = SVG.select('rect.my-class').fill('#f06')
 ```
 
-The second is to search within a parent element:
+Additionally, a second argument can be passed to define the parent element to search in:
+
+```javascript
+var elements = SVG.select('rect.my-class', group).fill('#f06')
+```
+
+## <span class="subject">element.</span>select()
+
+`returns` __`SVG.Set`__
+
+Similar to `SVG.select()`, elements van be selected within a child element as well:
 
 ```javascript
 var elements = group.select('rect.my-class').fill('#f06')
@@ -42,7 +50,7 @@ var elements = group.select('rect.my-class').fill('#f06')
 <br>
 # Existing DOM elements
 
-## SVG.adopt()
+## <span class="subject">SVG.</span>adopt()
 
 `returns` __`SVG.Element`__
 
