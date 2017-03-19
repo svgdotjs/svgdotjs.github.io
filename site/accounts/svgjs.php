@@ -9,8 +9,8 @@ role: admin
 firstname: SVG
 lastname: JS
 history:
-  - parents
-  - manipulating
-  - events
-  - manipulating/transforming
-  - plugins/svg-colorat-js
+  - faq
+  - contributing/documentation
+  - acknowledgements-thanks
+  - 404
+  - getting-started
