@@ -12,4 +12,5 @@ Text:
 
 We're sorry, this is not the page you are looking for. But don't worry, just try the search function on the left.
 
-If you came here using the search, chances are we recently updated the docs and the Algolia search engine did not yet re-index out docs, which takes about 24 hours. So you'll have to manually browse the menu for the time being.
+## But... I came here using the search!
+Chances are, we recently updated the docs, and the (link: https://community.algolia.com/docsearch/ text: Algolia Doc Search engine target: _blank) did not yet re-index our docs, which takes about 24 hours. So for the time being, you'll have to manually browse the menu.
