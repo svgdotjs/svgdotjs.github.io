@@ -76,6 +76,11 @@ SVG.js also works outside of the HTML DOM, inside an SVG document for example:
 </svg>
 ```
 
+## Playground
+Just to get you going, here is a basic setup. Everything is present to start fiddling.
+
+<iframe width="100%" height="300" src="//jsfiddle.net/wout/Lmu56awz/3/embedded/js,result/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
 ----
 
 Description: Basic information you need to know to get started with SVG.js. From building a new SVG document to adopting one.

@@ -37,3 +37,7 @@ Thanks for taking the time to report it! You can (link: https://github.com/svgdo
 ## Where can I find tutorials?
 
 (link: https://css-tricks.com/search-results/?q=svgjs text: CSS-Tricks target: _blank) has some good ones and more will be coming soon!
+
+## How do I contribute or fix something in the docs?
+
+In the (link: /contributing/documentation/ text: contributing section), you'll find all information that is needed.

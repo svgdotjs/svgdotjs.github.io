@@ -11,3 +11,5 @@ Text:
 # Not all those who wander are lost
 
 We're sorry, this is not the page you are looking for. But don't worry, just try the search function on the left.
+
+If you came here using the search, chances are we recently updated the docs and the Algolia search engine did not yet re-index out docs, which takes about 24 hours. So you'll have to manually browse the menu for the time being.
