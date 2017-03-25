@@ -66,12 +66,12 @@ That's just **two** lines of code instead of **ten**! And a whole lot less repet
 - (link: /animating/ text: animations) on size, position, transformations, color, ...
 - (link: /extending/ text: painless extension) thanks to the modular structure
 - various (link: /plugins/ text: useful plugins) available
-- unified api between shape types with (link: /manipulating/position/#move text: move), (link: /manipulating/size/#size text: size), (link: /manipulating/position/#center text: center), ...
+- unified api between shape types with (link: /manipulating/#move text: move), (link: /manipulating/#resizing text: size), (link: /manipulating/#center text: center), ...
 - (link: /events/ text: binding events) to elements
-- full support for opacity (link: /manipulating/masking/ text: masks) and (link: /manipulating/clipping/ text: clipping paths)
-- (link: /elements/text#textpath text: text paths), even animated
-- element (link: /parents/#groups text: groups) and (link: /classes/set/ text: sets)
-- dynamic (link: /elements/gradient/ text: gradients) and (link: /elements/pattern/ text: patterns)
+- full support for opacity (link: /elements/#svg-mask text: masks) and (link: /elements/#svg-clippath text: clipping paths)
+- (link: /elements/#svg-textpath text: text paths), even animated
+- element (link: /parents/#svg-g text: groups)
+- dynamic (link: /elements/#svg-gradient text: gradients) and (link: /elements/#svg-pattern text: patterns)
 - fully documented (you're looking at it :)
 
 ### License
