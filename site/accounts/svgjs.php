@@ -9,8 +9,8 @@ role: admin
 firstname: SVG
 lastname: JS
 history:
-  - "404"
+  - elements
+  - home
+  - referencing
+  - 404
   - faq
-  - contributing/documentation
-  - acknowledgements-thanks
-  - getting-started

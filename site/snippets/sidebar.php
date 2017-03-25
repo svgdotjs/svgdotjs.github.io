@@ -47,7 +47,7 @@
             <?php endif ?>
 
             <?php if ($sp->template() == 'anchor'): ?>
-              <?php $href = "#{$sp->uid()}" ?>
+              <?php $href = "/{$p->uid()}/#{$sp->uid()}" ?>
             <?php elseif ($sp->template() == 'link'): ?>
               <?php $href = $sp->link() ?>
             <?php else: ?>

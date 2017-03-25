@@ -47,6 +47,8 @@ Similar to `SVG.select()`, elements van be selected within a child element as we
 var elements = group.select('rect.my-class').fill('#f06')
 ```
 
+This method is available on all (link: /parents text: parent classes) inheriting from `SVG.Parent`.
+
 <br>
 # Existing DOM elements
 
