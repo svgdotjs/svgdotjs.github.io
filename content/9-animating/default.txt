@@ -25,7 +25,7 @@ And the `cx()`, `cy()` and `center()` methods:
 rect.animate().center(200, 200)
 ```
 
-If you include the sugar.js module, `fill()`, `stroke()`, `rotate()`, `skew()`, `scale()`, `matrix()`, `opacity()`, `radius()` will be available as well:
+Or transformation methods:
 ```javascript
 rect.animate().rotate(45).skew(25, 0)
 ```
