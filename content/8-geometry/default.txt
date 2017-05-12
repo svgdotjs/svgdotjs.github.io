@@ -135,6 +135,12 @@ This will return an instance of `SVG.RBox` containing the following values:
 
 __Important__: Mozilla browsers include stroke widths where other browsers do not. Therefore the resulting box might be different in Mozilla browsers. It is very hard to modify this behaviour so for the time being this is an inconvenience we have to live with.
 
+You can pass an optional parameter to `rbox()`. The box is then automatically transformed into the coordinate space of this element:
+```javascript
+path.rbox(element)
+```
+In most cases you want to have the real bounding box of an element in the coordinate space of the root svg. So you write `el.rbox(rootSVG)` or just `el.rbox(el.doc())`.
+
 ## addOffset()
 
 `returns` __`itself`__
