@@ -431,6 +431,16 @@ Additionally a string value for the required property can be passed:
 element.transform('rotation')
 ```
 
+## untransform()
+
+`returns`__ `itself`__
+
+Resets all previously applied transformations:
+
+```javascript
+element.untransform()
+```
+
 ## flip()
 
 `returns`__ `itself`__<br>`animate`__ `yes`__
