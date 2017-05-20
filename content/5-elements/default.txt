@@ -449,7 +449,7 @@ text.font({
   family:   'Helvetica'
 , size:     144
 , anchor:   'middle'
-, leading:  '1.5em'
+, leading:  '1.5'
 })
 ```
 
