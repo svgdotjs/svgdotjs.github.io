@@ -2,7 +2,7 @@ Title: Classes
 
 ----
 
-Text: 
+Text:
 
 # Classes
 
@@ -52,14 +52,14 @@ array.bbox()
 
 `returns` __`new instance`__
 
-Makes a clone of the array and returns it: 
+Makes a clone of the array and returns it:
 
 ```javascript
 var array = new SVG.Array()
 var clone = array.clone()
 ```
 
-**Note:** This method performs a deep clone on multi-dimensional arrays like `SVG.PointArray` and `SVG.PathArray`. 
+**Note:** This method performs a deep clone on multi-dimensional arrays like `SVG.PointArray` and `SVG.PathArray`.
 **Note 2**: Obviously, the returned array is of the same class as the cloned array (e.g. `SVG.Array`, `SVG.PointArray` or `SVG.PathArray`).
 
 ## morph()
@@ -805,6 +805,77 @@ To remove an element from a set:
 ```javascript
 set.remove(rect)
 ```
+
+<br>
+# SVG.Point
+
+SVG.Point is returned by [point()](/manipulating/#point) but is also a useful class to create vectors.
+
+The contructor can take coordinates in many different forms:
+
+```javascript
+var vector2 = new SVG.Point(1)
+var vector1 = new SVG.Point(1,1)
+var vector5 = new SVG.Point([1,1])
+var vector3 = new SVG.Point({x:1,y:1})
+var vector4 = new SVG.Point(new SVG.Point(1,1))
+```
+
+## clone()
+
+`returns` __`SVG.Point`__
+
+Get a new `SVG.Point` with the same x/y value.
+
+```javascript
+var newPoint = new SVG.Number(1,1).clone()
+```
+
+## morph()
+
+`returns` __`itself`__
+
+Set the point to be morphable. Usually used with the `at()` method:
+
+```javascript
+var point = new SVG.Point(1,1).morph(11,10)
+point.at(0.5) //-> {x: 6, y: 5.5}
+```
+
+## at()
+
+`returns` __`SVG.Point`__
+
+Get morphable point at given position:
+
+```javascript
+var point = new SVG.Point(1,1).morph(11,10)
+point.at(0.5) //-> {x: 6, y: 5.5}
+```
+
+## native()
+
+`returns` __`SVGPoint`__
+
+Creates a native SVGPoint object outside of any document trees.
+The object is initialized to the SVG.Point point.
+
+```javascript
+var point = new SVG.Point(1,1).native()
+console.log(point) //-> SVGPoint {x: 1, y: 1}
+```
+
+## transform()
+
+`returns` __`SVG.Point`__
+
+Transform point with matrix:
+
+```javascript
+var point = new SVG.Point(1,1)
+point.transform(new SVG.Matrix().skew(0, 45)) //-> {x: 1, y: 2}
+```
+
 
 ----
 
