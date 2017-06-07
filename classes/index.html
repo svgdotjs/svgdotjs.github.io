@@ -16,7 +16,7 @@
 
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
-    <link rel="stylesheet" href="http://svgjs.com/assets/css/main.css?r=20170520090728">    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+    <link rel="stylesheet" href="http://svgjs.com/assets/css/main.css?r=20170607092502">    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
   </head>
   <body class="docs-svgjs">
   <div class="container">
@@ -651,6 +651,14 @@
                         
             
           </li>
+                    <li class="">
+            
+                        
+                                                  <a href="/classes/#svg-point">SVG.Point</a>
+
+                        
+            
+          </li>
                   </ul>
         
       </li>
@@ -989,7 +997,7 @@
 <p><strong>Note</strong>: this method is only available on <code>SVG.PointArray</code> and <code>SVG.PathArray</code>.</p>
 <h2 id='clone'>clone()</h2>
 <p><code>returns</code> <strong><code>new instance</code></strong></p>
-<p>Makes a clone of the array and returns it: </p>
+<p>Makes a clone of the array and returns it:</p>
 <pre><code class="language-javascript">var array = new SVG.Array()
 var clone = array.clone()</code></pre>
 <p><strong>Note:</strong> This method performs a deep clone on multi-dimensional arrays like <code>SVG.PointArray</code> and <code>SVG.PathArray</code>.<br />
@@ -1340,7 +1348,41 @@ set.fill('#ff0')</code></pre>
 <h2 id='remove'>remove()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>To remove an element from a set:</p>
-<pre><code class="language-javascript">set.remove(rect)</code></pre>    </section>
+<pre><code class="language-javascript">set.remove(rect)</code></pre>
+<p><br></p>
+<h1 id='svg-point'>SVG.Point</h1>
+<p>SVG.Point is returned by <a href="/manipulating/#point">point()</a> but is also a useful class to create vectors.</p>
+<p>The contructor can take coordinates in many different forms:</p>
+<pre><code class="language-javascript">var vector1 = new SVG.Point(1)
+var vector2 = new SVG.Point(1,1)
+var vector3 = new SVG.Point([1,1])
+var vector4 = new SVG.Point({x:1,y:1})
+var vector5 = new SVG.Point(new SVG.Point(1,1))</code></pre>
+<h2 id='clone'>clone()</h2>
+<p><code>returns</code> <strong><code>SVG.Point</code></strong></p>
+<p>Get a new <code>SVG.Point</code> with the same x/y value.</p>
+<pre><code class="language-javascript">var newPoint = new SVG.Number(1,1).clone()</code></pre>
+<h2 id='morph'>morph()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Set the point to be morphable. Usually used with the <code>at()</code> method:</p>
+<pre><code class="language-javascript">var point = new SVG.Point(1,1).morph(11,10)
+point.at(0.5) //-&gt; {x: 6, y: 5.5}</code></pre>
+<h2 id='at'>at()</h2>
+<p><code>returns</code> <strong><code>SVG.Point</code></strong></p>
+<p>Get morphable point at given position:</p>
+<pre><code class="language-javascript">var point = new SVG.Point(1,1).morph(11,10)
+point.at(0.5) //-&gt; {x: 6, y: 5.5}</code></pre>
+<h2 id='native'>native()</h2>
+<p><code>returns</code> <strong><code>SVGPoint</code></strong></p>
+<p>Creates a native SVGPoint object outside of any document trees.<br />
+The object is initialized to the SVG.Point point.</p>
+<pre><code class="language-javascript">var point = new SVG.Point(1,1).native()
+console.log(point) //-&gt; SVGPoint {x: 1, y: 1}</code></pre>
+<h2 id='transform'>transform()</h2>
+<p><code>returns</code> <strong><code>SVG.Point</code></strong></p>
+<p>Transform point with matrix:</p>
+<pre><code class="language-javascript">var point = new SVG.Point(1,1)
+point.transform(new SVG.Matrix().skew(0, 45)) //-&gt; {x: 1, y: 2}</code></pre>    </section>
 
   </div><!-- /.wrap content -->
 
@@ -1354,7 +1396,7 @@ set.fill('#ff0')</code></pre>
   <img src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" class="fork-me-on-github">
 </a>
 
-<script src="http://svgjs.com/assets/js/libs/highlight.pack.js"></script><script src="http://svgjs.com/assets/js/libs/accordion-plain.js"></script><script src="http://svgjs.com/assets/js/kdoc.js?r=20170520090728"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="http://svgjs.com/assets/js/libs/highlight.pack.js"></script><script src="http://svgjs.com/assets/js/libs/accordion-plain.js"></script><script src="http://svgjs.com/assets/js/kdoc.js?r=20170607092503"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
 <script src="//static.getclicky.com/js" type="text/javascript"></script>
 <script type="text/javascript">try{ clicky.init(101014746); }catch(e){}</script>
 

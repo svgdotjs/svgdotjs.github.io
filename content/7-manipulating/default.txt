@@ -2,7 +2,7 @@ Title: Manipulating
 
 ----
 
-Text: 
+Text:
 
 # Attributes
 
@@ -1000,7 +1000,7 @@ rect.siblings()
 
 ## point()
 
-`returns` __`SVG.Point`__
+`returns` __[`SVG.Point`](/classes/#svg-point)__
 
 Transforms a point from screen coordinates to the elements coordinate system.
 
