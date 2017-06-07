@@ -814,11 +814,11 @@ SVG.Point is returned by [point()](/manipulating/#point) but is also a useful cl
 The contructor can take coordinates in many different forms:
 
 ```javascript
-var vector2 = new SVG.Point(1)
-var vector1 = new SVG.Point(1,1)
-var vector5 = new SVG.Point([1,1])
-var vector3 = new SVG.Point({x:1,y:1})
-var vector4 = new SVG.Point(new SVG.Point(1,1))
+var vector1 = new SVG.Point(1)
+var vector2 = new SVG.Point(1,1)
+var vector3 = new SVG.Point([1,1])
+var vector4 = new SVG.Point({x:1,y:1})
+var vector5 = new SVG.Point(new SVG.Point(1,1))
 ```
 
 ## clone()
