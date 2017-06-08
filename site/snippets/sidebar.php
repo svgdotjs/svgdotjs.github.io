@@ -4,7 +4,7 @@
   <a class="skip-link visuallyhidden focusable" href="#main">Skip to Main Content</a>
 
   <div class="search">
-    <input name="q" type="text" placeholder="Search..." autocomplete="off" id="agolia">
+    <input name="q" type="text" placeholder="Search..." autocomplete="off" autofocus id="agolia">
   </div>
 
   <nav class="sidebar-nav" role="navigation">
@@ -38,7 +38,7 @@
         <?php if($p->hasVisibleChildren()) : ?>
           <?php foreach($p->children()->visible() as $sp): ?>
           <li class="<?php e($sp->isOpen(), 'sidebar-nav-active') ?>">
-            
+
             <?php if($sp->hasVisibleChildren() && $sp->isOpen()) : ?>
               <button class="expand-subnav expand-sub-subnav" aria-expanded="true" aria-controls="nav-collapsible-<?php echo $sp->uid() ?>">+</button>
             <?php endif ?>
@@ -85,6 +85,6 @@
 
       </li>
       <?php endforeach ?>
-    </ul>    
+    </ul>
   </nav>
 </aside>
