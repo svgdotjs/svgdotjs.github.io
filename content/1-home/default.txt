@@ -2,13 +2,13 @@ Title: Home
 
 ----
 
-Text: 
+Text:
 
 # SVG.js
 
 The lightweight library for manipulating and animating SVG.
 
-<a class="github-button" href="https://github.com/svgdotjs/svg.js" data-icon="octicon-star" data-style="mega" data-count-href="/svgdotjs/svg.js/stargazers" data-count-api="/repos/svgdotjs/svg.js#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star svgdotjs/svg.js on GitHub">Star</a>
+<a class="github-button" href="https://github.com/svgdotjs/svg.js" data-icon="octicon-star" data-size="large" data-count-href="/svgdotjs/svg.js/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star svgdotjs/svg.js on GitHub">Star</a>
 
 <br>
 ## Why choose SVG.js?

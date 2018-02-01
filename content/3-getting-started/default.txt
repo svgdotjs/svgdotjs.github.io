@@ -60,6 +60,19 @@ if (SVG.supported) {
 ```
 
 
+## Wait for DOM to be loaded
+
+This might seem obvious to many but it's still worth mentioning. If you include your js files in the head of your document, make sure to wait for the DOM to be loaded:
+
+```javascript
+SVG.on(document, 'DOMContentLoaded', function() {
+  var draw = SVG('drawing')
+})
+```
+
+This is not an issue if you include your js at the bottom.
+
+
 ## Pure SVG
 SVG.js also works outside of the HTML DOM, inside an SVG document for example:
 

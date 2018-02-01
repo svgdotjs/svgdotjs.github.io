@@ -2,11 +2,31 @@ Title: Plugins
 
 ----
 
-Text: 
+Text:
 
 # Plugins
 
 Here's a list of all plugins available for SVG.js. If you wrote one, please let us know!
+
+- [svg.path.js](/plugins/svg-path-js/)
+- [svg.topath.js](/plugins/svg-topath-js/)
+- [svg.filter.js](/plugins/svg-filter-js/)
+- [svg.pathmorphing.js](/plugins/svg-pathmorphing-js/)
+- [svg.topoly.js](/plugins/svg-topoly-js/)
+- [svg.foreignobject.js](/plugins/svg-foreignobject-js/)
+- [svg.resize.js](/plugins/svg-resize-js/)
+- [svg.colorat.js](/plugins/svg-colorat-js/)
+- [svg.intersections.js](/plugins/svg-intersections-js/)
+- [svg.screenbbox.js](/plugins/svg-screenbbox-js/)
+- [svg.connectable.js](/plugins/svg-connectable-js/)
+- [svg.math.js](/plugins/svg-math-js/)
+- [svg.select.js](/plugins/svg-select-js/)
+- [svg.easing.js](/plugins/svg-easing-js/)
+- [svg.shapes.js](/plugins/svg-shapes-js/)
+- [svg.draw.js](/plugins/svg-draw-js/)
+- [svg.textmorph.js](/plugins/svg-textmorph-js/)
+- [svg.draggable.js](/plugins/svg-draggable-js/)
+- [svg.panzoom.js](/plugins/svg-panzoom-js/)
 
 ----
 

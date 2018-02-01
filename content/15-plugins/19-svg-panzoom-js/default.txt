@@ -1,0 +1,9 @@
+Title: svg.panzoom.js
+
+----
+
+Text:
+
+# svg.panzoom.js
+
+[svg.panzoom.js](https://github.com/svgdotjs/svg.panzoom.js) a plugin for svg.js which enables panzoom for viewbox elements.

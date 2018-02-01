@@ -106,21 +106,28 @@ This will return an instance of `SVG.BBox` containing the following values:
 # SVG.RBox
 
 Stands for Rect Box. It wraps the native `getBoundingClientRect()` method. It's different from the BBox because it calculates the bounding box around the visual representation of the element, including all transformations.
-
-<iframe width="100%" height="375" src="//jsfiddle.net/wout/2ryg8v28/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="375" src="//jsfiddle.net/mtnrbq/bhunb7xp/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 ## rbox()
 
 `constructor on` __`SVG.Element`__
 `returns` __`SVG.RBox`__ `which inherits from ` __`SVG.Box`__
 
-Is similar to `bbox()` but will give you the box around the exact visual representation of the element, taking all transformations into account.
+Is similar to `bbox()` but will give you the box around the exact visual representation of the element, relative to the screen coordinate system, taking all transformations into account.
+
 
 ```javascript
-path.rbox()
+path.rbox() 
 ```
 
-This will return an instance of `SVG.RBox` containing the following values:
+Usually, what is needed is the box relative to the drawing. To get this, pass the __`SVG.Container`__ of the drawing.
+
+
+```javascript
+path.rbox(draw) 
+```
+
+This will return an instance of `SVG.RBox` containing the following values relative either to the screen or the __`SVG.Container`__  parameter:
 
 - `width` (the actual visual width)
 - `height` (the actual visual height)

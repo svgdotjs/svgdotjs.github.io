@@ -330,13 +330,15 @@ var length = path.length()
 
 ## <span class="subject">path.</span>pointAt()
 
-`returns` __`object`__
+`returns` __`SVGPoint`__
 
 Get point on a path at given length:
 
 ```javascript
-var point = path.pointAt(105) //-> returns { x : 96.88497924804688, y : 58.062747955322266 }
+var point = path.pointAt(105)
 ```
+
+Note: `pointAt()` returns a native `SVGPoint` and not a `SVG.Point`.
 
 ## <span class="subject">path.</span>plot()
 
@@ -403,7 +405,7 @@ This is a shortcut to the `plain` method on the `SVG.Text` instance which doesn'
 
 `returns` __`itself`__
 
-The `build()` can be used to enable / disable build mode. With build mode disabled, the `plain()` and `tspan()` methods will first call the `clear()` bethod before adding the new content. So when build mode is enabled, `plain()` and `tspan()` will append the new content to the existing content. When passing a block to the `text()` method, build mode is toggled automatically before and after the block is called. But in some cases it might be useful to be able to toggle it manually:
+The `build()` can be used to enable / disable build mode. With build mode disabled, the `plain()` and `tspan()` methods will first call the `clear()` method before adding the new content. So when build mode is enabled, `plain()` and `tspan()` will append the new content to the existing content. When passing a block to the `text()` method, build mode is toggled automatically before and after the block is called. But in some cases it might be useful to be able to toggle it manually:
 
 ```javascript
 var text = draw.text('This is just the start, ')
