@@ -9,8 +9,8 @@ role: admin
 firstname: SVG
 lastname: JS
 history:
-  - tutorials
-  - animating
   - elements
-  - home
-  - referencing
+  - tutorials
+  - classes
+  - getting-started
+  - animating

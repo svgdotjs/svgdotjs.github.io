@@ -13,8 +13,6 @@
 <?= js('assets/js/libs/accordion-plain.js') ?>
 <?= js('assets/js/kdoc.js?r=' . date( 'YmdHis' ) ) ?>
 <script async defer src="https://buttons.github.io/buttons.js"></script>
-<script src="//static.getclicky.com/js" type="text/javascript"></script>
-<script type="text/javascript">try{ clicky.init(101014746); }catch(e){}</script>
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
 <script type="text/javascript"> docsearch({

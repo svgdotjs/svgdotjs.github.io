@@ -2,7 +2,7 @@ Title: Classes
 
 ----
 
-Text:
+Text: 
 
 # Classes
 
@@ -828,7 +828,7 @@ var vector5 = new SVG.Point(new SVG.Point(1,1))
 Get a new `SVG.Point` with the same x/y value.
 
 ```javascript
-var newPoint = new SVG.Number(1,1).clone()
+var newPoint = new SVG.Point(1,1).clone()
 ```
 
 ## morph()
@@ -875,7 +875,6 @@ Transform point with matrix:
 var point = new SVG.Point(1,1)
 point.transform(new SVG.Matrix().skew(0, 45)) //-> {x: 1, y: 2}
 ```
-
 
 ----
 

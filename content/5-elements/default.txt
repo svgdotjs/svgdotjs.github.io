@@ -330,13 +330,15 @@ var length = path.length()
 
 ## <span class="subject">path.</span>pointAt()
 
-`returns` __`object`__
+`returns` __`SVGPoint`__
 
 Get point on a path at given length:
 
 ```javascript
-var point = path.pointAt(105) //-> returns { x : 96.88497924804688, y : 58.062747955322266 }
+var point = path.pointAt(105)
 ```
+
+Note: `pointAt()` returns a native `SVGPoint` and not a `SVG.Point`.
 
 ## <span class="subject">path.</span>plot()
 
