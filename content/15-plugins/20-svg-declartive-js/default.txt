@@ -1,9 +1,0 @@
-Title: svg.declartive.js
-
-----
-
-Text:
-
-# svg.declarative.js
-
-[svg.declartive.js](https://github.com/svgdotjs/svg.panzoom.js) a plugin for SVG.js which allows for super fast, interruptible, declarative animations.
