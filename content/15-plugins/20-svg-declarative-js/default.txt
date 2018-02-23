@@ -1,0 +1,9 @@
+Title: svg.declartive.js
+
+----
+
+Text:
+
+# svg.declarative.js
+
+[svg.declartive.js](https://github.com/saivan/svg.declarative.js) a plugin for SVG.js which allows for super fast, interruptible, declarative animations.
