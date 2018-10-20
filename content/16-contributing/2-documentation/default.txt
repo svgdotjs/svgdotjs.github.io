@@ -18,7 +18,7 @@ You'll need:
 
 2. Run `npm install `. This is only required the first time.
 
-3. Run `npm run dev` which will open up your default browser with the docs running.
+3. Run `npm run serve -s` which will open up your default browser with the docs running.
 
 ## Writing
 Log in to Kirby on (link: http://localhost:8008/panel target: _blank) using username **svgjs** and password **svgjs**.

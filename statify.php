@@ -11,7 +11,7 @@
  */
 
 // Setup the base url for your site here
-$url = 'http://svgjs.com';
+$url = 'https://svgjs.com';
 
 // Don't touch below here
 define('DS', DIRECTORY_SEPARATOR);
