@@ -1,0 +1,33 @@
+Title: Plugins
+
+----
+
+Text:
+
+# Plugins
+
+Here's a list of all plugins available for SVG.js. If you wrote one, please let us know!
+
+- [svg.colorat.js](/plugins/svg-colorat-js/)
+- [svg.connectable.js](/plugins/svg-connectable-js/)
+- [svg.declarative.js](/plugins/svg-declarative-js/)
+- [svg.draggable.js](/plugins/svg-draggable-js/)
+- [svg.draw.js](/plugins/svg-draw-js/)
+- [svg.easing.js](/plugins/svg-easing-js/)
+- [svg.filter.js](/plugins/svg-filter-js/)
+- [svg.foreignobject.js](/plugins/svg-foreignobject-js/)
+- [svg.intersections.js](/plugins/svg-intersections-js/)
+- [svg.math.js](/plugins/svg-math-js/)
+- [svg.panzoom.js](/plugins/svg-panzoom-js/)
+- [svg.path.js](/plugins/svg-path-js/)
+- [svg.pathmorphing.js](/plugins/svg-pathmorphing-js/)
+- [svg.resize.js](/plugins/svg-resize-js/)
+- [svg.screenbbox.js](/plugins/svg-screenbbox-js/)
+- [svg.select.js](/plugins/svg-select-js/)
+- [svg.shapes.js](/plugins/svg-shapes-js/)
+- [svg.textmorph.js](/plugins/svg-textmorph-js/)
+- [svg.topath.js](/plugins/svg-topath-js/)
+- [svg.topoly.js](/plugins/svg-topoly-js/)
+----
+
+Description: Here's a list of all plugins available for SVG.js. If you wrote one, please let us know! We will add them here.
