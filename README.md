@@ -25,19 +25,19 @@ Which should open up your web browser with the documentation. As you make edits,
 
 ## Writing Docs
 
-You can write the docs by either modifying the content page directly, or by using the built in documentation editor at [localhost:8008/panel](http://localhost:8008/panel). This is the recommended method as it supports markdown and kirbytext.
+You can write the docs by either modifying the content page directly, or by using the built in documentation editor at [localhost:2026/panel](http://localhost:2026/panel). This is the recommended method as it supports markdown and kirbytext.
 
 To login just use:
 
     username: svgjs
     password: svgjs
 
-Not sure why we have a login, but we do, so deal with it 🦆.
+(Kirby requires a login since it's a CMS).
 
 
 ## Building
 
-To build the docs, navigate to [localhost:8008/statify.php](localhost:8008/statify.php), which will build the static files and **output a `/static` folder**, by pushing the contents of static to master, the docs will update automagically on the site.
+To build the docs, navigate to [localhost:2026/statify.php](localhost:2026/statify.php), which will build the static files and **output a `/static` folder**, by pushing the contents of static to master, the docs will update automagically on the site.
 
 Note that you must be a core collaborator to make these changes, if you would like to submit a pull request, please do so and we will update the docs on our end.
 
