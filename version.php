@@ -1,3 +1,3 @@
 <?php
 
-define( 'DOCS_VERSION', '2.7' );
+define( 'DOCS_VERSION', '3.0' );
