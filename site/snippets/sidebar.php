@@ -1,3 +1,4 @@
+<?php $docs_version = DOCS_VERSION; ?>
 
 <aside class="sidebar-menu">
   <p class="intro"><?php echo $site->description()->kirbytext() ?></p>
@@ -47,7 +48,7 @@
             <?php endif ?>
 
             <?php if ($sp->template() == 'anchor'): ?>
-              <?php $href = "/{$p->uid()}/#{$sp->uid()}" ?>
+              <?php $href = ( isset( $fragment_prefix ) ? $fragment_prefix : '' ) . "/{$p->uid()}/#{$sp->uid()}" ?>
             <?php elseif ($sp->template() == 'link'): ?>
               <?php $href = $sp->link() ?>
             <?php else: ?>

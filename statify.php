@@ -1,17 +1,20 @@
 <?php
 
+require_once './version.php';
+
 /**
  * Instructions:
  *
  * 1. Put this into the document root of your Kirby site
  * 2. Make sure to setup the base url for your site correctly
  * 3. Run this script with `php statify.php` or open it in your browser
- * 4. Upload all files and folders from the 2.7 dir to your server
+ * 4. Upload all files and folders from the version (e.g. 2.7 or 3.0) dir to your server
  * 5. Test your site
  */
 
 // Setup the base url for your site here
-$url = 'https://svgjs.com/docs/2.7';
+$fragment_prefix = '/docs/' . DOCS_VERSION;
+$url = "https://svgjs.com$fragment_prefix";
 
 // Don't touch below here
 define('DS', DIRECTORY_SEPARATOR);
@@ -29,7 +32,7 @@ if($site->multilang()) {
 }
 
 // root dir
-$root = __DIR__ . DS . '2.7' . DS;
+$root = __DIR__ . DS . DOCS_VERSION . DS;
 
 dir::copy(__DIR__ . DS . 'assets',  $root . 'assets');
 dir::copy(__DIR__ . DS . 'content', $root . 'content');
@@ -90,7 +93,7 @@ function retitle( $match ) {
 </head>
 <body>
 
-Your site has been exported to the <b>2.7</b> folder.<br />
+Your site has been exported to the <b><?php echo DOCS_VERSION ?></b> folder.<br />
 Copy all sites and folders from there and upload them to your server.<br />
 Make sure the main URL is correct: <b><?php echo $url ?></b>
 
