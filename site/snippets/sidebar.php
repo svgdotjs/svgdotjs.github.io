@@ -1,4 +1,4 @@
-<?php global $version_refix; ?>
+<?php global $version_prefix; ?>
 
 <aside class="sidebar-menu">
   <p class="intro"><?php echo $site->description()->kirbytext() ?></p>
