@@ -1,0 +1,1694 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <title>SVG.js v3.0 | Elements</title>
+    <meta name="description" content="SVG.Element is the base prototype wrapping all elements (or nodes for that matter) in SVG.js. An extra level of refinement is added with SVG.Shape.">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="https://svgjs.com/docs/3.0/elements" />
+    <meta property="og:title" content="Elements" />
+    <meta property="og:description" content="SVG.Element is the base prototype wrapping all elements (or nodes for that matter) in SVG.js. An extra level of refinement is added with SVG.Shape." />
+    <meta property="og:image" content="https://svgjs.com/docs/3.0/assets/images/logo-svg-js-01d.png" />
+    
+    <meta name="docsearch:version" content="3.0">
+
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="https://svgjs.com/docs/3.0/assets/css/main.css?r=20181114131720">    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+  </head>
+  <body class="docs-svgjs">
+  <div class="container">
+  <header role="banner">
+    <div class="wrap">
+      <img src="/assets/images/logo-svg-js-01d-128.png" alt="SVG.js logo" class="svgjs-logo">
+      <h1 class="site-title"><a class="title-link" href="https://svgjs.com/docs/3.0">SVG.js</a></h1>
+    </div>
+  </header>
+  <div class="wrap content">
+
+    
+<aside class="sidebar-menu">
+  <p class="intro"><p>A lightweight library for manipulating and animating SVG</p></p>
+  <a class="skip-link visuallyhidden focusable" href="#main">Skip to Main Content</a>
+
+  <div class="search">
+    <input name="q" type="text" placeholder="Search..." autocomplete="off" autofocus id="agolia">
+  </div>
+
+  <nav class="sidebar-nav" role="navigation">
+    <ul>
+            <li class="group">
+
+                
+                                  <a href="https://svgjs.com/docs/3.0">Home</a>
+
+                
+        
+      </li>
+            <li class="group">
+
+                
+                                  <a href="https://svgjs.com/docs/3.0/installation">Installation</a>
+
+                
+        
+      </li>
+            <li class="group">
+
+                
+                                  <a href="https://svgjs.com/docs/3.0/getting-started">Getting started</a>
+
+                
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-parents">+</button>
+        
+                                  <a href="https://svgjs.com/docs/3.0/parents">Parents</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-parents" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.0/parents/#svg-doc">SVG.Doc</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/parents/#svg-nested">SVG.Nested</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/parents/#svg-g">SVG.G</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/parents/#svg-symbol">SVG.Symbol</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/parents/#svg-defs">SVG.Defs</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/parents/#svg-a">SVG.A</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group sidebar-nav-active">
+
+                  <button class="expand-subnav" aria-expanded="true" aria-controls="nav-collapsible-elements">+</button>
+                
+                                  <a href="https://svgjs.com/docs/3.0/elements">Elements</a>
+
+                  <ul class="submenu nav-children" id="nav-collapsible-elements" aria-hidden="false">
+                
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.0/elements/#svg-rect">SVG.Rect</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/elements/#svg-circle">SVG.Circle</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/elements/#svg-ellipse">SVG.Ellipse</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/elements/#svg-line">SVG.Line</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/elements/#svg-polyline">SVG.Polyline</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/elements/#svg-polygon">SVG.Polygon</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/elements/#svg-path">SVG.Path</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/elements/#svg-text">SVG.Text</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/elements/#svg-textpath">SVG.TextPath</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/elements/#svg-tspan">SVG.Tspan</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/elements/#svg-image">SVG.Image</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/elements/#svg-gradient">SVG.Gradient</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/elements/#svg-stop">SVG.Stop</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/elements/#svg-pattern">SVG.Pattern</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/elements/#svg-mask">SVG.Mask</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/elements/#svg-clippath">SVG.ClipPath</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/elements/#svg-use">SVG.Use</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/elements/#svg-marker">SVG.Marker</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/elements/#svg-bare">SVG.Bare</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-referencing">+</button>
+        
+                                  <a href="https://svgjs.com/docs/3.0/referencing">Referencing</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-referencing" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.0/referencing/#by-id">By id</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/referencing/#using-css-selectors">Using CSS selectors</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/referencing/#existing-dom-elements">Existing DOM elements</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/referencing/#using-jquery-or-zepto">Using jQuery or Zepto</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/referencing/#circular-reference">Circular reference</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/referencing/#child-references">Child references</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/referencing/#parent-references">Parent references</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/referencing/#uri-references">URI references</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-manipulating">+</button>
+        
+                                  <a href="https://svgjs.com/docs/3.0/manipulating">Manipulating</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-manipulating" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.0/manipulating/#attributes">Attributes</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/manipulating/#positioning">Positioning</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/manipulating/#resizing">Resizing</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/manipulating/#syntactic-sugar">Syntactic sugar</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/manipulating/#transforming">Transforming</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/manipulating/#styles">Styles</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/manipulating/#classes">Classes</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/manipulating/#data">Data</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/manipulating/#memory">Memory</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/manipulating/#document-tree">Document Tree</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/manipulating/#arranging">Arranging</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/manipulating/#geometry">Geometry</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-geometry">+</button>
+        
+                                  <a href="https://svgjs.com/docs/3.0/geometry">Boxes</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-geometry" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.0/geometry/#svg-box">SVG.Box</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/geometry/#svg-viewbox">SVG.ViewBox</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/geometry/#svg-bbox">SVG.BBox</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/geometry/#svg-rbox">SVG.RBox</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-animating">+</button>
+        
+                                  <a href="https://svgjs.com/docs/3.0/animating">Animating</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-animating" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.0/animating/#animate">Animate</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/animating/#controlling">Controlling</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/animating/#timing">Timing</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/animating/#callbacks">Callbacks</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-events">+</button>
+        
+                                  <a href="https://svgjs.com/docs/3.0/events">Events</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-events" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.0/events/#basic-events">Basic events</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/events/#event-listeners">Event listeners</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/events/#custom-events">Custom events</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-classes">+</button>
+        
+                                  <a href="https://svgjs.com/docs/3.0/classes">Classes</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-classes" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.0/classes/#svg-array">SVG.Array</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/classes/#svg-pointarray">SVG.PointArray</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/classes/#svg-patharray">SVG.PathArray</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/classes/#svg-color">SVG.Color</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/classes/#svg-matrix">SVG.Matrix</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/classes/#svg-number">SVG.Number</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/classes/#svg-set">SVG.Set</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/classes/#svg-point">SVG.Point</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                
+                                  <a href="https://svgjs.com/docs/3.0/importing-exporting">Importing / Exporting</a>
+
+                
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-extending">+</button>
+        
+                                  <a href="https://svgjs.com/docs/3.0/extending">Extending</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-extending" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.0/extending/#svg-invent">SVG.invent</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/extending/#svg-extend">SVG.extend</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                
+                                  <a href="https://svgjs.com/docs/3.0/tutorials">Tutorials / Examples</a>
+
+                
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-plugins">+</button>
+        
+                                  <a href="https://svgjs.com/docs/3.0/plugins">Plugins</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-plugins" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="https://svgjs.com/docs/3.0/plugins/svg-colorat-js">svg.colorat.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="https://svgjs.com/docs/3.0/plugins/svg-connectable-js">svg.connectable.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="https://svgjs.com/docs/3.0/plugins/svg-easing-js">svg.easing.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="https://svgjs.com/docs/3.0/plugins/svg-draw-js">svg.draw.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="https://svgjs.com/docs/3.0/plugins/svg-draggable-js">svg.draggable.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="https://svgjs.com/docs/3.0/plugins/svg-filter-js">svg.filter.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="https://svgjs.com/docs/3.0/plugins/svg-foreignobject-js">svg.foreignobject.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="https://svgjs.com/docs/3.0/plugins/svg-intersections-js">svg.intersections.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="https://svgjs.com/docs/3.0/plugins/svg-math-js">svg.math.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="https://svgjs.com/docs/3.0/plugins/svg-path-js">svg.path.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="https://svgjs.com/docs/3.0/plugins/svg-pathmorphing-js">svg.pathmorphing.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="https://svgjs.com/docs/3.0/plugins/svg-resize-js">svg.resize.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="https://svgjs.com/docs/3.0/plugins/svg-screenbbox-js">svg.screenbbox.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="https://svgjs.com/docs/3.0/plugins/svg-select-js">svg.select.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="https://svgjs.com/docs/3.0/plugins/svg-shapes-js">svg.shapes.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="https://svgjs.com/docs/3.0/plugins/svg-textmorph-js">svg.textmorph.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="https://svgjs.com/docs/3.0/plugins/svg-topath-js">svg.topath.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="https://svgjs.com/docs/3.0/plugins/svg-topoly-js">svg.topoly.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="https://svgjs.com/docs/3.0/plugins/svg-panzoom-js">svg.panzoom.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="https://svgjs.com/docs/3.0/plugins/svg-declarative-js">svg.declartive.js</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-contributing">+</button>
+        
+                                  <a href="https://svgjs.com/docs/3.0/contributing">Contributing</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-contributing" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="https://svgjs.com/docs/3.0/contributing/coding-style">Coding Style</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="https://svgjs.com/docs/3.0/contributing/documentation">Documentation</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                
+                                  <a href="https://svgjs.com/docs/3.0/compatibility">Compatibility</a>
+
+                
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-faq">+</button>
+        
+                                  <a href="https://svgjs.com/docs/3.0/faq">FAQ</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-faq" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.0/faq/#two-svg-s-are-generated-when-i-initialize-svg-js-is-that-a-bug">Two SVG's are generated when I initialize SVG.js. Is that a bug?</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/faq/#can-svg-js-run-on-node-js">Can SVG.js run on Node.js?</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/faq/#how-can-i-modify-an-element-that-already-exists-in-the-dom">How can I modify an element that already exists in the dom?</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/faq/#i-need-help-getting-something-to-work">I need help getting something to work...</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/faq/#i-found-a-bug-where-do-i-report-it">I found a bug. Where do I report it?</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/faq/#where-can-i-find-tutorials">Where can I find tutorials?</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.0/faq/#how-do-i-contribute-or-fix-something-in-the-docs">How do I contribute or fix something in the docs?</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                
+                                  <a href="https://svgjs.com/docs/3.0/acknowledgements-thanks">Acknowledgements &amp; Thanks</a>
+
+                
+        
+      </li>
+          </ul>
+  </nav>
+</aside>
+
+    <section id="main" class="main-content" role="main">
+      <h1 id='elements'>Elements</h1>
+<p><code>SVG.Element</code> is the base prototype wrapping all elements (or nodes for that matter) in SVG.js. An extra level of refinement is added with <code>SVG.Shape</code>. Every element that can take a <code>fill</code> and/or <code>stroke</code> attribute. It is preferred to extend elements with your own methods on <code>SVG.Shape</code>, rather than on <code>SVG.Element</code>.</p>
+<p><br></p>
+<h1 id='svg-rect'>SVG.Rect</h1>
+<h2 id='rect-constructor'>rect() <span class="suffix">constructor</span></h2>
+<p><code>constructor on</code> <strong><code>SVG.Container</code></strong><br />
+<code>returns</code> <strong><code>SVG.Rect</code></strong> <code>which inherits from</code> <strong><code>SVG.Shape</code></strong></p>
+<p>Rects have two arguments, their <code>width</code> and <code>height</code>:</p>
+<pre><code class="language-javascript">var rect = draw.rect(100, 100)</code></pre>
+<iframe width="100%" height="205" src="//jsfiddle.net/wout/wmtt8rkz/7/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<h2 id='rect-radius'><span class="subject">rect.</span>radius()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Rects can also have rounded corners:</p>
+<pre><code class="language-javascript">rect.radius(10)</code></pre>
+<p>This will set the <code>rx</code> and <code>ry</code> attributes to <code>10</code>. To set <code>rx</code> and <code>ry</code> individually:</p>
+<pre><code class="language-javascript">rect.radius(10, 20)</code></pre>
+<p><br></p>
+<h1 id='svg-circle'>SVG.Circle</h1>
+<h2 id='circle-constructor'>circle() <span class="suffix">constructor</span></h2>
+<p><code>constructor on</code> <strong><code>SVG.Container</code></strong><br />
+<code>returns</code> <strong><code>SVG.Circle</code></strong> <code>which inherits from</code> <strong><code>SVG.Shape</code></strong></p>
+<p>The only argument necessary for a circle is the diameter:</p>
+<pre><code class="language-javascript">var circle = draw.circle(100)</code></pre>
+<iframe width="100%" height="205" src="//jsfiddle.net/wout/79gmh7jf/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<h2 id='circle-radius'><span class="subject">circle.</span>radius()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<pre><code class="language-javascript">circle.radius(75)</code></pre>
+<p><br></p>
+<h1 id='svg-ellipse'>SVG.Ellipse</h1>
+<h2 id='ellipse-constructor'>ellipse() <span class="suffix">constructor</span></h2>
+<p><code>constructor on</code> <strong><code>SVG.Container</code></strong><br />
+<code>returns</code> <strong><code>SVG.Circle</code></strong> <code>which inherits from</code> <strong><code>SVG.Shape</code></strong></p>
+<p>Ellipses have two arguments, their <code>width</code> and <code>height</code>:</p>
+<pre><code class="language-javascript">var ellipse = draw.ellipse(200, 100)</code></pre>
+<iframe width="100%" height="205" src="//jsfiddle.net/wout/mr7kjab1/1/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<h2 id='ellipse-radius'><span class="subject">ellipse.</span>radius()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Ellipses can also be redefined by their radii:</p>
+<pre><code class="language-javascript">ellipse.radius(75, 50)</code></pre>
+<p><br></p>
+<h1 id='svg-line'>SVG.Line</h1>
+<h2 id='line-constructor'>line() <span class="suffix">constructor</span></h2>
+<p><code>constructor on</code> <strong><code>SVG.Container</code></strong><br />
+<code>returns</code> <strong><code>SVG.Line</code></strong> <code>which inherits from</code> <strong><code>SVG.Shape</code></strong></p>
+<p>Create a line from point A to point B:</p>
+<pre><code class="language-javascript">var line = draw.line(0, 0, 100, 150).stroke({ width: 1 })</code></pre>
+<p>Creating a line element can be done in four ways. Look at the <code>plot()</code> method to see all the possibilities.</p>
+<iframe width="100%" height="205" src="//jsfiddle.net/wout/1z9LmLha/3/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<h2 id='line-array'><span class="subject">line.</span>array()</h2>
+<p><code>returns</code> <strong><code>SVG.PointArray</code></strong></p>
+<p>References the <code>SVG.PointArray</code> instance. This method is rather intended for internal use:</p>
+<pre><code class="language-javascript">polyline.array()</code></pre>
+<p>More info: <a href="https://svgjs.com/docs/3.0/classes/#svg-pointarray">SVG.PointArray</a>.</p>
+<h2 id='line-plot'><span class="subject">line.</span>plot()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Updating a line is done with the <code>plot()</code> method:</p>
+<pre><code class="language-javascript">line.plot(50, 30, 100, 150)</code></pre>
+<p>Alternatively it also accepts a point string:</p>
+<pre><code class="language-javascript">line.plot('0,0 100,150')</code></pre>
+<p>Or a point array:</p>
+<pre><code class="language-javascript">line.plot([[0, 0], [100, 150]])</code></pre>
+<p>Or an instance of <code>SVG.PointArray</code>:</p>
+<pre><code class="language-javascript">var array = new SVG.PointArray([[0, 0], [100, 150]])
+line.plot(array)</code></pre>
+<p>The <code>plot()</code> method can also be animated:</p>
+<pre><code class="language-javascript">line.animate(3000).plot([[200, 200], [100, 150]])</code></pre>
+<p><br></p>
+<h1 id='svg-polyline'>SVG.Polyline</h1>
+<h2 id='polyline-constructor'>polyline() <span class="suffix">constructor</span></h2>
+<p><code>constructor on</code> <strong><code>SVG.Container</code></strong><br />
+<code>returns</code> <strong><code>SVG.Polyine</code></strong> <code>which inherits from</code> <strong><code>SVG.Shape</code></strong></p>
+<p>The polyline element defines a set of connected straight line segments. Typically, polyline elements define open shapes:</p>
+<pre><code class="language-javascript">var polyline = draw.polyline('0,0 100,50 50,100').fill('none').stroke({ width: 1 })</code></pre>
+<p>Polyline strings consist of a list of points separated by comma's or spaces. So <code>x,y x,y x,y</code> as well as <code>x y x y x y</code> or even <code>x,y,x,y,x,y</code> will work.</p>
+<p>As an alternative, an array of points will work as well:</p>
+<pre><code class="language-javascript">var polyline = draw.polyline([[0,0], [100,50], [50,100]])</code></pre>
+<p>Or even a flat array of points that's preferred:</p>
+<pre><code class="language-javascript">var polyline = draw.polyline([0,0, 100,50, 50,100])</code></pre>
+<iframe width="100%" height="205" src="//jsfiddle.net/wout/6wt24q7p/2/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<h2 id='polyline-array'><span class="subject">polyline.</span>array()</h2>
+<p><code>returns</code> <strong><code>SVG.PointArray</code></strong></p>
+<p>References the <code>SVG.PointArray</code> instance. This method is rather intended for internal use:</p>
+<pre><code class="language-javascript">polyline.array()</code></pre>
+<p>More info: <a href="https://svgjs.com/docs/3.0/classes/#svg-pointarray">SVG.PointArray</a>.</p>
+<h2 id='polyline-clear'><span class="subject">polyline.</span>clear()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>When the given point data is parsed, the result is cached. This method clears the cache.</p>
+<pre><code class="language-js">polyline.clear()</code></pre>
+<h2 id='polyline-plot'><span class="subject">polyline.</span>plot()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Polylines can be updated using the <code>plot()</code> method:</p>
+<pre><code class="language-javascript">polyline.plot([[0,0], [100,50], [50,100], [150,50], [200,50]])</code></pre>
+<p>The <code>plot()</code> method can also be animated:</p>
+<pre><code class="language-javascript">polyline.animate(3000).plot([[0,0], [100,50], [50,100], [150,50], [200,50], [250,100], [300,50], [350,50]])</code></pre>
+<p><br></p>
+<h1 id='svg-polygon'>SVG.Polygon</h1>
+<h2 id='polygon-constructor'>polygon() <span class="suffix">constructor</span></h2>
+<p><code>constructor on</code> <strong><code>SVG.Container</code></strong><br />
+<code>returns</code> <strong><code>SVG.Polygon</code></strong> <code>which inherits from</code> <strong><code>SVG.Shape</code></strong></p>
+<p>The polygon element, unlike the polyline element, defines a closed shape consisting of a set of connected straight line segments:</p>
+<pre><code class="language-javascript">var polygon = draw.polygon('0,0 100,50 50,100').fill('none').stroke({ width: 1 })</code></pre>
+<p>Polygon strings or arrays are exactly the same as polyline strings. There is no need to close the shape as the first and last point will be connected automatically.</p>
+<iframe width="100%" height="205" src="//jsfiddle.net/wout/4aqnwLy0/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<h2 id='polygon-array'><span class="subject">polygon.</span>array()</h2>
+<p><code>returns</code> <strong><code>SVG.PointArray</code></strong></p>
+<p>References the <code>SVG.PointArray</code> instance. This method is rather intended for internal use:</p>
+<pre><code class="language-javascript">polygon.array()</code></pre>
+<p>More info: <a href="https://svgjs.com/docs/3.0/classes/#svg-pointarray">SVG.PointArray</a>.</p>
+<h2 id='polygon-clear'><span class="subject">polygon.</span>clear()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>When the given point data is parsed, the result is cached. This method clears the cache.</p>
+<pre><code class="language-js">polygon.clear()</code></pre>
+<h2 id='polygon-plot'><span class="subject">polygon.</span>plot()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Like polylines, polygons can be updated using the <code>plot()</code> method:</p>
+<pre><code class="language-javascript">polygon.plot([[0,0], [100,50], [50,100], [150,50], [200,50]])</code></pre>
+<p>The <code>plot()</code> method can also be animated:</p>
+<pre><code class="language-javascript">polygon.animate(3000).plot([[0,0], [100,50], [50,100], [150,50], [200,50], [250,100], [300,50], [350,50]])</code></pre>
+<p><br></p>
+<h1 id='svg-path'>SVG.Path</h1>
+<h2 id='path-constructor'>path() <span class="suffix">constructor</span></h2>
+<p><code>constructor on</code> <strong><code>SVG.Container</code></strong><br />
+<code>returns</code> <strong><code>SVG.Path</code></strong> <code>which inherits from</code> <strong><code>SVG.Shape</code></strong></p>
+<p>The path string is similar to the polygon string but much more complex in order to support curves:</p>
+<pre><code class="language-javascript">draw.path('M0 0 H50 A20 20 0 1 0 100 50 v25 C50 125 0 85 0 85 z')</code></pre>
+<iframe width="100%" height="205" src="//jsfiddle.net/wout/oxaxp55z/2/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<p>For more details on path data strings, please refer to the <a href="http://www.w3.org/TR/SVG/paths.html#PathData">SVG documentation on path data</a>.</p>
+<h2 id='path-array'><span class="subject">path.</span>array()</h2>
+<p><code>returns</code> <strong><code>SVG.PathArray</code></strong></p>
+<p>References the <code>SVG.PathArray</code> instance. This method is rather intended for internal use:</p>
+<pre><code class="language-javascript">path.array()</code></pre>
+<p>More info: <a href="https://svgjs.com/docs/3.0/classes/#svg-patharray">SVG.PathArray</a>.</p>
+<h2 id='path-clear'><span class="subject">path.</span>clear()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>When the given path data is parsed, the result is cached. This method clears the cache.</p>
+<pre><code class="language-js">path.clear()</code></pre>
+<h2 id='path-length'><span class="subject">path.</span>length()</h2>
+<p><code>returns</code> <strong><code>number</code></strong></p>
+<p>Get the total length of a path element:</p>
+<pre><code class="language-javascript">var length = path.length()</code></pre>
+<h2 id='path-pointat'><span class="subject">path.</span>pointAt()</h2>
+<p><code>returns</code> <strong><code>SVGPoint</code></strong></p>
+<p>Get point on a path at given length:</p>
+<pre><code class="language-javascript">var point = path.pointAt(105)</code></pre>
+<p>Note: <code>pointAt()</code> returns a native <code>SVGPoint</code> and not a <code>SVG.Point</code>.</p>
+<h2 id='path-plot'><span class="subject">path.</span>plot()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Paths can be updated using the <code>plot()</code> method:</p>
+<pre><code class="language-javascript">path.plot('M10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80')</code></pre>
+<p>The <code>plot()</code> method can also be animated:</p>
+<pre><code class="language-javascript">path.animate(2000).plot('M10 80 C 40 150, 65 150, 95 80 S 150 10, 180 80').loop(true, true)</code></pre>
+<p>There is only basic support for animating paths baked into SVG.js, which means that only paths with the same commands (<code>M</code>,<code>C</code>,<code>S</code> etc.) are animateable.</p>
+<p>If you need to animate paths that do not share the same commands in order, you can use <a href="https://github.com/Fuzzyma/svg.pathmorphing.js">svg.pathmorphing.js</a></p>
+<p><br></p>
+<h1 id='svg-text'>SVG.Text</h1>
+<h2 id='text-constructor'>text() <span class="suffix">constructor</span></h2>
+<p><code>constructor on</code> <strong><code>SVG.Container</code></strong><br />
+<code>returns</code> <strong><code>SVG.Text</code></strong> <code>which inherits from</code> <strong><code>SVG.Shape</code></strong></p>
+<p>Unlike html, text in svg is much harder to tame. There is no way to create flowing text, so newlines should be entered manually. In SVG.js there are two ways to create text elements.</p>
+<p>The first and easiest method is to provide a string of text, split by newlines:</p>
+<pre><code class="language-javascript">var text = draw.text("Lorem ipsum dolor sit amet consectetur.\nCras sodales imperdiet auctor.")</code></pre>
+<p>This will automatically create a block of text and insert newlines where necessary.</p>
+<p>The second method will give you much more control but requires a bit more code:</p>
+<pre><code class="language-javascript">var text = draw.text(function(add) {
+  add.tspan('Lorem ipsum dolor sit amet ').newLine()
+  add.tspan('consectetur').fill('#f06')
+  add.tspan('.')
+  add.tspan('Cras sodales imperdiet auctor.').newLine().dx(20)
+  add.tspan('Nunc ultrices lectus at erat').newLine()
+  add.tspan('dictum pharetra elementum ante').newLine()
+})</code></pre>
+<p>If you want to go the other way and don't want to add tspans at all, just one line of text, you can use the <code>plain()</code> method instead:</p>
+<pre><code class="language-javascript">var text = draw.plain('Lorem ipsum dolor sit amet consectetur.')</code></pre>
+<p>This is a shortcut to the <code>plain</code> method on the <code>SVG.Text</code> instance which doesn't render newlines at all.</p>
+<iframe width="100%" height="160" src="//jsfiddle.net/wout/7pdww24q/5/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<h2 id='text-build'><span class="subject">text.</span>build()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>The <code>build()</code> can be used to enable / disable build mode. With build mode disabled, the <code>plain()</code> and <code>tspan()</code> methods will first call the <code>clear()</code> method before adding the new content. So when build mode is enabled, <code>plain()</code> and <code>tspan()</code> will append the new content to the existing content. When passing a block to the <code>text()</code> method, build mode is toggled automatically before and after the block is called. But in some cases it might be useful to be able to toggle it manually:</p>
+<pre><code class="language-javascript">var text = draw.text('This is just the start, ')
+
+text.build(true)  // enables build mode
+
+var tspan = text.tspan('something pink in the middle ').fill('#00ff97')
+text.plain('and again boring at the end.')
+
+text.build(false) // disables build mode
+
+tspan.animate('2s').fill('#f06')</code></pre>
+<h2 id='text-clear'><span class="subject">text.</span>clear()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Clear all the contents of the called text element:</p>
+<pre><code class="language-javascript">text.clear()</code></pre>
+<h2 id='text-length'><span class="subject">text.</span>length()</h2>
+<p><code>returns</code> <strong><code>number</code></strong></p>
+<p>Gets the total computed text length of all tspans together:</p>
+<pre><code class="language-javascript">text.length()</code></pre>
+<h2 id='text-font-as-setter'><span class="subject">text.</span>font() <em>as setter</em></h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>A convenience method to add font-related properties:</p>
+<pre><code class="language-javascript">text.font({
+  family:   'Helvetica'
+, size:     144
+, anchor:   'middle'
+, leading:  '1.5em'
+})</code></pre>
+<p>Not unlike the <code>attr()</code> method, the <code>font()</code> method also accepts a key/value pair:</p>
+<pre><code class="language-javascript">text.font('family', 'Menlo')</code></pre>
+<p>Available properties are:</p>
+<ul>
+<li><code>leading</code> (will do the same as calling the <code>leading()</code> method as setter)</li>
+<li><code>anchor</code> (will set the <code>text-anchor</code> attribute)</li>
+<li><code>family</code> (will set the <code>font-family</code> attribute)</li>
+<li><code>size</code> (will set the <code>font-size</code> attribute)</li>
+<li><code>stretch</code> (will set the <code>font-stretch</code> attribute)</li>
+<li><code>style</code> (will set the <code>font-style</code> attribute)</li>
+<li><code>variant</code> (will set the <code>font-variant</code> attribute)</li>
+<li><code>weight</code> (will set the <code>font-weight</code> attribute)</li>
+</ul>
+<p>Any other property will be applied as given. So, for example, the <code>letter-spacing</code> property will just be applied as it would be given to the <code>attr()</code> method. More on <a href="https://www.w3.org/TR/SVG/text.html#FontPropertiesUsedBySVG" rel="noopener noreferrer" target="_blank">font-related properties here</a>.</p>
+<h2 id='text-font-as-getter'><span class="subject">text.</span>font() <em>as getter</em></h2>
+<p>As you might expect, the <code>font()</code> method also acts as a getter:</p>
+<pre><code class="language-javascript">var leading = text.font('leading')</code></pre>
+<h2 id='text-leading-as-setter'><span class="subject">text.</span>leading() <em>as setter</em></h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>As opposed to html, where leading is defined by <code>line-height</code>, svg does not have a natural leading equivalent. In svg, lines are not defined naturally. They are defined by <code>&lt;tspan&gt;</code> nodes with a <code>dy</code> attribute defining the line height and an <code>x</code> value resetting the line to the <code>x</code> position of the parent text element. But you can also have many nodes in one line defining a different <code>y</code>, <code>dy</code>, <code>x</code> or even <code>dx</code> value. This gives us a lot of freedom, but also a lot more responsibility. We have to decide when a new line is defined, where it starts, what its offset is and what it's height is. The <code>leading()</code> method in SVG.js tries to ease the pain by giving you behaviour that is much closer to html. In combination with newline separated text, it works just like html:</p>
+<pre><code class="language-javascript">var text = draw.text("Lorem ipsum dolor sit amet consectetur.\nCras sodales imperdiet auctor.")
+text.leading(1.3)</code></pre>
+<p>This will render a text element with a tspan element for each line, with a <code>dy</code> value of <code>130%</code> of the font size.</p>
+<p>Note that the <code>leading()</code> method assumes that every first level tspan in a text node represents a new line. Using <code>leading()</code> on text elements containing multiple tspans in one line (e.g. without a wrapping tspan defining a new line) will render scrambled. So it is advisable to use this method with care, preferably only when throwing newline separated text at the text element or calling the <code>newLine()</code> method on every first level tspan added in the block passed as an argument to the text element.</p>
+<h2 id='text-leading-as-getter'><span class="subject">text.</span>leading() <em>as getter</em></h2>
+<p><code>returns</code> <strong><code>value</code></strong></p>
+<p>Get the current leading value:</p>
+<pre><code class="language-javascript">var leading = text.leading()</code></pre>
+<h2 id='text-lines'><span class="subject">text.</span>lines()</h2>
+<p><code>returns</code> <strong><code>SVG.Set</code></strong></p>
+<p>All first level tspans can be referenced with the <code>lines()</code> method:</p>
+<pre><code class="language-javascript">text.lines()</code></pre>
+<p>This will return an instance of <code>SVG.Set</code> including all <code>tspan</code> elements.</p>
+<h2 id='text-plain'><span class="subject">text.</span>plain()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>If the content of the element doesn't need any styling or multiple lines, it might be sufficient to just add some plain text:</p>
+<pre><code class="language-javascript">text.plain('I do not have any expectations.')</code></pre>
+<h2 id='text-rebuild'><span class="subject">text.</span>rebuild()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>This is an internal callback that probably never needs to be called manually. Basically it rebuilds the text element whenerver <code>font-size</code> and <code>x</code> attributes or the <code>leading()</code> of the text element are modified. This method also acts a setter to enable or disable rebuilding:</p>
+<pre><code class="language-javascript">text.rebuild(false) //-&gt; disables rebuilding
+text.rebuild(true)  //-&gt; enables rebuilding and instantaneously rebuilds the text element</code></pre>
+<h2 id='text-text-as-setter'><span class="subject">text.</span>text() <em>as setter</em></h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Changing text afterwards is also possible with the <code>text()</code> method:</p>
+<pre><code class="language-javascript">text.text('Brilliant!')</code></pre>
+<h2 id='text-text-as-getter'><span class="subject">text.</span>text() <em>as getter</em></h2>
+<p><code>returns</code> <strong><code>string</code></strong></p>
+<p>To get the raw text content:</p>
+<pre><code class="language-javascript">text.text()</code></pre>
+<h2 id='text-tspan'><span class="subject">text.</span>tspan()</h2>
+<p><code>returns</code> <strong><code>SVG.Tspan</code></strong></p>
+<p>Just adding one tspan is also possible:</p>
+<pre><code class="language-javascript">text.tspan(' on a train...').fill('#f06')</code></pre>
+<p><br></p>
+<h1 id='svg-textpath'>SVG.TextPath</h1>
+<h2 id='path-constructor-for-textpath'>path() <span class="suffix">constructor for textPath</span></h2>
+<p><code>constructor on</code> <strong><code>SVG.Text</code></strong><br />
+<code>returns</code> <strong><code>SVG.TextPath</code></strong> <code>which inherits from</code> <strong><code>SVG.Text</code></strong></p>
+<p>A nice feature in svg is the ability to run text along a path:</p>
+<pre><code class="language-javascript">var text = draw.text(function(add) {
+  add.tspan('We go ')
+  add.tspan('up').fill('#f09').dy(-40)
+  add.tspan(', then we go down, then up again').dy(40)
+})
+
+var path = 'M 100 200 C 200 100 300 0 400 100 C 500 200 600 300 700 200 C 800 100 900 100 900 100'
+
+text.path(path).font({ size: 42.5, family: 'Verdana' })</code></pre>
+<p>When calling the <code>path()</code> method on a text element, the text element is mutated into an intermediate between a text and a path element. From that point on the text element will also feature a <code>plot()</code> method to update the path:</p>
+<pre><code class="language-javascript">text.plot('M 300 500 C 200 100 300 0 400 100 C 500 200 600 300 700 200 C 800 100 900 100 900 100')</code></pre>
+<p>Attributes specific to the <code>&lt;textPath&gt;</code> element can be applied to the textPath instance itself:</p>
+<pre><code class="language-javascript">text.textPath().attr('startOffset', '50%')</code></pre>
+<p>And they can be animated as well of course:</p>
+<pre><code class="language-javascript">text.textPath().animate(3000).attr('startOffset', '80%')</code></pre>
+<p><strong>Note</strong>: If a <code>startOffset</code> other than a percentage is given, then the value represents a distance along the path measured in the current user coordinate system.</p>
+<iframe width="100%" height="400" src="//jsfiddle.net/wout/7wL1uv8n/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<h2 id='textpath-array'><span class="subject">textPath.</span>array()</h2>
+<p><code>returns</code> <strong><code>SVG.PathArray</code></strong></p>
+<p>Get the path array of the underlying path:</p>
+<pre><code class="language-javascript">var array = text.textPath().array()</code></pre>
+<h2 id='textpath-plot'><span class="subject">textPath.</span>plot()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Change the path on the textpath element:</p>
+<pre><code class="language-javascript">text.textPath().plot('M 300 500 C 200 100 300 0 400 100 C 500 200 600 300 700 200')</code></pre>
+<h2 id='textpath-textpath'><span class="subject">textPath.</span>textPath()</h2>
+<p><code>returns</code> <strong><code>SVG.TextPath</code></strong></p>
+<p>Referencing the textPath node directly:</p>
+<pre><code class="language-javascript">var textPath = text.textPath()</code></pre>
+<h2 id='textpath-track'><span class="subject">textPath.</span>track()</h2>
+<p><code>returns</code> <strong><code>SVG.Path</code></strong></p>
+<p>Referencing the linked path element directly:</p>
+<pre><code class="language-javascript">var path = text.track()</code></pre>
+<p><br><br />
+<strong>Note</strong>: <code>SVG.TextPath</code> inherits from <code>SVG.Text</code>, so all those methods are inherited as well.</p>
+<h2 id='events-for-svg-text'>Events for SVG.Text</h2>
+<p>The text element has one event. It is fired every time the <code>rebuild()</code> method is called:</p>
+<pre><code class="language-javascript">text.on('rebuild', function() {
+  // whatever you need to do after rebuilding
+})</code></pre>
+<p><br></p>
+<h1 id='svg-tspan'>SVG.Tspan</h1>
+<h2 id='tspan-constructor'>tspan() <span class="suffix">constructor</span></h2>
+<p><code>constructor on</code> <strong><code>SVG.Text</code></strong><br />
+<code>returns</code> <strong><code>SVG.Tspan</code></strong> <code>which inherits from</code> <strong><code>SVG.Shape</code></strong></p>
+<p>The tspan elements are only available inside text elements or inside other tspan elements.</p>
+<pre><code class="language-javascript">text.tspan('spannened')</code></pre>
+<h2 id='tspan-clear'><span class="subject">tspan.</span>clear()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Clear all the contents of the called tspan element:</p>
+<pre><code class="language-javascript">tspan.clear()</code></pre>
+<h2 id='tspan-dx'><span class="subject">tspan.</span>dx()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Define the dynamic <code>x</code> value of the element, much like a html element with <code>position:relative</code> and <code>left</code> defined:</p>
+<pre><code class="language-javascript">tspan.dx(30)</code></pre>
+<h2 id='tspan-dy'><span class="subject">tspan.</span>dy()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Define the dynamic <code>y</code> value of the element, much like a html element with <code>position:relative</code> and <code>top</code> defined:</p>
+<pre><code class="language-javascript">tspan.dy(30)</code></pre>
+<h2 id='tspan-plain'><span class="subject">tspan.</span>plain()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Just adds some plain text:</p>
+<pre><code class="language-javascript">tspan.plain('I do not have any expectations.')</code></pre>
+<h2 id='tspan-length'><span class="subject">tspan.</span>length()</h2>
+<p><code>returns</code> <strong><code>number</code></strong></p>
+<p>Gets the total computed text length:</p>
+<pre><code class="language-javascript">tspan.length()</code></pre>
+<h2 id='tspan-newline'><span class="subject">tspan.</span>newLine()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>The <code>newLine()</code> is a convenience method for adding a new line with a <code>dy</code> attribute using the current &quot;leading&quot;:</p>
+<pre><code class="language-javascript">var text = draw.text(function(add) {
+  add.tspan('Lorem ipsum dolor sit amet ').newLine()
+  add.tspan('consectetur').fill('#f06')
+  add.tspan('.')
+  add.tspan('Cras sodales imperdiet auctor.').newLine().dx(20)
+  add.tspan('Nunc ultrices lectus at erat').newLine()
+  add.tspan('dictum pharetra elementum ante').newLine()
+})</code></pre>
+<h2 id='tspan-text'><span class="subject">tspan.</span>text()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Update the content of the tspan. This can be done by either passing a string:</p>
+<pre><code class="language-javascript">tspan.text('Just a string.')</code></pre>
+<p>Which will basicly call the <code>plain()</code> method:</p>
+<p>Or by passing a block to add more specific content inside the called tspan:</p>
+<pre><code class="language-javascript">tspan.text(function(add) {
+  add.plain('Just plain text.')
+  add.tspan('Fancy text wrapped in a tspan.').fill('#f06')
+  add.tspan(function(addMore) {
+    addMore.tspan('And you can doo deeper and deeper...')
+  })
+})</code></pre>
+<h2 id='tspan-tspan'><span class="subject">tspan.</span>tspan()</h2>
+<p><code>returns</code> <strong><code>SVG.Tspan</code></strong></p>
+<p>Add a nested tspan:</p>
+<pre><code class="language-javascript">tspan.tspan('I am a child of my parent').fill('#f06')</code></pre>
+<p><br></p>
+<h1 id='svg-image'>SVG.Image</h1>
+<h2 id='image-constructor'>image() <span class="suffix">constructor</span></h2>
+<p><code>constructor on</code> <strong><code>SVG.Container</code></strong><br />
+<code>returns</code> <strong><code>SVG.Image</code></strong> <code>which inherits from</code> <strong><code>SVG.Shape</code></strong></p>
+<p>Creating images is as you might expect:</p>
+<pre><code class="language-javascript">var image = draw.image('/path/to/image.jpg')</code></pre>
+<p>If you know the size of the image, those parameters can be passed as the second and third arguments:</p>
+<pre><code class="language-javascript">var image = draw.image('/path/to/image.jpg', 200, 300)</code></pre>
+<iframe width="100%" height="205" src="//jsfiddle.net/wout/dszxekge/1/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<h2 id='image-load'><span class="subject">image.</span>load()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Loading another image can be done with the <code>load()</code> method:</p>
+<pre><code class="language-javascript">image.load('/path/to/another/image.jpg')</code></pre>
+<h2 id='image-loaded'><span class="subject">image.</span>loaded()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>If you don't know the size of the image, obviously you will have to wait for the image to be <code>loaded</code>:</p>
+<pre><code class="language-javascript">var image = draw.image('/path/to/image.jpg').loaded(function(loader) {
+  this.size(loader.width, loader.height)
+})</code></pre>
+<p>The returned <code>loader</code> object as first the argument of the loaded method contains four values:</p>
+<ul>
+<li><code>width</code></li>
+<li><code>height</code></li>
+<li><code>ratio</code> (width / height)</li>
+<li><code>url</code></li>
+</ul>
+<p><br></p>
+<h1 id='svg-gradient'>SVG.Gradient</h1>
+<h2 id='gradient-constructor'>gradient() <span class="suffix">constructor</span></h2>
+<p><code>constructor on</code> <strong><code>SVG.Container</code></strong><br />
+<code>returns</code> <strong><code>SVG.Gradient</code></strong> <code>which inherits from</code> <strong><code>SVG.Container</code></strong></p>
+<p>There are <code>linear</code> and <code>radial</code> gradients. The <code>linear</code> gradient can be created like this:</p>
+<pre><code class="language-javascript">var gradient = draw.gradient('linear', function(stop) {
+  stop.at(0, '#333')
+  stop.at(1, '#fff')
+})</code></pre>
+<p>Finally, to use the gradient on an element:</p>
+<pre><code class="language-javascript">rect.attr({ fill: gradient })</code></pre>
+<p>Or:</p>
+<pre><code class="language-javascript">rect.fill(gradient)</code></pre>
+<p>By passing the gradient instance as the fill on any element, the <code>fill()</code> method will be called on the gradient instance.</p>
+<iframe width="100%" height="205" src="//jsfiddle.net/wout/25bzorm3/2/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Gradients" rel="noopener noreferrer" target="_blank">MDN</a> has a great example page on how SVG Gradients work.</p>
+<h2 id='gradient-at'><span class="subject">gradient.</span>at()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>The <code>offset</code> and <code>color</code> parameters are required for stops, <code>opacity</code> is optional. The offset is a float between <code>0</code> and <code>1</code>, or a percentage value (e.g. <code>33%</code>).</p>
+<pre><code class="language-javascript">stop.at(0, '#333')</code></pre>
+<p>or</p>
+<pre><code class="language-javascript">stop.at({ offset: 0, color: '#333', opacity: 1 })</code></pre>
+<h2 id='gradient-fill'><span class="subject">gradient.</span>fill()</h2>
+<p><code>returns</code> <strong><code>string</code></strong></p>
+<pre><code class="language-javascript">gradient.fill() //-&gt; returns 'url(#SvgjsGradient1234)'</code></pre>
+<h2 id='gradient-from'><span class="subject">gradient.</span>from()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>To define the direction you can set from <code>x</code>, <code>y</code> and to <code>x</code>, <code>y</code>:</p>
+<pre><code class="language-javascript">gradient.from(0, 0).to(0, 1)</code></pre>
+<p>The from and to values are also expressed in percent.</p>
+<h2 id='gradient-get'><span class="subject">gradient.</span>get()</h2>
+<p><code>returns</code> <strong><code>SVG.Stop</code></strong></p>
+<p>The <code>get()</code> method makes it even easier to get a stop from an existing gradient:</p>
+<pre><code class="language-javascript">var gradient = draw.gradient('radial', function(stop) {
+  stop.at({ offset: 0, color: '#000', opacity: 1 })   // -&gt; first
+  stop.at({ offset: 0.5, color: '#f03', opacity: 1 }) // -&gt; second
+  stop.at({ offset: 1, color: '#066', opacity: 1 })   // -&gt; third
+})
+
+var s1 = gradient.get(0) // -&gt; returns "first" stop</code></pre>
+<h2 id='gradient-radius'><span class="subject">gradient.</span>radius()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Radial gradients have a <code>radius()</code> method to define the outermost radius to where the inner color should develop:</p>
+<pre><code class="language-javascript">var gradient = draw.gradient('radial', function(stop) {
+  stop.at(0, '#333')
+  stop.at(1, '#fff')
+})
+
+gradient.from(0.5, 0.5).to(0.5, 0.5).radius(0.5)</code></pre>
+<h2 id='gradient-to'><span class="subject">gradient.</span>to()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>To define the direction you can set from <code>x</code>, <code>y</code> and to <code>x</code>, <code>y</code>:</p>
+<pre><code class="language-javascript">gradient.from(0, 0).to(0, 1)</code></pre>
+<p>The from and to values are also expressed in percent.</p>
+<h2 id='gradient-update'><span class="subject">gradient.</span>update()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>A gradient can also be updated afterwards:</p>
+<pre><code class="language-javascript">gradient.update(function(stop) {
+  stop.at(0.1, '#333', 0.2)
+  stop.at(0.9, '#f03', 1)
+})</code></pre>
+<p>And even a single stop can be updated:</p>
+<pre><code class="language-javascript">var s1, s2, s3
+
+draw.gradient('radial', function(stop) {
+  s1 = stop.at(0, '#000')
+  s2 = stop.at(0.5, '#f03')
+  s3 = stop.at(1, '#066')
+})
+
+s1.update(0.1, '#0f0', 1)</code></pre>
+<p><br></p>
+<h1 id='svg-stop'>SVG.Stop</h1>
+<h2 id='at-constructor'>at() <span class="suffix">constructor</span></h2>
+<p><code>constructor on</code> <strong><code>SVG.Gradient</code></strong><br />
+<code>returns</code> <strong><code>SVG.Stop</code></strong> <code>which inherits from</code> <strong><code>SVG.Element</code></strong></p>
+<p>The stop elements are only available inside gradient elements.</p>
+<pre><code class="language-javascript">var stop = gradient.at(0.5, '#f03')</code></pre>
+<p>or</p>
+<pre><code class="language-javascript">var stop = gradient.at({ offset: 0.5, color: '#f06', opacity: 1 })</code></pre>
+<h2 id='stop-update'><span class="subject">stop.</span>update()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Takes the same parameters as the constructor.</p>
+<pre><code class="language-javascript">stop.update(0, '#333')</code></pre>
+<p>or</p>
+<pre><code class="language-javascript">stop.update({ offset: 0, color: '#333', opacity: 1 })</code></pre>
+<p><br></p>
+<h1 id='svg-pattern'>SVG.Pattern</h1>
+<h2 id='pattern-constructor'>pattern() <span class="suffix">constructor</span></h2>
+<p><code>constructor on</code> <strong><code>SVG.Container</code></strong><br />
+<code>returns</code> <strong><code>SVG.Pattern</code></strong> <code>which inherits from</code> <strong><code>SVG.Container</code></strong></p>
+<p>Creating a pattern is very similar to creating gradients:</p>
+<pre><code class="language-javascript">var pattern = draw.pattern(20, 20, function(add) {
+  add.rect(20,20).fill('#f06')
+  add.rect(10,10)
+  add.rect(10,10).move(10,10)
+})</code></pre>
+<p>This creates a checkered pattern of 20 x 20 pixels. You can add any available element to your pattern.</p>
+<p>Finally, to use the pattern on an element:</p>
+<pre><code class="language-javascript">rect.attr({ fill: pattern })</code></pre>
+<p>Or:</p>
+<pre><code class="language-javascript">rect.fill(pattern)</code></pre>
+<p>By passing the pattern instance as the fill on any element, the <code>fill()</code> method will be called on the pattern instance.</p>
+<iframe width="100%" height="205" src="//jsfiddle.net/wout/jckwhha7/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<h2 id='pattern-fill'><span class="subject">pattern.</span>fill()</h2>
+<p><code>returns</code> <strong><code>string</code></strong></p>
+<pre><code class="language-javascript">pattern.fill() //-&gt; returns 'url(#SvgjsPattern1234)'</code></pre>
+<h2 id='pattern-update'><span class="subject">pattern.</span>update()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>A pattern can also be updated afterwards:</p>
+<pre><code class="language-javascript">pattern.update(function(add) {
+  add.circle(15).center(10,10)
+})</code></pre>
+<p><br></p>
+<h1 id='svg-mask'>SVG.Mask</h1>
+<h2 id='mask-constructor'>mask() <span class="suffix">constructor</span></h2>
+<p><code>constructor on</code> <strong><code>SVG.Container</code></strong><br />
+<code>returns</code> <strong><code>SVG.Mask</code></strong> <code>which inherits from</code> <strong><code>SVG.Container</code></strong></p>
+<pre><code class="language-javascript">var ellipse = draw.ellipse(80, 40).move(10, 10).fill('#fff')
+
+var mask = draw.mask().add(ellipse)
+
+rect.maskWith(mask)</code></pre>
+<p>But you can also use multiple elements:</p>
+<pre><code class="language-javascript">var ellipse = draw.ellipse(80, 40).move(10, 10).fill({ color: '#fff' })
+var text = draw.text('SVG.JS').move(10, 10).font({ size: 36 }).fill({ color: '#fff' })
+
+var mask = draw.mask().add(text).add(ellipse)
+
+rect.maskWith(mask)</code></pre>
+<iframe width="100%" height="205" src="//jsfiddle.net/wout/s5mb5zds/1/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<h2 id='maskwith'>maskWith()</h2>
+<p><code>constructor on</code> <strong><code>SVG.Element</code></strong><br />
+<code>returns</code> <strong><code>itself</code></strong></p>
+<p>The easiest way to mask is to use a single element:</p>
+<pre><code class="language-javascript">var ellipse = draw.ellipse(80, 40).move(10, 10).fill({ color: '#fff' })
+
+rect.maskWith(ellipse)</code></pre>
+<p>If you want the masked object to be rendered at 100% you need to set the fill color of the masking object to white. But you might also want to use a gradient:</p>
+<pre><code class="language-javascript">var gradient = draw.gradient('linear', function(stop) {
+  stop.at({ offset: 0, color: '#000' })
+  stop.at({ offset: 1, color: '#fff' })
+})
+
+var ellipse = draw.ellipse(80, 40).move(10, 10).fill({ color: gradient })
+
+rect.maskWith(ellipse)</code></pre>
+<h2 id='mask-unmask'><span class="subject">mask.</span>unmask()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Unmasking the elements can be done with the <code>unmask()</code> method:</p>
+<pre><code class="language-javascript">rect.unmask()</code></pre>
+<p>The <code>unmask()</code> method returns the masking element.</p>
+<h2 id='mask-remove'><span class="subject">mask.</span>remove()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Removing the mask altogether will also <code>unmask()</code> all masked elements as well:</p>
+<pre><code class="language-javascript">mask.remove()</code></pre>
+<h2 id='masker'>masker</h2>
+<p><code>returns</code> <strong><code>SVG.Mask</code></strong></p>
+<p>For your convenience, the masking element is also referenced in the masked element. This can be useful in case you want to change the mask:</p>
+<pre><code class="language-javascript">rect.masker.fill('#fff')</code></pre>
+<p><br></p>
+<h1 id='svg-clippath'>SVG.ClipPath</h1>
+<p>Clipping elements works exactly the same as masking elements. The only difference is that clipped elements will adopt the geometry of the clipping element. Therefore events are only triggered when entering the clipping element whereas with masks the masked element triggers the event. Another difference is that masks can define opacity with their fill colour and clipPaths can't.</p>
+<h2 id='clip-constructor'>clip() <span class="suffix">constructor</span></h2>
+<p><code>constructor on</code> <strong><code>SVG.Container</code></strong><br />
+<code>returns</code> <strong><code>SVG.ClipPath</code></strong> <code>which inherits from</code> <strong><code>SVG.Container</code></strong></p>
+<p>Clip with multiple elements:</p>
+<pre><code class="language-javascript">var ellipse = draw.ellipse(80, 40).move(10, 10)
+var text = draw.text('SVG.JS').move(10, 10).font({ size: 36 })
+
+var clip = draw.clip().add(text).add(ellipse)
+
+rect.clipWith(clip)</code></pre>
+<iframe width="100%" height="205" src="//jsfiddle.net/wout/6g9pfr2m/1/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<h2 id='clipwith'>clipWith()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<pre><code class="language-javascript">var ellipse = draw.ellipse(80, 40).move(10, 10)
+
+rect.clipWith(ellipse)</code></pre>
+<h2 id='clippath-unclip'><span class="subject">clipPath.</span>unclip()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Unclipping the elements can be done with the <code>unclip()</code> method:</p>
+<pre><code class="language-javascript">rect.unclip()</code></pre>
+<h2 id='clippath-remove'><span class="subject">clipPath.</span>remove()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Removing the clip alltogether will also <code>unclip()</code> all clipped elements as well:</p>
+<pre><code class="language-javascript">clip.remove()</code></pre>
+<h2 id='clipper'>clipper</h2>
+<p><code>returns</code> <strong><code>SVG.ClipPath</code></strong></p>
+<p>For your convenience, the clipping element is also referenced in the clipped element. This can be useful in case you want to change the clipPath:</p>
+<pre><code class="language-javascript">rect.clipper.move(10, 10)</code></pre>
+<p><br></p>
+<h1 id='svg-use'>SVG.Use</h1>
+<h2 id='use-constructor'>use() <span class="suffix">constructor</span></h2>
+<p><code>constructor on</code> <strong><code>SVG.Container</code></strong><br />
+<code>returns</code> <strong><code>SVG.Use</code></strong> <code>which inherits from</code> <strong><code>SVG.Shape</code></strong></p>
+<p>The use element simply emulates another existing element. Any changes on the master element will be reflected on all the <code>use</code> instances. The usage of <code>use()</code> is very straightforward:</p>
+<pre><code class="language-javascript">var rect = draw.rect(100, 100).fill('#f09')
+var use  = draw.use(rect).move(200, 200)</code></pre>
+<p>In the case of the example above two rects will appear on the svg drawing, the original and the <code>use</code> instance. In some cases, you might want to hide the original element. The best way to do this is to create the original element in the defs node:</p>
+<pre><code class="language-javascript">var rect = draw.defs().rect(100, 100).fill('#f09')
+var use  = draw.use(rect).move(200, 200)</code></pre>
+<p>In this way, the rect element acts as a library element. You can edit it, but it won't be rendered.</p>
+<p>Another way is to point an external SVG file, just specified the element <code>id</code> and path to file.</p>
+<pre><code class="language-javascript">var use  = draw.use('elementId', 'path/to/file.svg')</code></pre>
+<p>This way is useful when you have complex images already created.<br />
+Note that, for external images (outside your domain) it may be necessary to load the file with XHR.</p>
+<p><br></p>
+<h1 id='svg-marker'>SVG.Marker</h1>
+<h2 id='marker-constructor'>marker() <span class="suffix">constructor</span></h2>
+<p><code>constructor on</code> <strong><code>SVG.Container</code></strong><br />
+<code>returns</code> <strong><code>SVG.Marker</code></strong> <code>which inherits from</code> <strong><code>SVG.Container</code></strong></p>
+<p>Markers can be added to every individual point of a <code>line</code>, <code>polyline</code>, <code>polygon</code> and <code>path</code>. There are three types of markers: <code>start</code>, <code>mid</code> and <code>end</code>. Where <code>start</code> represents the first point, <code>end</code> the last and <code>mid</code> every point in between.</p>
+<pre><code class="language-javascript">var path = draw.path('M0 0 A50 50 0 0 1 50 50 A50 50 0 0 0 100 100')
+
+path.fill('none').move(20, 20).stroke({ width: 1, color: '#ccc' })
+
+path.marker('start', 10, 10, function(add) {
+  add.circle(10).fill('#f06')
+})
+path.marker('mid', 10, 10, function(add) {
+  add.rect(5, 10).cx(5).fill('#ccc')
+})
+path.marker('end', 20, 20, function(add) {
+  add.circle(6).center(4, 5)
+  add.circle(6).center(4, 15)
+  add.circle(6).center(12, 10)
+
+  this.fill('#0f9')
+})</code></pre>
+<p>The <code>marker()</code> method can be used in three ways. Firstly, a marker can be created on any container element (e.g. svg, nested, group, ...). This is useful if you plan to reuse the marker many times, so it will create a marker in the defs but not show it yet:</p>
+<pre><code class="language-javascript">var marker = draw.marker(10, 10, function(add) {
+  add.rect(10, 10)
+})</code></pre>
+<p>Secondly a marker can be created and applied directly on its target element:</p>
+<pre><code class="language-javascript">path.marker('start', 10, 10, function(add) {
+  add.circle(10).fill('#f06')
+})</code></pre>
+<p>This will create a marker in the defs and apply it directly. Note that the first argument defines the position of the marker and that there are four arguments as opposed to three with the first example.</p>
+<p>Lastly, if a marker is created for reuse on a container element, it can be applied directly to the target element:</p>
+<pre><code class="language-javascript">path.marker('mid', marker)</code></pre>
+<p>Finally, to get a marker instance from the target element reference:</p>
+<pre><code class="language-javascript">path.reference('marker-end')</code></pre>
+<iframe width="100%" height="205" src="//jsfiddle.net/wout/j3fr5okk/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<h2 id='marker-height'><span class="subject">marker.</span>height()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Defines the <code>markerHeight</code> attribute:</p>
+<pre><code class="language-javascript">marker.height(10)</code></pre>
+<h2 id='marker-ref'><span class="subject">marker.</span>ref()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>By default, the <code>refX</code> and <code>refY</code> attributes of a marker are set to respectively half the <code>width</code> nd <code>height</code> values. To define the <code>refX</code> and <code>refY</code> of a marker differently:</p>
+<pre><code class="language-javascript">marker.ref(2, 7)</code></pre>
+<h2 id='marker-size'><span class="subject">marker.</span>size()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Defines the <code>markerWidth</code> and <code>markerHeight</code> attributes:</p>
+<pre><code class="language-javascript">marker.size(10, 10)</code></pre>
+<h2 id='marker-update'><span class="subject">marker.</span>update()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Updating the contents of a marker will <code>clear()</code> the existing content and add the content defined in the block passed as the first argument:</p>
+<pre><code class="language-javascript">marker.update(function(add) {
+  add.circle(10)
+})</code></pre>
+<h2 id='marker-width'><span class="subject">marker.</span>width()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Defines the <code>markerWidth</code> attribute:</p>
+<pre><code class="language-javascript">marker.width(10)</code></pre>
+<p><br></p>
+<h1 id='svg-bare'>SVG.Bare</h1>
+<p>For all SVG elements that are not described by SVG.js, the <code>SVG.Bare</code> class comes in handy. This class inherits directly from <code>SVG.Element</code> and makes it possible to add custom methods in a separate namespace without polluting the main <code>SVG.Element</code> namespace. Consider it your personal playground.</p>
+<h2 id='element-constructor'>element() <span class="suffix">constructor</span></h2>
+<p><code>returns</code> <strong><code>SVG.Bare</code></strong> <code>which inherits from</code> <strong><code>SVG.Element</code></strong></p>
+<p>The <code>SVG.Bare</code> class can be instantiated with the <code>element()</code> method on any parent element:</p>
+<pre><code class="language-javascript">var element = draw.element('title')</code></pre>
+<p>The string value passed as the first argument is the node name that should be generated.</p>
+<p>Additionally, any existing class name can be passed as the second argument to define from which class the element should inherit:</p>
+<pre><code class="language-javascript">var element = draw.element('symbol', SVG.Parent)</code></pre>
+<p>This gives you as the user a lot of power. But remember, with great power comes great responsibility.</p>
+<h2 id='element-words'><span class="subject">element.</span>words()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>The <code>SVG.Bare</code> instance carries an additional method to add plain text:</p>
+<pre><code class="language-javascript">var element = draw.element('title').words('This is a title.')
+//-&gt; &lt;title&gt;This is a title.&lt;/title&gt;</code></pre>    </section>
+
+  </div><!-- /.wrap content -->
+  
+
+<footer role="contentinfo">
+  <div class="wrap">
+    <p><a href="http://svgdotjs.github.io/">SVG.js</a> © 2012-2018 <a href="https://github.com/wout/" rel="noopener noreferrer" target="_blank">Wout Fierens</a> -  SVG.js is released under the terms of the MIT license.</p>  </div><!--/.wrap -->
+</footer>
+
+<a href="https://github.com/svgdotjs/svg.js">
+  <img src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" class="fork-me-on-github">
+</a>
+
+<script src="https://svgjs.com/docs/3.0/assets/js/libs/highlight.pack.js"></script><script src="https://svgjs.com/docs/3.0/assets/js/libs/accordion-plain.js"></script><script src="https://svgjs.com/docs/3.0/assets/js/kdoc.js?r=20181114131720"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+  apiKey: 'a01bac6cbc400d1cd9b3ae22bb918066',
+  indexName: 'svgjs',
+  inputSelector: '#agolia',
+  algoliaOptions: { 'facetFilters': ["version:3.0"] },
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+</script>
+
+</div> <!-- /.container -->
+</body>
+</html>

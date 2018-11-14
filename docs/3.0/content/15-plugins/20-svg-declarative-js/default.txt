@@ -1,0 +1,13 @@
+Title: svg.declartive.js
+
+----
+
+Text: 
+
+# svg.declarative.js
+
+[svg.declartive.js](https://github.com/saivan/svg.declarative.js) a plugin for SVG.js which allows for super fast, interruptible, declarative animations. All animations are physically driven, so you can get very realistic animations with this library; whilst animating a huge number of items.
+
+----
+
+Description: A plugin for SVG.js which allows for super fast, interruptible, declarative animations. It can be used as an alternative to the fx module.

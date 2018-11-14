@@ -1,0 +1,17 @@
+Title: Acknowledgements & Thanks
+
+----
+
+Text: 
+
+## Acknowledgements & Thanks
+
+Documentation running on (link: https://getkirby.com/ text: Kirby target: _blank) using (link: https://natesteiner.com/ text: Nate Steiner target: _blank)'s (link: https://natesteiner.com/kdoc/ text: KDoc target: _blank) theme. Search provided by (link: https://community.algolia.com/docsearch/ text: Algolia DocSearch target: _blank).
+
+Special thanks to (link: https://github.com/Fuzzyma text: Ulrich-Matthias Schäfer target: _blank), (link: https://github.com/dotnetCarpenter text: Jon Ronnenberg target: _blank) and (link: https://github.com/RmiTtro text: Rémi Tétreault target: _blank) for their many hours spent on maintaining SVG.js. Also thanks to (link: https://github.com/userpixel text: Alex Ewerlöf target: _blank) for the logo and thanks to (link: http://mir.aculo.us/ text: Thomas Fuchs target: _blank) for being inspirational. Finally, of course, thanks to all the many developers who contributed to SVG.js over the years.
+
+SVG.js and its documentation are released under the terms of the (link: https://github.com/svgdotjs/svg.js/blob/master/LICENSE.txt text: MIT License target: _blank).
+
+----
+
+Description: SVG.js was initialised by Wout Fierens in 2012. throughout the years, many contributions have been made.

@@ -1,0 +1,356 @@
+Title: Animating
+
+----
+
+Text: 
+
+# Animating
+Animating elements is very much the same as manipulating elements using the `attr()` method. The only difference is you have to include the `animate()` method.
+
+## Method chain
+Note that the `animate()` method will not return the targeted element but an instance of SVG.FX which will take the following methods:
+
+Of course `attr()`:
+```javascript
+rect.animate().attr({ fill: '#f03' })
+```
+
+The `x()`, `y()` and `move()` methods:
+```javascript
+rect.animate().move(100, 100)
+```
+
+And the `cx()`, `cy()` and `center()` methods:
+```javascript
+rect.animate().center(200, 200)
+```
+
+Or transformation methods:
+```javascript
+rect.animate().rotate(45).skew(25, 0)
+```
+
+You can also animate non-numeric unit values using the `attr()` method:
+```javascript
+rect.attr('x', '10%').animate().attr('x', '50%')
+```
+
+## Easing
+All available ease types are:
+
+- `<>`: ease in and out
+- `>`: ease out
+- `<`: ease in
+- `-`: linear
+- `=`: external control
+- a function
+
+For the latter, here is an example of the default `<>` function:
+
+```javascript
+function(pos) { return (-Math.cos(pos * Math.PI) / 2) + 0.5 }
+```
+
+For more easing equations, have a look at the (link: https://github.com/svgdotjs/svg.easing.js text: svg.easing.js target: _blank) plugin.
+
+## animate()
+
+`returns` __`SVG.FX`__
+
+```javascript
+rect.animate().move(150, 150)
+```
+
+The `animate()` method will take three arguments. The first is `duration`, the second `ease` and the third `delay`:
+
+```javascript
+rect.animate(2000, '>', 1000).attr({ fill: '#f03' })
+```
+
+Alternatively you can pass an object as the first argument:
+
+```javascript
+rect.animate({ ease: '<', delay: '1.5s' }).attr({ fill: '#f03' })
+```
+
+By default `duration` will be set to `1000`, `ease` will be set to `<>`.
+
+You can chain multiple animations together by calling `animate` again:
+
+```javascript
+rect.animate({ ease: '<', delay: '1.5s' }).attr({ fill: '#f03' }).animate().dmove(50,50)
+```
+
+## situation
+
+`returns` __`object`__
+
+The current situation of an animation is stored in the `situation` object:
+
+```javascript
+rect.animate(3000).move(100, 100)
+rect.fx.situation //-> everything is in here
+```
+
+Available values are:
+
+- `start` (start time as a number in milliseconds)
+- `play` (animation playing or not; `true` or `false`)
+- `pause` (time when the animation was last paused)
+- `duration` (the chosen duration of the animation)
+- `ease` (the chosen easing calculation)
+- `finish` (start + duration)
+- `loop` (the current loop; counting down if a number; `true`, `false` or a number)
+- `loops` (if a number, the total number loops; `true`, `false` or a number)
+- `reverse` (whether or not the animation should run backwards)
+- `reversing` (`true` if the loop is currently reversing, otherwise `false`)
+
+## target()
+
+`returns` __`SVG.Element`__
+
+The target method returns the element the animation is applied to:
+
+```javascript
+rect.fx.target() // returns rect
+```
+
+<br>
+# Controlling
+
+## finish()
+
+`returns` __`itself`__
+
+This method finishes the whole animation chain. All values are set to their corresponding end values and every situation gets fullfilled
+
+```javascript
+rect.animate().move(200, 200).animate().dmove(50,50).size(300,400)
+
+rect.finish() // rect at 250,250 with size 300,400
+```
+
+## pause()
+
+`returns` __`itself`__
+
+Pausing an animations is fairly straightforward:
+
+```javascript
+rect.animate().move(200, 200)
+
+rect.mouseover(function() { this.pause() })
+```
+
+## play()
+
+`returns` __`itself`__
+
+Will start playing a paused animation:
+
+```javascript
+rect.animate().move(200, 200)
+
+rect.mouseover(function() { this.pause() })
+rect.mouseout(function() { this.play() })
+```
+
+## reverse()
+
+`returns` __`itself`__
+
+Toggles the direction of the animation or sets it to a specific direction:
+
+```javascript
+// will run from 100,100 to rects initial position
+rect.animate(3000).move(100, 100).reverse()
+
+// sets direction to backwards
+rect.animate(3000).move(100, 100).reverse(true)
+
+// sets direction to forwards (same as not calling reverse ever)
+rect.animate(3000).move(100, 100).reverse(false)
+```
+
+## stop()
+
+`returns` __`itself`__
+
+If you just want to stop an animation you can call the `stop()` method which has two optional arguments:
+
+ - jumpToEnd: Sets the values to the end of the animation
+ - clearQueue: Remove all items from queue
+
+```javascript
+rect.animate().move(200, 200)
+
+rect.stop()
+// or e.g.
+rect.stop(true)
+```
+
+Stopping an animation is irreversible.
+
+<br>
+# Timing
+
+## at()
+
+`returns` __`itself`__
+
+Say you want to control the position of an animation with an external event, then the `at()` method will prove very useful:
+
+```javascript
+var animation = draw.rect(100, 100).move(50, 50).animate('=').move(200, 200)
+
+document.onmousemove = function(event) {
+  animation.at(event.clientX / 1000)
+}
+```
+
+The value passed as the first argument of `at()` should be a number between `0` and `1`, `0` being the beginning of the animation and `1` being the end. Note that any values below `0` and above `1` will be normalized.
+
+Also note that the value is eased after calling the function. Therefore the position specifies a position in time not in space.
+
+## delay()
+
+`returns` __`itself`__
+
+Alternatively, you can call `delay()` which will set a delay in ms before the next animation in the queue is run
+
+```javascript
+rect.animate({ ease: '<', delay: '1.5s' }).attr({ fill: '#f03' }).delay(500).animate().dmove(50,50)
+```
+
+## loop()
+
+`returns` __`SVG.FX`__
+
+By default the `loop()` method creates and eternal loop:
+
+```javascript
+rect.animate(3000).move(100, 100).loop()
+```
+
+But the loop can also be a predefined number of times:
+
+```javascript
+rect.animate(3000).move(100, 100).loop(3)
+```
+
+Loops go from beginning to end and start over again (`0->1.0->1.0->1.`).
+
+There is also a reverse flag that should be passed as the second argument:
+
+```javascript
+rect.animate(3000).move(100, 100).loop(3, true)
+```
+
+Loops will then be completely reversed before starting over (`0->1->0->1->0->1.`).
+
+## once()
+
+`returns` __`itself`__
+
+Finally, you can perform an action at a specific position only once. Just pass the position and the function which should be executed to the `once` method. You can also decide whether the position which is passed should be handled as position in time (not eased) or position in space (easing applied):
+
+```javascript
+// the 0.5 is handled as uneased value (you can omit the false)
+rect.animate(3000).move(100, 100).once(0.5, function(pos, eased) {
+  // do something
+}, false)
+```
+
+```javascript
+// the 0.5 is handled as eased value
+rect.animate(3000).move(100, 100).once(0.5, function(pos, eased) {
+  // do something
+}, true)
+```
+
+The callback function gets the current position uneased and eased.
+
+## queue()
+
+`returns` __`itself`__
+
+If you want to call a custom funtion between two chained animations, you simply can queue them up:
+
+```javascript
+rect.animate({ ease: '<', delay: '1.5s' }).attr({ fill: '#f03' }).queue(function(){
+
+    this.target().fill('#000')
+    this.dequeue() // dont forget to call dequeue when the queue should continue running
+
+}).animate().dmove(50,50)
+```
+
+<br>
+# Callbacks
+
+## after / afterAll()
+
+`returns` __`itself`__
+
+Furthermore, you can add callback methods using `after()/afterAll()`:
+
+```javascript
+rect.animate(3000).move(100, 100).after(function(situation) {
+  this.animate().attr({ fill: '#f06' })
+})
+
+// or
+rect.animate(3000).move(100, 100).afterAll(function() {
+  this.animate().attr({ fill: '#f06' })
+})
+```
+
+The function gets the situation which was finished as first parameter. This doesn't apply to afterAll where no parameter is passed
+Note that the `after()/afterAll()` method will never be called if the animation is looping eternally.
+You can call `after()/afterAll()` multiple times to add more functions which should be executed.
+
+## during / duringAll()
+
+`returns` __`itself`__
+
+If you want to perform your own actions during one/all animation you can use the `during()/duringAll()` method:
+
+```javascript
+var position
+  , from = 100
+  , to   = 300
+
+rect.animate(3000).move(100, 100).during(function(pos, morph, eased, situation) {
+  position = from + (to - from) * pos
+})
+
+// or
+rect.animate(3000).move(100, 100).duringAll(function(pos, morph, eased, situation) {
+  position = from + (to - from) * pos
+})
+```
+Note that `pos` is `0` in the beginning of the animation and `1` at the end of the animation.
+
+To make things easier a morphing function is passed as the second argument. This function accepts a `from` and `to` value as the first and second argument and they can be a number, unit or hex color:
+
+```javascript
+var ellipse = draw.ellipse(100, 100).attr('cx', '20%').fill('#333')
+
+rect.animate(3000).move(100, 100).during(function(pos, morph, eased, situation) {
+  // numeric values
+  ellipse.size(morph(100, 200), morph(100, 50))
+
+  // unit strings
+  ellipse.attr('cx', morph('20%', '80%'))
+
+  // hex color strings
+  ellipse.fill(morph('#333', '#ff0066'))
+})
+```
+The `eased` parameter contains the position after the easing function was applied.
+The last parameter holds the current situation related to the current `during` call.
+You can call `during()/duringAll()` multiple times to add more functions which should be executed.
+
+----
+
+Description: Note that the animate() method will not return the targeted element but an instance of SVG.FX which will take the following methods.
