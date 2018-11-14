@@ -16,12 +16,14 @@
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
 <script type="text/javascript"> docsearch({
-apiKey: 'a01bac6cbc400d1cd9b3ae22bb918066',
-indexName: 'svgjs',
-inputSelector: '#agolia',
-debug: false // Set debug to true if you want to inspect the dropdown
+  apiKey: 'a01bac6cbc400d1cd9b3ae22bb918066',
+  indexName: 'svgjs',
+  inputSelector: '#agolia',
+  algoliaOptions: { 'facetFilters': ["version:<?= DOCS_VERSION ?>"] },
+  debug: false // Set debug to true if you want to inspect the dropdown
 });
 </script>
 
+</div> <!-- /.container -->
 </body>
 </html>

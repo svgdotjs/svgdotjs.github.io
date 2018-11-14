@@ -12,6 +12,7 @@
     <meta property="og:title" content="<?= $page->title()->html() ?>" />
     <meta property="og:description" content="<?= $page->description()->html() ?>" />
     <meta property="og:image" content="<?= $site->url() ?>/assets/images/logo-svg-js-01d.png" />
+    <meta name="docsearch:version" content="<?= DOCS_VERSION ?>">
 
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
