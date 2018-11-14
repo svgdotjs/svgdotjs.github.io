@@ -11,11 +11,13 @@ require_once './version.php';
  * 4. Upload all files and folders from the version (e.g. 2.7 or 3.0) dir to your server
  * 5. Test your site
  */
- 
-define( 'VERSION_PREFIX', '/docs/' . DOCS_VERSION );
+
+// Define version prefix for menu
+global $version_prefix;
+$version_prefix = '/docs/' . DOCS_VERSION;
 
 // Setup the base url for your site here
-$url = 'https://svgjs.com' . VERSION_PREFIX;
+$url = 'https://svgjs.com' . $version_prefix;
 
 // Don't touch below here
 define('DS', DIRECTORY_SEPARATOR);
