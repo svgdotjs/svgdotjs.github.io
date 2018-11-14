@@ -25,8 +25,8 @@
     "prebuild": "npm run clean -s",
     "build": "node-sass assets/scss/main.scss | postcss --use autoprefixer -c postcss.json | cssmin > assets/css/main.css",
     "watch": "nodemon -e scss -w assets/scss --exec npm run build",
-    "serve": "php -S localhost:8027",
-    "open:dev": "opener http://localhost:8027/",
+    "serve": "php -S localhost:8030",
+    "open:dev": "opener http://localhost:8030/",
     "dev": "parallelshell \"npm run serve -s\" \"npm run watch -s\" \"npm run open:dev -s\""
   }
 }
