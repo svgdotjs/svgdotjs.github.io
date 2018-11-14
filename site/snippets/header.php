@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <!-- Temporary redirect for fragemted docs -->
-    <?php $url = 'https://svgjs.com/docs/2.7/' . $page->uri(); ?>
+    <?php $uri = $page->uri(); ?>
+    <?php $url = 'https://svgjs.com/docs/2.7/' . ( $uri == 'home' ? '' : $uri ); ?>
     <meta http-equiv="refresh" content="0; url=<?= $url ?>">
     <link rel="canonical" href="<?= $url ?>" />
     <!-- End temporary redirect for fragemted docs -->
