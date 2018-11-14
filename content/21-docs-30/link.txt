@@ -1,0 +1,5 @@
+Title: Docs v3.0
+
+----
+
+Link: /docs/3.0
