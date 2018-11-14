@@ -1,5 +1,3 @@
-<?php $docs_version = DOCS_VERSION; ?>
-
 <aside class="sidebar-menu">
   <p class="intro"><?php echo $site->description()->kirbytext() ?></p>
   <a class="skip-link visuallyhidden focusable" href="#main">Skip to Main Content</a>
@@ -48,7 +46,7 @@
             <?php endif ?>
 
             <?php if ($sp->template() == 'anchor'): ?>
-              <?php $href = ( isset( $fragment_prefix ) ? $fragment_prefix : '' ) . "/{$p->uid()}/#{$sp->uid()}" ?>
+              <?php $href = ( defined( 'VERSION_PREFIX' ) ? VERSION_PREFIX : '' ) . "/{$p->uid()}/#{$sp->uid()}" ?>
             <?php elseif ($sp->template() == 'link'): ?>
               <?php $href = $sp->link() ?>
             <?php else: ?>
