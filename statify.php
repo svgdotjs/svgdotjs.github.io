@@ -30,8 +30,8 @@ $kirby->urls->index = $url;
 
 $site = $kirby->site();
 
-if($site->multilang()) {
-  die('Multilanguage sites are not supported');
+if( $site->multilang()) {
+  die( 'Multilanguage sites are not supported' );
 }
 
 // root dir
