@@ -480,7 +480,7 @@ matrix.morph('2,0,0,2,100,150')
 Multiplies by another given matrix:
 
 ```javascript
-matrix.matrix(matrix2)
+matrix.multiply(matrix2)
 ```
 
 ## native()
