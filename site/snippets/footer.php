@@ -23,5 +23,6 @@ debug: false // Set debug to true if you want to inspect the dropdown
 });
 </script>
 
+</div> <!-- /.container -->
 </body>
 </html>

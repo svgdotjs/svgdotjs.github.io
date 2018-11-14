@@ -11,4 +11,3 @@
   </div><!-- /.wrap content -->
 
 <?php snippet('footer') ?>
-</div> <!-- /.container -->
