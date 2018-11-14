@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Temporary redirect for fragemted docs -->
+    <!-- Temporary redirect for fragmented docs -->
     <?php $uri = $page->uri(); ?>
     <?php $url = 'https://svgjs.com/docs/2.7/' . ( $uri == 'home' ? '' : $uri ); ?>
     <meta http-equiv="refresh" content="0; url=<?= $url ?>">
     <link rel="canonical" href="<?= $url ?>" />
-    <!-- End temporary redirect for fragemted docs -->
+    <!-- End temporary redirect for fragmented docs -->
     
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
