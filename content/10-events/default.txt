@@ -68,10 +68,22 @@ var click = function() {
 element.on('click', click)
 ```
 
-**Note:** The context of `this` in the callback is bound to the element. You can change this context by applying your own object:
+Passing multiple event types can be done with either an array:
 
 ```javascript
-element.on('click', click, window) // context of this is window
+element.on(['click', 'mouseover'], handler)
+```
+
+Or a space delimited string:
+
+```javascript
+element.on('click mouseover', handler)
+```
+
+**Note:** The context of `this` in the callback is bound to the element. Alternatively, a third argument can be passed to define a custom context:
+
+```javascript
+element.on('click', click, window)
 ```
 
 ## <span class="subject">element.</span>off()
@@ -84,10 +96,17 @@ Unbinding events is just as easy:
 element.off('click', click)
 ```
 
-Or to unbind all listeners for a given event:
+Or to unbind all listeners for a given event type:
 
 ```javascript
 element.off('click')
+```
+
+Or multiple event types:
+
+```javascript
+element.off(['click', 'mouseover'])
+element.off('click mouseover')
 ```
 
 Or even unbind all listeners for all events:
