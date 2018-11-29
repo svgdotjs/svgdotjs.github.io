@@ -360,6 +360,16 @@ There is only basic support for animating paths baked into SVG.js, which means t
 
 If you need to animate paths that do not share the same commands in order, you can use [svg.pathmorphing.js](https://github.com/Fuzzyma/svg.pathmorphing.js)
 
+## <span class="subject">path.</span>text()
+
+`returns` __`SVG.TextPath`__
+
+Converting a path element into a textPath element can be one with the `text()` method:
+
+```javascript
+path.text('SVG.js rocks!')
+```
+
 <br>
 # SVG.Text
 
@@ -517,6 +527,16 @@ text.lines()
 ```
 
 This will return an instance of `SVG.Set` including all `tspan` elements.
+
+## <span class="subject">text.</span>path()
+
+`returns` __`SVG.TextPath`__
+
+Converting a text element into a textPath element can be one with the `path()` method:
+
+```javascript
+text.path('M 300 500 C 200 100 300 0 400 100 C 500 200 600 300 700 200')
+```
 
 ## <span class="subject">text.</span>plain()
 
