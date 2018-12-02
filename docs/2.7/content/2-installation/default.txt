@@ -20,9 +20,9 @@ npm install svg.js
 Grab the latest version **(link: https://cdnjs.com/libraries/svg.js text: here from cdnjs.com target: _blank)**.
 
 ## Download
-**(link: https://raw.githubusercontent.com/svgdotjs/svg.js/master/dist/svg.js text: svg.js [for development] target: _blank)** - lots of comments
+**(link: https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.7.1/svg.js text: svg.js [for development] target: _blank)** - lots of comments
 
-**(link: https://raw.githubusercontent.com/svgdotjs/svg.js/master/dist/svg.min.js text: svg.min.js [for production] target: _blank)** - ±16k when gzipped
+**(link: https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.7.1/svg.min.js [for production] target: _blank)** - ±17k when gzipped
 
 ----
 
