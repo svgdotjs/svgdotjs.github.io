@@ -22,7 +22,7 @@ Grab the latest version **(link: https://cdnjs.com/libraries/svg.js text: here f
 ## Download
 **(link: https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.7.1/svg.js text: svg.js [for development] target: _blank)** - lots of comments
 
-**(link: https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.7.1/svg.min.js [for production] target: _blank)** - ±17k when gzipped
+**(link: https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.7.1/svg.min.js text: svg.min.js [for production] target: _blank)** - ±17k when gzipped
 
 ----
 
