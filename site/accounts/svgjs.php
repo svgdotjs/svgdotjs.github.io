@@ -9,8 +9,8 @@ role: admin
 firstname: SVG
 lastname: JS
 history:
+  - installation
   - contributing/documentation
   - plugins/svg-declarative-js
   - elements
   - tutorials
-  - classes
