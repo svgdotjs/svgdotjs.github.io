@@ -129,7 +129,7 @@ array.toString() //-> returns '100,100 322,433'
 
 ## transform()
 
-`returns` __`SVG.Array`__
+`returns` __`SVG.PointArray`__
 
 Transforms the points in the array with matrix,
 without modifying the original array:
