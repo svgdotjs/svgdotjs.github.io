@@ -127,6 +127,21 @@ array.toString() //-> returns '100,100 322,433'
 
 **Note**: this method is only available on `SVG.PointArray` and `SVG.PathArray`
 
+## transform()
+
+`returns` __`SVG.PointArray`__
+
+Transforms the points in the array with matrix,
+without modifying the original array:
+
+```javascript
+var array = new SVG.PointArray([[0, 0], [100, 100]])
+array.transform(new SVG.Matrix().translate(1, 2)).toString()
+//-> '1,2 101,102'
+```
+
+**Note**: this method is only available on `SVG.PointArray`
+
 <br>
 # SVG.PointArray
 
@@ -869,7 +884,7 @@ console.log(point) //-> SVGPoint {x: 1, y: 1}
 
 `returns` __`SVG.Point`__
 
-Transform point with matrix:
+Transform point with matrix, without modifying the original point:
 
 ```javascript
 var point = new SVG.Point(1,1)
