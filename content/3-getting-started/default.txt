@@ -2,63 +2,52 @@ Title: Getting started
 
 ----
 
-Text: 
+Text:
 
 # Getting started
 
 ## Preparation
 
-SVG.js assumes you have an HTML element with an `id` attribute created and ready to serve as the wrapper. Something like:
+Create a basic Html markup and include the svg.js script:
 
 ```html
 <!DOCTYPE html>
 <html>
 <head>
   <title>SVG.js</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.0.5/svg.min.js"></script>
 </head>
 <body>
-  <div id="drawing"></div>
+
 </body>
 </html>
 ```
 
 ## Create an SVG document
 
-Next, use the `SVG()` function to create an SVG document within the wrapper element:
+Next, use the `SVG()` function to create an SVG document and add it to the html page:
 
 ```javascript
-var draw = SVG('drawing').size(300, 300)
+var draw = SVG().addTo('body').size(300, 300)
 var rect = draw.rect(100, 100).attr({ fill: '#f06' })
 ```
-The first argument can either be an id of the element or the selected element itself. This will generate the following output:
+
+You can pass any css selector to `addTo` or simply a node.
 
 ```html
-<div id="drawing">
+<body>
   <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="300">
     <rect width="100" height="100" fill="#f06"></rect>
   </svg>
-</div>
+</body>
 ```
 
-By default the svg drawing follows the dimensions of its parent, in this case `#drawing`:
+SVG.js does not set a size for the document automatically. So make sure to call `size()` with appropriate values.
+E.g. to set the size to the dimensions of its parent use this:
 
 ```javascript
-var draw = SVG('drawing').size('100%', '100%')
+var draw = SVG().addTo('#someId').size('100%', '100%')
 ```
-
-## Checking for SVG support
-
-By default, SVG.js assumes the client's browser supports SVG. You can test support as follows:
-
-```javascript
-if (SVG.supported) {
-  var draw = SVG('drawing')
-  var rect = draw.rect(100, 100)
-} else {
-  alert('SVG not supported')
-}
-```
-
 
 ## Wait for DOM to be loaded
 
@@ -66,7 +55,7 @@ This might seem obvious to many but it's still worth mentioning. If you include 
 
 ```javascript
 SVG.on(document, 'DOMContentLoaded', function() {
-  var draw = SVG('drawing')
+  var draw = SVG().addTo('body')
 })
 ```
 
@@ -82,17 +71,38 @@ SVG.js also works outside of the HTML DOM, inside an SVG document for example:
   <script type="text/javascript" xlink:href="svg.min.js"></script>
   <script type="text/javascript">
     <![CDATA[
-      var draw = SVG('drawing')
+      var draw = SVG('#drawing')
       draw.rect(100,100).animate().fill('#f03').move(100,100)
     ]]>
   </script>
 </svg>
 ```
 
+## The SVG() function
+This function does not only create new documents, it can also retrieve svg.js objects from the dom or create new ones from an svg fragment:
+
+```js
+// new document
+var draw = SVG()
+
+// get rect from dom
+var rect = SVG('#myRectId')
+// or
+var rect = SVG('rect')
+// any css selector will do
+var path = SVG('#group1 path.myClass')
+
+// create new object from fragment
+var circle = SVG('<circle>')
+
+// convert node to svg.js object
+var obj = SVG(node)
+```
+
 ## Playground
 Just to get you going, here is a basic setup. Everything is present to start fiddling.
 
-<iframe width="100%" height="300" src="//jsfiddle.net/wout/Lmu56awz/3/embedded/js,result/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="300" src="//jsfiddle.net/Fuzzy/nc15b2tg/embedded/js,result/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 ----
 

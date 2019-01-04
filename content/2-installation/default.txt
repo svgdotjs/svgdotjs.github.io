@@ -2,27 +2,30 @@ Title: Installation
 
 ----
 
-Text: 
+Text:
 
 # Installation
 
-## Bower
-```
-bower install svg.js
-```
-
-## Node
-```
-npm install svg.js
+## Npm
+```sh
+npm install @svgdotjs/svg.js
 ```
 
-## CDN.js
-Grab the latest version **(link: https://cdnjs.com/libraries/svg.js text: here from cdnjs.com target: _blank)**.
+## Yarn
+```sh
+yarn add @svgdotjs/svg.js
+```
+
+## CDN.js / jsDelivr
+Grab the latest version **(link: https://cdnjs.com/libraries/svg.js text: from cdnjs.com target: _blank)** or directly from **(link: https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@latest/dist/svg.min.js text: jsdelivr target: _blank)**
 
 ## Download
-**(link: https://raw.githubusercontent.com/svgdotjs/svg.js/master/dist/svg.js text: svg.js [for development] target: _blank)** - lots of comments
 
-**(link: https://raw.githubusercontent.com/svgdotjs/svg.js/master/dist/svg.min.js text: svg.min.js [for production] target: _blank)** - ±16k when gzipped
+You can find all releases on the **(link: https://github.com/svgdotjs/svg.js/releases/ text: release Page target: _blank)**.
+
+The latest release can be found **(link: https://github.com/svgdotjs/svg.js/releases/latest text: here target: _blank)**
+
+For the best developing experience make sure the source map is in the same folder as the library.
 
 ----
 
