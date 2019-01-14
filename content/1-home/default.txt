@@ -14,41 +14,29 @@ The lightweight library for manipulating and animating SVG.
 ## Why choose SVG.js?
 SVG.js has no dependencies and aims to be as small as possible while providing close to complete coverage of the SVG spec. If you're not convinced yet, here are a few highlights.
 
-
-<br>
-## It's lean.
-SVG.js is lightweight. Numbers don't lie, so here is how it compares to the competition:
-
-<iframe width="100%" height="310" src="//jsfiddle.net/wout/kdy3ssqx/21/embedded/result/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-
-<small>_Less is better._</small>
-
-Keep in mind it does the same thing, with nearly half the amount of code!
-
-
 <br>
 ## It's speedy.
 SVG.js is fast. Obviously not as fast as vanilla js, but many times faster than the competition:
 
-<iframe width="100%" height="310" src="//jsfiddle.net/wout/xutwzmg5/embedded/result/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="310" src="http://jsfiddle.net/Fuzzy/nmpL9g38/embedded/result/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 Index:
 - `rects`:    __`generate 10000 rects`__
 - `fill`:     __`generate 10000 rects with fill color`__
 - `gradient`: __`generate 10000 rects with gradient fill`__
 
-<small>_Less is better. Tested on an Intel Core m5 @ 1.2GHz._</small>
+<small>_Less is better. Tested on an Intel Core i7-4702MQ @ 2.2GHz._</small>
 
 <br>
 ## Easy readable, uncluttered syntax.
 Creating and manipulating SVG using JavaScript alone is pretty verbose.  For example, just creating a simple pink square requires quite a lot of code:
-<iframe width="100%" height="330" src="//jsfiddle.net/wout/wsss6rj9/embedded/js,result/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="330" src="http://jsfiddle.net/wout/wsss6rj9/embedded/js,result/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 SVG.js provides a syntax that is concise and easy to read. Doing the same as the vanilla js example above:
 
 ```javascript
 // SVG.js
-var draw = SVG('drawing')
+var draw = SVG().addTo('#drawing')
   , rect = draw.rect(100, 100).fill('#f06')
 ```
 
@@ -58,7 +46,7 @@ That's just **two** lines of code instead of **ten**! And a whole lot less repet
 <br>
 ## Go crazy with animations
 
-<iframe width="100%" height="400" src="//jsfiddle.net/wout/7wL1uv8n/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="400" src="http://jsfiddle.net/Fuzzy/f2wbgx5a/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 
 <br>
@@ -79,18 +67,6 @@ SVG.js is licensed under the terms of the (link: https://github.com/svgdotjs/svg
 
 ### Changelog
 Wondering what has changed in the latest releases? Have a look at the (link: https://github.com/svgdotjs/svg.js/blob/master/CHANGELOG.md text: change log target: _blank).
-
-<div class="ad">
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- svgjs -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:100%;height:90px"
-     data-ad-client="ca-pub-8995113402914386"
-     data-ad-slot="9803338858"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div>
 
 ----
 
