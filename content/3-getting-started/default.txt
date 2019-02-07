@@ -15,7 +15,7 @@ Create a basic Html markup and include the svg.js script:
 <html>
 <head>
   <title>SVG.js</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.0.5/svg.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.0.11/svg.min.js"></script>
 </head>
 <body>
 
