@@ -2,7 +2,7 @@ Title: Getting started
 
 ----
 
-Text: 
+Text:
 
 # Getting started
 
@@ -27,7 +27,7 @@ SVG.js assumes you have an HTML element with an `id` attribute created and ready
 Next, use the `SVG()` function to create an SVG document within the wrapper element:
 
 ```javascript
-var draw = SVG('drawing').size(300, 300)
+var draw = SVG('#drawing').size(300, 300)
 var rect = draw.rect(100, 100).attr({ fill: '#f06' })
 ```
 The first argument can either be an id of the element or the selected element itself. This will generate the following output:
@@ -43,7 +43,7 @@ The first argument can either be an id of the element or the selected element it
 By default the svg drawing follows the dimensions of its parent, in this case `#drawing`:
 
 ```javascript
-var draw = SVG('drawing').size('100%', '100%')
+var draw = SVG('#drawing').size('100%', '100%')
 ```
 
 ## Checking for SVG support
@@ -52,7 +52,7 @@ By default, SVG.js assumes the client's browser supports SVG. You can test suppo
 
 ```javascript
 if (SVG.supported) {
-  var draw = SVG('drawing')
+  var draw = SVG('#drawing')
   var rect = draw.rect(100, 100)
 } else {
   alert('SVG not supported')
@@ -66,7 +66,7 @@ This might seem obvious to many but it's still worth mentioning. If you include 
 
 ```javascript
 SVG.on(document, 'DOMContentLoaded', function() {
-  var draw = SVG('drawing')
+  var draw = SVG('#drawing')
 })
 ```
 
@@ -82,7 +82,7 @@ SVG.js also works outside of the HTML DOM, inside an SVG document for example:
   <script type="text/javascript" xlink:href="svg.min.js"></script>
   <script type="text/javascript">
     <![CDATA[
-      var draw = SVG('drawing')
+      var draw = SVG('#drawing')
       draw.rect(100,100).animate().fill('#f03').move(100,100)
     ]]>
   </script>
