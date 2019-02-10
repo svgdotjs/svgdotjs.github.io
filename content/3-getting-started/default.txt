@@ -30,6 +30,14 @@ Next, use the `SVG()` function to create an SVG document within the wrapper elem
 var draw = SVG().addTo('#drawing').size(300, 300)
 var rect = draw.rect(100, 100).attr({ fill: '#f06' })
 ```
+
+Note: The `SVG()` function is incompatible between version 3.x.x and 2.x.x, the script would like this on version 2.x.x:
+
+```javascript
+var draw = SVG('drawing').size(300, 300)
+var rect = draw.rect(100, 100).attr({ fill: '#f06' })
+```
+
 The first argument can either be an id of the element or the selected element itself. This will generate the following output:
 
 ```html
@@ -46,6 +54,12 @@ By default the svg drawing follows the dimensions of its parent, in this case `#
 var draw = SVG().addTo('#drawing').size('100%', '100%')
 ```
 
+Note: On version 2.x.x:
+
+```javascript
+var draw = SVG('drawing').size('100%', '100%')
+```
+
 ## Checking for SVG support
 
 By default, SVG.js assumes the client's browser supports SVG. You can test support as follows:
@@ -59,6 +73,16 @@ if (SVG.supported) {
 }
 ```
 
+Note: On version 2.x.x:
+
+```javascript
+if (SVG.supported) {
+  var draw = SVG('drawing')
+  var rect = draw.rect(100, 100)
+} else {
+  alert('SVG not supported')
+}
+```
 
 ## Wait for DOM to be loaded
 
@@ -67,6 +91,14 @@ This might seem obvious to many but it's still worth mentioning. If you include 
 ```javascript
 SVG.on(document, 'DOMContentLoaded', function() {
   var draw = SVG().addTo('#drawing')
+})
+```
+
+Note: On version 2.x.x:
+
+```javascript
+SVG.on(document, 'DOMContentLoaded', function() {
+  var draw = SVG('drawing')
 })
 ```
 
@@ -83,6 +115,21 @@ SVG.js also works outside of the HTML DOM, inside an SVG document for example:
   <script type="text/javascript">
     <![CDATA[
       var draw = SVG().addTo('#drawing')
+      draw.rect(100,100).animate().fill('#f03').move(100,100)
+    ]]>
+  </script>
+</svg>
+```
+
+Note: On version 2.x.x:
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<svg id="drawing" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" >
+  <script type="text/javascript" xlink:href="svg.min.js"></script>
+  <script type="text/javascript">
+    <![CDATA[
+      var draw = SVG('drawing')
       draw.rect(100,100).animate().fill('#f03').move(100,100)
     ]]>
   </script>
