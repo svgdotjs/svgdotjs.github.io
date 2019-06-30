@@ -274,7 +274,7 @@ The callback function gets the current position uneased and eased.
 
 `returns` __`itself`__
 
-If you want to call a custom funtion between two chained animations, you simply can queue them up:
+If you want to call a custom function between two chained animations, you simply can queue them up:
 
 ```javascript
 rect.animate({ ease: '<', delay: '1.5s' }).attr({ fill: '#f03' }).queue(function(){
