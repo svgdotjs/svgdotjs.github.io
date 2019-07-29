@@ -82,7 +82,7 @@ SVG.js also works outside of the HTML DOM, inside an SVG document for example:
   <script type="text/javascript" xlink:href="svg.min.js"></script>
   <script type="text/javascript">
     <![CDATA[
-      var draw = SVG().addTo('#drawing')
+      var draw = SVG('#drawing')
       draw.rect(100,100).animate().fill('#f03').move(100,100)
     ]]>
   </script>
