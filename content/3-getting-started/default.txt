@@ -27,7 +27,7 @@ SVG.js assumes you have an HTML element with an `id` attribute created and ready
 Next, use the `SVG()` function and its `addTo` method to create an SVG document within the wrapper element:
 
 ```javascript
-var draw = SVG().addTo('drawing').size(300, 300)
+var draw = SVG().addTo('#drawing').size(300, 300)
 var rect = draw.rect(100, 100).attr({ fill: '#f06' })
 ```
 The first argument can either be an id of the element or the selected element itself. This will generate the following output:
