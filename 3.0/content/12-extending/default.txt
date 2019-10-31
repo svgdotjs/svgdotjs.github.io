@@ -1,0 +1,95 @@
+Title: Extending
+
+----
+
+Text: 
+
+# Extending
+
+Due to the Object Oriented nature of SVG.js, objects/prototypes can be extended on any level. Furtermore all SVG.js classes can be subclassed to create custom elements.
+
+<br>
+# SVG.extend()
+
+SVG.js has a modular structure. It is very easy to add your own methods at different levels. Let's say we want to add a method to all shape types then we would add our method to `SVG.Shape`:
+
+```javascript
+SVG.extend(SVG.Shape, {
+  paintRed: function() {
+    return this.fill('red')
+  }
+})
+```
+
+Now all shapes will have the `paintRed()` method available. Say we want to have the `paintRed()` method on an ellipse apply a slightly different colour:
+
+```javascript
+SVG.extend(SVG.Ellipse, {
+  paintRed: function() {
+    return this.fill('orangered')
+  }
+})
+
+```
+The complete inheritance stack for `SVG.Ellipse` is:
+
+`SVG.Base`__`>`__ `SVG.EventTarget` __`>`__ `SVG.Dom` __`>`__ `SVG.Element` __`>`__ `SVG.Shape` __`>`__ `SVG.Ellipse`
+
+The SVG document can be extended by using:
+
+```javascript
+SVG.extend(SVG.Svg, {
+  paintAllPink: function() {
+    this.each(function() {
+      this.fill('pink')
+    })
+  }
+})
+```
+
+You can also extend multiple elements at once:
+```javascript
+SVG.extend([SVG.Ellipse, SVG.Path, SVG.Polygon], {
+  paintRed: function() {
+    return this.fill('orangered')
+  }
+})
+```
+
+<br>
+# Subclassing
+
+Creating your own custom elements with SVG.js is a piece of cake thanks to subclassing. For the sake of this example, lets "invent" a shape. We want a `rect` with rounded corners that are always proportional to the height of the element. The new shape lives in the `SVG` namespace and is called `Rounded`. Here is how we achieve that.
+
+```javascript
+SVG.Rounded = class extends SVG.Rect{
+  // Create method to proportionally scale the rounded corners
+  size: function(width, height) {
+    return this.attr({
+      width:  width
+    , height: height
+    , rx:     height / 5
+    , ry:     height / 5
+    })
+  }
+})
+
+// Add a method to create a rounded rect
+SVG.extend(SVG.Container,  {
+  // Create a rounded element
+  rounded: function(width, height) {
+    return this.put(new SVG.Rounded).size(width, height)
+  }
+}
+```
+
+To create the element in your drawing:
+
+```javascript
+var rounded = draw.rounded(200, 100)
+```
+
+That's it, the invention is now ready to be used!
+----
+
+Description: Due to the Object Oriented nature of SVG.js, objects/prototypes can be extended on any level.

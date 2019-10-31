@@ -1,9 +1,0 @@
-Title: svg.screenbbox.js
-
-----
-
-Text: 
-
-# svg.screenbbox.js
-
-[svg.screenbbox.js](https://github.com/fuzzyma/svg.screenbbox.js) to get the bbox in screen coordinates from transformed path/polygon/polyline

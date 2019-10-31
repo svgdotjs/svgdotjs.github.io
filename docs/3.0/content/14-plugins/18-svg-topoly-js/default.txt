@@ -1,0 +1,9 @@
+Title: svg.topoly.js
+
+----
+
+Text: 
+
+# svg.topoly.js
+
+[svg.topoly.js](https://github.com/svgdotjs/svg.topoly.js) to convert a path to polygon or polyline.

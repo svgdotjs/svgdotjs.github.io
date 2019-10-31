@@ -1,0 +1,16 @@
+Title: Not found!
+
+----
+
+Description: Oops! Page could not be found. We're sorry, this is not the page you are looking for. But don't worry, just try the search function on the left.
+
+----
+
+Text: 
+
+# Not all those who wander are lost
+
+We're sorry, this is not the page you are looking for. But don't worry, just try the search function on the left.
+
+## But... I came here using the search!
+Chances are, we recently updated the docs, and the (link: https://community.algolia.com/docsearch/ text: Algolia Doc Search engine target: _blank) did not yet re-index our docs, which takes about 24 hours. So for the time being, you'll have to manually browse the menu.

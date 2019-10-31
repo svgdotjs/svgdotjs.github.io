@@ -1,0 +1,78 @@
+Title: Importing / Exporting
+
+----
+
+Text: 
+
+# Import / export SVG
+
+## svg() _as getter_
+
+`returns` __`string`__
+
+Exporting the full generated SVG, or a part of it, can be done with the `svg()` method:
+
+```javascript
+draw.svg()
+```
+
+Exporting works on individual elements as well:
+
+```javascript
+var rect = draw.rect()
+var svg  = rect.svg()
+```
+
+You can specify if you only want the content of the element to be exported instead of the element with its contents:
+
+```javascript
+var children = draw.svg(false)
+```
+
+You can also specify an export modifier which is run on every node before exporting:
+
+```js
+var roundedChildren = draw.svg(function(node) {
+  node.round(4)
+}, false)
+```
+
+Nodes can be even removed or replaced in this modifiers:
+
+```js
+var tidied = draw.svg(function(node) {
+  // remove all shapes with blue color
+  if (node.fill() == 'blue') return false
+
+  // replace with circles
+  return new Circle().radius(5).fill(node.fill())
+})
+```
+
+## svg() _as setter_
+
+`returns` __`itself`__
+
+Importing is done with the same method by passing a string of svg as the first argument:
+
+```javascript
+draw.svg('<g><rect width="100" height="50" fill="#f06"></rect></g>')
+```
+
+You can also import multiple children at once:
+
+```javascript
+draw.svg('<rect><rect><rect>')
+```
+
+If you want to replace the current elemet with the imported, you can pass a flag:
+
+```javascript
+group.svg('<rect><rect><rect>', true)
+```
+
+Note, that this call always returns the parent of the element `svg()` was called on. That is, because by replacing a node with multiple others nodes it is not clear which node to return. Thats why the parent is returned.
+
+----
+
+Description: Exporting the full generated SVG, or a part of it, can be done with the svg() method. Importing works by passing a string of svg as the first argument.
