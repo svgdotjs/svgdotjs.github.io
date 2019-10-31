@@ -15,13 +15,21 @@ Create a basic Html markup and include the svg.js script:
 <html>
 <head>
   <title>SVG.js</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.0.11/svg.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
 </head>
 <body>
 
 </body>
 </html>
 ```
+
+Or just import svg.js in your javascript application:
+
+```js
+import { SVG } from '@svgdotjs/svg.js'
+```
+
+**Note: All properties that were former available on the global SVG object need to be imported now**
 
 ## Create an SVG document
 
