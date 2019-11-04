@@ -1,7 +1,7 @@
 <?php global $version_prefix; ?>
 
 <aside class="sidebar-menu">
-  <p class="intro">Find docs for versions 2.7 <a href="../2.7">here</a><?php /* echo $site->description()->kirbytext()*/ ?></p>
+  <p class="intro">Find docs for versions 2.7 <a href="https://svgjs.com/docs/2.7">here</a><?php /* echo $site->description()->kirbytext()*/ ?></p>
   <a class="skip-link visuallyhidden focusable" href="#main">Skip to Main Content</a>
 
   <div class="search">
