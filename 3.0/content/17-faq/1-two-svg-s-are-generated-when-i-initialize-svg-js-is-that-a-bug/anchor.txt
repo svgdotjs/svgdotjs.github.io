@@ -1,1 +1,0 @@
-Title: Two SVG's are generated when I initialize SVG.js. Is that a bug?
