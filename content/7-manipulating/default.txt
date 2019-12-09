@@ -504,11 +504,24 @@ element.skew(0, 45)
 
 `returns` __`itself`__<br>`animate`__ `yes`__
 
-The `scale()` method will take an `x` and `y` value:
+The `scale()` method will scale elements by multiplying their `x` and `y`
+coordinates by either a single scale factor or two separate scale factors:
 
 ```javascript
-// scale(x, y)
+// scale(factor)
+element.scale(2)
+// scale(xFactor, yFactor)
 element.scale(0.5, -1)
+```
+
+By default, scaling is relative to the center of the element.
+You can also define a specific center point (vanishing point of scaling):
+
+```javascript
+// scale(factor, centerX, centerY)
+element.scale(2, 0, 0)
+// scale(xFactor, yFactor, centerX, centerY)
+element.scale(0.5, -1, 0, 0)
 ```
 
 ## translate()
