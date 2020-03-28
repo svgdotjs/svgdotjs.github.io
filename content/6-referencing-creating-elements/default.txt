@@ -328,6 +328,12 @@ To create an element from markup you can also use `SVG()`
 var rect = SVG('<rect width="100" height="100">')
 ```
 
+To create an element in the HTML namespace, pass `true` as second parameter to `SVG()`
+
+```js
+var rect = SVG('<rect width="100" height="100">', true)
+```
+
 ## object constructor
 
 To create a bare svg object which is not attached to the dom use the elements constructor directly

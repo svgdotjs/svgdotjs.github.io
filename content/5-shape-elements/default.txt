@@ -468,6 +468,58 @@ This is a shortcut to the `plain` method on the `SVG.Text` instance which doesn'
 
 <iframe width="100%" height="160" src="//jsfiddle.net/Fuzzy/rm1wjnft/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
+## <span class="subject">text.</span>amove()
+
+`returns` __`itself`__
+
+Unlike other elements, text is usually positioned accordining to its baseline and textanchor. Svg.js gives you the possibilitie to move every shape by its upper left corner.
+However, sometimes it is needed to move text by baseline and anchor. This can be realized with `amove()`
+
+```js
+var text = draw.text('Some text for you')
+text.amove(100, 50)
+```
+
+## <span class="subject">text.</span>ax() _as setter_
+
+`returns` __`itself`__<br>`animate` __`yes`__
+
+Move the element by its text anchor along the x-axis only:
+
+```javascript
+text.ax(200)
+```
+
+## <span class="subject">text.</span>x() _as getter_
+
+`returns` __`value`__
+
+Without an argument the `ax()` method serves as a getter:
+
+```javascript
+var x = rect.ax()
+```
+
+## <span class="subject">text.</span>ay() _as setter_
+
+`returns` __`itself`__<br>`animate` __`yes`__
+
+Move the element by its baseline along the y-axis only:
+
+```javascript
+text.ay(200)
+```
+
+## <span class="subject">text.</span>ay() _as getter_
+
+`returns` __`value`__
+
+Without an argument the `ax()` method serves as a getter:
+
+```javascript
+var x = rect.ay()
+```
+
 ## <span class="subject">text.</span>build()
 
 `returns` __`itself`__
@@ -726,7 +778,7 @@ text.on('rebuild', function() {
 ## tspan() <span class="suffix">constructor</span>
 
 `constructor on` __`SVG.Text`__
-`returns` __`SVG.Tspan`__ ` which inherits from ` __`SVG.Text`__
+`returns` __`SVG.Tspan`__ ` which inherits from ` __`SVG.Shape`__
 
 The tspan elements are only available inside text elements or inside other tspan elements.
 
@@ -834,6 +886,10 @@ Add a nested tspan:
 ```javascript
 tspan.tspan('I am a child of my parent').fill('#f06')
 ```
+
+## <span class="subject">tspan.</span>amove()
+
+See [`Text.amove()`](#text-amove)
 
 <br>
 # SVG.Image
@@ -1462,7 +1518,8 @@ A foreign object can hold objects which are not from the svg namespace. Mostly t
 
 ```javascript
 var foreignObject = draw.foreignObject(width, height)
-foreignObject.add(SVG('<input type="text">'))
+// Pass true as second parameter to SVG() to create an html in the html-namespace
+foreignObject.add(SVG('<input type="text">', true))
 ```
 
 ----
