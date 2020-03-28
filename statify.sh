@@ -15,7 +15,7 @@ git checkout -f master
 rm -rf docs
 mv docs_temp docs
 
-echo "<?php header('Location: /docs/${NEWEST}/'); ?>" > index.php
+echo '<!doctype html>'"<html><head><meta http-equiv=\"refresh\" content=\"0; url=http://svgjs.com/docs/${NEWEST}\"></head><body>You are redirected. If not, click <a href=\"http://svgjs.com/docs/${NEWEST}\">here</a></body></html>" > index.html
 
 # make sure that we restore the file
 # this is done in another process because the file itself
