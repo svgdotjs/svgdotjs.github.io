@@ -16,7 +16,7 @@
     <meta name="docsearch:version" content="<?= DOCS_VERSION ?>">
 
     <meta name="viewport" content="width=device-width">
-    <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
+    <link rel="shortcut icon" href="<?= $site->url() ?>/assets/images/favicon.png" type="image/png" />
     <?= css('assets/css/main.css?r=' . date( 'YmdHis' ) ) ?>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
   </head>
@@ -24,7 +24,7 @@
   <div class="container">
   <header role="banner">
     <div class="wrap">
-      <img src="/assets/images/logo-svg-js-01d-128.png" alt="SVG.js logo" class="svgjs-logo">
+      <img src="<?= $site->url() ?>/assets/images/logo-svg-js-01d-128.png" alt="SVG.js logo" class="svgjs-logo">
       <h1 class="site-title"><a class="title-link" href="<?= url() ?>"><?= $site->title()->html() ?></a></h1>
       <?php global $availableVersions; ?>
       <?php if(isset($availableVersions) and count($availableVersions) > 0): ?>
