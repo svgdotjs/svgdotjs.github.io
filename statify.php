@@ -26,7 +26,8 @@ define('DS', DIRECTORY_SEPARATOR);
 include(__DIR__ . DS . 'kirby' . DS . 'bootstrap.php');
 
 $kirby = kirby();
-$kirby->urls->index = $url;
+
+//$kirby->urls->index = $url;
 
 $site = $kirby->site();
 
@@ -35,7 +36,7 @@ if($site->multilang()) {
 }
 
 // root dir
-$root = __DIR__ . DS . DOCS_VERSION . DS;
+$root = __DIR__ . $version_prefix . DS;
 
 dir::copy(__DIR__ . DS . 'assets',  $root . 'assets');
 dir::copy(__DIR__ . DS . 'content', $root . 'content');
@@ -96,7 +97,7 @@ function retitle( $match ) {
 </head>
 <body>
 
-Your site has been exported to the <b><?php echo DOCS_VERSION ?></b> folder.<br />
+Your site has been exported to the <b><?php echo $version_prefix ?></b> folder.<br />
 Copy all sites and folders from there and upload them to your server.<br />
 Make sure the main URL is correct: <b><?php echo $url ?></b>
 

@@ -117,6 +117,21 @@ All available ease types are:
 - `<`: ease in
 - `-`: linear
 - a function
+- `beziere(x1, y1, x2, y2)`
+- `step(steps, stepPosition)`
+
+The `beziere()` and `step()` methods creates an easing function for you, which then can be passed to `ease()`
+
+```js
+var runner = new SVG.Runner({duration: 1000})
+
+// use a string
+runner.ease('<>')
+
+// or pass a function
+runner.ease(SVG.easing.beziere(x1, y1, x2, y2))
+runner.ease(SVG.easing.step(5, 'jump-end'))
+```
 
 For more easing equations, have a look at the (link: https://github.com/svgdotjs/svg.easing.js text: svg.easing.js target: _blank) plugin.
 
@@ -289,8 +304,8 @@ element.animate(new SVG.Spring(settleTime)).move(200, 200)
 element.animate(new SVG.PID(p, i, d)).move(200, 200)
 ```
 
-As you might notice, the controller as specified instead of the duration because only the controller itself knows when the animation is finished.
-Thats why, it is not possible to orchestrate or reverse animations with controllers.
+As you might notice, the controller is specified instead of the duration because only the controller itself knows when the animation is finished.
+Thats why it is not possible to orchestrate or reverse animations with controllers.
 
 ## Orchestrate Animations
 

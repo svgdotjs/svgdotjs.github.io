@@ -245,8 +245,6 @@ rect.size(null, 200)
 
 As with positioning, the size of an element could be set by using `attr()`. But because every type of element is handles its size differently the `size()` method is much more convenient.
 
-There is one exception though: for `SVG.Text` elements, this method takes only one argument and applies the given value to the `font-size` attribute.
-
 ## width() _as setter_
 
 `returns` __`itself`__<br>`animate` __`yes`__
@@ -327,10 +325,12 @@ Last but not least, you can also use an image as fill, simply by passing an imag
 rect.fill('images/shade.jpg')
 ```
 
-Or if you want more control over the size of the image, you can pass an image instance as well:
+Or if you want more control over the image, you can pass an image instance as well:
 
 ```javascript
-rect.fill(draw.image('images/shade.jpg', 20, 20))
+rect.fill(draw.image('images/shade.jpg', function() {
+  this.size(20, 20)
+}))
 ```
 
 ## stroke()
@@ -396,7 +396,7 @@ To make the syntax as easy as possible, it is possible to pass in parameters in 
 - scale: `scale: 2`, `scale: [2,2]`, `scaleX: 2, scaleY: 2`
 - shear/skew: `skew: [10, 10]`, `skewX: 10, skewY: 10`, `shear: 3`
 - flip: `both`, `true`, `x`, `y`
-- origin:  `origin: {x: 50, y: 50}`, `origin: [50, 50]`, `originX: 50, originY: 50`, `ox: 50, oy: 50`
+- origin:  `origin: {x: 50, y: 50}`, `origin: [50, 50]`, `origin: 50`, `originX: 50, originY: 50`, `ox: 50, oy: 50`
   - origin can also be a up to 2 words speciying the corners of the element: center, top, bottom, left, right
 - position: `position: {x: 50, y: 50}`, `position: [50, 50]`, `positionX: 50, positionY: 50`, `px: 50, py: 50`
   - absolute position of the origin after all transformations are applied
@@ -488,17 +488,12 @@ By default, elements are flipped over their centre point. The flip origin can be
 element.flip('x', {x: 20, y: 30})
 ```
 
-Finally, an element can also be flipped over two axes at once by not providing an axis value or 'both':
+Finally, an element can also be flipped over two axes at once by not providing an axis value, `'both'` or `true`:
 
 ```javascript
 element.flip()
 element.flip('both')
-```
-
-And flipping on both axes at the same offset can be done by passing only a numeric value:
-
-```javascript
-element.flip(5)
+element.flip(true)
 ```
 
 ## rotate()
@@ -837,8 +832,7 @@ var clone = rect.clone()
 ```
 
 This will create a new, unlinked copy. For making a linked clone, see the [use](/elements/use) element.
-By default, the cloned element is placed directly after the original element.
-When you pass a parent parameter to the `clone()` function it will append the cloned element to the given parent.
+To insert the clone, use the `addTo()` or `add()`.
 
 ## put()
 
@@ -880,7 +874,7 @@ At the calling element's position in the svg document, replace the calling eleme
 rect.replace(draw.circle(100))
 ```
 
-## toDoc()
+## toRoot()
 
 `returns` __`itself`__
 
@@ -919,7 +913,7 @@ group.ungroup(otherContainer)
 
 `returns` __`itself`__
 
-Recursively breaks up all containers and flattens the whole structure so that no container element survives. This is useful for eporting to reduce the number of nested groups or similar.
+Recursively breaks up all containers and flattens the whole structure so that no container element survives. This is useful for exporting to reduce the number of nested groups or similar.
 
 Ungroup all elements in this group recursively and places them into the given container
 
@@ -943,7 +937,7 @@ group.flatten(drawing)
 Flat and export svg:
 
 ```javascript
-var svgString = drawing.flaten().svg()
+var svgString = drawing.flatten().svg()
 ```
 
 <br>
@@ -1066,7 +1060,7 @@ rect.previous()
 
 `returns` __`array`__
 
-The arrange.js module brings some additional methods. To get all siblings of rect, including rect itself:
+To get all siblings of rect, including rect itself:
 
 ```javascript
 rect.siblings()
@@ -1083,7 +1077,7 @@ Transforms a point from screen coordinates to the elements coordinate system.
 
 ```javascript
 // e is some mouseevent
-var point = path.point(e.screenX, e.screenY) // {x, y}
+var point = path.point(e.pageX, e.pageY) // {x, y}
 ```
 
 ## inside()
@@ -1115,12 +1109,14 @@ element.bbox()
 
 `returns` __[`SVG.Box`](/classes/#svg-box)__
 
-Gives the transfprmed box of an element which is the transformed tightest box around the element. To specify to which coordinate system the box is transformed, relatively it is possible to pass in an element:
+Returns the transformed box of an element which is the transformed tightest box around the element. To specify to which coordinate system the box is transformed, relatively it is possible to pass in an element:
 
 ```js
 element.rbox(drawing)
 // transformed box in coordinates of drawing
 ```
+
+This method is a convenient wrapper around `getBoundingClientRect()`.
 
 ## viewbox()
 

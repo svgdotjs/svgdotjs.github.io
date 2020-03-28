@@ -51,7 +51,7 @@ var transformedBox = box.transform(matrix)
 
 `inherits from` __`native array`__
 
-Lists are very useful if you want to modify or animate multiple elements at once. A list has access to all buildin array methods and will also accept all the same methods accessible on individual elements, even the ones that you add with your own plugins! Everytime a method is called, a new List with its reults is created. So you can also call getters on a list to get a list full of fills for example. Creating a list is exactly as you would expect:
+Lists are very useful if you want to modify or animate multiple elements at once. A list has access to all buildin array methods and will also accept all the same methods accessible on individual elements. Even methods introduced by your plugins are available! Every method returns a new List with the results of the method call. Therefore method chaining is possible if the called method supports it. On the other hand you can also retrieve a list of e.g. fills. Creating a list works exactly as you would expect:
 
 ```javascript
 // create some elements
@@ -63,7 +63,7 @@ var list = new SVG.List([rect])
 list.push(circle)
 
 // list[0] == rect
-// list[1] = circle
+// list[1] == circle
 
 // change the fill of all elements in the set at once
 list.fill('#ff0')
@@ -71,7 +71,7 @@ list.fill('#ff0')
 var allfilles = list.fill() // get all the colors
 ```
 
-A single element can be a member of many sets. Sets also don't have a structural representation, in fact they are just fancy array's.
+A single element can be a member of many sets. Sets also don't have a structural representation, in fact they are just fancy arrays.
 
 ## animate()
 

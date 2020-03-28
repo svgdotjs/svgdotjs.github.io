@@ -417,8 +417,6 @@ path.animate(2000).plot('M10 80 C 40 150, 65 150, 95 80 S 150 10, 180 80').loop(
 
 There is only basic support for animating paths baked into SVG.js, which means that only paths with the same commands (`M`,`C`,`S` etc.) are animateable.
 
-If you need to animate paths that do not share the same commands in order, you can use [svg.pathmorphing.js](https://github.com/Fuzzyma/svg.pathmorphing.js)
-
 ## <span class="subject">path.</span>text()
 
 `returns` __`SVG.TextPath`__
@@ -655,7 +653,7 @@ text.tspan(' on a train...').fill('#f06')
 <br>
 # SVG.TextPath
 
-## path() <span class="suffix">constructor for textPath</span>
+## textPath() <span class="suffix">constructor for textPath</span>
 
 `constructor on` __`SVG.Container`__
 `returns` __`SVG.TextPath`__ ` which inherits from ` __`SVG.Text`__
@@ -851,11 +849,14 @@ Creating images is as you might expect:
 var image = draw.image('/path/to/image.jpg')
 ```
 
-If you know the size of the image, those parameters can be passed as the second and third arguments:
+If you want to execute a callback once the image is loaded, you can pass a function as additional parameter:
 
 ```javascript
 var image = draw.image('/path/to/image.jpg', function (event) {
   // image loaded
+  // this is the loading event for the underlying img element
+  // you can access the natural width and height of the image with
+  // event.target.naturalWidth, event.target.naturalHeight
 })
 ```
 
@@ -868,7 +869,7 @@ var image = draw.image('/path/to/image.jpg', function (event) {
 Loading another image can be done with the `load()` method:
 
 ```javascript
-image.load('/path/to/another/image.jpg')
+image.load('/path/to/another/image.jpg', callback)
 ```
 
 ## Image events
@@ -878,7 +879,7 @@ This can be done as always with `on`:
 
 ```javascript
 image.on('load', function (e) {
-  console.log(e.naturalWidth, e.naturalHeight)
+  // this is the loading event for the svg image
 })
 ```
 

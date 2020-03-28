@@ -229,9 +229,9 @@ draw.last()
 # Parent references
 Every element has a reference to its parent with the `parent()` method:
 
-## doc()
+## root()
 
-`returns` __`SVG.Doc`__
+`returns` __`SVG.Svg`__
 
 For retrieving the root SVG you can use `root()`
 
@@ -279,16 +279,18 @@ draw.parent() //-> returns an SVG.Dom wrappig the html element with id 'drawing'
 
 `returns` __`SVG.List`__
 
-To get all ancestors of the element filtered by type or CSS selector (see `parent()` method)
+To get all ancestors of the element up to and including the passed matcher or element use `parents()`.
+If no matcher is passed, the root svg element is used.
 
 ```javascript
 var group1 = draw.group().addClass('test')
   , group2 = group1.group()
   , rect   = group2.rect(100,100)
 
-rect.parents()        // returns [group1, group2, draw]
-rect.parents('.test') // returns [group1]
-rect.parents(SVG.G)   // returns [group1, group2]
+rect.parents()        // returns [group2, group1, draw]
+rect.parents('.test') // returns [group2, group1]
+rect.parents(group2)   // returns [group2]
+rect.parents(group1)   // returns [group2, group1]
 ```
 
 <br>

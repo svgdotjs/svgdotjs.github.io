@@ -35,3 +35,9 @@ htags.forEach( function( h ) {
     }
   }
 })
+
+// Make versions selectable
+var select = document.getElementById('version-selector')
+addEvent(select, 'change', function () {
+  window.location.pathname = select.value
+})
