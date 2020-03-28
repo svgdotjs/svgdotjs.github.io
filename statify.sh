@@ -16,3 +16,8 @@ rm -rf docs
 mv docs_temp docs
 
 echo "<?php header('Location: /docs/${NEWEST}/'); ?>" > index.php
+
+# make sure that we restore the file
+# this is done in another process because the file itself
+# cant be executed while restored
+$(sleep 1 && git checkout -- statify.sh) &
