@@ -24,7 +24,7 @@
         <?php elseif ($p->template() == 'link'): ?>
           <?php $href = $p->link() ?>
         <?php else: ?>
-          <?php $href = ( isset( $version_prefix ) ? $version_prefix : '' ) . $p->url() ?>
+          <?php $href = $p->url() ?>
         <?php endif ?>
         <a href="<?= $href ?>"><?= $p->title()->html() ?></a>
 
