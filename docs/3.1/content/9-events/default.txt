@@ -1,0 +1,207 @@
+Title: Events
+
+----
+
+Text: 
+
+# Basic events
+
+## <span class="subject">element.</span>click()
+
+`returns` __`itself`__
+
+Events can be bound to elements as follows:
+
+```javascript
+element.click(function() {
+  this.fill({ color: '#f06' })
+})
+```
+
+Removing it is quite as easy:
+
+```javascript
+element.click(null)
+```
+
+All available other events are: `click`, `dblclick`, `mousedown`, `mouseup`, `mouseover`, `mouseout`, `mousemove`, `touchstart`, `touchmove`, `touchleave`, `touchend` and `touchcancel`...
+
+<br>
+# Event listeners
+
+## <span class="subject">element.</span>fire()
+
+`returns` __`itself`__
+
+Fire an event:
+
+```javascript
+element.fire(event)
+```
+
+Optionally, an object with arbitrary data can be passed as the second argument:
+
+```javascript
+element.fire(event, { arbitrary: data })
+```
+
+## <span class="subject">element.</span>dispatch()
+
+`returns` __`event`__
+
+Also fires an event on the element like `fire()` but returns the event instead. You can then check for e.g. `defaultPrevented` on the event:
+
+```javascript
+var event = element.dispatch(event)
+if (event.defaultPrevented)
+  doNothing()
+```
+
+
+## <span class="subject">element.</span>on()
+
+`returns` __`itself`__
+
+```javascript
+var click = function() {
+  this.fill({ color: '#f06' })
+}
+
+element.on('click', click)
+```
+
+Passing multiple event types can be done with either an array:
+
+```javascript
+element.on(['click', 'mouseover'], handler)
+```
+
+Or a space delimited string:
+
+```javascript
+element.on('click mouseover', handler)
+```
+
+**Note:** The context of `this` in the callback is bound to the element. Alternatively, a third argument can be passed to define a custom context:
+
+```javascript
+element.on('click', click, window)
+```
+
+## <span class="subject">element.</span>off()
+
+`returns` __`itself`__
+
+Unbinding events is just as easy:
+
+```javascript
+element.off('click', click)
+```
+
+Or to unbind all listeners for a given event type:
+
+```javascript
+element.off('click')
+```
+
+Or multiple event types:
+
+```javascript
+element.off(['click', 'mouseover'])
+element.off('click mouseover')
+```
+
+Or even unbind all listeners for all events:
+
+```javascript
+element.off()
+```
+
+<br>
+# Other elements
+
+Adding and removing event listeners from elements also works on other elements
+
+## <span class="subject">SVG.</span>on()
+
+```javascript
+SVG.on(window, 'click', click)
+```
+
+## <span class="subject">SVG.</span>off()
+
+```javascript
+SVG.off(window, 'click', click)
+```
+
+<br>
+# Custom events
+You can even use your own events.
+
+Just add an event listener for your event:
+```javascript
+element.on('myevent', function() {
+  alert('ta-da!')
+})
+```
+
+Now you are ready to fire the event whenever you need:
+
+```javascript
+function whenSomethingHappens() {
+  element.fire('myevent')
+}
+
+// or if you want to pass an event
+function whenSomethingHappens(event) {
+  element.fire(event)
+}
+```
+
+You can also pass some data to the event:
+
+```javascript
+function whenSomethingHappens() {
+  element.fire('myevent', {some:'data'})
+}
+
+element.on('myevent', function(e) {
+  alert(e.detail.some) // outputs 'data'
+})
+```
+
+You can also change the options like cancelable (which defaults to true in svg.js) or other parameters by passing a third parameter
+
+```js
+function whenSomethingHappens() {
+  element.fire('myevent', {some:'data'}, {cancelable: false})
+}
+```
+
+SVG.js supports namespaced events following the syntax `event.namespace`.
+
+A namespaced event behaves like a normal event with the difference that you can remove it without touching handlers from other namespaces.
+
+```javascript
+// attach
+element.on('myevent.namespace', function(e) {
+  // do something
+})
+
+// detach all handlers of namespace for myevent
+element.off('myevent.namespace')
+
+// detach all handlers of namespace
+element.off('.namespace')
+
+// detach all handlers including all namespaces
+element.off('myevent')
+```
+
+However, you can't fire a specific namespaced event. Calling `element.fire('myevent.namespace')` won't do anything while `element.fire('myevent')` works and fires all attached handlers of the event
+
+_Important: always make sure you namespace your event to avoid conflicts. Preferably use something very specific. So `event.wicked` for example would be better than something generic like `event.svg`._
+
+----
+
+Description: SVG.js supports named events, event listeners and custom events. all without any dependencies on any other library.

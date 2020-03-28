@@ -1,0 +1,15 @@
+Title: svg.colorat.js
+
+----
+
+Description: An extension for SVG.js which allows you to pick a colour from a gradient at a specific given position.
+
+----
+
+Text: 
+
+# svg.colorat.js
+
+[svg.colorat.js](https://github.com/svgdotjs/svg.colorat.js) is an extension for SVG.js which allows you to pick a colour from a gradient at a specific given position.
+
+<iframe width="100%" height="300" src="//jsfiddle.net/wout/sn7um5fr/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>

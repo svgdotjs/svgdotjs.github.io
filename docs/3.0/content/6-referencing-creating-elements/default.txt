@@ -1,0 +1,341 @@
+Title: Referencing / Creating Elements
+
+----
+
+Text: 
+
+# Referencing using CSS selectors
+
+## SVG()
+
+`returns` __`SVG.Dom`__  (or the most relevant subclass of `SVG.Element`)
+
+This function will get the first element matching the passed selector
+
+```javascript
+var rect = SVG('rect.my-class').fill('#f06')
+```
+
+## <span class="subject">element.</span>findOne()
+
+`returns` __`SVG.Dom`__  (or the most relevant subclass of `SVG.Element`)
+
+This function will get the first element in `element` matching the passed selector
+
+```javascript
+var rect = group.findOne('rect.my-class').fill('#f06')
+```
+
+## <span class="subject">SVG.</span>find()
+
+`returns` __`SVG.List`__
+
+This will search for all svg elements matching the selector and return them in an instance of `SVG.List`:
+
+```javascript
+var list = SVG.find('.someClass')
+
+list.fill('#f06')
+```
+
+It also allows for a second parameter that is a node in which should be searched:
+
+```javascript
+var list = SVG.find('.someClass', group)
+
+list.fill('#f06')
+```
+
+## <span class="subject">element.</span>find()
+
+`returns` __`SVG.List`__
+
+This will search for all svg elements matching the selector below `element` and return them in an instance of `SVG.List`:
+
+```javascript
+var list = group.find('.someClass')
+
+list.fill('#f06')
+```
+
+<br>
+# Referencing existing DOM elements
+
+## SVG()
+
+`returns` __`SVG.Element`__
+
+If you want SVG.js to adopt an existing DOM element, you can use the `SVG()`:
+
+```javascript
+var polygon = document.createElement('polygon')
+
+var element = SVG(polygon)
+
+element.fill('#f06')
+```
+
+<br>
+# Using jQuery or Zepto
+Another way is to use (link: http://jquery.com/ text: jQuery target: _blank) or (link: http://zeptojs.com/ text: Zepto target: _blank). Here is an example:
+
+```javascript
+// add elements
+var draw   = SVG().addTo('#drawing')
+var group  = draw.group().addClass('my-group')
+var rect   = group.rect(100,100).addClass('my-element')
+var circle = group.circle(100).addClass('my-element').move(100, 100)
+
+// get elements in group
+var elements = $('#drawing g.my-group .my-element').each(function() {
+  this.instance.animate().fill('#f09')
+})
+```
+
+<br>
+# Circular reference
+Every element instance within SVG.js has a reference to the actual `node`.
+
+## node
+
+`returns` __`SVGElement`__
+
+```javascript
+element.node
+```
+
+## instance
+
+`returns` __`SVG.Element`__
+
+Similarly, the `node` carries a reference to the SVG.js `instance`:
+
+```javascript
+node.instance
+```
+<br>
+**Note the difference in return values.**
+The `node` references a native `SVGElement` while `instance` references the `SVG.Element` instance.
+
+<br>
+# Child references
+
+## children()
+
+`returns` __`array`__
+
+An SVG.List of all children can be retrieved with the `children` method:
+
+```javascript
+draw.children()
+```
+
+## clear()
+
+`returns` __`itself`__
+
+To remove all elements from a parent element:
+
+```javascript
+draw.clear()
+```
+
+## each()
+
+`returns` __`itself`__
+
+The `each()` allows you to iterate over the all children of an element:
+
+```javascript
+draw.each(function(i, children) {
+  this.fill({ color: '#f06' })
+})
+```
+
+Deep traversing is also possible by passing true as the second argument:
+
+```javascript
+// draw.each(block, deep)
+draw.each(function(i, children) {
+  this.fill({ color: '#f06' })
+}, true)
+```
+
+**Note**: `this` refers to the current child element.
+
+## first()
+
+`returns` __`SVG.Element`__
+
+To get the first child of a parent element:
+
+```javascript
+draw.first()
+```
+
+## get()
+
+`returns` __`SVG.Element`__
+
+Get an element on a given position in the children array:
+
+```javascript
+var rect   = draw.rect(20, 30)
+var circle = draw.circle(50)
+
+draw.get(0) //-> returns rect
+draw.get(1) //-> returns circle
+```
+
+## has()
+
+`returns` __`boolean`__
+
+Checking the existence of an element within a parent:
+
+```javascript
+var rect  = draw.rect(100, 50)
+var group = draw.group()
+
+draw.has(rect)  //-> returns true
+group.has(rect) //-> returns false
+```
+
+## index()
+
+`returns` __`number`__
+
+Returns the index of given element and returns -1 when it is not a child:
+
+```javascript
+var rect  = draw.rect(100, 50)
+var group = draw.group()
+
+draw.index(rect)  //-> returns 0
+group.index(rect) //-> returns -1
+```
+
+## last()
+
+`returns` __`SVG.Element`__
+
+To get the last child of a parent element:
+
+```javascript
+draw.last()
+```
+
+<br>
+# Parent references
+Every element has a reference to its parent with the `parent()` method:
+
+## root()
+
+`returns` __`SVG.Svg`__
+
+For retrieving the root SVG you can use `root()`
+
+```javascript
+var draw = SVG().addTo('#drawing')
+var rect = draw.rect(100, 100)
+
+rect.root() //-> returns draw
+```
+
+## parent() _within the svg document_
+
+`returns` __`SVG.Element`__
+
+```javascript
+element.parent()
+```
+
+Alternatively a class or css selector can be passed as the first argument:
+
+```javascript
+var draw   = SVG().addTo('#drawing')
+var nested = draw.nested().addClass('test')
+var group  = nested.group()
+var rect   = group.rect(100, 100)
+
+rect.parent()           //-> returns group
+rect.parent(SVG.Svg)    //-> returns nested
+nested.parent(SVG.Svg)  //-> returns draw
+rect.parent(SVG.G)      //-> returns group
+rect.parent('.test')    //-> returns nested
+```
+
+## parent() _on the topmost svg document_
+
+`returns` __`HTMLNode`__
+
+```javascript
+var draw = SVG().addTo('#drawing')
+
+draw.parent() //-> returns an SVG.Dom wrappig the html element with id 'drawing'
+```
+
+## parents()
+
+`returns` __`SVG.List`__
+
+To get all ancestors of the element up to and including the passed matcher or element use `parents()`.
+If no matcher is passed, the root svg element is used.
+
+```javascript
+var group1 = draw.group().addClass('test')
+  , group2 = group1.group()
+  , rect   = group2.rect(100,100)
+
+rect.parents()        // returns [group2, group1, draw]
+rect.parents('.test') // returns [group2, group1]
+rect.parents(group2)   // returns [group2]
+rect.parents(group1)   // returns [group2, group1]
+```
+
+<br>
+# URI references
+
+In cases where an element is linked to another element through an attribute, the linked element instance can be fetched with the `reference()` method.
+
+## reference()
+
+`returns` __`SVG.Element`__
+
+The only thing required is the attribute name:
+
+```javascript
+use.reference('href') //-> returns used element instance
+// or
+rect.reference('fill') //-> returns gradient or pattern instance for example
+// or
+circle.reference('clip-path') //-> returns clip instance
+```
+
+# Creating Elements
+
+## SVG()
+
+To create a new SVG.Svg document, just call `SVG()`
+
+```js
+var draw = SVG()
+```
+
+To create an element from markup you can also use `SVG()`
+
+```js
+var rect = SVG('<rect width="100" height="100">')
+```
+
+## object constructor
+
+To create a bare svg object which is not attached to the dom use the elements constructor directly
+
+```js
+var rect = new SVG.Rect()
+```
+
+----
+
+Description: You can get an element created by SVG.js with the SVG() method or find()/findOne(). You can also create elements with SVG()

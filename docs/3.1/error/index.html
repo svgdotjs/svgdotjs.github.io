@@ -1,0 +1,962 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <title>SVG.js v3.1 | Error</title>
+    <meta name="description" content="">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="/error" />
+    <meta property="og:title" content="Error" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="//assets/images/logo-svg-js-01d.png" />
+    
+    <meta name="docsearch:version" content="3.1">
+
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="/assets/css/main.css?r=20200328113059">    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+  </head>
+  <body class="docs-svgjs">
+  <div class="container">
+  <header role="banner">
+    <div class="wrap">
+      <img src="/assets/images/logo-svg-js-01d-128.png" alt="SVG.js logo" class="svgjs-logo">
+      <h1 class="site-title"><a class="title-link" href="/">SVG.js</a></h1>
+                  <select id="version-selector">
+             <option value="/docs/2.7">2.7</option>
+             <option value="/docs/3.0">3.0</option>
+             <option value="/docs/3.1" selected>3.1</option>
+            </select>
+          </div>
+  </header>
+  <div class="wrap content">
+
+    
+<aside class="sidebar-menu">
+  <a class="skip-link visuallyhidden focusable" href="#main">Skip to Main Content</a>
+
+  <div class="search">
+    <input name="q" type="text" placeholder="Search..." autocomplete="off" autofocus id="agolia">
+  </div>
+
+  <nav class="sidebar-nav" role="navigation">
+    <ul>
+            <li class="group">
+
+                
+                                  <a href="/docs/3.1/">Home</a>
+
+                
+        
+      </li>
+            <li class="group">
+
+                
+                                  <a href="/docs/3.1/installation">Installation</a>
+
+                
+        
+      </li>
+            <li class="group">
+
+                
+                                  <a href="/docs/3.1/getting-started">Getting started</a>
+
+                
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-container-elements">+</button>
+        
+                                  <a href="/docs/3.1/container-elements">Container Elements</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-container-elements" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.1/container-elements/#svg-svg">SVG.Svg</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/container-elements/#svg-g">SVG.G</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/container-elements/#svg-symbol">SVG.Symbol</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/container-elements/#svg-defs">SVG.Defs</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/container-elements/#svg-a">SVG.A</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-shape-elements">+</button>
+        
+                                  <a href="/docs/3.1/shape-elements">Other Elements</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-shape-elements" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.1/shape-elements/#general-handling-of-svg-js-elements">General Handling of svg.js elements</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/shape-elements/#svg-bare">SVG.Dom</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/shape-elements/#svg-rect">SVG.Rect</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/shape-elements/#svg-circle">SVG.Circle</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/shape-elements/#svg-ellipse">SVG.Ellipse</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/shape-elements/#svg-line">SVG.Line</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/shape-elements/#svg-polyline">SVG.Polyline</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/shape-elements/#svg-polygon">SVG.Polygon</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/shape-elements/#svg-path">SVG.Path</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/shape-elements/#svg-text">SVG.Text</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/shape-elements/#svg-textpath">SVG.TextPath</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/shape-elements/#svg-tspan">SVG.Tspan</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/shape-elements/#svg-image">SVG.Image</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/shape-elements/#svg-gradient">SVG.Gradient</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/shape-elements/#svg-stop">SVG.Stop</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/shape-elements/#svg-pattern">SVG.Pattern</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/shape-elements/#svg-mask">SVG.Mask</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/shape-elements/#svg-clippath">SVG.ClipPath</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/shape-elements/#svg-use">SVG.Use</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/shape-elements/#svg-marker">SVG.Marker</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/shape-elements/#style">Style</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/shape-elements/#foreignobject">ForeignObject</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-referencing-creating-elements">+</button>
+        
+                                  <a href="/docs/3.1/referencing-creating-elements">Referencing / Creating Elements</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-referencing-creating-elements" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.1/referencing-creating-elements/#using-css-selectors">Referencing using CSS selectors</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/referencing-creating-elements/#existing-dom-elements">Referencing existing DOM elements</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/referencing-creating-elements/#using-jquery-or-zepto">Using jQuery or Zepto</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/referencing-creating-elements/#circular-reference">Circular reference</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/referencing-creating-elements/#child-references">Child references</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/referencing-creating-elements/#parent-references">Parent references</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/referencing-creating-elements/#uri-references">URI references</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/referencing-creating-elements/#creating-elements">Creating Elements</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-manipulating">+</button>
+        
+                                  <a href="/docs/3.1/manipulating">Manipulating</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-manipulating" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.1/manipulating/#attributes">Attributes</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/manipulating/#positioning">Positioning</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/manipulating/#resizing">Resizing</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/manipulating/#syntactic-sugar">Syntactic sugar</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/manipulating/#transforming">Transforming</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/manipulating/#styles">Styles</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/manipulating/#classes">Classes</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/manipulating/#data">Data</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/manipulating/#memory">Memory</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/manipulating/#document-tree">Document Tree</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/manipulating/#arranging">Arranging</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/manipulating/#geometry">Geometry</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-animating">+</button>
+        
+                                  <a href="/docs/3.1/animating">Animating</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-animating" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.1/animating/#animate">Animate</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/animating/#svg-runner">SVG.Runner</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/animating/#easing">Easing</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/animating/#svg-timeline">SVG.Timeline</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/animating/#controllers">Controllers</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/animating/#orchestrate-animations">Orchestrate Animations</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-events">+</button>
+        
+                                  <a href="/docs/3.1/events">Events</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-events" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.1/events/#basic-events">Basic events</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/events/#event-listeners">Event listeners</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/events/#custom-events">Custom events</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-classes">+</button>
+        
+                                  <a href="/docs/3.1/classes">Classes</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-classes" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.1/classes/#svg-box">SVG.Box</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/classes/#svg-list">SVG.List</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/classes/#svg-array">SVG.Array</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/classes/#svg-pointarray">SVG.PointArray</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/classes/#svg-patharray">SVG.PathArray</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/classes/#svg-color">SVG.Color</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/classes/#svg-matrix">SVG.Matrix</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/classes/#svg-number">SVG.Number</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/classes/#svg-point">SVG.Point</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/classes/#svg-eventtarget">SVG.EventTarget</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                
+                                  <a href="/docs/3.1/importing-exporting">Importing / Exporting</a>
+
+                
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-extending">+</button>
+        
+                                  <a href="/docs/3.1/extending">Extending</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-extending" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.1/extending/#svg-extend">SVG.extend</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/extending/#subclassing">Subclassing</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                
+                                  <a href="/docs/3.1/tutorials">Tutorials / Examples</a>
+
+                
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-plugins">+</button>
+        
+                                  <a href="/docs/3.1/plugins">Plugins</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-plugins" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/plugins/svg-colorat-js">svg.colorat.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/plugins/svg-easing-js">svg.easing.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/plugins/svg-draggable-js">svg.draggable.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/plugins/svg-filter-js">svg.filter.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/plugins/svg-math-js">svg.math.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/plugins/svg-path-js">svg.path.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/plugins/svg-select-js">svg.select.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/plugins/svg-shapes-js">svg.shapes.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/plugins/svg-topath-js">svg.topath.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/plugins/svg-topoly-js">svg.topoly.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/plugins/svg-panzoom-js">svg.panzoom.js</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-contributing">+</button>
+        
+                                  <a href="/docs/3.1/contributing">Contributing</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-contributing" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/contributing/coding-style">Coding Style</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/contributing/documentation">Documentation</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                
+                                  <a href="/docs/3.1/compatibility">Compatibility</a>
+
+                
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-faq">+</button>
+        
+                                  <a href="/docs/3.1/faq">FAQ</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-faq" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.1/faq/#two-svg-s-are-generated-when-i-initialize-svg-js-is-that-a-bug">Two SVG's are generated when I initialize SVG.js. Is that a bug?</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/faq/#can-svg-js-run-on-node-js">Can SVG.js run on Node.js?</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/faq/#how-can-i-modify-an-element-that-already-exists-in-the-dom">How can I modify an element that already exists in the dom?</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/faq/#i-need-help-getting-something-to-work">I need help getting something to work...</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/faq/#i-found-a-bug-where-do-i-report-it">I found a bug. Where do I report it?</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/faq/#where-can-i-find-tutorials">Where can I find tutorials?</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/faq/#how-do-i-contribute-or-fix-something-in-the-docs">How do I contribute or fix something in the docs?</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                
+                                  <a href="/docs/3.1/acknowledgements-thanks">Acknowledgements &amp; Thanks</a>
+
+                
+        
+      </li>
+          </ul>
+  </nav>
+</aside>
+
+    <section id="main" class="main-content" role="main">
+      <p>The page has not been found.</p>    </section>
+
+  </div><!-- /.wrap content -->
+  
+
+<footer role="contentinfo">
+  <div class="wrap">
+    <p><a href="http://svgdotjs.github.io/">SVG.js</a> © 2012-2020 <a href="https://github.com/wout/" rel="noopener noreferrer" target="_blank">Wout Fierens</a> -  SVG.js is released under the terms of the MIT license.</p>  </div><!--/.wrap -->
+</footer>
+
+<a href="https://github.com/svgdotjs/svg.js">
+  <img src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" class="fork-me-on-github">
+</a>
+
+<script src="/assets/js/libs/highlight.pack.js"></script><script src="/assets/js/libs/accordion-plain.js"></script><script src="/assets/js/kdoc.js?r=20200328113059"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+  apiKey: 'a01bac6cbc400d1cd9b3ae22bb918066',
+  indexName: 'svgjs',
+  inputSelector: '#agolia',
+  algoliaOptions: { 'facetFilters': ["version:3.1"] },
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+</script>
+
+</div> <!-- /.container -->
+</body>
+</html>
