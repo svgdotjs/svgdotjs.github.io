@@ -1,9 +1,0 @@
-Title: svg.topath.js
-
-----
-
-Text: 
-
-# svg.topath.js
-
-[svg.topath.js](https://github.com/svgdotjs/svg.topath.js) to convert any other shape to a path.

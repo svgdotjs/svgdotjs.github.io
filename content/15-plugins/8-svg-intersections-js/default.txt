@@ -1,9 +1,0 @@
-Title: svg.intersections.js
-
-----
-
-Text: 
-
-# svg.intersections.js
-
-[svg.intersections.js](https://github.com/amatiash/svg.intersections.js) find intersections of paths and lines (by amatiash)

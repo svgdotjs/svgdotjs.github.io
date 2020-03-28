@@ -1,9 +1,0 @@
-Title: svg.math.js
-
-----
-
-Text: 
-
-# svg.math.js
-
-[svg.math.js](https://github.com/otm/svg.math.js) a math extension (by Nils Lagerkvist).

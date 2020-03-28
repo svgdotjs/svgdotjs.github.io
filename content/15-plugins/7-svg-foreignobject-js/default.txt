@@ -1,9 +1,0 @@
-Title: svg.foreignobject.js
-
-----
-
-Text: 
-
-# svg.foreignobject.js
-
-[svg.foreignobject.js](https://github.com/john-memloom/svg.foreignobject.js) foreignObject implementation (by john-memloom).
