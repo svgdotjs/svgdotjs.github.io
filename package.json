@@ -30,6 +30,6 @@
     "dev": "parallelshell \"npm run serve -s\" \"npm run watch -s\" \"npm run open:dev -s\""
   },
   "dependencies": {
-    "npm": "^6.4.1"
+    "npm": "^6.13.4"
   }
 }
