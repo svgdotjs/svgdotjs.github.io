@@ -1,5 +1,7 @@
 <?php
 
+$isCmd = defined('STDIN');
+
 require_once './version.php';
 
 /**
@@ -77,6 +79,11 @@ file_put_contents( $root . 'CNAME', 'svgjs.com' );
 // move 404 file
 rename( $root . '404/index.html', $root . '404.html' );
 rmdir( $root . '404' );
+
+if($isCmd) {
+  echo "Version ".DOCS_VERSION." was exported to $version_prefix\n";
+  exit;
+}
 
 // helpers
 function retitle( $match ) {
