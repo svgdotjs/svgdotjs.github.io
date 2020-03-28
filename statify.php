@@ -29,7 +29,7 @@ include(__DIR__ . DS . 'kirby' . DS . 'bootstrap.php');
 
 $kirby = kirby();
 
-//$kirby->urls->index = $url;
+$kirby->urls->index = $version_prefix;
 
 $site = $kirby->site();
 
