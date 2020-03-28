@@ -26,5 +26,13 @@
     <div class="wrap">
       <img src="/assets/images/logo-svg-js-01d-128.png" alt="SVG.js logo" class="svgjs-logo">
       <h1 class="site-title"><a class="title-link" href="<?= url() ?>"><?= $site->title()->html() ?></a></h1>
+      <?php global $availableVersions; ?>
+      <?php if(isset($availableVersions) and count($availableVersions) > 0): ?>
+      <select id="version-selector">
+      <?php foreach($availableVersions as $version): ?>
+       <option value="<?= '/docs/'.$version ?>"<?= $version == DOCS_VERSION ? ' selected' : '' ?>><?= $version ?></option>
+      <?php endforeach ?>
+      </select>
+      <?php endif ?>
     </div>
   </header>

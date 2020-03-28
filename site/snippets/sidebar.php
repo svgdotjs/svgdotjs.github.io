@@ -1,7 +1,6 @@
 <?php global $version_prefix; ?>
 
 <aside class="sidebar-menu">
-  <p class="intro"><?php echo $site->description()->kirbytext() ?></p>
   <a class="skip-link visuallyhidden focusable" href="#main">Skip to Main Content</a>
 
   <div class="search">
@@ -25,7 +24,7 @@
         <?php elseif ($p->template() == 'link'): ?>
           <?php $href = $p->link() ?>
         <?php else: ?>
-          <?php $href = $p->url() ?>
+          <?php $href = ( isset( $version_prefix ) ? $version_prefix : '' ) . $p->url() ?>
         <?php endif ?>
         <a href="<?= $href ?>"><?= $p->title()->html() ?></a>
 
