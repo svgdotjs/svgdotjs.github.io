@@ -811,6 +811,14 @@ var group = draw.group()
 group.add(rect) //-> returns group
 ```
 
+You can also pass a css selector, a node or an svg string:
+
+```js
+group.add('#someEl')
+group.add(document.getElementById('someEl'))
+group.add('<rect>')
+```
+
 ## addTo()
 
 `returns` __`itself`__
@@ -819,6 +827,9 @@ Sets the calling element as a child node of the argument. Returns the child:
 
 ```javascript
 rect.addTo(group) //-> returns rect
+rect.addTo('#someEl')
+rect.addTo(document.body)
+rect.addTo('<g>')
 ```
 
 ## clone()
@@ -838,20 +849,26 @@ To insert the clone, use the `addTo()` or `add()`.
 
 `returns` __`SVG.Element`__
 
-Sets the calling element as the parent node of the argument. Returns the child:
+Sets the calling element as the parent node of the argument. Returns the child. In case the child wasn't an svgjs object, an svgjs object is created and returned:
 
 ```javascript
 group.put(rect) //-> returns rect
+group.put('#myRect') //-> returns SVG.Rect with id myRect
+group.put(document.getElementById('myRect')) //-> returns SVG.Rect with id myRect
+group.put('<rect>') //-> returns SVG.Rect
 ```
 
 ## putIn()
 
 `returns` __`SVG.Element`__
 
-Sets the calling element as a child node of the argument. Returns the parent:
+Sets the calling element as a child node of the argument. Returns the parent. In case the parent wasn't an svgjs object, an svgjs object is created and returned:
 
 ```javascript
 rect.putIn(group) //-> returns group
+rect.putIn('#myGroup') //-> returns SVG.G with id myGroup
+group.put(document.getElementById('myGroup')) //-> returns SVG.G with id myGroup
+rect.putIn('<g>') //-> returns SVG.G
 ```
 
 ## remove()
@@ -938,6 +955,17 @@ Flat and export svg:
 
 ```javascript
 var svgString = drawing.flatten().svg()
+```
+
+## wrap()
+
+`returns` __`itself`__
+
+Wraps the passed element around the current element. This replaces the current element with the wrapping element and appends the current element to the wrapped element.
+
+```js
+rect.wrap('<g>')
+rect.wrap(new G())
 ```
 
 <br>
