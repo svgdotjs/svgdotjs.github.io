@@ -458,6 +458,15 @@ var text = draw.text(function(add) {
 })
 ```
 
+As a more convinient syntax for newlines it is also possible to use the `newLine()` constructor instead of `tspan(...).newLine()`:
+
+```javascript
+var text = draw.text(function(add) {
+  add.newLine('Same as')
+  add.newLine('above').fill('#f06')
+})
+```
+
 If you want to go the other way and don't want to add tspans at all, just one line of text, you can use the `plain()` method instead:
 
 ```javascript
