@@ -182,7 +182,7 @@ polyline.array()
 More info: (link: /classes/#svg-pointarray text: SVG.PointArray).
 
 ## <span class="subject">line.</span>plot()
-
+ 
 `returns` __`itself`__<br>`animate` __`yes`__
 
 Updating a line is done with the `plot()` method:
@@ -1473,6 +1473,17 @@ Defines the `markerWidth` attribute:
 ```javascript
 marker.width(10)
 ```
+
+## <span class="subject">marker.</span>orient()
+
+`returns` __`itself`__<br>`animate` __`no`__
+
+Defines the `orient` attribute:
+
+```javascript
+marker.orient(50)
+```
+
 
 <br>
 # SVG.Style
