@@ -18,6 +18,7 @@ Here's a list of all plugins available for SVG.js. If you wrote one, please let 
 - [svg.shapes.js](/plugins/svg-shapes-js/)
 - [svg.topath.js](/plugins/svg-topath-js/)
 - [svg.topoly.js](/plugins/svg-topoly-js/)
+- [ngx-svg](/plugins/ngx-svg)
 ----
 
 Description: Here's a list of all plugins available for SVG.js. If you wrote one, please let us know! We will add them here.
