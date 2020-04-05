@@ -819,6 +819,16 @@ group.add(document.getElementById('someEl'))
 group.add('<rect>')
 ```
 
+`add()` also accepts a second argument specifying at which position the element will be inserted:
+
+```javascript
+var rect = draw.rect(100, 100)
+var group = draw.group()
+
+group.circle(100, 100)
+group.add(rect, 0) //-> inserts rect as first child
+```
+
 ## addTo()
 
 `returns` __`itself`__
@@ -832,6 +842,8 @@ rect.addTo(document.body)
 rect.addTo('<g>')
 ```
 
+`addTo()` accepts a second argument specifying the position (see `add()`)
+
 ## clone()
 
 `returns` __`SVG.Element`__
@@ -842,8 +854,14 @@ To make an exact copy of an element the `clone()` method comes in handy:
 var clone = rect.clone()
 ```
 
-This will create a new, unlinked copy. For making a linked clone, see the [use](/elements/use) element.
-To insert the clone, use the `addTo()` or `add()`.
+By default `clone()` will make a deep clone (it also clones the children). You can pass `false` to only clone the current element:
+
+```js
+var clone = rect.clone(false)
+```
+
+`clone()` will create a new, unlinked element. For making a linked clone, see the [use](/elements/use) element.
+To insert the clone, use `addTo()` or `add()`.
 
 ## put()
 
@@ -858,6 +876,8 @@ group.put(document.getElementById('myRect')) //-> returns SVG.Rect with id myRec
 group.put('<rect>') //-> returns SVG.Rect
 ```
 
+`put()` accepts a second argument specifying the position (see `add()`)
+
 ## putIn()
 
 `returns` __`SVG.Element`__
@@ -870,6 +890,8 @@ rect.putIn('#myGroup') //-> returns SVG.G with id myGroup
 group.put(document.getElementById('myGroup')) //-> returns SVG.G with id myGroup
 rect.putIn('<g>') //-> returns SVG.G
 ```
+
+`putIn()` accepts a second argument specifying the position (see `add()`)
 
 ## remove()
 

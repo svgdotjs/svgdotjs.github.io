@@ -56,7 +56,14 @@ The `SVG.Dom` class can be instantiated with the `element()` method on any eleme
 ```javascript
 var element = draw.element('title')
 ```
+
 The string value passed as the first argument is the node name that should be generated.
+
+Optionally attributes can be added directly by passing them as second argument:
+
+```javascript
+var element = draw.element('title', {id: 'myId'})
+```
 
 ## <span class="subject">element.</span>words()
 
