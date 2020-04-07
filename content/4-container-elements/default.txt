@@ -181,6 +181,32 @@ Returns the `<a>` element or null if this element is not a link:
 rect.linker() // returns the link
 ```
 
+<br>
+# SVG.Fragment
+
+A Fragment is a wrapper around a document-fragment. Albeit it is not part of the Container class, it still has all methods to construct elements on it.
+Therefore you can easily populate a fragment with the svg elements of your needs and append them all in one go to the dom:
+
+```js
+const frag = new Fragment()
+frag.rect(100, 100)
+frag.circle(100, 100)
+
+draw.add(frag) // will add rect and circle
+```
+
+SVG.Fragment extends SVG.Dom directly and therefore supports all basic dom ooperatiosn as well as import and export of svg elements:
+
+```js
+const frag = new Fragment()
+frag.rect(100, 100)
+frag.circle(100, 100)
+frag.first() // rect
+frag.last() // rect
+
+frag.svg() // <rect ... /><circle ... />
+```
+
 ----
 
 Description: The SVG.Container class is the base wrapper for all elements that can contain other elements.
