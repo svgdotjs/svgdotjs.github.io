@@ -915,7 +915,7 @@ rect.replace(draw.circle(100))
 
 `returns` __`itself`__
 
-Same as `toParent()` but with the root-node as parent
+Same as `toParent()` but with the root-node as parent. `toRoot()` takes a position as parameter and appends by default.
 
 ## toParent()
 
@@ -925,6 +925,12 @@ Moves an element to a different parent (similar to `addTo`), but without changin
 
 ```javascript
 rect.toParent(group) // looks the same as before
+```
+
+You can specifiy the position at which the element is inserted by passing a second parameter:
+
+```javascript
+rect.toParent(group, 3) // inserted at position 3 (4th child)
 ```
 
 ## ungroup()
@@ -940,42 +946,36 @@ group.transform({rotate: 20}).ungroup()
 // group is deleted, rect and circle both have rotate: 20
 ```
 
-You can also specify to which container the elements of the group are moved:
+You can also specify to which container the elements of the group are moved and at which position they are inserted:
 
 ```
-group.ungroup(otherContainer)
+group.ungroup(otherContainer, position)
 ```
 
 ## flatten()
 
 `returns` __`itself`__
 
-Recursively breaks up all containers and flattens the whole structure so that no container element survives. This is useful for exporting to reduce the number of nested groups or similar.
+Breaks up all containers contained in an element and flattens the svg structure so that all elements end up in the element `flatten()` was called on.
 
-Ungroup all elements in this group recursively and places them into the given container
-
-```javascript
-group.flatten(container)
-// (default: parent container of the calling element)
-```
-
-Call it on the whole document to get a flat svg structure:
+Call it on the root node to get a flat svg structure:
 
 ```javascript
 drawing.flatten()
 ```
 
-Break up the group and places all elements in the drawing:
-
-```javascript
-group.flatten(drawing)
-```
-
-Flat and export svg:
+Flatten and export svg:
 
 ```javascript
 var svgString = drawing.flatten().svg()
 ```
+
+To put all elements into another comtainer and remove the current element, you can call `ungroup()` right after flatten:
+
+```javascript
+var svgString = drawing.flatten().ungroup(otherContainer)
+```
+
 
 ## wrap()
 
