@@ -29,7 +29,11 @@ Or just import svg.js in your javascript application:
 import { SVG } from '@svgdotjs/svg.js'
 ```
 
-**Note: All properties that were former available on the global SVG object need to be imported now**
+**Note: All properties that were former available on the global SVG object need to be imported now, see example below:**
+
+```js
+import { SVG, extend as SVGextend, Element as SVGElement } from '@svgdotjs/svg.js'
+```
 
 ## Create an SVG document
 
