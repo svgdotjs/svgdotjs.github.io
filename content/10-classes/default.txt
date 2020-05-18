@@ -447,7 +447,7 @@ var matrix = new SVG.Matrix({ a: 1, b: 0, c: 0, d: 1, e: 100, f: 150 })
 matrix.toString() //-> returns matrix(1,0,0,1,100,150)
 ```
 
-Everyhing you can pass to the (/manipulating/#transform) method can also be passed to the matrix constructor:
+Everyhing you can pass to the elements transform method can also be passed to the matrix constructor:
 
 ```javascript
 var matrix = new SVG.Matrix({ translate: [20, 20] })

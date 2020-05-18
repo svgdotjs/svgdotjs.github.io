@@ -703,7 +703,9 @@ The `data()` method allows you to bind arbitrary objects, strings and numbers to
 Fetching the values is similar to the `attr()` method:
 
 ```javascript
-var key = rect.data('key')
+var obj = rect.data()
+var value = rect.data('key')
+var obj2 = rect.data(['key1', 'key2'])
 ```
 
 ## data() _as setter_
@@ -952,6 +954,8 @@ You can also specify to which container the elements of the group are moved and 
 group.ungroup(otherContainer, position)
 ```
 
+**Note:** `Defs` elements can not be ungrouped
+
 ## flatten()
 
 `returns` __`itself`__
@@ -976,6 +980,7 @@ To put all elements into another comtainer and remove the current element, you c
 var svgString = drawing.flatten().ungroup(otherContainer)
 ```
 
+**Note:** `Defs` elements can not be flattened
 
 ## wrap()
 
