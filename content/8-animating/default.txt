@@ -94,7 +94,7 @@ runner.active() // returns or sets the active state of the runner. Inactive runn
 Runners are usually created by calling animate. However, it is possible to create runners without an element and set the element later:
 
 ```js
-var runner = new SVG.Runner({duration: 1000})
+var runner = new SVG.Runner(1000)
 runner.move(100, 100)
 
 runner.element(someElement)
