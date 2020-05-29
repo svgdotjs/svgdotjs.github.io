@@ -788,16 +788,18 @@ tspan.length()
 
 `returns` __`itself`__
 
-The `newLine()` is a convenience method for adding a new line with a `dy` attribute using the current "leading":
+The `newLine()` is a convenience method for adding a new line with a `dy` attribute using the current "leading". By default
+it moves to the start of the next line before rendering the `tspan`. You can pass it a factor to change this: passing `2`
+moves down 2 lines, and passing `1.5` moves down by 1½ lines.
 
 ```javascript
 var text = draw.text(function(add) {
   add.tspan('Lorem ipsum dolor sit amet ').newLine()
   add.tspan('consectetur').fill('#f06')
   add.tspan('.')
-  add.tspan('Cras sodales imperdiet auctor.').newLine().dx(20)
+  add.tspan('Cras sodales imperdiet auctor.').newLine(2).dx(20)
   add.tspan('Nunc ultrices lectus at erat').newLine()
-  add.tspan('dictum pharetra elementum ante').newLine()
+  add.tspan('dictum pharetra elementum ante').newLine(1.5)
 })
 ```
 
