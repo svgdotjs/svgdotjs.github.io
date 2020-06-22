@@ -29,7 +29,7 @@ var draw = SVG().addTo('#drawing')
 **Note**: The first time `SVG()` is called, a second, invisible `<svg>` will be created. This is our parser (link: /faq text: as explained in the FAQ).
 
 <br>
-An SVG document can also be created inside another SVG document. It is then calle a nested SVG document:
+An SVG document can also be created inside another SVG document. It is then called a nested SVG document:
 
 ## nested() <span class="suffix">constructor</span>
 
