@@ -49,7 +49,7 @@ For all elements that are not described by SVG.js, the `SVG.Dom` class come in h
 
 ## element() <span class="suffix">constructor</span>
 
-`returns` __`SVG.Dom`__ `
+`returns` __`SVG.Dom`__
 
 The `SVG.Dom` class can be instantiated with the `element()` method on any element:
 
