@@ -229,7 +229,7 @@ The polyline element defines a set of connected straight line segments. Typicall
 var polyline = draw.polyline('0,0 100,50 50,100').fill('none').stroke({ width: 1 })
 ```
 
-Polyline strings consist of a list of points separated by comma's or spaces. So `x,y x,y x,y` as well as `x y x y x y` or even `x,y,x,y,x,y` will work.
+Polyline strings consist of a list of points separated by commas or spaces. So `x,y x,y x,y` as well as `x y x y x y` or even `x,y,x,y,x,y` will work.
 
 As an alternative, an array of points will work as well:
 
