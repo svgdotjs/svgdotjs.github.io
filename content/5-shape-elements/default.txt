@@ -10,7 +10,7 @@ Text:
 
 ### Creating SVG Elements
 
-In svg.js every elements is an object which can be either created by constructing it:
+In svg.js every element is an object which can be either created by constructing it:
 
 ```js
 import { Rect } from "@svgdotjs/svg.js"
