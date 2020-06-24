@@ -10,7 +10,7 @@ Text:
 
 ### Creating SVG Elements
 
-In svg.js every elements is an object which can be either created by constructing it:
+In svg.js every element is an object which can be either created by constructing it:
 
 ```js
 import { Rect } from "@svgdotjs/svg.js"
@@ -49,7 +49,7 @@ For all elements that are not described by SVG.js, the `SVG.Dom` class come in h
 
 ## element() <span class="suffix">constructor</span>
 
-`returns` __`SVG.Dom`__ `
+`returns` __`SVG.Dom`__
 
 The `SVG.Dom` class can be instantiated with the `element()` method on any element:
 
@@ -229,7 +229,7 @@ The polyline element defines a set of connected straight line segments. Typicall
 var polyline = draw.polyline('0,0 100,50 50,100').fill('none').stroke({ width: 1 })
 ```
 
-Polyline strings consist of a list of points separated by comma's or spaces. So `x,y x,y x,y` as well as `x y x y x y` or even `x,y,x,y,x,y` will work.
+Polyline strings consist of a list of points separated by commas or spaces. So `x,y x,y x,y` as well as `x y x y x y` or even `x,y,x,y,x,y` will work.
 
 As an alternative, an array of points will work as well:
 
@@ -1412,7 +1412,7 @@ marker.width(10)
 <br>
 # SVG.Style
 
-The Style-element creates a style-tag and atts rules for a selector
+The Style element creates a style-tag and adds rules for a selector
 
 ## style() <span class="suffix">constructor</span>
 
