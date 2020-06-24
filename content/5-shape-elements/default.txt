@@ -511,7 +511,7 @@ text.length()
 
 `returns` __`itself`__
 
-A convenient method to add font-related properties:
+A convenience method to add font-related properties:
 
 ```javascript
 text.font({
