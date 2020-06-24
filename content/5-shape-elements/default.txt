@@ -1412,7 +1412,7 @@ marker.width(10)
 <br>
 # SVG.Style
 
-The Style element creates a style-tag and atts rules for a selector
+The Style element creates a style-tag and adds rules for a selector
 
 ## style() <span class="suffix">constructor</span>
 
