@@ -11,7 +11,7 @@
 
 <?= js('assets/js/libs/highlight.pack.js') ?>
 <?= js('assets/js/libs/accordion-plain.js') ?>
-<?= js('assets/js/kdoc.js?r=' . date( 'YmdHis' ) ) ?>
+<?= js('assets/js/kdoc.js' ) ?>
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
