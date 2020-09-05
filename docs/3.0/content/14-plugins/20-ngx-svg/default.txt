@@ -1,0 +1,13 @@
+Title: ngx-svg
+
+----
+
+Description: An Angular 2+ library that ports SVG.js to a reusable Angular components and directives. Allows to use SVG.js elements easily with Angular.
+
+----
+
+Text: 
+
+# ngx-svg
+
+[ngx-svg](https://github.com/vvaldersteins/ngx-svg) is a library for Angular 2+, that makes it easy to use SVG.js library with Angular.

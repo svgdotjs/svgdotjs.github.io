@@ -8,16 +8,17 @@ Text:
 
 Here's a list of all plugins available for SVG.js. If you wrote one, please let us know!
 
-- [svg.colorat.js](/plugins/svg-colorat-js/)
-- [svg.draggable.js](/plugins/svg-draggable-js/)
-- [svg.easing.js](/plugins/svg-easing-js/)
-- [svg.filter.js](/plugins/svg-filter-js/)
-- [svg.math.js](/plugins/svg-math-js/)
-- [svg.panzoom.js](/plugins/svg-panzoom-js/)
-- [svg.path.js](/plugins/svg-path-js/)
-- [svg.shapes.js](/plugins/svg-shapes-js/)
-- [svg.topath.js](/plugins/svg-topath-js/)
-- [svg.topoly.js](/plugins/svg-topoly-js/)
+- [svg.colorat.js](plugins/svg-colorat-js/)
+- [svg.draggable.js](plugins/svg-draggable-js/)
+- [svg.easing.js](plugins/svg-easing-js/)
+- [svg.filter.js](plugins/svg-filter-js/)
+- [svg.math.js](plugins/svg-math-js/)
+- [svg.panzoom.js](plugins/svg-panzoom-js/)
+- [svg.path.js](plugins/svg-path-js/)
+- [svg.shapes.js](plugins/svg-shapes-js/)
+- [svg.topath.js](plugins/svg-topath-js/)
+- [svg.topoly.js](plugins/svg-topoly-js/)
+- [ngx-svg](plugins/ngx-svg)
 ----
 
 Description: Here's a list of all plugins available for SVG.js. If you wrote one, please let us know! We will add them here.

@@ -29,7 +29,7 @@ var draw = SVG().addTo('#drawing')
 **Note**: The first time `SVG()` is called, a second, invisible `<svg>` will be created. This is our parser (link: /faq text: as explained in the FAQ).
 
 <br>
-An SVG document can also be created inside another SVG document. It is then calle a nested SVG document:
+An SVG document can also be created inside another SVG document. It is then called a nested SVG document:
 
 ## nested() <span class="suffix">constructor</span>
 
@@ -41,6 +41,18 @@ var nested = draw.nested()
 
 var rect = nested.rect(200, 200)
 ```
+
+## <span class="subject">svg.</span>isRoot()
+
+Tests if this `<svg>` element is the root svg. Note, that this will return `false`, when the element is a direct child of a `document-fragment`. However, it will return `true` if the element is completely detached from the dom.
+
+## <span class="subject">svg.</span>namespace()
+
+Adds the required svg namespaces to the svg element. This is automatically done on creation. However, if you don't want those, you can use `removeNamespaces()` to get rid of them.
+
+## <span class="subject">svg.</span>removeNamespace()
+
+Removes the svg namespaces from the svg element.
 
 <br>
 # SVG.G
@@ -79,13 +91,13 @@ Not unlike the `group` element, the `symbol` element is a container element. The
 var symbol = draw.symbol()
 symbol.rect(100, 100).fill('#f09')
 
-var use  = draw.use(symbol).move(200, 200)
+var use = draw.use(symbol).move(200, 200)
 ```
 
 <br>
 # SVG.Defs
 
-The `<defs>` element is a container for referenced elements. Descendants of a `<defs>`node are not rendered directly. The `<defs>` node lives in the main `<svg>` document and can be accessed with the `defs()` method.
+The `<defs>` element is a container for referenced elements. Descendants of a `<defs>` node are not rendered directly. The `<defs>` node lives in the main `<svg>` document and can be accessed with the `defs()` method.
 
 ## defs() <span class="suffix">constructor</span>
 
@@ -121,17 +133,23 @@ var link = draw.link('http://svgdotjs.github.io/')
 var rect = link.rect(100, 100)
 ```
 
+## <span class="subject">link.</span>to()
+
 The link url can be updated with the `to()` method:
 
 ```javascript
 link.to('http://apple.com')
 ```
 
+## <span class="subject">link.</span>target()
+
 Furthermore, the link element has a `target()` method to create the `target` attribute:
 
 ```javascript
 link.target('_blank')
 ```
+
+## <span class="subject">element.</span>linkTo()
 
 Elements can also be linked the other way around with the `linkTo()` method:
 
@@ -145,6 +163,48 @@ Alternatively, a block can be passed instead of a URL for more options on the li
 rect.linkTo(function(link) {
   link.to('http://svgdotjs.github.io/').target('_blank')
 })
+```
+
+## <span class="subject">element.</span>unlink()
+
+Removes the link from an element by deleting the `<a>` tag:
+
+```javascript
+rect.unlink()
+```
+
+## <span class="subject">element.</span>linker()
+
+Returns the `<a>` element or null if this element is not a link:
+
+```javascript
+rect.linker() // returns the link
+```
+
+<br>
+# SVG.Fragment
+
+A Fragment is a wrapper around a document-fragment. Albeit it is not part of the Container class, it still has all methods to construct elements on it.
+Therefore you can easily populate a fragment with the svg elements of your needs and append them all in one go to the dom:
+
+```js
+const frag = new Fragment()
+frag.rect(100, 100)
+frag.circle(100, 100)
+
+draw.add(frag) // will add rect and circle
+```
+
+SVG.Fragment extends SVG.Dom directly and therefore supports all basic dom ooperatiosn as well as import and export of svg elements:
+
+```js
+const frag = new Fragment()
+frag.rect(100, 100)
+frag.circle(100, 100)
+frag.first() // rect
+frag.last() // rect
+
+frag.svg() // <rect ... /><circle ... />
 ```
 
 ----

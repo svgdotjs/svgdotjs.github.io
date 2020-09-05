@@ -18,7 +18,7 @@
 
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="/docs/3.1/assets/images/favicon.png" type="image/png" />
-    <link rel="stylesheet" href="/docs/3.1/assets/css/main.css?r=20200328125053">    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+    <link rel="stylesheet" href="/docs/3.1/assets/css/main.css">    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
   </head>
   <body class="docs-svgjs">
   <div class="container">
@@ -813,6 +813,14 @@
                         
             
           </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.1/plugins/ngx-svg">ngx-svg</a>
+
+                        
+            
+          </li>
                   </ul>
         
       </li>
@@ -1124,7 +1132,6 @@ rect.radius(5)</code></pre>
   a: 1, b: 0, c: 1, d: 0, e: 10, f: 20
 })</code></pre>
 <p>To apply a relative transformation, you can pass in a flag in the object or as second argument:</p>
-<p>Alternatively a relative flag can be passed as the second argument:</p>
 <pre><code class="language-javascript">element.transform({ rotate: 125 }).transform({ rotate: 37.5, relative: true })
 // or
 element.transform({ rotate: 125 }).transform({ rotate: 37.5 }, true)</code></pre>
@@ -1256,7 +1263,9 @@ element.translate(0.5, -1)</code></pre>
 <h2 id='data-as-getter'>data() <em>as getter</em></h2>
 <p><code>returns</code> <strong><code>value</code></strong></p>
 <p>Fetching the values is similar to the <code>attr()</code> method:</p>
-<pre><code class="language-javascript">var key = rect.data('key')</code></pre>
+<pre><code class="language-javascript">var obj = rect.data()
+var value = rect.data('key')
+var obj2 = rect.data(['key1', 'key2'])</code></pre>
 <h2 id='data-as-setter'>data() <em>as setter</em></h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <pre><code class="language-javascript">rect.data('key', { value: { data: 0.3 }})</code></pre>
@@ -1304,24 +1313,48 @@ element.translate(0.5, -1)</code></pre>
 var group = draw.group()
 
 group.add(rect) //-&gt; returns group</code></pre>
+<p>You can also pass a css selector, a node or an svg string:</p>
+<pre><code class="language-js">group.add('#someEl')
+group.add(document.getElementById('someEl'))
+group.add('&lt;rect&gt;')</code></pre>
+<p><code>add()</code> also accepts a second argument specifying at which position the element will be inserted:</p>
+<pre><code class="language-javascript">var rect = draw.rect(100, 100)
+var group = draw.group()
+
+group.circle(100, 100)
+group.add(rect, 0) //-&gt; inserts rect as first child</code></pre>
 <h2 id='addto'>addTo()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Sets the calling element as a child node of the argument. Returns the child:</p>
-<pre><code class="language-javascript">rect.addTo(group) //-&gt; returns rect</code></pre>
+<pre><code class="language-javascript">rect.addTo(group) //-&gt; returns rect
+rect.addTo('#someEl')
+rect.addTo(document.body)
+rect.addTo('&lt;g&gt;')</code></pre>
+<p><code>addTo()</code> accepts a second argument specifying the position (see <code>add()</code>)</p>
 <h2 id='clone'>clone()</h2>
 <p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
 <p>To make an exact copy of an element the <code>clone()</code> method comes in handy:</p>
 <pre><code class="language-javascript">var clone = rect.clone()</code></pre>
-<p>This will create a new, unlinked copy. For making a linked clone, see the <a href="/elements/use">use</a> element.<br />
-To insert the clone, use the <code>addTo()</code> or <code>add()</code>.</p>
+<p>By default <code>clone()</code> will make a deep clone (it also clones the children). You can pass <code>false</code> to only clone the current element:</p>
+<pre><code class="language-js">var clone = rect.clone(false)</code></pre>
+<p><code>clone()</code> will create a new, unlinked element. For making a linked clone, see the <a href="/elements/use">use</a> element.<br />
+To insert the clone, use <code>addTo()</code> or <code>add()</code>.</p>
 <h2 id='put'>put()</h2>
 <p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
-<p>Sets the calling element as the parent node of the argument. Returns the child:</p>
-<pre><code class="language-javascript">group.put(rect) //-&gt; returns rect</code></pre>
+<p>Sets the calling element as the parent node of the argument. Returns the child. In case the child wasn't an svgjs object, an svgjs object is created and returned:</p>
+<pre><code class="language-javascript">group.put(rect) //-&gt; returns rect
+group.put('#myRect') //-&gt; returns SVG.Rect with id myRect
+group.put(document.getElementById('myRect')) //-&gt; returns SVG.Rect with id myRect
+group.put('&lt;rect&gt;') //-&gt; returns SVG.Rect</code></pre>
+<p><code>put()</code> accepts a second argument specifying the position (see <code>add()</code>)</p>
 <h2 id='putin'>putIn()</h2>
 <p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
-<p>Sets the calling element as a child node of the argument. Returns the parent:</p>
-<pre><code class="language-javascript">rect.putIn(group) //-&gt; returns group</code></pre>
+<p>Sets the calling element as a child node of the argument. Returns the parent. In case the parent wasn't an svgjs object, an svgjs object is created and returned:</p>
+<pre><code class="language-javascript">rect.putIn(group) //-&gt; returns group
+rect.putIn('#myGroup') //-&gt; returns SVG.G with id myGroup
+group.put(document.getElementById('myGroup')) //-&gt; returns SVG.G with id myGroup
+rect.putIn('&lt;g&gt;') //-&gt; returns SVG.G</code></pre>
+<p><code>putIn()</code> accepts a second argument specifying the position (see <code>add()</code>)</p>
 <h2 id='remove'>remove()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Removes the calling element from the svg document:</p>
@@ -1332,11 +1365,13 @@ To insert the clone, use the <code>addTo()</code> or <code>add()</code>.</p>
 <pre><code class="language-javascript">rect.replace(draw.circle(100))</code></pre>
 <h2 id='toroot'>toRoot()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Same as <code>toParent()</code> but with the root-node as parent</p>
+<p>Same as <code>toParent()</code> but with the root-node as parent. <code>toRoot()</code> takes a position as parameter and appends by default.</p>
 <h2 id='toparent'>toParent()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Moves an element to a different parent (similar to <code>addTo</code>), but without changing its visual representation. All transformations are merged and applied to the element.</p>
 <pre><code class="language-javascript">rect.toParent(group) // looks the same as before</code></pre>
+<p>You can specifiy the position at which the element is inserted by passing a second parameter:</p>
+<pre><code class="language-javascript">rect.toParent(group, 3) // inserted at position 3 (4th child)</code></pre>
 <h2 id='ungroup'>ungroup()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Breaks up a groupd and puts all of its elements into the parent of the group without changing their visual representation. That means, any transformation applied to the group is now applied to its individual elements.</p>
@@ -1344,20 +1379,24 @@ To insert the clone, use the <code>addTo()</code> or <code>add()</code>.</p>
 group.circle(4)
 group.transform({rotate: 20}).ungroup()
 // group is deleted, rect and circle both have rotate: 20</code></pre>
-<p>You can also specify to which container the elements of the group are moved:</p>
-<pre><code>group.ungroup(otherContainer)</code></pre>
+<p>You can also specify to which container the elements of the group are moved and at which position they are inserted:</p>
+<pre><code>group.ungroup(otherContainer, position)</code></pre>
+<p><strong>Note:</strong> <code>Defs</code> elements can not be ungrouped</p>
 <h2 id='flatten'>flatten()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Recursively breaks up all containers and flattens the whole structure so that no container element survives. This is useful for exporting to reduce the number of nested groups or similar.</p>
-<p>Ungroup all elements in this group recursively and places them into the given container</p>
-<pre><code class="language-javascript">group.flatten(container)
-// (default: parent container of the calling element)</code></pre>
-<p>Call it on the whole document to get a flat svg structure:</p>
+<p>Breaks up all containers contained in an element and flattens the svg structure so that all elements end up in the element <code>flatten()</code> was called on.</p>
+<p>Call it on the root node to get a flat svg structure:</p>
 <pre><code class="language-javascript">drawing.flatten()</code></pre>
-<p>Break up the group and places all elements in the drawing:</p>
-<pre><code class="language-javascript">group.flatten(drawing)</code></pre>
-<p>Flat and export svg:</p>
+<p>Flatten and export svg:</p>
 <pre><code class="language-javascript">var svgString = drawing.flatten().svg()</code></pre>
+<p>To put all elements into another comtainer and remove the current element, you can call <code>ungroup()</code> right after flatten:</p>
+<pre><code class="language-javascript">var svgString = drawing.flatten().ungroup(otherContainer)</code></pre>
+<p><strong>Note:</strong> <code>Defs</code> elements can not be flattened</p>
+<h2 id='wrap'>wrap()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Wraps the passed element around the current element. This replaces the current element with the wrapping element and appends the current element to the wrapped element.</p>
+<pre><code class="language-js">rect.wrap('&lt;g&gt;')
+rect.wrap(new G())</code></pre>
 <p><br></p>
 <h1 id='arranging'>Arranging</h1>
 <p>You can arrange elements within their parent SVG document using the following methods.</p>
@@ -1460,7 +1499,7 @@ drawing.viewbox(box)</code></pre>
   <img src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" class="fork-me-on-github">
 </a>
 
-<script src="/docs/3.1/assets/js/libs/highlight.pack.js"></script><script src="/docs/3.1/assets/js/libs/accordion-plain.js"></script><script src="/docs/3.1/assets/js/kdoc.js?r=20200328125053"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
+<script src="/docs/3.1/assets/js/libs/highlight.pack.js"></script><script src="/docs/3.1/assets/js/libs/accordion-plain.js"></script><script src="/docs/3.1/assets/js/kdoc.js"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
 <script type="text/javascript"> docsearch({
