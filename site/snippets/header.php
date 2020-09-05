@@ -17,7 +17,7 @@
 
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="<?= $site->url() ?>/assets/images/favicon.png" type="image/png" />
-    <?= css('assets/css/main.css?r=' . date( 'YmdHis' ) ) ?>
+    <?= css('assets/css/main.css' ) ?>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
   </head>
   <body class="docs-svgjs">
