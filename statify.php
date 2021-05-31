@@ -19,7 +19,7 @@ global $version_prefix;
 $version_prefix = '/docs/' . DOCS_VERSION;
 
 // Setup the base url for your site here
-$url = 'https://svgjs.com' . $version_prefix;
+$url = 'https://svgdotjs.com' . $version_prefix;
 
 // Don't touch below here
 define('DS', DIRECTORY_SEPARATOR);
@@ -74,7 +74,7 @@ foreach($site->index() as $page) {
 }
 
 // write CNAME file
-file_put_contents( $root . 'CNAME', 'svgjs.com' );
+file_put_contents( $root . 'CNAME', 'svgdotjs.com' );
 
 // move 404 file
 rename( $root . '404/index.html', $root . '404.html' );
