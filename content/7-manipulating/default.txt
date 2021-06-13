@@ -419,13 +419,11 @@ element.transform({
 })
 ```
 
-To apply a relative transformation, you can pass in a flag in the object or as second argument:
+To apply a relative transformation, you can pass a second argument:
 
 Alternatively a relative flag can be passed as the second argument:
 
 ```javascript
-element.transform({ rotate: 125 }).transform({ rotate: 37.5, relative: true })
-// or
 element.transform({ rotate: 125 }).transform({ rotate: 37.5 }, true)
 ```
 
