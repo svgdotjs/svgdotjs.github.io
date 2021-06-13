@@ -1131,10 +1131,8 @@ rect.radius(5)</code></pre>
 <pre><code class="language-js">element.transform({
   a: 1, b: 0, c: 1, d: 0, e: 10, f: 20
 })</code></pre>
-<p>To apply a relative transformation, you can pass in a flag in the object or as second argument:</p>
-<pre><code class="language-javascript">element.transform({ rotate: 125 }).transform({ rotate: 37.5, relative: true })
-// or
-element.transform({ rotate: 125 }).transform({ rotate: 37.5 }, true)</code></pre>
+<p>To apply a relative transformation, you can pass a second argument:</p>
+<pre><code class="language-javascript">element.transform({ rotate: 125 }).transform({ rotate: 37.5 }, true)</code></pre>
 <p>It is also possible to apply a transformation relative to another element or even a matrix. You can do that by passing in the element or matrix instead of the relative flag:</p>
 <pre><code class="language-javascript">element.transform({ rotation: 125 }, someElement)
 element.transform({ rotation: 125 }, someMatrix)</code></pre>
