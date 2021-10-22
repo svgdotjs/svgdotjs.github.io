@@ -506,7 +506,7 @@ Move the element by its text anchor along the x-axis only:
 text.ax(200)
 ```
 
-## <span class="subject">text.</span>x() _as getter_
+## <span class="subject">text.</span>ax() _as getter_
 
 `returns` __`value`__
 
