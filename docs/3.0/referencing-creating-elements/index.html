@@ -969,7 +969,7 @@ list.fill('#f06')</code></pre>
 <h2 id='svg'>SVG()</h2>
 <p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
 <p>If you want SVG.js to adopt an existing DOM element, you can use the <code>SVG()</code>:</p>
-<pre><code class="language-javascript">var polygon = document.createElement('polygon')
+<pre><code class="language-javascript">var polygon = document.createElementNS('http://www.w3.org/2000/svg', 'polygon')
 
 var element = SVG(polygon)
 
