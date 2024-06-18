@@ -883,10 +883,12 @@ To make an exact copy of an element the `clone()` method comes in handy:
 var clone = rect.clone()
 ```
 
-By default `clone()` will make a deep clone (it also clones the children). You can pass `false` to only clone the current element:
+By default `clone()` will make a deep clone (it also clones the children) and assigns new ids to every elements. You can change that behavior by passing 2 arguments:
 
 ```js
-var clone = rect.clone(false)
+var makeDeepClone = false
+var assignNewId = false
+var clone = rect.clone(makeDeepClone, assignNewId)
 ```
 
 `clone()` will create a new, unlinked element. For making a linked clone, see the [use](/elements/use) element.
