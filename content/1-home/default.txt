@@ -56,10 +56,10 @@ That's just **two** lines of code instead of **ten**! And a whole lot less repet
 - various (link: /plugins/ text: useful plugins) available
 - unified api between shape types with (link: /manipulating/#move text: move), (link: /manipulating/#resizing text: size), (link: /manipulating/#center text: center), ...
 - (link: /events/ text: binding events) to elements
-- full support for opacity (link: /elements/#svg-mask text: masks) and (link: /elements/#svg-clippath text: clipping paths)
-- (link: /elements/#svg-textpath text: text paths), even animated
-- element (link: /parents/#svg-g text: groups)
-- dynamic (link: /elements/#svg-gradient text: gradients) and (link: /elements/#svg-pattern text: patterns)
+- full support for opacity (link: /shape-elements/#svg-mask text: masks) and (link: /shape-elements/#svg-clippath text: clipping paths)
+- (link: /shape-elements/#svg-textpath text: text paths), even animated
+- element (link: /container-elements/#svg-g text: groups)
+- dynamic (link: /shape-elements/#svg-gradient text: gradients) and (link: /shape-elements/#svg-pattern text: patterns)
 - fully documented (you're looking at it :)
 
 ### License
