@@ -1,0 +1,1490 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <title>SVG.js v3.2 | Manipulating</title>
+    <meta name="description" content="Everything you need to know about manipulating elements using their attributes, transforms, styles, classes and more.">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@svg_js" />
+    <meta name="twitter:creator" content="@svg_js" />
+    <meta property="og:url" content="/docs/3.2/manipulating" />
+    <meta property="og:title" content="Manipulating" />
+    <meta property="og:description" content="Everything you need to know about manipulating elements using their attributes, transforms, styles, classes and more." />
+    <meta property="og:image" content="/docs/3.2/assets/images/logo-svg-js-01d.png" />
+    
+    <meta name="docsearch:version" content="3.2">
+
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="/docs/3.2/assets/images/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="/docs/3.2/assets/css/main.css">    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+  </head>
+  <body class="docs-svgjs">
+  <div class="container">
+  <header role="banner">
+    <div class="wrap">
+      <img src="/docs/3.2/assets/images/logo-svg-js-01d-128.png" alt="SVG.js logo" class="svgjs-logo">
+      <h1 class="site-title"><a class="title-link" href="/docs/3.2">SVG.js</a></h1>
+                  <select id="version-selector">
+             <option value="/docs/2.7">2.7</option>
+             <option value="/docs/3.0">3.0</option>
+             <option value="/docs/3.1">3.1</option>
+             <option value="/docs/3.2" selected>3.2</option>
+            </select>
+          </div>
+  </header>
+  <div class="wrap content">
+
+    
+<aside class="sidebar-menu">
+  <a class="skip-link visuallyhidden focusable" href="#main">Skip to Main Content</a>
+
+  <div class="search">
+    <input name="q" type="text" placeholder="Search..." autocomplete="off" autofocus id="agolia">
+  </div>
+
+  <nav class="sidebar-nav" role="navigation">
+    <ul>
+            <li class="group">
+
+                
+                                  <a href="/docs/3.2">Home</a>
+
+                
+        
+      </li>
+            <li class="group">
+
+                
+                                  <a href="/docs/3.2/installation">Installation</a>
+
+                
+        
+      </li>
+            <li class="group">
+
+                
+                                  <a href="/docs/3.2/getting-started">Getting started</a>
+
+                
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-container-elements">+</button>
+        
+                                  <a href="/docs/3.2/container-elements">Container Elements</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-container-elements" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.2/container-elements/#svg-svg">SVG.Svg</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/container-elements/#svg-g">SVG.G</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/container-elements/#svg-symbol">SVG.Symbol</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/container-elements/#svg-defs">SVG.Defs</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/container-elements/#svg-a">SVG.A</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-shape-elements">+</button>
+        
+                                  <a href="/docs/3.2/shape-elements">Other Elements</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-shape-elements" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.2/shape-elements/#general-handling-of-svg-js-elements">General Handling of svg.js elements</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/shape-elements/#svg-bare">SVG.Dom</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/shape-elements/#svg-rect">SVG.Rect</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/shape-elements/#svg-circle">SVG.Circle</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/shape-elements/#svg-ellipse">SVG.Ellipse</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/shape-elements/#svg-line">SVG.Line</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/shape-elements/#svg-polyline">SVG.Polyline</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/shape-elements/#svg-polygon">SVG.Polygon</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/shape-elements/#svg-path">SVG.Path</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/shape-elements/#svg-text">SVG.Text</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/shape-elements/#svg-textpath">SVG.TextPath</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/shape-elements/#svg-tspan">SVG.Tspan</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/shape-elements/#svg-image">SVG.Image</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/shape-elements/#svg-gradient">SVG.Gradient</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/shape-elements/#svg-stop">SVG.Stop</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/shape-elements/#svg-pattern">SVG.Pattern</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/shape-elements/#svg-mask">SVG.Mask</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/shape-elements/#svg-clippath">SVG.ClipPath</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/shape-elements/#svg-use">SVG.Use</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/shape-elements/#svg-marker">SVG.Marker</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/shape-elements/#svg-style">SVG.Style</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/shape-elements/#svg-foreignobject">SVG.ForeignObject</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-referencing-creating-elements">+</button>
+        
+                                  <a href="/docs/3.2/referencing-creating-elements">Referencing / Creating Elements</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-referencing-creating-elements" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.2/referencing-creating-elements/#using-css-selectors">Referencing using CSS selectors</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/referencing-creating-elements/#existing-dom-elements">Referencing existing DOM elements</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/referencing-creating-elements/#using-jquery-or-zepto">Using jQuery or Zepto</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/referencing-creating-elements/#circular-reference">Circular reference</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/referencing-creating-elements/#child-references">Child references</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/referencing-creating-elements/#parent-references">Parent references</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/referencing-creating-elements/#uri-references">URI references</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/referencing-creating-elements/#creating-elements">Creating Elements</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group sidebar-nav-active">
+
+                  <button class="expand-subnav" aria-expanded="true" aria-controls="nav-collapsible-manipulating">+</button>
+                
+                                  <a href="/docs/3.2/manipulating">Manipulating</a>
+
+                  <ul class="submenu nav-children" id="nav-collapsible-manipulating" aria-hidden="false">
+                
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.2/manipulating/#attributes">Attributes</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/manipulating/#positioning">Positioning</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/manipulating/#resizing">Resizing</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/manipulating/#syntactic-sugar">Syntactic sugar</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/manipulating/#transforming">Transforming</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/manipulating/#styles">Styles</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/manipulating/#classes">Classes</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/manipulating/#data">Data</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/manipulating/#memory">Memory</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/manipulating/#document-tree">Document Tree</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/manipulating/#arranging">Arranging</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/manipulating/#geometry">Geometry</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-animating">+</button>
+        
+                                  <a href="/docs/3.2/animating">Animating</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-animating" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.2/animating/#animate">Animate</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/animating/#svg-runner">SVG.Runner</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/animating/#easing">Easing</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/animating/#svg-timeline">SVG.Timeline</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/animating/#controllers">Controllers</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/animating/#orchestrate-animations">Orchestrate Animations</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-events">+</button>
+        
+                                  <a href="/docs/3.2/events">Events</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-events" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.2/events/#basic-events">Basic events</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/events/#event-listeners">Event listeners</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/events/#custom-events">Custom events</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-classes">+</button>
+        
+                                  <a href="/docs/3.2/classes">Classes</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-classes" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.2/classes/#svg-box">SVG.Box</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/classes/#svg-list">SVG.List</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/classes/#svg-array">SVG.Array</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/classes/#svg-pointarray">SVG.PointArray</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/classes/#svg-patharray">SVG.PathArray</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/classes/#svg-color">SVG.Color</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/classes/#svg-matrix">SVG.Matrix</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/classes/#svg-number">SVG.Number</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/classes/#svg-point">SVG.Point</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/classes/#svg-eventtarget">SVG.EventTarget</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                
+                                  <a href="/docs/3.2/importing-exporting">Importing / Exporting</a>
+
+                
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-extending">+</button>
+        
+                                  <a href="/docs/3.2/extending">Extending</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-extending" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.2/extending/#svg-extend">SVG.extend</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/extending/#subclassing">Subclassing</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                
+                                  <a href="/docs/3.2/tutorials">Tutorials / Examples</a>
+
+                
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-plugins">+</button>
+        
+                                  <a href="/docs/3.2/plugins">Plugins</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-plugins" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.2/plugins/svg-easing-js">svg.easing.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/plugins/svg-draggable-js">svg.draggable.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/plugins/svg-filter-js">svg.filter.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/plugins/svg-topath-js">svg.topath.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/plugins/svg-topoly-js">svg.topoly.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/plugins/svg-panzoom-js">svg.panzoom.js</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/plugins/ngx-svg">ngx-svg</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-contributing">+</button>
+        
+                                  <a href="/docs/3.2/contributing">Contributing</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-contributing" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.2/contributing/coding-style">Coding Style</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/contributing/documentation">Documentation</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                
+                                  <a href="/docs/3.2/compatibility">Compatibility</a>
+
+                
+        
+      </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-faq">+</button>
+        
+                                  <a href="/docs/3.2/faq">FAQ</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-faq" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.2/faq/#two-svg-s-are-generated-when-i-initialize-svg-js-is-that-a-bug">Two SVG's are generated when I initialize SVG.js. Is that a bug?</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/faq/#can-svg-js-run-on-node-js">Can SVG.js run on Node.js?</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/faq/#how-can-i-modify-an-element-that-already-exists-in-the-dom">How can I modify an element that already exists in the dom?</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/faq/#i-need-help-getting-something-to-work">I need help getting something to work...</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/faq/#i-found-a-bug-where-do-i-report-it">I found a bug. Where do I report it?</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/faq/#where-can-i-find-tutorials">Where can I find tutorials?</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/faq/#how-do-i-contribute-or-fix-something-in-the-docs">How do I contribute or fix something in the docs?</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
+            <li class="group">
+
+                
+                                  <a href="/docs/3.2/acknowledgements-thanks">Acknowledgements &amp; Thanks</a>
+
+                
+        
+      </li>
+          </ul>
+  </nav>
+</aside>
+
+    <section id="main" class="main-content" role="main">
+      <h1 id='attributes'>Attributes</h1>
+<h2 id='attr-as-setter'>attr() <em>as setter</em></h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong> <code>(only for numbers, arrays, colors, ...)</code></p>
+<p>Set a single attribute:</p>
+<pre><code class="language-javascript">rect.attr('x', 50)</code></pre>
+<p>Set multiple attributes at once:</p>
+<pre><code class="language-javascript">rect.attr({
+  fill: '#f06'
+, 'fill-opacity': 0.5
+, stroke: '#000'
+, 'stroke-width': 10
+})</code></pre>
+<p>Set an attribute with a namespace:</p>
+<pre><code class="language-javascript">rect.attr('x', 50, 'http://www.w3.org/2000/svg')</code></pre>
+<p>Explicitly remove an attribute:</p>
+<pre><code class="language-javascript">rect.attr('fill', null)</code></pre>
+<h2 id='attr-as-getter'>attr() <em>as getter</em></h2>
+<p><code>returns</code> <strong><code>value</code></strong> <code>(string, number, ...)</code></p>
+<p>You can get and set an element's attributes directly using <code>attr()</code>.</p>
+<p>Get a single attribute:</p>
+<pre><code class="language-javascript">var x = rect.attr('x')</code></pre>
+<p>Get all attributes as an object:</p>
+<pre><code class="language-javascript">var attributes = rect.attr()</code></pre>
+<p>Get only specified attributes:</p>
+<pre><code class="language-javascript">var attributes = rect.attr(['x', 'y'])</code></pre>
+<p><br></p>
+<h1 id='positioning'>Positioning</h1>
+<p>While positioning an element by directly setting its attributes works only if the attributes are used natively by that type of element, the positioning methods described below are much more convenient as they work for all element types.</p>
+<p>For example, the following code works because each element is positioned by setting native attributes:</p>
+<pre><code class="language-javascript">rect.attr({ x: 20, y: 60 })
+circle.attr({ cx: 50, cy: 40 })</code></pre>
+<p>The <code>rect</code> will be moved by its upper left corner to the new coordinates, and the <code>circle</code> will be moved by its centre. However, trying to move a <code>circle</code> by its 'corner' or a <code>rect</code> by its centre in this way will fail. The following lines will get silently ignored as the attributes that are addressed are not natively used by the element setting them:</p>
+<pre><code class="language-javascript">rect.attr({ cx: 20, cy: 60 })
+circle.attr({ x: 50, y: 40 })</code></pre>
+<p>However, the positioning methods detailed below will work for all element types, regardless of whether the attributes being addressed are native to the type. So, unlike the lines above, these lines work just fine:</p>
+<pre><code class="language-javascript">rect.cx(20).cy(60)
+circle.x(50).y(40)</code></pre>
+<p>It is important to note, though, that these methods are only intended for use with user (unitless) coordinates. If for example, an element has its size set via percentages or other units, the positioning methods that address its native attributes will most likely still work, but the ones that address non-native attributes will give unexpected results -- as both getters and setters!</p>
+<h2 id='move'>move()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Move the element by its upper left corner to a given <code>x</code> and <code>y</code> position:</p>
+<pre><code class="language-javascript">rect.move(200, 350)</code></pre>
+<h2 id='x-as-setter'>x() <em>as setter</em></h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Move the element by its upper left corner along the x-axis only:</p>
+<pre><code class="language-javascript">rect.x(200)</code></pre>
+<h2 id='x-as-getter'>x() <em>as getter</em></h2>
+<p><code>returns</code> <strong><code>value</code></strong></p>
+<p>Without an argument the <code>x()</code> method serves as a getter:</p>
+<pre><code class="language-javascript">var x = rect.x()</code></pre>
+<h2 id='y-as-setter'>y() <em>as setter</em></h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Move the element by its upper left corner along the y-axis only:</p>
+<pre><code class="language-javascript">rect.y(350)</code></pre>
+<h2 id='y-as-getter'>y() <em>as getter</em></h2>
+<p><code>returns</code> <strong><code>value</code></strong></p>
+<p>Without an argument the <code>y()</code> method serves as a getter:</p>
+<pre><code class="language-javascript">var y = rect.y()</code></pre>
+<h2 id='center'>center()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Move the element by its center to a given <code>cx</code> and <code>cy</code> position:</p>
+<pre><code class="language-javascript">rect.center(150, 150)</code></pre>
+<h2 id='cx-as-setter'>cx() <em>as setter</em></h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Move the element by its centre in the <code>x</code> direction only:</p>
+<pre><code class="language-javascript">rect.cx(200)</code></pre>
+<h2 id='cx-as-getter'>cx() <em>as getter</em></h2>
+<p><code>returns</code> <strong><code>value</code></strong></p>
+<p>Without an argument the <code>cx()</code> method serves as a getter:</p>
+<pre><code class="language-javascript">var cx = rect.cx()</code></pre>
+<h2 id='cy-as-setter'>cy() <em>as setter</em></h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Move the element by its centre in the <code>y</code> direction only:</p>
+<pre><code class="language-javascript">rect.cy(350)</code></pre>
+<h2 id='cy-as-getter'>cy() <em>as getter</em></h2>
+<p><code>returns</code> <strong><code>value</code></strong></p>
+<p>Without an argument the <code>cy()</code> method serves as a getter as well:</p>
+<pre><code class="language-javascript">var cy = rect.cy()</code></pre>
+<h2 id='dmove'>dmove()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Shift the element in both the <code>x</code> and <code>y</code> directions relative to its current position:</p>
+<pre><code class="language-javascript">rect.dmove(10, 30)</code></pre>
+<p><strong>Note</strong>: when using <code>dmove()</code> (and <code>dx()</code> or <code>dy()</code> too for that matter), always make sure you provide values of the same unit the element is originally positioned in. So if the element is at <code>x:10%</code>, use <code>element.dx('5%')</code> and not <code>element.dx('5px')</code>.</p>
+<h2 id='dx'>dx()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Shift the element in the <code>x</code> direction relative to its current position:</p>
+<pre><code class="language-javascript">rect.dx(200)</code></pre>
+<h2 id='dy'>dy()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Shift the element in the <code>y</code> direction relative to its current position:</p>
+<pre><code class="language-javascript">rect.dy(200)</code></pre>
+<p><br></p>
+<h1 id='resizing'>Resizing</h1>
+<h2 id='size'>size()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Set the size of an element to a given <code>width</code> and <code>height</code>:</p>
+<pre><code class="language-javascript">rect.size(200, 300)</code></pre>
+<p>Proportional resizing is also possible by leaving out <code>height</code>:</p>
+<pre><code class="language-javascript">rect.size(200)</code></pre>
+<p>Or by passing <code>null</code> as the value for <code>width</code>:</p>
+<pre><code class="language-javascript">rect.size(null, 200)</code></pre>
+<p>As with positioning, the size of an element could be set by using <code>attr()</code>. But because every type of element is handles its size differently the <code>size()</code> method is much more convenient.</p>
+<h2 id='width-as-setter'>width() <em>as setter</em></h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Set the width of an element:</p>
+<pre><code class="language-javascript">rect.width(200)</code></pre>
+<h2 id='width-as-getter'>width() <em>as getter</em></h2>
+<p><code>returns</code> <strong><code>value</code></strong></p>
+<pre><code class="language-javascript">var width = rect.width()</code></pre>
+<h2 id='height-as-setter'>height() <em>as setter</em></h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Set the height of an element:</p>
+<pre><code class="language-javascript">rect.height(325)</code></pre>
+<h2 id='height-as-getter'>height() <em>as getter</em></h2>
+<p><code>returns</code> <strong><code>value</code></strong></p>
+<pre><code class="language-javascript">rect.height()</code></pre>
+<h2 id='radius'>radius()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Circles, ellipses, and rects may use the <code>radius()</code> method. On rects, it defines rounded corners.</p>
+<p>For a circle, the argument sets the <code>r</code> attribute.</p>
+<pre><code class="language-javascript">circle.radius(10)</code></pre>
+<p>For ellipses and rects, pass two arguments to set the <code>rx</code> and <code>ry</code> attributes individually. Or, pass a single argument, to make the two attributes equal.</p>
+<pre><code class="language-javascript">ellipse.radius(10, 20)
+rect.radius(5)</code></pre>
+<p><br></p>
+<h1 id='syntactic-sugar'>Syntactic sugar</h1>
+<h2 id='fill'>fill()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>The <code>fill()</code> method is a pretty alternative to the <code>attr()</code> method:</p>
+<pre><code class="language-javascript">rect.fill({ color: '#f06', opacity: 0.6 })</code></pre>
+<p>A single hex string will work as well:</p>
+<pre><code class="language-javascript">rect.fill('#f06')</code></pre>
+<p>Last but not least, you can also use an image as fill, simply by passing an image url:</p>
+<pre><code class="language-javascript">rect.fill('images/shade.jpg')</code></pre>
+<p>Or if you want more control over the image, you can pass an image instance as well:</p>
+<pre><code class="language-javascript">rect.fill(draw.image('images/shade.jpg', function() {
+  this.size(20, 20)
+}))</code></pre>
+<h2 id='stroke'>stroke()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>The <code>stroke()</code> method is similar to <code>fill()</code>:</p>
+<pre><code class="language-javascript">rect.stroke({ color: '#f06', opacity: 0.6, width: 5 })</code></pre>
+<p>Like fill, a single hex string will work as well:</p>
+<pre><code class="language-javascript">rect.stroke('#f06')</code></pre>
+<p>Not unlike the <code>fill()</code> method, you can also use an image as stroke, simply by passing an image url:</p>
+<pre><code class="language-javascript">rect.stroke('images/shade.jpg')</code></pre>
+<p>Or if you want more control over the size of the image, you can pass an image instance as well:</p>
+<pre><code class="language-javascript">rect.stroke(draw.image('images/shade.jpg', 20, 20))</code></pre>
+<h2 id='opacity'>opacity()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>To set the overall opacity of an element:</p>
+<pre><code class="language-javascript">rect.opacity(0.5)</code></pre>
+<p><br></p>
+<h1 id='transforming'>Transforming</h1>
+<h2 id='transform-as-setter'>transform() <em>as setter</em></h2>
+<p><code>returns</code><strong> <code>itself</code></strong><br><code>animate</code><strong> <code>yes</code></strong></p>
+<p>Transformations are applied absolutely by using an affine approach:</p>
+<pre><code class="language-javascript">element.transform({
+  rotate: 125,
+  translateX: 50,
+  translateY: 100,
+  scale: 3 
+})</code></pre>
+<p>To make the syntax as easy as possible, it is possible to pass in parameters in different ways:</p>
+<ul>
+<li>translation: <code>translate: {x: 50, y: 50}</code>, <code>translate: [50, 50]</code>, <code>translateX: 50, translateY: 50</code>, <code>tx: 50, ty: 50</code></li>
+<li>rotate: <code>rotate: 50</code></li>
+<li>scale: <code>scale: 2</code>, <code>scale: [2,2]</code>, <code>scaleX: 2, scaleY: 2</code></li>
+<li>shear/skew: <code>skew: [10, 10]</code>, <code>skewX: 10, skewY: 10</code>, <code>shear: 3</code></li>
+<li>flip: <code>both</code>, <code>true</code>, <code>x</code>, <code>y</code></li>
+<li>origin:  <code>origin: {x: 50, y: 50}</code>, <code>origin: [50, 50]</code>, <code>origin: 50</code>, <code>originX: 50, originY: 50</code>, <code>ox: 50, oy: 50</code>
+<ul>
+<li>origin can also be a up to 2 words speciying the corners of the element: center, top, bottom, left, right</li>
+</ul></li>
+<li>position: <code>position: {x: 50, y: 50}</code>, <code>position: [50, 50]</code>, <code>positionX: 50, positionY: 50</code>, <code>px: 50, py: 50</code>
+<ul>
+<li>absolute position of the origin after all transformations are applied</li>
+</ul></li>
+<li>relative: <code>relative: {x: 50, y: 50}</code>, <code>relative: [50, 50]</code>, <code>relativeX: 50, relativeY: 50</code>, <code>rx: 50, ry: 50</code>
+<ul>
+<li>relative position of the origin after all transformations are applied</li>
+</ul></li>
+</ul>
+<pre><code class="language-javascript">element.transform({
+  translate: [10, 20],
+  origin: 'top left',
+  flip: 'both'
+})</code></pre>
+<p>You can also pass in a matrix or an object with a-f parameters to apply it directly:</p>
+<pre><code class="language-js">element.transform({
+  a: 1, b: 0, c: 1, d: 0, e: 10, f: 20
+})</code></pre>
+<p>To apply a relative transformation, you can pass a second argument:</p>
+<pre><code class="language-javascript">element.transform({ rotate: 125 }).transform({ rotate: 37.5 }, true)</code></pre>
+<p>It is also possible to apply a transformation relative to another element or even a matrix. You can do that by passing in the element or matrix instead of the relative flag:</p>
+<pre><code class="language-javascript">element.transform({ rotation: 125 }, someElement)
+element.transform({ rotation: 125 }, someMatrix)</code></pre>
+<h2 id='transform-as-getter'>transform() <em>as getter</em></h2>
+<p><code>returns</code><strong> <code>value</code></strong></p>
+<p>The <code>transform()</code> method acts as a full getter without an argument:</p>
+<pre><code class="language-javascript">element.transform()</code></pre>
+<p>The returned <strong><code>object</code></strong> contains the following values:</p>
+<ul>
+<li><code>translateX</code> (translation on the x-axis)</li>
+<li><code>translateY</code> (translation on the y-axis)</li>
+<li><code>skewX</code> (calculated skew on x-axis)</li>
+<li><code>skewY</code> (calculated skew on y-axis)</li>
+<li><code>shear</code> (calculated sher on x-axix)</li>
+<li><code>scaleX</code> (calculated scale on x-axis)</li>
+<li><code>scaleY</code> (calculated scale on y-axis)</li>
+<li><code>rotate</code> (calculated rotation)</li>
+<li><code>originX</code> (0 for this usecase)</li>
+<li><code>originY</code> (0 for this usecase)<br />
+-<code>a-f</code> (matrix data)</li>
+</ul>
+<p>Additionally a string value for the required property can be passed:</p>
+<pre><code class="language-javascript">element.transform('rotate')</code></pre>
+<h2 id='flip'>flip()</h2>
+<p><code>returns</code><strong> <code>itself</code></strong><br><code>animate</code><strong> <code>yes</code></strong></p>
+<p>Flips element over a given axis:</p>
+<pre><code class="language-javascript">element.flip('x')</code></pre>
+<p>or</p>
+<pre><code class="language-javascript">element.flip('y')</code></pre>
+<p>By default, elements are flipped over their centre point. The flip origin can be defined with the second argument:</p>
+<pre><code class="language-javascript">element.flip('x', {x: 20, y: 30})</code></pre>
+<p>Finally, an element can also be flipped over two axes at once by not providing an axis value, <code>'both'</code> or <code>true</code>:</p>
+<pre><code class="language-javascript">element.flip()
+element.flip('both')
+element.flip(true)</code></pre>
+<h2 id='rotate'>rotate()</h2>
+<p><code>returns</code><strong> <code>itself</code></strong><br><code>animate</code><strong> <code>yes</code></strong></p>
+<p>The <code>rotate()</code> method will automatically rotate elements according to the center of the element:</p>
+<pre><code class="language-javascript">// rotate(degrees)
+element.rotate(45)</code></pre>
+<p>Although you can also define a specific rotation point:</p>
+<pre><code class="language-javascript">// rotate(degrees, cx, cy)
+element.rotate(45, 50, 50)</code></pre>
+<h2 id='skew'>skew()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code><strong> <code>yes</code></strong></p>
+<p>The <code>skew()</code> method will take an <code>x</code> and <code>y</code> value:</p>
+<pre><code class="language-javascript">// skew(x, y)
+element.skew(0, 45)</code></pre>
+<h2 id='scale'>scale()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code><strong> <code>yes</code></strong></p>
+<p>The <code>scale()</code> method will scale elements by multiplying their <code>x</code> and <code>y</code><br />
+coordinates by either a single scale factor or two separate scale factors:</p>
+<pre><code class="language-javascript">// scale(factor)
+element.scale(2)
+// scale(xFactor, yFactor)
+element.scale(0.5, -1)</code></pre>
+<p>By default, scaling is relative to the center of the element.<br />
+You can also define a specific center point (vanishing point of scaling):</p>
+<pre><code class="language-javascript">// scale(factor, centerX, centerY)
+element.scale(2, 0, 0)
+// scale(xFactor, yFactor, centerX, centerY)
+element.scale(0.5, -1, 0, 0)</code></pre>
+<h2 id='translate'>translate()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code><strong> <code>yes</code></strong></p>
+<p>The <code>translate()</code> method will take an <code>x</code> and <code>y</code> value:</p>
+<pre><code class="language-javascript">// translate(x, y)
+element.translate(0.5, -1)</code></pre>
+<p><br></p>
+<h1 id='styles'>Styles</h1>
+<h2 id='css-as-setter'>css() <em>as setter</em></h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>With the <code>css()</code> method the <code>style</code> attribute can be managed like attributes with <code>attr</code>:</p>
+<pre><code class="language-javascript">element.css('cursor', 'pointer')</code></pre>
+<p>Multiple styles can be set at once using an object:</p>
+<pre><code class="language-javascript">element.css({ cursor: 'pointer', fill: '#f03' })</code></pre>
+<p>Explicitly deleting individual style definitions works the same as with the <code>attr()</code> method:</p>
+<pre><code class="language-javascript">element.css('cursor', null)</code></pre>
+<h2 id='css-as-getter'>css() <em>as getter</em></h2>
+<p><code>returns</code> <strong><code>value</code></strong> <em>(string, number, ...)</em></p>
+<p>Similar to <code>attr()</code> the <code>css()</code> method can also act as a getter:</p>
+<pre><code class="language-javascript">element.css('cursor')
+// =&gt; pointer</code></pre>
+<p>Or even a full getter:</p>
+<pre><code class="language-javascript">element.css()
+// =&gt; {cursor:pointer;fill:#f03;}</code></pre>
+<p>You can also get only specific styles by using an array:</p>
+<pre><code class="language-js">element.css(['cursor', 'fill'])
+// =&gt; {cursor:pointer;fill:#f03;}</code></pre>
+<h2 id='hide'>hide()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Hide element:</p>
+<pre><code class="language-javascript">element.hide()</code></pre>
+<h2 id='show'>show()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Show (unhide) element:</p>
+<pre><code class="language-javascript">element.show()</code></pre>
+<h2 id='visible'>visible()</h2>
+<p><code>returns</code> <strong><code>boolean</code></strong></p>
+<p>To check if the element is visible:</p>
+<pre><code class="language-javascript">element.visible()</code></pre>
+<p><br></p>
+<h1 id='id-attribute'>Id Attribute</h1>
+<p>The <code>id()</code> method allows you to get, and set, the id attribute of SVG elements.</p>
+<h2 id='id-as-getter'>id() <em>as getter</em></h2>
+<p><code>returns</code> <strong><code>id</code></strong></p>
+<p>Gets the id attribute, creating a new unique id if one is not already set:</p>
+<pre><code class="language-javascript">var id = rect.id()</code></pre>
+<h2 id='id-as-setter'>id() <em>as setter</em></h2>
+<p><code>returns</code> <strong><code>id</code></strong></p>
+<p>Sets the id attribute:</p>
+<pre><code class="language-javascript">rect.id('my-unique-id')</code></pre>
+<p>Removing the id altogether:</p>
+<pre><code class="language-javascript">rect.id(null)</code></pre>
+<p><br></p>
+<h1 id='class-names'>Class Names</h1>
+<h2 id='addclass'>addClass()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Adds a given css class:</p>
+<pre><code class="language-javascript">element.addClass('pink-flower')</code></pre>
+<h2 id='classes'>classes()</h2>
+<p><code>returns</code> <strong><code>array</code></strong></p>
+<p>Fetches the CSS classes for the node as an array:</p>
+<pre><code class="language-javascript">element.classes()</code></pre>
+<h2 id='hasclass'>hasClass()</h2>
+<p><code>returns</code> <strong><code>boolean</code></strong></p>
+<p>Test the presence of a given css class:</p>
+<pre><code class="language-javascript">element.hasClass('purple-rain')</code></pre>
+<h2 id='removeclass'>removeClass()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Removes a given css class:</p>
+<pre><code class="language-javascript">element.removeClass('pink-flower')</code></pre>
+<h2 id='toggleclass'>toggleClass()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Toggles a given css class:</p>
+<pre><code class="language-javascript">element.toggleClass('pink-flower')</code></pre>
+<p><br></p>
+<h1 id='data'>Data</h1>
+<p>The <code>data()</code> method allows you to bind arbitrary objects, strings and numbers to SVG elements.</p>
+<h2 id='data-as-getter'>data() <em>as getter</em></h2>
+<p><code>returns</code> <strong><code>value</code></strong></p>
+<p>Fetching the values is similar to the <code>attr()</code> method:</p>
+<pre><code class="language-javascript">var obj = rect.data()
+var value = rect.data('key')
+var obj2 = rect.data(['key1', 'key2'])</code></pre>
+<h2 id='data-as-setter'>data() <em>as setter</em></h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<pre><code class="language-javascript">rect.data('key', { value: { data: 0.3 }})</code></pre>
+<p>Or set multiple values at once:</p>
+<pre><code class="language-javascript">rect.data({
+  forbidden: 'fruit'
+, multiple: {
+    values: 'in'
+  , an: 'object'
+  }
+})</code></pre>
+<p>Removing the data altogether:</p>
+<pre><code class="language-javascript">rect.data('key', null)</code></pre>
+<p>Your values will always be stored as JSON and in some cases this might not be desirable. If you want to store the value as-is, just pass true as the third argument:</p>
+<pre><code class="language-javascript">rect.data('key', 'value', true)</code></pre>
+<p><br></p>
+<h1 id='memory'>Memory</h1>
+<h2 id='remember-as-getter'>remember() <em>as getter</em></h2>
+<p><code>returns</code> <strong><code>value</code></strong></p>
+<p>To retrieve a memory</p>
+<pre><code class="language-javascript">rect.remember('oldBBox')</code></pre>
+<h2 id='remember-as-setter'>remember() <em>as setter</em></h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Storing data in-memory is very much like setting attributes:</p>
+<pre><code class="language-javascript">rect.remember('oldBBox', rect.bbox())</code></pre>
+<p>Multiple values can also be remembered at once:</p>
+<pre><code class="language-javascript">rect.remember({
+  oldFill:    rect.attr('fill')
+, oldStroke:  rect.attr('stroke')
+})</code></pre>
+<h2 id='forget'>forget()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Erasing a single memory:</p>
+<pre><code class="language-javascript">rect.forget('oldBBox')</code></pre>
+<p>Or erasing multiple memories at once:</p>
+<pre><code class="language-javascript">rect.forget('oldFill', 'oldStroke')</code></pre>
+<p>And finally, just erasing the whole memory:</p>
+<pre><code class="language-javascript">rect.forget()</code></pre>
+<p><br></p>
+<h1 id='document-tree'>Document Tree</h1>
+<h2 id='add'>add()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Sets the calling element as the parent node of the argument. Returns the parent:</p>
+<pre><code class="language-javascript">var rect = draw.rect(100, 100)
+var group = draw.group()
+
+group.add(rect) //-&gt; returns group</code></pre>
+<p>You can also pass a css selector, a node or an svg string:</p>
+<pre><code class="language-js">group.add('#someEl')
+group.add(document.getElementById('someEl'))
+group.add('&lt;rect&gt;')</code></pre>
+<p><code>add()</code> also accepts a second argument specifying at which position the element will be inserted:</p>
+<pre><code class="language-javascript">var rect = draw.rect(100, 100)
+var group = draw.group()
+
+group.circle(100, 100)
+group.add(rect, 0) //-&gt; inserts rect as first child</code></pre>
+<h2 id='addto'>addTo()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Sets the calling element as a child node of the argument. Returns the child:</p>
+<pre><code class="language-javascript">rect.addTo(group) //-&gt; returns rect
+rect.addTo('#someEl')
+rect.addTo(document.body)
+rect.addTo('&lt;g&gt;')</code></pre>
+<p><code>addTo()</code> accepts a second argument specifying the position (see <code>add()</code>)</p>
+<h2 id='clone'>clone()</h2>
+<p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
+<p>To make an exact copy of an element the <code>clone()</code> method comes in handy:</p>
+<pre><code class="language-javascript">var clone = rect.clone()</code></pre>
+<p>By default <code>clone()</code> will make a deep clone (it also clones the children) and assigns new ids to every elements. You can change that behavior by passing 2 arguments:</p>
+<pre><code class="language-js">var makeDeepClone = false
+var assignNewId = false
+var clone = rect.clone(makeDeepClone, assignNewId)</code></pre>
+<p><code>clone()</code> will create a new, unlinked element. For making a linked clone, see the <a href="/elements/use">use</a> element.<br />
+To insert the clone, use <code>addTo()</code> or <code>add()</code>.</p>
+<h2 id='put'>put()</h2>
+<p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
+<p>Sets the calling element as the parent node of the argument. Returns the child. In case the child wasn't an svgjs object, an svgjs object is created and returned:</p>
+<pre><code class="language-javascript">group.put(rect) //-&gt; returns rect
+group.put('#myRect') //-&gt; returns SVG.Rect with id myRect
+group.put(document.getElementById('myRect')) //-&gt; returns SVG.Rect with id myRect
+group.put('&lt;rect&gt;') //-&gt; returns SVG.Rect</code></pre>
+<p><code>put()</code> accepts a second argument specifying the position (see <code>add()</code>)</p>
+<h2 id='putin'>putIn()</h2>
+<p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
+<p>Sets the calling element as a child node of the argument. Returns the parent. In case the parent wasn't an svgjs object, an svgjs object is created and returned:</p>
+<pre><code class="language-javascript">rect.putIn(group) //-&gt; returns group
+rect.putIn('#myGroup') //-&gt; returns SVG.G with id myGroup
+group.put(document.getElementById('myGroup')) //-&gt; returns SVG.G with id myGroup
+rect.putIn('&lt;g&gt;') //-&gt; returns SVG.G</code></pre>
+<p><code>putIn()</code> accepts a second argument specifying the position (see <code>add()</code>)</p>
+<h2 id='remove'>remove()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Removes the calling element from the svg document:</p>
+<pre><code class="language-javascript">rect.remove()</code></pre>
+<h2 id='replace'>replace()</h2>
+<p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
+<p>At the calling element's position in the svg document, replace the calling element with the element passed to the method.</p>
+<pre><code class="language-javascript">rect.replace(draw.circle(100))</code></pre>
+<h2 id='toroot'>toRoot()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Same as <code>toParent()</code> but with the root-node as parent. <code>toRoot()</code> takes a position as parameter and appends by default.</p>
+<h2 id='toparent'>toParent()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Moves an element to a different parent (similar to <code>addTo</code>), but without changing its visual representation. All transformations are merged and applied to the element.</p>
+<pre><code class="language-javascript">rect.toParent(group) // looks the same as before</code></pre>
+<p>You can specifiy the position at which the element is inserted by passing a second parameter:</p>
+<pre><code class="language-javascript">rect.toParent(group, 3) // inserted at position 3 (4th child)</code></pre>
+<h2 id='ungroup'>ungroup()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Breaks up a groupd and puts all of its elements into the parent of the group without changing their visual representation. That means, any transformation applied to the group is now applied to its individual elements.</p>
+<pre><code class="language-js">group.rect(100, 200)
+group.circle(4)
+group.transform({rotate: 20}).ungroup()
+// group is deleted, rect and circle both have rotate: 20</code></pre>
+<p>You can also specify to which container the elements of the group are moved and at which position they are inserted:</p>
+<pre><code>group.ungroup(otherContainer, position)</code></pre>
+<p><strong>Note:</strong> <code>Defs</code> elements can not be ungrouped</p>
+<h2 id='flatten'>flatten()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Breaks up all containers contained in an element and flattens the svg structure so that all elements end up in the element <code>flatten()</code> was called on.</p>
+<p>Call it on the root node to get a flat svg structure:</p>
+<pre><code class="language-javascript">drawing.flatten()</code></pre>
+<p>Flatten and export svg:</p>
+<pre><code class="language-javascript">var svgString = drawing.flatten().svg()</code></pre>
+<p>To put all elements into another comtainer and remove the current element, you can call <code>ungroup()</code> right after flatten:</p>
+<pre><code class="language-javascript">var svgString = drawing.flatten().ungroup(otherContainer)</code></pre>
+<p><strong>Note:</strong> <code>Defs</code> elements can not be flattened</p>
+<h2 id='wrap'>wrap()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Wraps the passed element around the current element. This replaces the current element with the wrapping element and appends the current element to the wrapped element.</p>
+<pre><code class="language-js">rect.wrap('&lt;g&gt;')
+rect.wrap(new G())</code></pre>
+<p><br></p>
+<h1 id='arranging'>Arranging</h1>
+<p>You can arrange elements within their parent SVG document using the following methods.</p>
+<h2 id='after'>after()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Insert an element after another:</p>
+<pre><code class="language-javascript">// inserts circle after rect
+rect.after(circle)</code></pre>
+<h2 id='before'>before()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Insert an element before another:</p>
+<pre><code class="language-javascript">// inserts circle before rect
+rect.before(circle)</code></pre>
+<h2 id='insertafter'>insertAfter()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Insert the current element behind the passed element</p>
+<pre><code class="language-javascript">rect.insertAfter(circle)</code></pre>
+<h2 id='insertbefore'>insertBefore()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Insert the current element before the passed element</p>
+<pre><code class="language-javascript">rect.insertBefore(circle)</code></pre>
+<h2 id='back'>back()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Move element to the back:</p>
+<pre><code class="language-javascript">rect.back()</code></pre>
+<h2 id='backward'>backward()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Move element one step backward:</p>
+<pre><code class="language-javascript">rect.backward()</code></pre>
+<h2 id='front'>front()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Move element to the front:</p>
+<pre><code class="language-javascript">rect.front()</code></pre>
+<h2 id='forward'>forward()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Move element one step forward:</p>
+<pre><code class="language-javascript">rect.forward()</code></pre>
+<h2 id='next'>next()</h2>
+<p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
+<p>Get the next sibling:</p>
+<pre><code class="language-javascript">rect.next()</code></pre>
+<h2 id='position'>position()</h2>
+<p><code>returns</code> <strong><code>number</code></strong></p>
+<p>Get the position (a number) of rect between its siblings:</p>
+<pre><code class="language-javascript">rect.position()</code></pre>
+<h2 id='prev'>prev()</h2>
+<p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
+<p>Get the previous sibling:</p>
+<pre><code class="language-javascript">rect.prev()</code></pre>
+<h2 id='siblings'>siblings()</h2>
+<p><code>returns</code> <strong><code>array</code></strong></p>
+<p>To get all siblings of rect, including rect itself:</p>
+<pre><code class="language-javascript">rect.siblings()</code></pre>
+<p><br></p>
+<h1 id='geometry'>Geometry</h1>
+<h2 id='point'>point()</h2>
+<p><code>returns</code> <strong><a href="/classes/#svg-point"><code>SVG.Point</code></a></strong></p>
+<p>Transforms a point from screen coordinates to the elements coordinate system.</p>
+<pre><code class="language-javascript">// e is some mouseevent
+var point = path.point(e.pageX, e.pageY) // {x, y}</code></pre>
+<h2 id='inside'>inside()</h2>
+<p><code>returns</code> <strong><code>boolean</code></strong></p>
+<p>To check if a given point is inside the bounding box of an element you can use the <code>inside()</code> method:</p>
+<pre><code class="language-javascript">var rect = draw.rect(100, 100).move(50, 50)
+
+rect.inside(25, 30) //-&gt; returns false
+rect.inside(60, 70) //-&gt; returns true</code></pre>
+<p><strong>Note</strong>: the <code>x</code> and <code>y</code> positions are tested against the relative position of the element. Any offset on the parent element is not taken into account.</p>
+<h2 id='bbox'>bbox()</h2>
+<p><code>returns</code> <strong><a href="/classes/#svg-box"><code>SVG.Box</code></a></strong></p>
+<p>Gives the bounding box of an element which is the <strong>untransformed</strong> tightest box around the element.</p>
+<pre><code class="language-js">element.bbox()</code></pre>
+<h2 id='rbox'>rbox()</h2>
+<p><code>returns</code> <strong><a href="/classes/#svg-box"><code>SVG.Box</code></a></strong></p>
+<p>Returns the transformed box of an element which is the transformed tightest box around the element. To specify to which coordinate system the box is transformed, relatively it is possible to pass in an element:</p>
+<pre><code class="language-js">element.rbox(drawing)
+// transformed box in coordinates of drawing</code></pre>
+<p>This method is a convenient wrapper around <code>getBoundingClientRect()</code>.</p>
+<h2 id='viewbox'>viewbox()</h2>
+<h3 id='viewbox-as-setter'>viewbox() <em>as setter</em></h3>
+<p>Sets the viewbox of an element (only available on elements which support viewbox)</p>
+<pre><code class="language-js">drawing.viewbox(10, 10, 500, 600)
+// or
+drawing.viewbox('10 10 500 600')
+// or
+drawing.viewbox(box)</code></pre>
+<h3 id='viewbox-as-getter'>viewbox() <em>as getter</em></h3>
+<p><code>returns</code> <strong><a href="/classes/#svg-box"><code>SVG.Box</code></a></strong></p>
+<pre><code class="language-js">drawing.viewbox()</code></pre>    </section>
+
+  </div><!-- /.wrap content -->
+  
+
+<footer role="contentinfo">
+  <div class="wrap">
+    <p><a href="http://svgdotjs.github.io/">SVG.js</a> © 2012-2024 <a href="https://github.com/wout/" rel="noopener noreferrer" target="_blank">Wout Fierens</a> -  SVG.js is released under the terms of the MIT license.</p>  </div><!--/.wrap -->
+</footer>
+
+<a href="https://github.com/svgdotjs/svg.js">
+  <img src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" class="fork-me-on-github">
+</a>
+
+<script src="/docs/3.2/assets/js/libs/highlight.pack.js"></script><script src="/docs/3.2/assets/js/libs/accordion-plain.js"></script><script src="/docs/3.2/assets/js/kdoc.js"></script><script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
+<script type="text/javascript"> docsearch({
+  apiKey: 'a01bac6cbc400d1cd9b3ae22bb918066',
+  indexName: 'svgjs',
+  inputSelector: '#agolia',
+  algoliaOptions: { 'facetFilters': ["version:3.2"] },
+  debug: false // Set debug to true if you want to inspect the dropdown
+});
+</script>
+
+</div> <!-- /.container -->
+</body>
+</html>

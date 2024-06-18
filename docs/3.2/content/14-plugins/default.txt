@@ -1,0 +1,24 @@
+Title: Plugins
+
+----
+
+Text:
+
+# Plugins
+
+Here's a list of all plugins available for SVG.js. If you wrote one, please let us know!
+
+- (link: /plugins/svg-colorat-js/ text: svg.colorat.js)
+- (link: /plugins/svg-draggable-js/ text: svg.draggable.js)
+- (link: /plugins/svg-easing-js/ text: svg.easing.js)
+- (link: /plugins/svg-filter-js/ text: svg.filter.js)
+- (link: /plugins/svg-math-js/ text: svg.math.js)
+- (link: /plugins/svg-panzoom-js/ text: svg.panzoom.js)
+- (link: /plugins/svg-path-js/ text: svg.path.js)
+- (link: /plugins/svg-shapes-js/ text: svg.shapes.js)
+- (link: /plugins/svg-topath-js/ text: svg.topath.js)
+- (link: /plugins/svg-topoly-js/ text: svg.topoly.js)
+- (link: /plugins/ngx-svg text: ngx-svg)
+----
+
+Description: Here's a list of all plugins available for SVG.js. If you wrote one, please let us know! We will add them here.
