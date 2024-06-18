@@ -637,6 +637,37 @@ element.visible()
 ```
 
 <br>
+# Id Attribute
+
+The `id()` method allows you to get, and set, the id attribute of SVG elements.
+
+## id() _as getter_
+
+`returns` __`id`__
+
+Gets the id attribute, creating a new unique id if one is not already set:
+
+```javascript
+var id = rect.id()
+```
+
+## id() _as setter_
+
+`returns` __`id`__
+
+Sets the id attribute:
+
+```javascript
+rect.id('my-unique-id')
+```
+
+Removing the id altogether:
+
+```javascript
+rect.id(null)
+```
+
+<br>
 # Class Names
 
 ## addClass()
@@ -1097,14 +1128,14 @@ Get the position (a number) of rect between its siblings:
 rect.position()
 ```
 
-## previous()
+## prev()
 
 `returns` __`SVG.Element`__
 
 Get the previous sibling:
 
 ```javascript
-rect.previous()
+rect.prev()
 ```
 
 ## siblings()

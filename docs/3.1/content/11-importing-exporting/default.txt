@@ -73,6 +73,22 @@ group.svg('<rect><rect><rect>', true)
 
 Note, that this call always returns the parent of the element `svg()` was called on. That is, because by replacing a node with multiple others nodes it is not clear which node to return. Thats why the parent is returned.
 
+# Import / export HTML or XML
+
+Svg.js also supports handling html nodes and sometimes you are in need to import or export html.
+For this case, you can use the `html()` method that will use the correct namespace on import.
+
+```js
+draw.html('<div></div>) // import html
+draw.html() // export
+```
+
+if you use svg.js to manipulate xml, you can use `xml()` together with a namespace
+
+```js
+draw.xml('<my-element></my-element>, myNamespace) // import
+draw.xml() // export
+```
 ----
 
 Description: Exporting the full generated SVG, or a part of it, can be done with the svg() method. Importing works by passing a string of svg as the first argument.

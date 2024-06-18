@@ -728,14 +728,6 @@
                             <li class="">
 
                         
-                                                  <a href="/docs/3.1/plugins/svg-colorat-js">svg.colorat.js</a>
-
-                        
-            
-          </li>
-                    <li class="">
-
-                        
                                                   <a href="/docs/3.1/plugins/svg-easing-js">svg.easing.js</a>
 
                         
@@ -753,38 +745,6 @@
 
                         
                                                   <a href="/docs/3.1/plugins/svg-filter-js">svg.filter.js</a>
-
-                        
-            
-          </li>
-                    <li class="">
-
-                        
-                                                  <a href="/docs/3.1/plugins/svg-math-js">svg.math.js</a>
-
-                        
-            
-          </li>
-                    <li class="">
-
-                        
-                                                  <a href="/docs/3.1/plugins/svg-path-js">svg.path.js</a>
-
-                        
-            
-          </li>
-                    <li class="">
-
-                        
-                                                  <a href="/docs/3.1/plugins/svg-select-js">svg.select.js</a>
-
-                        
-            
-          </li>
-                    <li class="">
-
-                        
-                                                  <a href="/docs/3.1/plugins/svg-shapes-js">svg.shapes.js</a>
 
                         
             
@@ -1234,6 +1194,19 @@ element.translate(0.5, -1)</code></pre>
 <p>To check if the element is visible:</p>
 <pre><code class="language-javascript">element.visible()</code></pre>
 <p><br></p>
+<h1 id='id-attribute'>Id Attribute</h1>
+<p>The <code>id()</code> method allows you to get, and set, the id attribute of SVG elements.</p>
+<h2 id='id-as-getter'>id() <em>as getter</em></h2>
+<p><code>returns</code> <strong><code>id</code></strong></p>
+<p>Gets the id attribute, creating a new unique id if one is not already set:</p>
+<pre><code class="language-javascript">var id = rect.id()</code></pre>
+<h2 id='id-as-setter'>id() <em>as setter</em></h2>
+<p><code>returns</code> <strong><code>id</code></strong></p>
+<p>Sets the id attribute:</p>
+<pre><code class="language-javascript">rect.id('my-unique-id')</code></pre>
+<p>Removing the id altogether:</p>
+<pre><code class="language-javascript">rect.id(null)</code></pre>
+<p><br></p>
 <h1 id='class-names'>Class Names</h1>
 <h2 id='addclass'>addClass()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
@@ -1440,10 +1413,10 @@ rect.before(circle)</code></pre>
 <p><code>returns</code> <strong><code>number</code></strong></p>
 <p>Get the position (a number) of rect between its siblings:</p>
 <pre><code class="language-javascript">rect.position()</code></pre>
-<h2 id='previous'>previous()</h2>
+<h2 id='prev'>prev()</h2>
 <p><code>returns</code> <strong><code>SVG.Element</code></strong></p>
 <p>Get the previous sibling:</p>
-<pre><code class="language-javascript">rect.previous()</code></pre>
+<pre><code class="language-javascript">rect.prev()</code></pre>
 <h2 id='siblings'>siblings()</h2>
 <p><code>returns</code> <strong><code>array</code></strong></p>
 <p>To get all siblings of rect, including rect itself:</p>
@@ -1490,7 +1463,7 @@ drawing.viewbox(box)</code></pre>
 
 <footer role="contentinfo">
   <div class="wrap">
-    <p><a href="http://svgdotjs.github.io/">SVG.js</a> © 2012-2021 <a href="https://github.com/wout/" rel="noopener noreferrer" target="_blank">Wout Fierens</a> -  SVG.js is released under the terms of the MIT license.</p>  </div><!--/.wrap -->
+    <p><a href="http://svgdotjs.github.io/">SVG.js</a> © 2012-2024 <a href="https://github.com/wout/" rel="noopener noreferrer" target="_blank">Wout Fierens</a> -  SVG.js is released under the terms of the MIT license.</p>  </div><!--/.wrap -->
 </footer>
 
 <a href="https://github.com/svgdotjs/svg.js">
