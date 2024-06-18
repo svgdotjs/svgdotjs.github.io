@@ -81,6 +81,13 @@ SVG.extend(SVG.Container,  {
     return this.put(new SVG.Rounded).size(width, height)
   }
 }
+
+// Alternatively you can add the method to multiple elements
+SVG.extend([SVG.Rect, SVG.Circle], {
+  makeBlue: function() {
+    this.fill('blue')
+  }
+})
 ```
 
 To create the element in your drawing:

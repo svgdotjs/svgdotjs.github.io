@@ -1128,14 +1128,14 @@ Get the position (a number) of rect between its siblings:
 rect.position()
 ```
 
-## previous()
+## prev()
 
 `returns` __`SVG.Element`__
 
 Get the previous sibling:
 
 ```javascript
-rect.previous()
+rect.prev()
 ```
 
 ## siblings()

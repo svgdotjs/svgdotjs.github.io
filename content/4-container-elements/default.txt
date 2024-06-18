@@ -195,7 +195,7 @@ frag.circle(100, 100)
 draw.add(frag) // will add rect and circle
 ```
 
-SVG.Fragment extends SVG.Dom directly and therefore supports all basic dom ooperatiosn as well as import and export of svg elements:
+SVG.Fragment extends SVG.Dom directly and therefore supports all basic dom operations as well as import and export of svg elements:
 
 ```js
 const frag = new Fragment()
