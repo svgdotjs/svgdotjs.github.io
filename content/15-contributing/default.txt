@@ -33,7 +33,7 @@ $ npm test
 
 To run the test suite in your default browser, simply open `/spec/SpecRunner.html`. Usually by double click.
 
-If you are the cautious type, you might want to read, [before you push](/contributing/#before-you-push), on how to prevent pushing failing commits.
+If you are the cautious type, you might want to read (link: /contributing/#before-you-push text: before you push), on how to prevent pushing failing commits.
 
 ## Before you push
 
