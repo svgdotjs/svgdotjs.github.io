@@ -13,13 +13,14 @@
 <?= js('assets/js/kdoc.js' ) ?>
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
-<script type="text/javascript"> docsearch({
-  apiKey: 'a01bac6cbc400d1cd9b3ae22bb918066',
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript"> 
+docsearch({
+  container: '#agolia',
+  appId: 'RCTWD4XAD7',
   indexName: 'svgjs',
-  inputSelector: '#agolia',
-  algoliaOptions: { 'facetFilters': ["version:<?= DOCS_VERSION ?>"] },
-  debug: false // Set debug to true if you want to inspect the dropdown
+  apiKey: '318954acedf80e42c51262a239983386',
+  searchParameters: { 'facetFilters': ["version:<?= DOCS_VERSION ?>"] },
 });
 </script>
 

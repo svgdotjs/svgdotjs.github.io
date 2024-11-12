@@ -4,7 +4,13 @@
   <a class="skip-link visuallyhidden focusable" href="#main">Skip to Main Content</a>
 
   <div class="search">
-    <input name="q" type="text" placeholder="Search..." autocomplete="off" autofocus id="agolia">
+    <div id="agolia"></div>
+    <style>
+      .DocSearch-Button {
+        width: 92%;
+        border-radius: 0;
+      }
+    </style>
   </div>
 
   <nav class="sidebar-nav" role="navigation">
