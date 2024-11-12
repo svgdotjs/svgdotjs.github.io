@@ -11,14 +11,14 @@
     "url": "https://github.com/nsteiner/kdoc.git"
   },
   "devDependencies": {
-    "autoprefixer": "^6.0.0",
+    "autoprefixer": "^10.4.20",
     "cssmin": "^0.4.3",
     "node-sass": "^3.4.2",
-    "nodemon": "^1.18.7",
-    "opener": "^1.5.1",
-    "parallelshell": "^1.2.0",
-    "postcss-cli": "^2.3.2",
-    "rimraf": "^2.2.8"
+    "nodemon": "^3.1.7",
+    "opener": "^1.5.2",
+    "parallelshell": "^3.0.2",
+    "postcss-cli": "^11.0.0",
+    "rimraf": "^6.0.1"
   },
   "scripts": {
     "clean": "rimraf assets/css/*",
@@ -28,8 +28,5 @@
     "serve": "php -S localhost:8030",
     "open:dev": "opener http://localhost:8030/",
     "dev": "parallelshell \"npm run serve -s\" \"npm run watch -s\" \"npm run open:dev -s\""
-  },
-  "dependencies": {
-    "npm": "^6.4.1"
   }
 }
