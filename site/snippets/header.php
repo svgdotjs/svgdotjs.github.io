@@ -18,7 +18,8 @@
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="<?= $site->url() ?>/assets/images/favicon.png" type="image/png" />
     <?= css('assets/css/main.css' ) ?>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
+    <link rel="preconnect" href="https://RCTWD4XAD7-dsn.algolia.net" crossorigin />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css" />
   </head>
   <body class="docs-svgjs">
