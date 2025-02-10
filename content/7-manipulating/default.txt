@@ -1222,6 +1222,31 @@ drawing.viewbox(box)
 drawing.viewbox()
 ```
 
+## zoom()
+
+### zoom() _as setter_
+
+Sets the zoom of an element (only available on elements which support viewbox).
+Make sure, to also set an absolute width and height for best results.
+
+```js
+// zooms to level 10
+drawing.zoom(10)
+
+// zooms into the point {x: 20, y: 20}
+drawing.zoom(10, {x: 20, y: 20})
+```
+
+### zoom() _as getter_
+
+`returns` __number__
+
+```js
+drawing.zoom()
+```
+
+For wheel and pinch zoom support, have a look at (link: /plugins/svg-panzoom-js/ text: svg.panzoom.js)
+
 ----
 
 Description: Everything you need to know about manipulating elements using their attributes, transforms, styles, classes and more.
