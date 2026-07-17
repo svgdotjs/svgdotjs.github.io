@@ -340,8 +340,20 @@ rect.fill(draw.image('images/shade.jpg', function() {
 The `stroke()` method is similar to `fill()`:
 
 ```javascript
-rect.stroke({ color: '#f06', opacity: 0.6, width: 5 })
+rect.stroke({
+  color: '#f06',
+  opacity: 0.6,
+  width: 5,
+  linecap: 'round',
+  linejoin: 'round',
+  miterlimit: 4,
+  dasharray: '10,5',
+  dashoffset: 2
+})
 ```
+
+The object keys map to SVG stroke attributes. For example, `linecap` sets
+`stroke-linecap` and `dasharray` sets `stroke-dasharray`.
 
 Like fill, a single hex string will work as well:
 
@@ -461,6 +473,62 @@ Additionally a string value for the required property can be passed:
 ```javascript
 element.transform('rotate')
 ```
+
+## matrixify()
+
+`returns` __`SVG.Matrix`__
+
+Combines the transformations in the element's own `transform` attribute into one matrix. Parent transformations are not included and the element is not changed:
+
+```js
+element.attr('transform', 'translate(20 30) rotate(45)')
+
+const localMatrix = element.matrixify()
+```
+
+Use `ctm()` or `screenCTM()` when you need transformations inherited from ancestors.
+
+## ctm()
+
+`returns` __`SVG.Matrix`__
+
+Returns the element's current transformation matrix in its SVG viewport coordinate system. This wraps the browser's native `getCTM()` result in `SVG.Matrix`:
+
+```js
+const matrix = element.ctm()
+const pointInViewport = new SVG.Point(0, 0).transform(matrix)
+```
+
+## screenCTM()
+
+`returns` __`SVG.Matrix`__
+
+Returns the matrix from the element's local coordinates to screen coordinates. This includes transformations from SVG ancestors:
+
+```js
+const screenMatrix = element.screenCTM()
+const screenPoint = new SVG.Point(0, 0).transform(screenMatrix)
+```
+
+For the inverse conversion, use `screenCTM().inverse()` or the element's `point()` helper:
+
+```js
+const localPoint = element.point(event.clientX, event.clientY)
+```
+
+The element must be rendered for the browser to provide a meaningful screen matrix. If the browser cannot calculate one, SVG.js logs a warning and returns an identity matrix.
+
+## untransform()
+
+`returns` __`itself`__
+
+Removes the element's `transform` attribute:
+
+```js
+element.untransform()
+```
+
+This does not rewrite the element's geometry to preserve its visual position. Use `toParent()` when moving an element between parents without changing its visual appearance.
 
 ## flip()
 

@@ -1,0 +1,198 @@
+Title: Node.js
+
+----
+
+Description: How to use SVG.js in Node.js with svgdom and the window helpers.
+
+----
+
+Text:
+
+# Node.js
+
+SVG.js can run in Node.js when a DOM implementation is registered first. SVG.js does not ship a DOM itself, so the recommended setup is to use **(link: https://github.com/svgdotjs/svgdom text: svgdom target: _blank)**.
+
+<br>
+# Setup
+
+## Installation
+
+```sh
+npm install @svgdotjs/svg.js svgdom
+```
+
+## Create an SVG document
+
+Most Node.js scripts use `createSVGWindow()` from svgdom. It creates a window with a document and an `<svg>` root node. Register that window with SVG.js before you create SVG.js objects.
+
+```js
+import { createSVGWindow } from 'svgdom'
+import { SVG, registerWindow } from '@svgdotjs/svg.js'
+
+// returns a window with a document and an svg root node
+const window = createSVGWindow()
+const document = window.document
+
+// register window and document
+registerWindow(window, document)
+
+// create canvas
+const canvas = SVG(document.documentElement)
+
+// use svg.js as normal
+canvas.rect(100, 100).fill('yellow').move(50, 50)
+
+// get your svg as string
+console.log(canvas.svg())
+// or
+console.log(canvas.node.outerHTML)
+```
+
+## Write the SVG to a file
+
+Use `canvas.svg()` or `canvas.node.outerHTML` to serialize the result. From there you can write it with Node's `fs` module.
+
+```js
+import { writeFileSync } from 'node:fs'
+import { createSVGWindow } from 'svgdom'
+import { SVG, registerWindow } from '@svgdotjs/svg.js'
+
+const window = createSVGWindow()
+const document = window.document
+
+registerWindow(window, document)
+
+const canvas = SVG(document.documentElement).size(300, 300)
+
+canvas.rect(100, 100).fill('#f06').move(50, 50)
+canvas.circle(80).fill('none').stroke({ color: '#000', width: 4 }).move(160, 70)
+
+writeFileSync('drawing.svg', canvas.svg())
+```
+
+## Create an HTML document
+
+```js
+import { createHTMLWindow } from 'svgdom'
+import { SVG, registerWindow } from '@svgdotjs/svg.js'
+
+const window = createHTMLWindow()
+const document = window.document
+
+registerWindow(window, document)
+
+const canvas = SVG().addTo('body').size(300, 300)
+canvas.circle(100).fill('#f06')
+```
+
+## Create an XML document
+
+For other XML documents, use `createWindow(namespaceURI, rootNode)` and then register the returned window:
+
+```js
+import { createWindow } from 'svgdom'
+import { registerWindow } from '@svgdotjs/svg.js'
+
+const window = createWindow('http://www.w3.org/1998/Math/MathML', 'math')
+const document = window.document
+
+registerWindow(window, document)
+```
+
+## Use CommonJS
+
+On Node.js 22.13 or newer, both svgdom and SVG.js can be loaded directly with `require()`:
+
+```js
+const { createSVGWindow } = require('svgdom')
+const { SVG, registerWindow } = require('@svgdotjs/svg.js')
+
+const window = createSVGWindow()
+const document = window.document
+
+registerWindow(window, document)
+
+const canvas = SVG(document.documentElement)
+canvas.rect(100, 100).fill('yellow')
+
+console.log(canvas.svg())
+```
+
+## Load fonts for text measurement
+
+svgdom needs access to font files to calculate bounding boxes for text. It loads Open Sans Regular by default when no font file for the requested family was found. Configure your own fonts before measuring text:
+
+```js
+import { config } from 'svgdom'
+
+config
+  .setFontDir('./fonts')
+  .setFontFamilyMappings({
+    Arial: 'arial.ttf',
+    'Arial-italic': 'arial_italic.ttf'
+  })
+  .preloadFonts()
+```
+
+You only get bold, italic, or other variants when the matching font file is loaded and mapped.
+
+## Notes and limitations
+
+- Register a window once during setup for most Node.js scripts.
+- Use `withWindow()` for short-lived or test-only DOM switches.
+- DOM APIs depend on the DOM implementation you register. Check the svgdom README for its supported selectors and limitations.
+- Some browser APIs, layout features, and rendering features are not available in a headless DOM.
+
+<br>
+# SVG.registerWindow()
+
+`returns` __`void`__
+
+Register the `window` and `document` that SVG.js should use internally.
+
+```js
+registerWindow(window, document)
+```
+
+Call this before creating SVG.js objects in Node.js. Calling `registerWindow()` without arguments clears the registered window and document.
+
+```js
+registerWindow()
+```
+
+<br>
+# SVG.getWindow()
+
+`returns` __`window`__
+
+Returns the currently registered window. In the browser, this is the global browser window. In Node.js, it is the window that was passed to `registerWindow()`.
+
+This is useful when you need DOM constructors from the active environment:
+
+```js
+import { getWindow } from '@svgdotjs/svg.js'
+
+const CustomEvent = getWindow().CustomEvent
+const event = new CustomEvent('ready')
+```
+
+<br>
+# SVG.withWindow()
+
+`returns` __`void`__
+
+Temporarily use a different window while running a callback. The previous window and document are restored after the callback finishes.
+
+```js
+import { createSVGWindow } from 'svgdom'
+import { SVG, withWindow } from '@svgdotjs/svg.js'
+
+const window = createSVGWindow()
+
+withWindow(window, (win, document) => {
+  const canvas = SVG(document.documentElement)
+  canvas.path('M0 0L100 100')
+})
+```
+
+Use `withWindow()` when you need to work with a second DOM without permanently replacing the globally registered window.

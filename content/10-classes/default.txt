@@ -26,7 +26,7 @@ The `SVG.Box` holds rectangular dimensions of an object. Available properties ar
 
 ## merge()
 
-`returns` __`itself`__
+`returns` __`new SVG.Box`__
 
 With `merge()`, two `SVG.Box` instances can be merged into one new instance, basically being the bounding box of the two original boxes. For example:
 
@@ -44,6 +44,33 @@ Transforms the box with a given matrix or transformation:
 
 ```javascript
 var transformedBox = box.transform(matrix)
+```
+
+## addOffset()
+
+`returns` __`new SVG.Box`__
+
+Returns a copy whose `x` and `y` include the current window scroll offset. This is mainly useful with boxes based on `getBoundingClientRect()`:
+
+```js
+const documentBox = box.addOffset()
+```
+
+## isNulled()
+
+`returns` __`boolean`__
+
+Returns `true` when `x`, `y`, `width`, and `height` are all zero:
+
+```js
+new SVG.Box().isNulled() // true
+```
+
+## toArray() and toString()
+
+```js
+box.toArray()  // [x, y, width, height]
+box.toString() // 'x y width height'
 ```
 
 <br>
@@ -85,7 +112,7 @@ list.animate(3000).fill('#ff0')
 
 ## each()
 
-`returns` __`itself`__
+`returns` __`SVG.List`__
 
 Iterating over all members in a list using the spefified method or passed function:
 
@@ -94,6 +121,16 @@ list.each('fill', 'blue') // same as list.fill('blue')
 list.each(function(item) {
   return item.fill('blue')
 })
+```
+
+## toArray()
+
+`returns` __`native array`__
+
+Returns a shallow native-array copy of the list:
+
+```js
+const elements = list.toArray()
 ```
 
 <br>
@@ -129,7 +166,7 @@ var clone = array.clone()
 
 ## to()
 
-`returns` __`itself`__
+`returns` __`SVG.Morphable`__
 
 In order to animate array values the `to()` method lets you pass a destination value. This can be either the string value, a plain array or an instance of the same type of SVG.js array:
 
@@ -154,6 +191,15 @@ array.toString() //-> returns '33,75 133,175'
 
 **Note**: this method is only available on `SVG.PointArray` and `SVG.PathArray`
 
+## toArray(), toSet(), toString(), and valueOf()
+
+```js
+array.toArray()  // a native array, flattened by one level
+array.toSet()    // a native Set
+array.toString() // values separated by spaces
+array.valueOf()  // a shallow native-array copy
+```
+
 ## reverse()
 
 `returns` __`itself`__
@@ -164,16 +210,6 @@ Reverses the order of the array:
 var array = new SVG.PointArray([[0, 0], [100, 100]])
 array.reverse()
 array.toString() //-> returns '100,100 0,0'
-```
-
-## settle()
-
-`returns` __`itself`__
-
-When morphing is done the `settle()` method will eliminate any transitional points like duplicates:
-
-```javascript
-array.settle()
 ```
 
 ## size()
@@ -243,6 +279,28 @@ Gets the bounding box of the geometry of the array:
 
 ```javascript
 array.bbox()
+```
+
+## toLine()
+
+`returns` __`object`__
+
+Converts the first two points to line attributes:
+
+```js
+new SVG.PointArray([[10, 20], [30, 40]]).toLine()
+// { x1: 10, y1: 20, x2: 30, y2: 40 }
+```
+
+## transform() and transformO()
+
+`transform()` returns a transformed copy. `transformO()` transforms the current point array in place:
+
+```js
+const points = new SVG.PointArray([[0, 0], [10, 10]])
+const moved = points.transform(new SVG.Matrix().translate(20, 30))
+
+points.transformO(new SVG.Matrix().scale(2))
 ```
 
 <br>
@@ -398,6 +456,29 @@ Get rgb string value:
 color.toRgb() //-> returns 'rgb(255,0,102)'
 ```
 
+## toArray()
+
+`returns` __`native array`__
+
+Returns the channels followed by the current color-space name:
+
+```js
+new SVG.Color('#ff0066').toArray()
+// [255, 0, 102, 0, 'rgb']
+```
+
+The fourth channel is used by four-component spaces such as CMYK and is `0` for RGB.
+
+## toString()
+
+`returns` __`string`__
+
+Serializes RGB colors as a hex string and other color spaces with their CSS-style function notation:
+
+```js
+new SVG.Color('#ff0066').toString() // '#ff0066'
+```
+
 ## SVG.Color.random()
 
 With `SVG.Color.random()` a random color can be created. There a different modi available for color generation:
@@ -425,6 +506,17 @@ Without a value:
 var matrix = new SVG.Matrix
 matrix.toString() //-> returns matrix(1,0,0,1,0,0)
 ```
+
+Most matrix operations return a transformed copy and leave the original matrix unchanged. Methods ending in `O` perform the same operation in place and return the current matrix:
+
+```js
+const original = new SVG.Matrix()
+const copy = original.translate(10, 20)
+
+original.translateO(10, 20)
+```
+
+The in-place variants are `aroundO()`, `flipO()`, `inverseO()`, `multiplyO()`, `lmultiplyO()`, `rotateO()`, `scaleO()`, `shearO()`, `skewO()`, and `translateO()`.
 
 Six arguments:
 
@@ -502,6 +594,8 @@ matrix.around(100, 150, new SVG.Matrix().skew(0, 45))
 
 The matrix passed as the third argument will be used to multiply.
 
+Use `aroundO()` to apply the operation to the current matrix instead of returning a copy.
+
 ## to()
 
 `returns` __`SVG.Morphable`__
@@ -560,6 +654,8 @@ Creates an inverted matix:
 matrix.inverse()
 ```
 
+`inverseO()` inverts the current matrix in place. Both methods throw when the matrix is not invertible.
+
 ## multiply()
 
 `returns` __`SVG.Matrix`__
@@ -567,8 +663,22 @@ matrix.inverse()
 Multiplies by another given matrix:
 
 ```javascript
-matrix.matrix(matrix2)
+matrix.multiply(matrix2)
 ```
+
+`multiplyO()` performs the same right multiplication in place.
+
+## lmultiply()
+
+`returns` __`SVG.Matrix`__
+
+Left-multiplies the current matrix, which changes the order in which transformations are applied:
+
+```js
+const result = matrix.lmultiply(matrix2)
+```
+
+Use `lmultiplyO()` for the in-place form.
 
 ## rotate()
 
@@ -620,6 +730,19 @@ Scales matrix non-uniformal on a given center point with four values:
 matrix.scale(2, 3, 100, 150)
 ```
 
+## shear()
+
+`returns` __`SVG.Matrix`__
+
+Applies an x-axis shear factor, optionally around a center point:
+
+```js
+matrix.shear(0.5)
+matrix.shear(0.5, 100, 150)
+```
+
+`shearO()` modifies the current matrix.
+
 ## skew()
 
 `returns` __`SVG.Matrix`__
@@ -636,6 +759,25 @@ Skews matrix a given degrees over x and or y axis on a given point with four val
 ```javascript
 // degreesX, degreesY, cx, cy
 matrix.skew(0, 45, 150, 100)
+```
+
+Use `skewX()` or `skewY()` when only one axis is needed. `skewO()` is the in-place form of `skew()`.
+
+## equals()
+
+`returns` __`boolean`__
+
+Compares all six matrix components with a small floating-point tolerance:
+
+```js
+matrix.equals(otherMatrix)
+```
+
+## toArray() and valueOf()
+
+```js
+matrix.toArray() // [a, b, c, d, e, f]
+matrix.valueOf() // { a, b, c, d, e, f }
 ```
 
 ## toString()
@@ -730,7 +872,18 @@ number.times(2)
 Change number to another unit:
 
 ```javascript
-number.to('px')
+number.convert('px')
+```
+
+## toArray(), toString(), valueOf(), and toJSON()
+
+```js
+const number = new SVG.Number('25%')
+
+number.toArray()  // [0.25, '%']
+number.toString() // '25%'
+number.valueOf()  // 0.25
+number.toJSON()   // '25%'
 ```
 
 <br>
@@ -765,7 +918,7 @@ var newPoint = new SVG.Point(1,1).clone()
 Get morphable object which can be used to get a point at a given position:
 
 ```javascript
-var point = new SVG.Point(1,1).to(11,10)
+var point = new SVG.Point(1,1).to(new SVG.Point(11,10))
 point.at(0.5) //-> {x: 6, y: 5.5}
 ```
 
@@ -779,6 +932,114 @@ Transform point with matrix:
 var point = new SVG.Point(1,1)
 point.transform(new SVG.Matrix().skew(0, 45)) //-> {x: 1, y: 2}
 ```
+
+`transform()` returns a transformed copy. `transformO()` changes the current point in place:
+
+```js
+point.transformO(new SVG.Matrix().translate(10, 20))
+```
+
+## toArray()
+
+`returns` __`native array`__
+
+```js
+point.toArray() // [x, y]
+```
+
+<br>
+
+# SVG.Morphable
+
+`SVG.Morphable` interpolates between two compatible values. SVG.js uses it internally for animation, but it is also exported as an advanced API for plugins and custom value classes.
+
+```js
+const morph = new SVG.Morphable()
+  .from(0)
+  .to(100)
+
+morph.at(0.25).valueOf() // 25
+```
+
+The value type is inferred from the first value. Built-in support includes numbers and units, colors, arrays, point arrays, path arrays, points, boxes, matrices, transform objects, plain objects, and non-interpolated values.
+
+## from() and to()
+
+Without an argument these methods return the normalized endpoint. With an argument they set it and return the morphable:
+
+```js
+morph.from()
+morph.to()
+morph.from(startValue).to(endValue)
+```
+
+## at()
+
+Returns the interpolated value at a position. With normal easing, positions are usually between `0` and `1`:
+
+```js
+const halfway = morph.at(0.5)
+```
+
+## type()
+
+Gets or sets the value class used to normalize and reconstruct values. Usually type inference is preferable:
+
+```js
+morph.type()
+morph.type(SVG.Point)
+```
+
+## stepper()
+
+Gets or replaces the `SVG.Ease` or controller used to calculate each component:
+
+```js
+morph.stepper(new SVG.Ease('<>'))
+```
+
+## done()
+
+Returns whether every component has converged when the morphable uses a controller. Duration-based easing uses the requested position instead, so this method is primarily useful to Runner and controller implementations.
+
+## Custom morphable types
+
+`registerMorphableType()` and `makeMorphable()` allow a value class to participate in SVG.js morphing. A custom class must accept its own value in the constructor and implement `init()` and `toArray()`:
+
+```js
+class Pair {
+  constructor(value = [0, 0]) {
+    this.init(value)
+  }
+
+  init(value) {
+    const [x = 0, y = 0] = value instanceof Pair
+      ? value.toArray()
+      : value
+
+    this.x = x
+    this.y = y
+    return this
+  }
+
+  toArray() {
+    return [this.x, this.y]
+  }
+}
+
+SVG.registerMorphableType(Pair)
+SVG.makeMorphable()
+
+const halfway = new Pair([0, 10])
+  .to(new Pair([10, 20]))
+  .at(0.5)
+
+// Pair { x: 5, y: 15 }
+```
+
+Call `makeMorphable()` after registering the custom class. It adds `to()`, `fromArray()`, `toConsumable()`, and `morph()` to registered value-class prototypes. Built-in classes are configured automatically when SVG.js loads.
+
+`SVG.ObjectBag`, `SVG.TransformBag`, and `SVG.NonMorphable` are the exported representations used for plain objects, decomposed transforms, and values that switch only at the endpoint. Most applications should let `SVG.Morphable` choose these helpers rather than constructing them directly.
 
 <br>
 

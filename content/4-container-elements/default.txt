@@ -59,7 +59,7 @@ Removes the svg namespaces from the svg element.
 
 Grouping elements can be useful if you want to transform a set of elements as if it were one. All element within a group, maintain their position relative to the group they belong to.
 
-__Note:__ Groups do not have a geometry of their own, it's inherited from their content. Therefore groups do not listen to `x`, `y`, `width` and `height` attributes. If that is what you are looking for, use a `nested()` svg instead.
+__Note:__ Groups do not have geometry of their own; it is inherited from their content. Therefore groups do not listen to `x`, `y`, `width`, or `height` attributes. To reposition a group, prefer a transform such as `group.translate(x, y)` instead of `move()`, `x()`, or `y()`, which reposition the group's children. If you need a container with its own geometry, use a `nested()` SVG instead.
 
 ## group() <span class="suffix">constructor</span>
 

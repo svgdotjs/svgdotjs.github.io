@@ -24,7 +24,16 @@ Removing it is quite as easy:
 element.click(null)
 ```
 
-All available other events are: `click`, `dblclick`, `mousedown`, `mouseup`, `mouseover`, `mouseout`, `mousemove`, `touchstart`, `touchmove`, `touchleave`, `touchend` and `touchcancel`...
+The available event sugar methods are `click`, `dblclick`, `mousedown`, `mouseup`, `mouseover`, `mouseout`, `mousemove`, `mouseenter`, `mouseleave`, `touchstart`, `touchmove`, `touchleave`, `touchend`, `touchcancel`, `contextmenu`, `wheel`, `pointerdown`, `pointermove`, `pointerup`, `pointerleave`, and `pointercancel`.
+
+Pointer and mouse events provide coordinates in the browser's screen coordinate system. Use `point()` to convert them into the local coordinate system of an SVG.js element, including all transforms applied to the element and its ancestors:
+
+```javascript
+element.pointerdown(function(event) {
+  var point = this.point(event.clientX, event.clientY)
+  console.log(point.x, point.y)
+})
+```
 
 <br>
 # Event listeners

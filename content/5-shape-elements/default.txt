@@ -434,6 +434,19 @@ Creating a text element with a textpath linked to the current path can be done w
 var textpath = path.text('SVG.js rocks!')
 ```
 
+## <span class="subject">path.</span>targets()
+
+`returns` __`SVG.List`__
+
+Returns all text-path elements in the same document or fragment that reference this path:
+
+```js
+const labels = path.targets()
+labels.each(function (textPath) {
+  textPath.attr('startOffset', '50%')
+})
+```
+
 <br>
 # SVG.Text
 
@@ -856,7 +869,7 @@ tspan.length()
 
 `returns` __`itself`__
 
-The `newLine()` is a convenience method for adding a new line with a `dy` attribute using the current "leading":
+The `newLine()` method marks the current tspan as the beginning of a new line. It positions that tspan with an `x` and `dy` based on the parent text element and its current `leading`. It does not insert a newline after the tspan:
 
 ```javascript
 var text = draw.text(function(add) {
@@ -990,7 +1003,7 @@ rect.fill(gradient)
 
 ## <span class="subject">gradient.</span>stop()
 
-`returns` __`itself`__
+`returns` __`SVG.Stop`__
 
 The `offset` and `color` parameters are required for stops, `opacity` is optional. The offset is a float between `0` and `1`, or a percentage value (e.g. `33%`).
 
@@ -1094,10 +1107,22 @@ draw.gradient('radial', function(add) {
 s1.update(0.1, '#0f0', 1)
 ```
 
+## <span class="subject">gradient.</span>targets()
+
+`returns` __`SVG.List`__
+
+Returns the elements in the same document or fragment whose `fill` references this gradient:
+
+```js
+const paintedElements = gradient.targets()
+```
+
+The list is calculated from the current DOM whenever `targets()` is called.
+
 <br>
 # SVG.Stop
 
-## at() <span class="suffix">constructor</span>
+## stop() <span class="suffix">constructor</span>
 
 `constructor on` __`SVG.Gradient`__
 `returns` __`SVG.Stop`__ ` which inherits from ` __`SVG.Element`__
@@ -1184,6 +1209,16 @@ pattern.update(function(add) {
 })
 ```
 
+## <span class="subject">pattern.</span>targets()
+
+`returns` __`SVG.List`__
+
+Returns the elements in the same document or fragment whose `fill` references this pattern:
+
+```js
+const paintedElements = pattern.targets()
+```
+
 <br>
 # SVG.Mask
 
@@ -1251,6 +1286,16 @@ rect.unmask()
 
 The `unmask()` method returns the masking element.
 
+## <span class="subject">mask.</span>targets()
+
+`returns` __`SVG.List`__
+
+Returns all elements in the same document or fragment that currently use this mask:
+
+```js
+const maskedElements = mask.targets()
+```
+
 ## <span class="subject">mask.</span>remove()
 
 `returns` __`itself`__
@@ -1312,6 +1357,16 @@ Unclipping the elements can be done with the `unclip()` method:
 
 ```javascript
 rect.unclip()
+```
+
+## <span class="subject">clipPath.</span>targets()
+
+`returns` __`SVG.List`__
+
+Returns all elements in the same document or fragment that currently use this clipping path:
+
+```js
+const clippedElements = clip.targets()
 ```
 
 ## <span class="subject">clipPath.</span>remove()
