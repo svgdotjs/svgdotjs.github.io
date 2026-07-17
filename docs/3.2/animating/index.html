@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <title>SVG.js v3.2 | Animating</title>
-    <meta name="description" content="Animating elements with svg.js is simple. Just call animate() and use known methods like move()">
+    <meta name="description" content="Animate SVG elements with runners, coordinate them on timelines, and control easing, loops, callbacks, and playback.">
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@svg_js" />
     <meta name="twitter:creator" content="@svg_js" />
     <meta property="og:url" content="/docs/3.2/animating" />
     <meta property="og:title" content="Animating" />
-    <meta property="og:description" content="Animating elements with svg.js is simple. Just call animate() and use known methods like move()" />
+    <meta property="og:description" content="Animate SVG elements with runners, coordinate them on timelines, and control easing, loops, callbacks, and playback." />
     <meta property="og:image" content="/docs/3.2/assets/images/logo-svg-js-01d.png" />
     
     <meta name="docsearch:version" content="3.2">
@@ -903,209 +903,339 @@
                 
         
       </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-node-js">+</button>
+        
+                                  <a href="/docs/3.2/node-js">Node.js</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-node-js" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.2/node-js/#setup">Setup</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/node-js/#svg-registerwindow">SVG.registerWindow()</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/node-js/#svg-getwindow">SVG.getWindow()</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/node-js/#svg-withwindow">SVG.withWindow()</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
           </ul>
   </nav>
 </aside>
 
     <section id="main" class="main-content" role="main">
       <h1 id='animating'>Animating</h1>
-<p>Animating elements is very much the same as manipulating elements using the <code>attr()</code> method. The only difference is you have to include the <code>animate()</code> method.</p>
+<p>SVG.js animation has three parts:</p>
+<ul>
+<li>An element owns a <code>Timeline</code>, which provides the clock.</li>
+<li><code>element.animate()</code> creates and schedules a <code>Runner</code> on that timeline.</li>
+<li>Calls such as <code>move()</code>, <code>fill()</code>, and <code>transform()</code> add work to the runner.</li>
+</ul>
+<p>For most animations you only need <code>animate()</code> and the familiar element methods:</p>
+<pre><code class="language-js">const rect = draw.rect(100, 100)
+
+rect.animate(1000).move(200, 100).fill('#f06')</code></pre>
+<p><code>animate()</code> returns the runner, not the element. Further calls therefore configure the animation rather than changing the element immediately.</p>
 <h2 id='animate'>animate()</h2>
 <p><code>returns</code> <strong><code>SVG.Runner</code></strong></p>
-<pre><code class="language-javascript">rect.animate().move(150, 150)</code></pre>
-<p>The <code>animate()</code> method will take three arguments. The first is <code>duration</code>, the second <code>delay</code> and the third <code>when</code>:</p>
-<pre><code class="language-javascript">rect.animate(2000, 1000, 'now').attr({ fill: '#f03' })</code></pre>
-<p>Alternatively you can pass an object as the first argument which accepts even more parameters:</p>
-<pre><code class="language-javascript">rect.animate({
+<pre><code class="language-js">element.animate(duration, delay, when)</code></pre>
+<ul>
+<li><code>duration</code> is the animation duration in milliseconds. The default is <code>400</code>.</li>
+<li><code>delay</code> adds milliseconds before the scheduled start. The default is <code>0</code>.</li>
+<li><code>when</code> controls where the runner is placed on the timeline. The default is <code>after</code>.</li>
+</ul>
+<pre><code class="language-js">rect.animate(2000, 1000, 'now').attr({ fill: '#f03' })</code></pre>
+<p>The first argument can also be an options object:</p>
+<pre><code class="language-js">rect.animate({
   duration: 2000,
   delay: 1000,
   when: 'now',
-  swing: true,
   times: 5,
+  swing: true,
   wait: 200
-}).attr({ fill: '#f03' })</code></pre>
-<p>By default <code>duration</code> will be set to <code>400</code>, <code>delay</code> will be set to <code>0</code> and <code>when</code> is set to <code>after</code>.</p>
-<p>The <code>when</code> parameter specifies the startpoint of the animation. It can have the following values:</p>
-<p>-<code>now</code>: Play the animation right after this call executes<br />
--<code>absolute</code> or <code>start</code>: Schedules the animation to run to an absolute time on your timeline<br />
--<code>relative</code>: Schedules the animation to play relative to its old start time (not useful for the animate()-call)<br />
--<code>last</code> or <code>after</code>: Plays the animation after the animation which comes last on the timeline. If there is none, the animation is played right away (see <code>now</code>)</p>
-<p>You can chain multiple animations together by calling <code>animate</code> again:</p>
-<pre><code class="language-javascript">rect.animate().attr({ fill: '#f03' }).animate().dmove(50,50)</code></pre>
-<p>you can also add delays betwen the animations:</p>
-<pre><code class="language-js">rect.animate().attr({ fill: '#f03' }).delay(200).animate().dmove(50,50)</code></pre>
-<p>of course this can also be done by just adding a delay to the second call:</p>
-<pre><code class="language-js">rect.animate().attr({ fill: '#f03' }).animate({delay: 200}).dmove(50,50)</code></pre>
+}).fill('#f03')</code></pre>
+<p><code>times</code>, <code>swing</code>, and <code>wait</code> have the same meaning as the arguments to <code>runner.loop()</code>.</p>
+<h3 id='scheduling-with-when'>Scheduling with <code>when</code></h3>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Start time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>after</code> or <code>last</code></td>
+<td>After the end of the most recently scheduled runner. If the timeline is empty, start at its current time.</td>
+</tr>
+<tr>
+<td><code>with-last</code></td>
+<td>At the start of the most recently scheduled runner. If the timeline is empty, start at its current time.</td>
+</tr>
+<tr>
+<td><code>now</code></td>
+<td>At the timeline's current time, plus <code>delay</code>.</td>
+</tr>
+<tr>
+<td><code>absolute</code> or <code>start</code></td>
+<td>At the absolute timeline time given by <code>delay</code>.</td>
+</tr>
+<tr>
+<td><code>relative</code></td>
+<td>Move this runner's previous start time by <code>delay</code> when rescheduling it.</td>
+</tr>
+</tbody>
+</table>
+<p>Use <code>after</code> for a sequence, <code>with-last</code> or <code>now</code> for parallel work, and <code>absolute</code> when coordinating several elements on a shared timeline.</p>
+<pre><code class="language-js">const first = rect.animate(600).move(100, 0)
+const second = circle.animate(600, 0, 'with-last').move(100, 0)
+
+// `first` and `second` start together on their respective timelines.</code></pre>
+<p>For precise coordination across elements, assign the same timeline to both elements as shown under <a href="#orchestrating-animations">Orchestrating animations</a>.</p>
+<h3 id='chaining-animations-and-delays'>Chaining animations and delays</h3>
+<p>Call <code>animate()</code> on a runner to schedule another runner with the same element and timeline:</p>
+<pre><code class="language-js">rect
+  .animate(500)
+  .fill('#f03')
+  .animate(500)
+  .move(100, 100)</code></pre>
+<p><code>delay()</code> creates a zero-duration runner and is useful between chained animations:</p>
+<pre><code class="language-js">rect
+  .animate(500)
+  .fill('#f03')
+  .delay(200)
+  .animate(500)
+  .move(100, 100)</code></pre>
+<p>The equivalent form puts the delay on the next animation:</p>
+<pre><code class="language-js">rect.animate(500).fill('#f03').animate(500, 200).move(100, 100)</code></pre>
 <h2 id='svg-runner'>SVG.Runner</h2>
-<p>The <code>animate()</code> method will not return the targeted element but an instance of SVG.Runner which has the same methods as any element and additional methods to control the runner:</p>
-<pre><code class="language-js">let rect = draw.rect(100, 100)
-let runner = rect.animate()
+<p>A runner describes one animation segment. It stores the target element, the values to animate, easing or controller behavior, looping options, and its position on a timeline.</p>
+<p>Runners support animatable versions of common element setters, including <code>attr()</code>, <code>css()</code>, <code>fill()</code>, <code>stroke()</code>, <code>move()</code>, <code>center()</code>, <code>size()</code>, <code>plot()</code>, <code>transform()</code>, <code>rotate()</code>, <code>scale()</code>, <code>translate()</code>, <code>font()</code>, <code>viewbox()</code>, and <code>zoom()</code>.</p>
+<pre><code class="language-js">const runner = rect.animate(1000)
 
-runner.element() // returns or sets the element the runner is bound to
-runner.timeline() // returns or sets the timeline the runner will be / is scheduled on
-runner.animate() // for animation chaining. See element.animate()
-runner.schedule(timeline, delay, when) // schedules the runner on the timeline. Timeline can be skipped if already set
-runner.unschedule() // removes the runner from the timeline
-runner.loop(times, swing, wait) // loops the animation by `times` times with `wait` milliseconds time between each loop
-runner.queue(runOnceFn, runOnEveryStepFn) // Lets you chain functions which are not neccecarily animations
-runner.during(fn) // Lets you bind a function to every animation step
-runner.after(fn) // Lets you bind a function which is executed after the animation is finished
-runner.time() // returns or sets the runner time
-runner.duration() // returns the duration the runner will run
-runner.loops() // Lets you jump to a specific iteration of the runner e.g. 3.5 for 4th loop half way through
-runner.persist() // Make this runner persist on the timeline forever (true) or for a specific time. Usually a runner is deleted after execution to clean up memory.
-runner.position() // returns or sets the current position of the runner ignoring the wait times (between 0 and 1)
-runner.progress() // returns or sets the current position of the runner including the wait times (between 0 and 1)
-runner.step(dt) // step the runner by a certain time (for manually stepping trough animations)
-runner.reset() // set the runner back to zero time and all animations with it
-runner.finish() // steps the runner to its finished state
-runner.reverse() // execute the runner backwards
-runner.ease() // change the easing of the animation
-runner.active() // returns or sets the active state of the runner. Inactive runners are not executed</code></pre>
-<p>Runners are usually created by calling animate. However, it is possible to create runners without an element and set the element later:</p>
-<pre><code class="language-js">var runner = new SVG.Runner(1000)
-runner.move(100, 100)
+runner.move(200, 100)
+runner.rotate(90)
+runner.fill({ color: '#f06', opacity: 0.5 })</code></pre>
+<p>The starting values are read when the runner first executes. This lets a queued animation begin from the state left by an earlier runner.</p>
+<h3 id='creating-a-runner-directly'>Creating a runner directly</h3>
+<p>Normally <code>element.animate()</code> creates, binds, and schedules the runner. For manual control you can construct one directly:</p>
+<pre><code class="language-js">const runner = new SVG.Runner(1000)
+  .element(rect)
+  .move(100, 100)
 
-runner.element(someElement)
+// Manual stepping does not require a timeline.
+runner.step(250)
 
-// Step animation by 20ms
-runner.step(20)
+// Automatic playback does.
+const timeline = new SVG.Timeline()
+runner.schedule(timeline)
+timeline.play()</code></pre>
+<h3 id='binding-and-scheduling'>Binding and scheduling</h3>
+<pre><code class="language-js">runner.element()              // get the bound element
+runner.element(rect)          // bind an element
+runner.timeline()             // get the bound timeline
+runner.timeline(timeline)     // bind a timeline
+runner.schedule(200, 'now')   // use the already-bound timeline
+runner.schedule(timeline, 200, 'now')
+runner.unschedule()</code></pre>
+<p>Calling <code>schedule()</code> without a bound or explicit timeline throws an error.</p>
+<h3 id='playback-position'>Playback position</h3>
+<p>The following methods are getters without an argument and fluent setters with an argument:</p>
+<pre><code class="language-js">runner.time()          // elapsed runner time in milliseconds
+runner.time(250)
 
-// To animate, we need a timeline on which the runner is run
-var timeline = new SVG.Timeline()
-timeline.schedule(runner)</code></pre>
+runner.position()      // current position within a loop, from 0 to 1
+runner.position(0.5)
+
+runner.progress()      // progress across all loops and waits, from 0 to 1
+runner.progress(0.5)
+
+runner.loops()         // completed loops, including a fractional current loop
+runner.loops(2.5)</code></pre>
+<p><code>position()</code> describes the current loop and accounts for swing and reverse direction. <code>progress()</code> describes the runner's complete duration, including every loop and wait period.</p>
+<p>Other playback methods are:</p>
+<pre><code class="language-js">runner.duration()       // total duration, including loops and waits
+runner.step(16)         // advance manually by 16 ms; negative values go backwards
+runner.reset()          // return to time 0
+runner.finish()         // apply the finished state
+runner.reverse()        // toggle direction
+runner.reverse(true)    // backwards
+runner.reverse(false)   // forwards
+runner.active(false)    // skip this runner while its timeline advances
+runner.active(true)</code></pre>
+<h3 id='looping'>Looping</h3>
+<pre><code class="language-js">runner.loop(times, swing, wait)</code></pre>
+<ul>
+<li><code>times</code> is the total number of iterations.</li>
+<li><code>swing</code> alternates direction on every iteration.</li>
+<li><code>wait</code> is the delay in milliseconds between iterations.</li>
+</ul>
+<pre><code class="language-js">rect.animate(500).move(100, 0).loop(4, true, 100)</code></pre>
+<p>Call <code>loop()</code> without arguments, or pass <code>true</code>, to loop forever:</p>
+<pre><code class="language-js">rect.animate(500).move(100, 0).loop(true, true)</code></pre>
+<h3 id='callbacks-and-events'>Callbacks and events</h3>
+<pre><code class="language-js">runner.during(function (position) {
+  // Called on every step. `this` is the runner.
+})
+
+runner.after(function (event) {
+  // Called when the runner reaches its finished state.
+})</code></pre>
+<p>Runners are event targets. They fire <code>start</code>, <code>step</code>, and <code>finished</code> events, so <code>on()</code> and <code>off()</code> can be used when the convenience methods are not enough:</p>
+<pre><code class="language-js">runner.on('start', function () {})
+runner.on('step', function () {})
+runner.on('finished', function () {})</code></pre>
+<p><code>queue(initialise, run)</code> is the low-level extension point behind animated methods. The initialiser runs when the runner starts; the run callback executes on every step. Prefer <code>during()</code> unless you need separate setup and step callbacks.</p>
+<h3 id='persistence'>Persistence</h3>
+<p>Completed runners are normally removed from their timeline to release references. Persistence keeps one available for seeking or reversing after it has finished:</p>
+<pre><code class="language-js">runner.persist()       // get the current setting
+runner.persist(1000)   // retain for 1000 ms after it ends
+runner.persist(true)   // retain indefinitely</code></pre>
+<p>Set persistence before scheduling the runner. A runner setting overrides the timeline's default persistence.</p>
+<h3 id='text-positioning-with-amove'>Text positioning with amove()</h3>
+<p><code>amove(x, y)</code> animates text using its anchor and baseline coordinates. Use <code>move(x, y)</code> when positioning by the visual bounding box instead.</p>
+<pre><code class="language-js">text.animate(500).amove(100, 50)</code></pre>
 <h2 id='easing'>Easing</h2>
-<p>The easing of the animation can be changed with the <code>ease()</code> method of the runner.</p>
-<p>All available ease types are:</p>
+<p>The default easing is ease-out (<code>&gt;</code>). Change it with <code>runner.ease()</code>:</p>
+<pre><code class="language-js">rect.animate(1000).ease('&lt;&gt;').move(200, 0)</code></pre>
+<p>The built-in string values are:</p>
 <ul>
 <li><code>&lt;&gt;</code>: ease in and out</li>
 <li><code>&gt;</code>: ease out</li>
 <li><code>&lt;</code>: ease in</li>
 <li><code>-</code>: linear</li>
-<li>a function</li>
-<li><code>beziere(x1, y1, x2, y2)</code></li>
-<li><code>step(steps, stepPosition)</code></li>
 </ul>
-<p>The <code>beziere()</code> and <code>step()</code> methods creates an easing function for you, which then can be passed to <code>ease()</code></p>
-<pre><code class="language-js">var runner = new SVG.Runner({duration: 1000})
+<p>You can also pass a function, or create one with <code>SVG.easing.bezier()</code> or <code>SVG.easing.steps()</code>:</p>
+<pre><code class="language-js">runner.ease(function (position) {
+  return position * position
+})
 
-// use a string
-runner.ease('&lt;&gt;')
-
-// or pass a function
-runner.ease(SVG.easing.beziere(x1, y1, x2, y2))
-runner.ease(SVG.easing.step(5, 'jump-end'))</code></pre>
-<p>For more easing equations, have a look at the <a href="https://github.com/svgdotjs/svg.easing.js" rel="noopener noreferrer" target="_blank">svg.easing.js</a> plugin.</p>
-<h2 id='svg-timeline'>SVG.Timeline</h2>
-<p>The SVG.Timeline drives the runner to animate elements. Runner can be scheduled on the same timeline to orchestrate a bigger animation.</p>
-<h3 id='finish'>finish()</h3>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>This method finishes the whole timeline. All values are set to their corresponding end values and every animation gets fullfilled</p>
-<pre><code class="language-javascript">rect.animate().move(200, 200).animate().dmove(50,50).size(300,400)
-
-rect.timeline().finish() // rect at 250,250 with size 300,400</code></pre>
-<h3 id='pause'>pause()</h3>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Pauses the timeline:</p>
-<pre><code class="language-javascript">rect.animate().move(200, 200)
-
-rect.mouseover(function() { this.timeline().pause() })</code></pre>
-<h3 id='play'>play()</h3>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Unpauses the timeline:</p>
-<pre><code class="language-javascript">rect.animate().move(200, 200)
-
-rect.mouseover(function() { this.timeline().pause() })
-rect.mouseout(function() { this.timeline().play() })</code></pre>
-<h3 id='reverse'>reverse()</h3>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Play the timeline in reverse basically going back in time:</p>
-<pre><code class="language-javascript">// will run from 100,100 to rects initial position
-rect.animate(3000).move(100, 100)
-rect.timeline().reverse()
-
-// sets direction to backwards
-rect.timeline().reverse(true)
-
-// sets direction to forwards
-rect.timeline().reverse(false)</code></pre>
-<h3 id='stop'>stop()</h3>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Stops the timeline and sets the time back to zero</p>
-<pre><code class="language-javascript">rect.animate().move(200, 200)
-
-rect.timeline().stop()</code></pre>
-<h3 id='speed'>speed()</h3>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Changes the speed of the timeline. Negative speeds will reverse the timeline.</p>
-<pre><code class="language-javascript">rect.animate().move(200, 200)
-
-rect.timeline().speed(2)</code></pre>
-<h3 id='time'>time()</h3>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Set the current time of the timeline</p>
-<pre><code class="language-javascript">rect.animate().move(200, 200)
-
-rect.timeline().time(100)</code></pre>
-<h3 id='seek'>seek()</h3>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Seek the time by a delta</p>
-<pre><code class="language-javascript">rect.animate().move(200, 200)
-
-rect.timeline().seek(100)</code></pre>
-<h3 id='persist'>persist()</h3>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Sets how runners are handled by default after they executed. Usually runners are deleted to clear up memory</p>
-<pre><code class="language-javascript">rect.animate().move(200, 200)
-
-rect.timeline().persist(100) // persist runner for 100ms more than their end time
-rect.timeline().persist(true) // never delete runners</code></pre>
-<h3 id='source'>source()</h3>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Change the timesource for the timeline</p>
-<pre><code class="language-javascript">rect.animate().move(200, 200)
-
-rect.timeline().source(fn)</code></pre>
-<h3 id='schedule'>schedule()</h3>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Schedules a runner on the timeline</p>
-<pre><code class="language-javascript">var timeline = new SVG.Timeline()
-var runner = new SVG.Runner()
-runner.move(100, 100)
-timeline.schedule(runner, 100, 'now') // runner, delay, when - see animate()</code></pre>
-<h3 id='unschedule'>unschedule()</h3>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>Unschedule/removes a runner from the timeline</p>
-<pre><code class="language-javascript">var timeline = new SVG.Timeline()
-var runner = new SVG.Runner()
-runner.move(100, 100)
-timeline.schedule(runner, 100, 'now')
-timeline.unschedule(runner) // same as runner.unschedule()</code></pre>
+runner.ease(SVG.easing.bezier(0.42, 0, 0.58, 1))
+runner.ease(SVG.easing.steps(5, 'jump-end'))</code></pre>
+<p>For more easing equations, see the <a href="https://github.com/svgdotjs/svg.easing.js" rel="noopener noreferrer" target="_blank">svg.easing.js</a> plugin.</p>
 <h2 id='controllers'>Controllers</h2>
-<p>Instead of using an easing function, it is possible to control animations using a controller. SVG.js comes with two buildin controllers. <code>SVG.Spring</code> and <code>SVG.PID</code>.</p>
-<pre><code class="language-js">element.animate(new SVG.Spring(settleTime)).move(200, 200)
-element.animate(new SVG.PID(p, i, d)).move(200, 200)</code></pre>
-<p>As you might notice, the controller is specified instead of the duration because only the controller itself knows when the animation is finished.<br />
-Thats why it is not possible to orchestrate or reverse animations with controllers.</p>
-<h2 id='orchestrate-animations'>Orchestrate Animations</h2>
-<p>To create a bigger animation with many elements which are all bound to the same timeline, you can use <code>SVG.Timeline</code> and <code>SVG.Runner</code> together:</p>
-<pre><code class="language-js">var timeline = new SVG.Timeline()
+<p>An easing function maps a known duration to a position. A controller instead computes the next value from the elapsed time and decides when it has converged. SVG.js includes <code>SVG.Spring</code> and <code>SVG.PID</code>.</p>
+<pre><code class="language-js">const spring = new SVG.Spring(500, 10) // settle time, overshoot percentage
+rect.animate(spring).move(200, 200)
 
-var rect1 = draw.rect(100, 200)
-var rect2 = draw.rect(200, 100)
+const pid = new SVG.PID(0.1, 0.01, 0) // proportional, integral, derivative
+circle.animate(pid).move(300, 200)</code></pre>
+<p>Controller parameters can be read or changed:</p>
+<pre><code class="language-js">spring.duration(700).overshoot(5)
+pid.p(0.2).i(0.01).d(0.001).windup(500)</code></pre>
+<p>Because a controller determines its own completion time, controller-based runners cannot be reliably placed in duration-based sequences or played in reverse. They are especially useful for interactive animation because an existing target can be changed while the runner is active:</p>
+<pre><code class="language-js">const follow = rect.animate(new SVG.Spring()).move(100, 100)
 
-rect1.timeline(timeline)
-rect2.timeline(timeline)
+draw.on('pointermove', function (event) {
+  const point = this.point(event.clientX, event.clientY)
+  follow.move(point.x, point.y)
+})</code></pre>
+<h2 id='svg-timeline'>SVG.Timeline</h2>
+<p>A timeline supplies time to runners and controls them as a group. Every element creates a timeline lazily when <code>element.timeline()</code> or <code>element.animate()</code> is first called.</p>
+<pre><code class="language-js">const timeline = rect.timeline()       // get or create the element's timeline
+rect.timeline(sharedTimeline)          // assign another timeline</code></pre>
+<h3 id='playback-controls'>Playback controls</h3>
+<pre><code class="language-js">timeline.play()          // continue from the current time
+timeline.pause()         // pause at the current time
+timeline.stop()          // seek to 0 and pause
+timeline.finish()        // apply all end values and pause
+timeline.active()        // true while a frame is scheduled</code></pre>
+<h3 id='time-seeking-speed-and-direction'>Time, seeking, speed, and direction</h3>
+<p><code>time()</code> uses an absolute timeline time. <code>seek()</code> moves by a relative amount:</p>
+<pre><code class="language-js">timeline.time()          // get the current time in milliseconds
+timeline.time(1000)      // go to absolute time 1000
+timeline.seek(250)       // move forward by 250 ms
+timeline.seek(-100)      // move backward by 100 ms</code></pre>
+<p>Changing speed affects all scheduled runners:</p>
+<pre><code class="language-js">timeline.speed()         // get the speed multiplier
+timeline.speed(2)        // twice as fast
+timeline.speed(0.5)      // half speed
+timeline.speed(-1)       // backwards at normal speed</code></pre>
+<p><code>reverse()</code> toggles the sign of the current speed. Passing a boolean sets the direction explicitly:</p>
+<pre><code class="language-js">rect.animate(3000).move(100, 100)
 
-rect1.animate(300, 0, 'absolute').move(300, 300) // start at time 0 of timeline
-rect2.animate(400, 200, 'absolute').move(500, 500) // start at time 200 of timeline</code></pre>    </section>
+// Seek to the end before starting backwards from the final state.
+rect.timeline().seek(3000).reverse()
+
+timeline.reverse(true)   // backwards
+timeline.reverse(false)  // forwards</code></pre>
+<h3 id='scheduling-and-inspection'>Scheduling and inspection</h3>
+<pre><code class="language-js">timeline.schedule(runner, delay, when)
+timeline.unschedule(runner)</code></pre>
+<p>The scheduling values are the same as for <code>animate()</code>. Calling <code>schedule()</code> without a runner returns a snapshot of the schedule:</p>
+<pre><code class="language-js">for (const item of timeline.schedule()) {
+  console.log(item.start, item.duration, item.end, item.runner)
+}</code></pre>
+<p><code>getEndTime()</code> returns the end time of the runner that was scheduled most recently. This is the point used when scheduling the next <code>after</code> runner; it is not necessarily the latest end time among every runner on the timeline.</p>
+<pre><code class="language-js">const nextStart = timeline.getEndTime()</code></pre>
+<h3 id='persistence-and-cleanup'>Persistence and cleanup</h3>
+<p>Timeline persistence is the default used by runners that do not set their own value:</p>
+<pre><code class="language-js">timeline.persist()       // get the current default
+timeline.persist(1000)   // retain completed runners for another 1000 ms
+timeline.persist(true)   // retain completed runners indefinitely</code></pre>
+<p><code>terminate()</code> stops frame scheduling, removes every runner, resets time, speed, persistence, and direction, and releases the references held by the timeline. Use it when the entire animation group is no longer needed:</p>
+<pre><code class="language-js">timeline.terminate()</code></pre>
+<p>Unlike <code>stop()</code>, termination removes the schedule rather than merely rewinding it.</p>
+<h3 id='custom-time-source'>Custom time source</h3>
+<p>A timeline normally reads <code>performance.now()</code>. Pass a function to the constructor or use <code>source()</code> to provide another millisecond clock:</p>
+<pre><code class="language-js">let clock = 0
+const timeline = new SVG.Timeline(() =&gt; clock)
+
+timeline.source()             // get the current time-source function
+timeline.source(() =&gt; clock)  // replace it
+timeline.play()
+
+clock += 16</code></pre>
+<p>Custom clocks are an advanced feature. The source must be monotonic and return milliseconds.</p>
+<h2 id='orchestrating-animations'>Orchestrating animations</h2>
+<p>Assign one timeline to several elements to control them together:</p>
+<pre><code class="language-js">const timeline = new SVG.Timeline()
+const rect = draw.rect(100, 100).timeline(timeline)
+const circle = draw.circle(100).timeline(timeline)
+
+rect.animate(600, 0, 'absolute').move(300, 100)
+circle.animate(400, 200, 'absolute').move(300, 250)
+
+timeline.play()</code></pre>
+<p>Here the rectangle starts at timeline time <code>0</code>; the circle starts at <code>200</code>. Pausing, seeking, changing speed, or reversing the shared timeline affects both runners.</p>
+<p>For relative sequences, keep the timeline shared and use the scheduling modes instead of calculating every start time:</p>
+<pre><code class="language-js">rect.animate(500).move(100, 0)
+circle.animate(500, 0, 'with-last').move(100, 0)
+rect.animate(300, 0, 'after').fill('#f06')</code></pre>    </section>
 
   </div><!-- /.wrap content -->
   
 
 <footer role="contentinfo">
   <div class="wrap">
-    <p><a href="http://svgdotjs.github.io/">SVG.js</a> © 2012-2025 <a href="https://github.com/wout/" rel="noopener noreferrer" target="_blank">Wout Fierens</a> -  SVG.js is released under the terms of the MIT license.</p>  </div><!--/.wrap -->
+    <p><a href="http://svgdotjs.github.io/">SVG.js</a> © 2012-2026 <a href="https://github.com/wout/" rel="noopener noreferrer" target="_blank">Wout Fierens</a> -  SVG.js is released under the terms of the MIT license.</p>  </div><!--/.wrap -->
 </footer>
 
 <a class="github-fork-ribbon" href="https://github.com/svgdotjs/svg.js" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>

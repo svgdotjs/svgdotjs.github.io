@@ -903,6 +903,49 @@
                 
         
       </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-node-js">+</button>
+        
+                                  <a href="/docs/3.2/node-js">Node.js</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-node-js" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.2/node-js/#setup">Setup</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/node-js/#svg-registerwindow">SVG.registerWindow()</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/node-js/#svg-getwindow">SVG.getWindow()</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/node-js/#svg-withwindow">SVG.withWindow()</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
           </ul>
   </nav>
 </aside>
@@ -1095,6 +1138,13 @@ line.plot(array)</code></pre>
 <p><code>returns</code> <strong><code>SVG.TextPath</code></strong></p>
 <p>Creating a text element with a textpath linked to the current path can be done with the <code>text()</code> method:</p>
 <pre><code class="language-javascript">var textpath = path.text('SVG.js rocks!')</code></pre>
+<h2 id='path-targets'><span class="subject">path.</span>targets()</h2>
+<p><code>returns</code> <strong><code>SVG.List</code></strong></p>
+<p>Returns all text-path elements in the same document or fragment that reference this path:</p>
+<pre><code class="language-js">const labels = path.targets()
+labels.each(function (textPath) {
+  textPath.attr('startOffset', '50%')
+})</code></pre>
 <p><br></p>
 <h1 id='svg-text'>SVG.Text</h1>
 <h2 id='text-constructor'>text() <span class="suffix">constructor</span></h2>
@@ -1299,7 +1349,7 @@ text.rebuild(true)  //-&gt; enables rebuilding and instantaneously rebuilds the 
 <pre><code class="language-javascript">tspan.length()</code></pre>
 <h2 id='tspan-newline'><span class="subject">tspan.</span>newLine()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
-<p>The <code>newLine()</code> is a convenience method for adding a new line with a <code>dy</code> attribute using the current &quot;leading&quot;:</p>
+<p>The <code>newLine()</code> method marks the current tspan as the beginning of a new line. It positions that tspan with an <code>x</code> and <code>dy</code> based on the parent text element and its current <code>leading</code>. It does not insert a newline after the tspan:</p>
 <pre><code class="language-javascript">var text = draw.text(function(add) {
   add.tspan('Lorem ipsum dolor sit amet ').newLine()
   add.tspan('consectetur').fill('#f06')
@@ -1369,7 +1419,7 @@ This can be done as always with <code>on</code>:</p>
 <iframe width="100%" height="205" src="//jsfiddle.net/Fuzzy/1csekyfr/embedded/result,js/?accentColor=f06" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Gradients" rel="noopener noreferrer" target="_blank">MDN</a> has a great example page on how SVG Gradients work.</p>
 <h2 id='gradient-stop'><span class="subject">gradient.</span>stop()</h2>
-<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p><code>returns</code> <strong><code>SVG.Stop</code></strong></p>
 <p>The <code>offset</code> and <code>color</code> parameters are required for stops, <code>opacity</code> is optional. The offset is a float between <code>0</code> and <code>1</code>, or a percentage value (e.g. <code>33%</code>).</p>
 <pre><code class="language-javascript">gradient.stop(0, '#333')</code></pre>
 <p>or</p>
@@ -1423,9 +1473,14 @@ draw.gradient('radial', function(add) {
 })
 
 s1.update(0.1, '#0f0', 1)</code></pre>
+<h2 id='gradient-targets'><span class="subject">gradient.</span>targets()</h2>
+<p><code>returns</code> <strong><code>SVG.List</code></strong></p>
+<p>Returns the elements in the same document or fragment whose <code>fill</code> references this gradient:</p>
+<pre><code class="language-js">const paintedElements = gradient.targets()</code></pre>
+<p>The list is calculated from the current DOM whenever <code>targets()</code> is called.</p>
 <p><br></p>
 <h1 id='svg-stop'>SVG.Stop</h1>
-<h2 id='at-constructor'>at() <span class="suffix">constructor</span></h2>
+<h2 id='stop-constructor'>stop() <span class="suffix">constructor</span></h2>
 <p><code>constructor on</code> <strong><code>SVG.Gradient</code></strong><br />
 <code>returns</code> <strong><code>SVG.Stop</code></strong> <code>which inherits from</code> <strong><code>SVG.Element</code></strong></p>
 <p>The stop elements are only available inside gradient elements.</p>
@@ -1464,6 +1519,10 @@ s1.update(0.1, '#0f0', 1)</code></pre>
 <pre><code class="language-javascript">pattern.update(function(add) {
   add.circle(15).center(10,10)
 })</code></pre>
+<h2 id='pattern-targets'><span class="subject">pattern.</span>targets()</h2>
+<p><code>returns</code> <strong><code>SVG.List</code></strong></p>
+<p>Returns the elements in the same document or fragment whose <code>fill</code> references this pattern:</p>
+<pre><code class="language-js">const paintedElements = pattern.targets()</code></pre>
 <p><br></p>
 <h1 id='svg-mask'>SVG.Mask</h1>
 <h2 id='mask-constructor'>mask() <span class="suffix">constructor</span></h2>
@@ -1503,6 +1562,10 @@ rect.maskWith(ellipse)</code></pre>
 <p>Unmasking the elements can be done with the <code>unmask()</code> method:</p>
 <pre><code class="language-javascript">rect.unmask()</code></pre>
 <p>The <code>unmask()</code> method returns the masking element.</p>
+<h2 id='mask-targets'><span class="subject">mask.</span>targets()</h2>
+<p><code>returns</code> <strong><code>SVG.List</code></strong></p>
+<p>Returns all elements in the same document or fragment that currently use this mask:</p>
+<pre><code class="language-js">const maskedElements = mask.targets()</code></pre>
 <h2 id='mask-remove'><span class="subject">mask.</span>remove()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Removing the mask altogether will also <code>unmask()</code> all masked elements as well:</p>
@@ -1534,6 +1597,10 @@ rect.clipWith(ellipse)</code></pre>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Unclipping the elements can be done with the <code>unclip()</code> method:</p>
 <pre><code class="language-javascript">rect.unclip()</code></pre>
+<h2 id='clippath-targets'><span class="subject">clipPath.</span>targets()</h2>
+<p><code>returns</code> <strong><code>SVG.List</code></strong></p>
+<p>Returns all elements in the same document or fragment that currently use this clipping path:</p>
+<pre><code class="language-js">const clippedElements = clip.targets()</code></pre>
 <h2 id='clippath-remove'><span class="subject">clipPath.</span>remove()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>Removing the clip alltogether will also <code>unclip()</code> all clipped elements as well:</p>
@@ -1655,7 +1722,7 @@ foreignObject.add(SVG('&lt;input type="text"&gt;', true))</code></pre>    </sect
 
 <footer role="contentinfo">
   <div class="wrap">
-    <p><a href="http://svgdotjs.github.io/">SVG.js</a> © 2012-2025 <a href="https://github.com/wout/" rel="noopener noreferrer" target="_blank">Wout Fierens</a> -  SVG.js is released under the terms of the MIT license.</p>  </div><!--/.wrap -->
+    <p><a href="http://svgdotjs.github.io/">SVG.js</a> © 2012-2026 <a href="https://github.com/wout/" rel="noopener noreferrer" target="_blank">Wout Fierens</a> -  SVG.js is released under the terms of the MIT license.</p>  </div><!--/.wrap -->
 </footer>
 
 <a class="github-fork-ribbon" href="https://github.com/svgdotjs/svg.js" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>

@@ -903,6 +903,49 @@
                 
         
       </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-node-js">+</button>
+        
+                                  <a href="/docs/3.2/node-js">Node.js</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-node-js" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.2/node-js/#setup">Setup</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/node-js/#svg-registerwindow">SVG.registerWindow()</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/node-js/#svg-getwindow">SVG.getWindow()</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/node-js/#svg-withwindow">SVG.withWindow()</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
           </ul>
   </nav>
 </aside>
@@ -937,7 +980,7 @@ var rect = nested.rect(200, 200)</code></pre>
 <p><br></p>
 <h1 id='svg-g'>SVG.G</h1>
 <p>Grouping elements can be useful if you want to transform a set of elements as if it were one. All element within a group, maintain their position relative to the group they belong to.</p>
-<p><strong>Note:</strong> Groups do not have a geometry of their own, it's inherited from their content. Therefore groups do not listen to <code>x</code>, <code>y</code>, <code>width</code> and <code>height</code> attributes. If that is what you are looking for, use a <code>nested()</code> svg instead.</p>
+<p><strong>Note:</strong> Groups do not have geometry of their own; it is inherited from their content. Therefore groups do not listen to <code>x</code>, <code>y</code>, <code>width</code>, or <code>height</code> attributes. To reposition a group, prefer a transform such as <code>group.translate(x, y)</code> instead of <code>move()</code>, <code>x()</code>, or <code>y()</code>, which reposition the group's children. If you need a container with its own geometry, use a <code>nested()</code> SVG instead.</p>
 <h2 id='group-constructor'>group() <span class="suffix">constructor</span></h2>
 <p><code>constructor on</code> <strong><code>SVG.Container</code></strong><br />
 <code>returns</code> <strong><code>SVG.G</code></strong> <code>which inherits from</code> <strong><code>SVG.Container</code></strong></p>
@@ -1016,7 +1059,7 @@ frag.svg() // &lt;rect ... /&gt;&lt;circle ... /&gt;</code></pre>    </section>
 
 <footer role="contentinfo">
   <div class="wrap">
-    <p><a href="http://svgdotjs.github.io/">SVG.js</a> © 2012-2025 <a href="https://github.com/wout/" rel="noopener noreferrer" target="_blank">Wout Fierens</a> -  SVG.js is released under the terms of the MIT license.</p>  </div><!--/.wrap -->
+    <p><a href="http://svgdotjs.github.io/">SVG.js</a> © 2012-2026 <a href="https://github.com/wout/" rel="noopener noreferrer" target="_blank">Wout Fierens</a> -  SVG.js is released under the terms of the MIT license.</p>  </div><!--/.wrap -->
 </footer>
 
 <a class="github-fork-ribbon" href="https://github.com/svgdotjs/svg.js" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>

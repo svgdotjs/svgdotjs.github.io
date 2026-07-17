@@ -20,7 +20,7 @@ We could implement this functionality ourselves to avoid the creation of this li
 
 ## Can SVG.js run on Node.js?
 
-Yes, you can! Have a look at (link: https://github.com/svgdotjs/svgdom text: github.com/svgdotjs/svgdom target: _blank).
+Yes, you can! See the (link: /node-js text: Node.js) section for the SVG.js setup and the (link: https://github.com/svgdotjs/svgdom text: svgdom repository target: _blank) for the DOM implementation.
 
 ## How can I modify an element that already exists in the dom?
 

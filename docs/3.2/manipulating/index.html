@@ -903,6 +903,49 @@
                 
         
       </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-node-js">+</button>
+        
+                                  <a href="/docs/3.2/node-js">Node.js</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-node-js" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.2/node-js/#setup">Setup</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/node-js/#svg-registerwindow">SVG.registerWindow()</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/node-js/#svg-getwindow">SVG.getWindow()</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/node-js/#svg-withwindow">SVG.withWindow()</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
           </ul>
   </nav>
 </aside>
@@ -1049,7 +1092,18 @@ rect.radius(5)</code></pre>
 <h2 id='stroke'>stroke()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong></p>
 <p>The <code>stroke()</code> method is similar to <code>fill()</code>:</p>
-<pre><code class="language-javascript">rect.stroke({ color: '#f06', opacity: 0.6, width: 5 })</code></pre>
+<pre><code class="language-javascript">rect.stroke({
+  color: '#f06',
+  opacity: 0.6,
+  width: 5,
+  linecap: 'round',
+  linejoin: 'round',
+  miterlimit: 4,
+  dasharray: '10,5',
+  dashoffset: 2
+})</code></pre>
+<p>The object keys map to SVG stroke attributes. For example, <code>linecap</code> sets<br />
+<code>stroke-linecap</code> and <code>dasharray</code> sets <code>stroke-dasharray</code>.</p>
 <p>Like fill, a single hex string will work as well:</p>
 <pre><code class="language-javascript">rect.stroke('#f06')</code></pre>
 <p>Not unlike the <code>fill()</code> method, you can also use an image as stroke, simply by passing an image url:</p>
@@ -1125,6 +1179,31 @@ element.transform({ rotation: 125 }, someMatrix)</code></pre>
 </ul>
 <p>Additionally a string value for the required property can be passed:</p>
 <pre><code class="language-javascript">element.transform('rotate')</code></pre>
+<h2 id='matrixify'>matrixify()</h2>
+<p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
+<p>Combines the transformations in the element's own <code>transform</code> attribute into one matrix. Parent transformations are not included and the element is not changed:</p>
+<pre><code class="language-js">element.attr('transform', 'translate(20 30) rotate(45)')
+
+const localMatrix = element.matrixify()</code></pre>
+<p>Use <code>ctm()</code> or <code>screenCTM()</code> when you need transformations inherited from ancestors.</p>
+<h2 id='ctm'>ctm()</h2>
+<p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
+<p>Returns the element's current transformation matrix in its SVG viewport coordinate system. This wraps the browser's native <code>getCTM()</code> result in <code>SVG.Matrix</code>:</p>
+<pre><code class="language-js">const matrix = element.ctm()
+const pointInViewport = new SVG.Point(0, 0).transform(matrix)</code></pre>
+<h2 id='screenctm'>screenCTM()</h2>
+<p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
+<p>Returns the matrix from the element's local coordinates to screen coordinates. This includes transformations from SVG ancestors:</p>
+<pre><code class="language-js">const screenMatrix = element.screenCTM()
+const screenPoint = new SVG.Point(0, 0).transform(screenMatrix)</code></pre>
+<p>For the inverse conversion, use <code>screenCTM().inverse()</code> or the element's <code>point()</code> helper:</p>
+<pre><code class="language-js">const localPoint = element.point(event.clientX, event.clientY)</code></pre>
+<p>The element must be rendered for the browser to provide a meaningful screen matrix. If the browser cannot calculate one, SVG.js logs a warning and returns an identity matrix.</p>
+<h2 id='untransform'>untransform()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong></p>
+<p>Removes the element's <code>transform</code> attribute:</p>
+<pre><code class="language-js">element.untransform()</code></pre>
+<p>This does not rewrite the element's geometry to preserve its visual position. Use <code>toParent()</code> when moving an element between parents without changing its visual appearance.</p>
 <h2 id='flip'>flip()</h2>
 <p><code>returns</code><strong> <code>itself</code></strong><br><code>animate</code><strong> <code>yes</code></strong></p>
 <p>Flips element over a given axis:</p>
@@ -1487,7 +1566,7 @@ drawing.zoom(10, {x: 20, y: 20})</code></pre>
 
 <footer role="contentinfo">
   <div class="wrap">
-    <p><a href="http://svgdotjs.github.io/">SVG.js</a> © 2012-2025 <a href="https://github.com/wout/" rel="noopener noreferrer" target="_blank">Wout Fierens</a> -  SVG.js is released under the terms of the MIT license.</p>  </div><!--/.wrap -->
+    <p><a href="http://svgdotjs.github.io/">SVG.js</a> © 2012-2026 <a href="https://github.com/wout/" rel="noopener noreferrer" target="_blank">Wout Fierens</a> -  SVG.js is released under the terms of the MIT license.</p>  </div><!--/.wrap -->
 </footer>
 
 <a class="github-fork-ribbon" href="https://github.com/svgdotjs/svg.js" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>

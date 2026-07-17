@@ -903,6 +903,49 @@
                 
         
       </li>
+            <li class="group">
+
+                          <button class="expand-subnav" aria-expanded="false" aria-controls="nav-collapsible-node-js">+</button>
+        
+                                  <a href="/docs/3.2/node-js">Node.js</a>
+
+                        <ul class="submenu nav-children" id="nav-collapsible-node-js" aria-hidden="true">
+        
+                            <li class="">
+
+                        
+                                                  <a href="/docs/3.2/node-js/#setup">Setup</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/node-js/#svg-registerwindow">SVG.registerWindow()</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/node-js/#svg-getwindow">SVG.getWindow()</a>
+
+                        
+            
+          </li>
+                    <li class="">
+
+                        
+                                                  <a href="/docs/3.2/node-js/#svg-withwindow">SVG.withWindow()</a>
+
+                        
+            
+          </li>
+                  </ul>
+        
+      </li>
           </ul>
   </nav>
 </aside>
@@ -917,7 +960,12 @@
 })</code></pre>
 <p>Removing it is quite as easy:</p>
 <pre><code class="language-javascript">element.click(null)</code></pre>
-<p>All available other events are: <code>click</code>, <code>dblclick</code>, <code>mousedown</code>, <code>mouseup</code>, <code>mouseover</code>, <code>mouseout</code>, <code>mousemove</code>, <code>touchstart</code>, <code>touchmove</code>, <code>touchleave</code>, <code>touchend</code> and <code>touchcancel</code>...</p>
+<p>The available event sugar methods are <code>click</code>, <code>dblclick</code>, <code>mousedown</code>, <code>mouseup</code>, <code>mouseover</code>, <code>mouseout</code>, <code>mousemove</code>, <code>mouseenter</code>, <code>mouseleave</code>, <code>touchstart</code>, <code>touchmove</code>, <code>touchleave</code>, <code>touchend</code>, <code>touchcancel</code>, <code>contextmenu</code>, <code>wheel</code>, <code>pointerdown</code>, <code>pointermove</code>, <code>pointerup</code>, <code>pointerleave</code>, and <code>pointercancel</code>.</p>
+<p>Pointer and mouse events provide coordinates in the browser's screen coordinate system. Use <code>point()</code> to convert them into the local coordinate system of an SVG.js element, including all transforms applied to the element and its ancestors:</p>
+<pre><code class="language-javascript">element.pointerdown(function(event) {
+  var point = this.point(event.clientX, event.clientY)
+  console.log(point.x, point.y)
+})</code></pre>
 <p><br></p>
 <h1 id='event-listeners'>Event listeners</h1>
 <h2 id='element-fire'><span class="subject">element.</span>fire()</h2>
@@ -1014,7 +1062,7 @@ element.off('myevent')</code></pre>
 
 <footer role="contentinfo">
   <div class="wrap">
-    <p><a href="http://svgdotjs.github.io/">SVG.js</a> © 2012-2025 <a href="https://github.com/wout/" rel="noopener noreferrer" target="_blank">Wout Fierens</a> -  SVG.js is released under the terms of the MIT license.</p>  </div><!--/.wrap -->
+    <p><a href="http://svgdotjs.github.io/">SVG.js</a> © 2012-2026 <a href="https://github.com/wout/" rel="noopener noreferrer" target="_blank">Wout Fierens</a> -  SVG.js is released under the terms of the MIT license.</p>  </div><!--/.wrap -->
 </footer>
 
 <a class="github-fork-ribbon" href="https://github.com/svgdotjs/svg.js" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
