@@ -225,6 +225,20 @@ runner.on('step', function () {})
 runner.on('finished', function () {})
 ```
 
+`start` and `finished` describe forward progress across the runner's boundaries. `start` fires when playback moves forward across the start, and `finished` fires when it moves forward across the end. Reversing across either boundary still produces `step` updates, but does not fire a mirrored `start` or `finished` event.
+
+For a non-animating side effect that must also reverse correctly, derive its state from the position supplied to `during()` (or to a queued run callback):
+
+```js
+runner.during(function (position) {
+  const state = position === 0 ? 'before'
+    : position === 1 ? 'after'
+    : 'active'
+
+  rect.attr('data-animation-state', state)
+})
+```
+
 `queue(initialise, run)` is the low-level extension point behind animated methods. The initialiser runs when the runner starts; the run callback executes on every step. Prefer `during()` unless you need separate setup and step callbacks.
 
 ### Persistence
