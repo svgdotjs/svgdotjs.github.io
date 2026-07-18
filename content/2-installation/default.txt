@@ -27,6 +27,14 @@ The latest release can be found **(link: https://github.com/svgdotjs/svg.js/rele
 
 For the best developing experience make sure the source map is in the same folder as the library.
 
+## Offline documentation
+
+Prebuilt copies of every published documentation version are available from the website repository. They do not require npm, PHP, or a local build:
+
+1. **(link: https://github.com/svgdotjs/svgdotjs.github.io/archive/refs/heads/master.zip text: Download the prebuilt documentation archive)** and extract it.
+2. From the extracted directory, run `python3 -m http.server 8040`.
+3. Open `http://localhost:8040/docs/3.2/` in your browser. Replace `3.2` with another included version when needed.
+
 ----
 
 Description: The various installation methods to get started with SVG.js, whether you prefer package managers, a CDN or  simply including the JavaScript source in your HTML.
