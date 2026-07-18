@@ -26,10 +26,10 @@ Create a basic Html markup and include the svg.js script:
 Or just import svg.js in your javascript application:
 
 ```js
-import { SVG } from '@svgdotjs/svg.js'
+import { SVG, Color, Matrix } from '@svgdotjs/svg.js'
 ```
 
-**Note: All properties that were former available on the global SVG object need to be imported now**
+When using modules in SVG.js v3 or later, import every class and helper you use individually. Exports such as `Color` and `Matrix` are not properties of the imported `SVG` function, unlike the global `SVG` object provided by the browser bundle.
 
 ## Create an SVG document
 

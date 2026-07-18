@@ -1326,6 +1326,19 @@ Clipping elements works exactly the same as masking elements. The only differenc
 `constructor on` __`SVG.Container`__
 `returns` __`SVG.ClipPath`__ ` which inherits from ` __`SVG.Container`__
 
+`draw.clip()` creates the clipping path in the document's `<defs>` automatically. Constructing a clipping path directly creates a detached element instead. Add it to the intended `<defs>` before using it as a reference:
+
+```javascript
+import { ClipPath } from '@svgdotjs/svg.js'
+
+var clip = new ClipPath()
+draw.defs().add(clip)
+clip.add(draw.circle(80))
+rect.clipWith(clip)
+```
+
+With the browser bundle, the direct constructor is available as `new SVG.ClipPath()`.
+
 Clip with multiple elements:
 
 ```javascript
