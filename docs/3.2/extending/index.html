@@ -987,9 +987,9 @@
 <p><br></p>
 <h1 id='subclassing'>Subclassing</h1>
 <p>Creating your own custom elements with SVG.js is a piece of cake thanks to subclassing. For the sake of this example, lets &quot;invent&quot; a shape. We want a <code>rect</code> with rounded corners that are always proportional to the height of the element. The new shape lives in the <code>SVG</code> namespace and is called <code>Rounded</code>. Here is how we achieve that.</p>
-<pre><code class="language-javascript">SVG.Rounded = class extends SVG.Rect{
+<pre><code class="language-javascript">SVG.Rounded = class extends SVG.Rect {
   // Create method to proportionally scale the rounded corners
-  size: function(width, height) {
+  size(width, height) {
     return this.attr({
       width:  width
     , height: height
@@ -997,7 +997,7 @@
     , ry:     height / 5
     })
   }
-})
+}
 
 // Add a method to create a rounded rect
 SVG.extend(SVG.Container,  {
@@ -1005,7 +1005,7 @@ SVG.extend(SVG.Container,  {
   rounded: function(width, height) {
     return this.put(new SVG.Rounded).size(width, height)
   }
-}</code></pre>
+})</code></pre>
 <p>To create the element in your drawing:</p>
 <pre><code class="language-javascript">var rounded = draw.rounded(200, 100)</code></pre>
 <p>That's it, the invention is now ready to be used!</p>    </section>

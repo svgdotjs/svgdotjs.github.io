@@ -1580,6 +1580,14 @@ rect.maskWith(ellipse)</code></pre>
 <h2 id='clip-constructor'>clip() <span class="suffix">constructor</span></h2>
 <p><code>constructor on</code> <strong><code>SVG.Container</code></strong><br />
 <code>returns</code> <strong><code>SVG.ClipPath</code></strong> <code>which inherits from</code> <strong><code>SVG.Container</code></strong></p>
+<p><code>draw.clip()</code> creates the clipping path in the document's <code>&lt;defs&gt;</code> automatically. Constructing a clipping path directly creates a detached element instead. Add it to the intended <code>&lt;defs&gt;</code> before using it as a reference:</p>
+<pre><code class="language-javascript">import { ClipPath } from '@svgdotjs/svg.js'
+
+var clip = new ClipPath()
+draw.defs().add(clip)
+clip.add(draw.circle(80))
+rect.clipWith(clip)</code></pre>
+<p>With the browser bundle, the direct constructor is available as <code>new SVG.ClipPath()</code>.</p>
 <p>Clip with multiple elements:</p>
 <pre><code class="language-javascript">var ellipse = draw.ellipse(80, 40).move(10, 10)
 var text = draw.text('SVG.JS').move(10, 10).font({ size: 36 })

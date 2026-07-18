@@ -965,8 +965,8 @@
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <p>Or just import svg.js in your javascript application:</p>
-<pre><code class="language-js">import { SVG } from '@svgdotjs/svg.js'</code></pre>
-<p><strong>Note: All properties that were former available on the global SVG object need to be imported now</strong></p>
+<pre><code class="language-js">import { SVG, Color, Matrix } from '@svgdotjs/svg.js'</code></pre>
+<p>When using modules in SVG.js v3 or later, import every class and helper you use individually. Exports such as <code>Color</code> and <code>Matrix</code> are not properties of the imported <code>SVG</code> function, unlike the global <code>SVG</code> object provided by the browser bundle.</p>
 <h2 id='create-an-svg-document'>Create an SVG document</h2>
 <p>Next, use the <code>SVG()</code> function to create an SVG document and add it to the html page:</p>
 <pre><code class="language-javascript">var draw = SVG().addTo('body').size(300, 300)

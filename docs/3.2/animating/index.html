@@ -1112,6 +1112,15 @@ runner.after(function (event) {
 <pre><code class="language-js">runner.on('start', function () {})
 runner.on('step', function () {})
 runner.on('finished', function () {})</code></pre>
+<p><code>start</code> and <code>finished</code> describe forward progress across the runner's boundaries. <code>start</code> fires when playback moves forward across the start, and <code>finished</code> fires when it moves forward across the end. Reversing across either boundary still produces <code>step</code> updates, but does not fire a mirrored <code>start</code> or <code>finished</code> event.</p>
+<p>For a non-animating side effect that must also reverse correctly, derive its state from the position supplied to <code>during()</code> (or to a queued run callback):</p>
+<pre><code class="language-js">runner.during(function (position) {
+  const state = position === 0 ? 'before'
+    : position === 1 ? 'after'
+    : 'active'
+
+  rect.attr('data-animation-state', state)
+})</code></pre>
 <p><code>queue(initialise, run)</code> is the low-level extension point behind animated methods. The initialiser runs when the runner starts; the run callback executes on every step. Prefer <code>during()</code> unless you need separate setup and step callbacks.</p>
 <h3 id='persistence'>Persistence</h3>
 <p>Completed runners are normally removed from their timeline to release references. Persistence keeps one available for seeking or reversing after it has finished:</p>

@@ -62,9 +62,9 @@ SVG.extend([SVG.Ellipse, SVG.Path, SVG.Polygon], {
 Creating your own custom elements with SVG.js is a piece of cake thanks to subclassing. For the sake of this example, lets "invent" a shape. We want a `rect` with rounded corners that are always proportional to the height of the element. The new shape lives in the `SVG` namespace and is called `Rounded`. Here is how we achieve that.
 
 ```javascript
-SVG.Rounded = class extends SVG.Rect{
+SVG.Rounded = class extends SVG.Rect {
   // Create method to proportionally scale the rounded corners
-  size: function(width, height) {
+  size(width, height) {
     return this.attr({
       width:  width
     , height: height
@@ -72,7 +72,7 @@ SVG.Rounded = class extends SVG.Rect{
     , ry:     height / 5
     })
   }
-})
+}
 
 // Add a method to create a rounded rect
 SVG.extend(SVG.Container,  {
@@ -80,7 +80,7 @@ SVG.extend(SVG.Container,  {
   rounded: function(width, height) {
     return this.put(new SVG.Rounded).size(width, height)
   }
-}
+})
 ```
 
 To create the element in your drawing:
