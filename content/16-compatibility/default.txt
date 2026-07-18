@@ -11,6 +11,15 @@ https://browserl.ist/?q=last+1+version+or+%3E+0.25%25+or+not+maintained+node+ver
 
 However, this settings can be changed if you need to transpile for even older browsers.
 
+Transpiling JavaScript syntax does not add browser APIs that an older target is missing. If your own build targets Internet Explorer 11, load `polyfillsIE.js` from the SVG.js release archive before your transpiled SVG.js bundle:
+
+```html
+<script src="polyfillsIE.js"></script>
+<script src="svg.transpiled.js"></script>
+```
+
+The polyfill bundle supplies IE-specific SVG APIs; it does not transpile SVG.js or make the standard distribution IE-compatible by itself. Configure your build's syntax transforms and any additional polyfills for the browsers you target. Both the library and the IE polyfill bundle are available on the **(link: https://github.com/svgdotjs/svg.js/releases/latest text: latest release page target: _blank)**.
+
 SVG itself is supported to a certain degree by the following browsers:
 
 ## Desktop
