@@ -1116,69 +1116,123 @@ rect.radius(5)</code></pre>
 <pre><code class="language-javascript">rect.opacity(0.5)</code></pre>
 <p><br></p>
 <h1 id='transforming'>Transforming</h1>
+<p>SVG transforms change an element's coordinate system without rewriting its<br />
+geometry. SVG.js stores the result in the element's <code>transform</code> attribute as a<br />
+matrix. The examples below use local element coordinates; transforms inherited<br />
+from parent elements are not included unless stated otherwise.</p>
 <h2 id='transform-as-setter'>transform() <em>as setter</em></h2>
-<p><code>returns</code><strong> <code>itself</code></strong><br><code>animate</code><strong> <code>yes</code></strong></p>
-<p>Transformations are applied absolutely by using an affine approach:</p>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>With one argument, <code>transform()</code> replaces the element's current local transform<br />
+with the requested transform:</p>
 <pre><code class="language-javascript">element.transform({
   rotate: 125,
   translateX: 50,
   translateY: 100,
-  scale: 3 
+  scale: 3
 })</code></pre>
-<p>To make the syntax as easy as possible, it is possible to pass in parameters in different ways:</p>
-<ul>
-<li>translation: <code>translate: {x: 50, y: 50}</code>, <code>translate: [50, 50]</code>, <code>translateX: 50, translateY: 50</code>, <code>tx: 50, ty: 50</code></li>
-<li>rotate: <code>rotate: 50</code></li>
-<li>scale: <code>scale: 2</code>, <code>scale: [2,2]</code>, <code>scaleX: 2, scaleY: 2</code></li>
-<li>shear/skew: <code>skew: [10, 10]</code>, <code>skewX: 10, skewY: 10</code>, <code>shear: 3</code></li>
-<li>flip: <code>both</code>, <code>true</code>, <code>x</code>, <code>y</code></li>
-<li>origin:  <code>origin: {x: 50, y: 50}</code>, <code>origin: [50, 50]</code>, <code>origin: 50</code>, <code>originX: 50, originY: 50</code>, <code>ox: 50, oy: 50</code>
-<ul>
-<li>origin can also be a up to 2 words speciying the corners of the element: center, top, bottom, left, right</li>
-</ul></li>
-<li>position: <code>position: {x: 50, y: 50}</code>, <code>position: [50, 50]</code>, <code>positionX: 50, positionY: 50</code>, <code>px: 50, py: 50</code>
-<ul>
-<li>absolute position of the origin after all transformations are applied</li>
-</ul></li>
-<li>relative: <code>relative: {x: 50, y: 50}</code>, <code>relative: [50, 50]</code>, <code>relativeX: 50, relativeY: 50</code>, <code>rx: 50, ry: 50</code>
-<ul>
-<li>relative position of the origin after all transformations are applied</li>
-</ul></li>
-</ul>
+<p>The transform object accepts the following values and aliases:</p>
+<table>
+<thead>
+<tr>
+<th>Transform</th>
+<th>Accepted forms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Translation</td>
+<td><code>translate: [x, y]</code>, <code>translate: {x, y}</code>, <code>translateX</code>, <code>translateY</code>, <code>tx</code>, <code>ty</code></td>
+</tr>
+<tr>
+<td>Rotation</td>
+<td><code>rotate: degrees</code> or <code>theta: degrees</code></td>
+</tr>
+<tr>
+<td>Scale</td>
+<td><code>scale: factor</code>, <code>scale: [x, y]</code>, <code>scaleX</code>, <code>scaleY</code></td>
+</tr>
+<tr>
+<td>Skew</td>
+<td><code>skew: degrees</code>, <code>skew: [x, y]</code>, <code>skewX</code>, <code>skewY</code></td>
+</tr>
+<tr>
+<td>Shear</td>
+<td><code>shear: factor</code></td>
+</tr>
+<tr>
+<td>Flip</td>
+<td><code>flip: 'x'</code>, <code>flip: 'y'</code>, <code>flip: 'both'</code>, or <code>flip: true</code></td>
+</tr>
+<tr>
+<td>Origin</td>
+<td><code>origin: [x, y]</code>, <code>origin: {x, y}</code>, <code>originX</code>, <code>originY</code>, <code>ox</code>, <code>oy</code></td>
+</tr>
+<tr>
+<td>Final origin position</td>
+<td><code>position: [x, y]</code>, <code>position: {x, y}</code>, <code>positionX</code>, <code>positionY</code>, <code>px</code>, <code>py</code></td>
+</tr>
+<tr>
+<td>Relative origin movement</td>
+<td><code>relative: [x, y]</code>, <code>relative: {x, y}</code>, <code>relativeX</code>, <code>relativeY</code>, <code>rx</code>, <code>ry</code></td>
+</tr>
+</tbody>
+</table>
+<p>The origin defaults to the center of the element's bounding box. It can also be<br />
+given with one or two of <code>center</code>, <code>top</code>, <code>bottom</code>, <code>left</code>, and <code>right</code>:</p>
 <pre><code class="language-javascript">element.transform({
   translate: [10, 20],
   origin: 'top left',
   flip: 'both'
 })</code></pre>
-<p>You can also pass in a matrix or an object with a-f parameters to apply it directly:</p>
+<p><code>position</code> moves the transformed origin to the supplied coordinates, while<br />
+<code>relative</code> moves it by the supplied amount.</p>
+<p>You can also pass an <code>SVG.Matrix</code> or an object with <code>a</code> through <code>f</code> matrix<br />
+components:</p>
 <pre><code class="language-js">element.transform({
-  a: 1, b: 0, c: 1, d: 0, e: 10, f: 20
+  a: 1, b: 0, c: 0, d: 1, e: 10, f: 20
 })</code></pre>
-<p>To apply a relative transformation, you can pass a second argument:</p>
-<pre><code class="language-javascript">element.transform({ rotate: 125 }).transform({ rotate: 37.5 }, true)</code></pre>
-<p>It is also possible to apply a transformation relative to another element or even a matrix. You can do that by passing in the element or matrix instead of the relative flag:</p>
-<pre><code class="language-javascript">element.transform({ rotation: 125 }, someElement)
-element.transform({ rotation: 125 }, someMatrix)</code></pre>
+<h3 id='absolute-and-relative-transforms'>Absolute and relative transforms</h3>
+<p>The default is absolute: each call replaces the element's existing local<br />
+transform. Pass <code>true</code> as the second argument to compose the new transform with<br />
+the current one instead:</p>
+<pre><code class="language-javascript">element.transform({ rotate: 125 })
+element.transform({ rotate: 37.5 }, true) // adds another rotation</code></pre>
+<p>The transform sugar methods such as <code>translate()</code>, <code>rotate()</code>, and <code>scale()</code> are<br />
+relative: repeated calls compose instead of replacing the previous transform.</p>
+<p>An element or matrix can be supplied instead of <code>true</code> to use its local matrix<br />
+as the base:</p>
+<pre><code class="language-javascript">element.transform({ rotate: 125 }, someElement)
+element.transform({ rotate: 125 }, someMatrix)</code></pre>
 <h2 id='transform-as-getter'>transform() <em>as getter</em></h2>
-<p><code>returns</code><strong> <code>value</code></strong></p>
-<p>The <code>transform()</code> method acts as a full getter without an argument:</p>
+<p><code>returns</code> <strong><code>value</code></strong></p>
+<p>Without an argument, <code>transform()</code> decomposes the element's current local matrix:</p>
 <pre><code class="language-javascript">element.transform()</code></pre>
-<p>The returned <strong><code>object</code></strong> contains the following values:</p>
+<p>The returned object contains:</p>
 <ul>
-<li><code>translateX</code> (translation on the x-axis)</li>
-<li><code>translateY</code> (translation on the y-axis)</li>
-<li><code>skewX</code> (calculated skew on x-axis)</li>
-<li><code>skewY</code> (calculated skew on y-axis)</li>
-<li><code>shear</code> (calculated sher on x-axix)</li>
-<li><code>scaleX</code> (calculated scale on x-axis)</li>
-<li><code>scaleY</code> (calculated scale on y-axis)</li>
-<li><code>rotate</code> (calculated rotation)</li>
-<li><code>originX</code> (0 for this usecase)</li>
-<li><code>originY</code> (0 for this usecase)<br />
--<code>a-f</code> (matrix data)</li>
+<li><code>translateX</code> and <code>translateY</code> (calculated translation)</li>
+<li><code>shear</code> (calculated x-axis shear)</li>
+<li><code>scaleX</code> and <code>scaleY</code> (calculated scale)</li>
+<li><code>rotate</code> (calculated rotation in degrees)</li>
+<li><code>originX</code> and <code>originY</code> (both <code>0</code> for this getter)</li>
+<li><code>a</code>, <code>b</code>, <code>c</code>, <code>d</code>, <code>e</code>, and <code>f</code> (the matrix components)</li>
 </ul>
-<p>Additionally a string value for the required property can be passed:</p>
+<p>These values are a decomposition of the resulting matrix, not a record of the<br />
+individual transform calls that produced it. Equivalent transform chains can<br />
+therefore return the same values. Pass a property name to retrieve just one<br />
+value:</p>
 <pre><code class="language-javascript">element.transform('rotate')</code></pre>
+<p>Parent transforms are not included. Use <code>ctm()</code> or <code>screenCTM()</code> when you need<br />
+an accumulated coordinate-system matrix.</p>
+<h2 id='matrix'>matrix()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong> as a setter, <strong><code>SVG.Matrix</code></strong> as a getter<br><code>animate</code> <strong><code>yes</code></strong></p>
+<p><code>matrix()</code> writes a matrix directly to the <code>transform</code> attribute. Pass an<br />
+<code>SVG.Matrix</code> or six matrix components:</p>
+<pre><code class="language-js">element.matrix(new SVG.Matrix().translate(20, 30))
+element.matrix(1, 0, 0, 1, 20, 30)
+
+const matrix = element.matrix()</code></pre>
+<p>Unlike <code>transform({...}, true)</code>, the setter does not compose with the current<br />
+transform; it replaces it.</p>
 <h2 id='matrixify'>matrixify()</h2>
 <p><code>returns</code> <strong><code>SVG.Matrix</code></strong></p>
 <p>Combines the transformations in the element's own <code>transform</code> attribute into one matrix. Parent transformations are not included and the element is not changed:</p>
@@ -1205,49 +1259,52 @@ const screenPoint = new SVG.Point(0, 0).transform(screenMatrix)</code></pre>
 <pre><code class="language-js">element.untransform()</code></pre>
 <p>This does not rewrite the element's geometry to preserve its visual position. Use <code>toParent()</code> when moving an element between parents without changing its visual appearance.</p>
 <h2 id='flip'>flip()</h2>
-<p><code>returns</code><strong> <code>itself</code></strong><br><code>animate</code><strong> <code>yes</code></strong></p>
-<p>Flips element over a given axis:</p>
-<pre><code class="language-javascript">element.flip('x')</code></pre>
-<p>or</p>
-<pre><code class="language-javascript">element.flip('y')</code></pre>
-<p>By default, elements are flipped over their centre point. The flip origin can be defined with the second argument:</p>
-<pre><code class="language-javascript">element.flip('x', {x: 20, y: 30})</code></pre>
-<p>Finally, an element can also be flipped over two axes at once by not providing an axis value, <code>'both'</code> or <code>true</code>:</p>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Flips an element over the x-axis, y-axis, or both axes:</p>
+<pre><code class="language-javascript">element.flip('x')
+element.flip('y')</code></pre>
+<p>By default, elements are flipped around their center. The flip origin can be<br />
+defined with the second argument:</p>
+<pre><code class="language-javascript">element.flip('x', { x: 20, y: 30 })</code></pre>
+<p>Omit the axis, or pass <code>'both'</code> or <code>true</code>, to flip both axes:</p>
 <pre><code class="language-javascript">element.flip()
 element.flip('both')
 element.flip(true)</code></pre>
 <h2 id='rotate'>rotate()</h2>
-<p><code>returns</code><strong> <code>itself</code></strong><br><code>animate</code><strong> <code>yes</code></strong></p>
-<p>The <code>rotate()</code> method will automatically rotate elements according to the center of the element:</p>
-<pre><code class="language-javascript">// rotate(degrees)
-element.rotate(45)</code></pre>
-<p>Although you can also define a specific rotation point:</p>
-<pre><code class="language-javascript">// rotate(degrees, cx, cy)
-element.rotate(45, 50, 50)</code></pre>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p><code>rotate()</code> uses the center of the element by default:</p>
+<pre><code class="language-javascript">element.rotate(45)</code></pre>
+<p>Pass a specific rotation origin when needed:</p>
+<pre><code class="language-javascript">element.rotate(45, 50, 50)</code></pre>
 <h2 id='skew'>skew()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code><strong> <code>yes</code></strong></p>
-<p>The <code>skew()</code> method will take an <code>x</code> and <code>y</code> value:</p>
-<pre><code class="language-javascript">// skew(x, y)
-element.skew(0, 45)</code></pre>
+<p><code>skew()</code> takes x-axis and y-axis angles. Pass an origin as the third and fourth<br />
+arguments when needed:</p>
+<pre><code class="language-javascript">element.skew(0, 45)
+element.skew(10, 20, 50, 50)</code></pre>
+<h2 id='shear'>shear()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Applies an x-axis shear factor, optionally around an origin:</p>
+<pre><code class="language-javascript">element.shear(0.5)
+element.shear(0.5, 50, 50)</code></pre>
 <h2 id='scale'>scale()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code><strong> <code>yes</code></strong></p>
-<p>The <code>scale()</code> method will scale elements by multiplying their <code>x</code> and <code>y</code><br />
-coordinates by either a single scale factor or two separate scale factors:</p>
-<pre><code class="language-javascript">// scale(factor)
-element.scale(2)
-// scale(xFactor, yFactor)
+<p><code>scale()</code> accepts one factor for uniform scaling or separate x and y factors:</p>
+<pre><code class="language-javascript">element.scale(2)
 element.scale(0.5, -1)</code></pre>
-<p>By default, scaling is relative to the center of the element.<br />
-You can also define a specific center point (vanishing point of scaling):</p>
-<pre><code class="language-javascript">// scale(factor, centerX, centerY)
-element.scale(2, 0, 0)
-// scale(xFactor, yFactor, centerX, centerY)
+<p>By default, scaling uses the center of the element. Pass an origin after the<br />
+scale factors when needed:</p>
+<pre><code class="language-javascript">element.scale(2, 0, 0)
 element.scale(0.5, -1, 0, 0)</code></pre>
 <h2 id='translate'>translate()</h2>
 <p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code><strong> <code>yes</code></strong></p>
-<p>The <code>translate()</code> method will take an <code>x</code> and <code>y</code> value:</p>
-<pre><code class="language-javascript">// translate(x, y)
-element.translate(0.5, -1)</code></pre>
+<p>Applies a relative x and y translation:</p>
+<pre><code class="language-javascript">element.translate(0.5, -1)</code></pre>
+<h2 id='relative'>relative()</h2>
+<p><code>returns</code> <strong><code>itself</code></strong><br><code>animate</code> <strong><code>yes</code></strong></p>
+<p>Moves the transformed origin by a relative x and y amount. This is the helper<br />
+form of <code>transform({ relative: [x, y] }, true)</code>:</p>
+<pre><code class="language-javascript">element.relative(20, 10)</code></pre>
 <p><br></p>
 <h1 id='styles'>Styles</h1>
 <h2 id='css-as-setter'>css() <em>as setter</em></h2>

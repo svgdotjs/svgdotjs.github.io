@@ -1013,12 +1013,16 @@ rect.animate(1000).move(200, 100).fill('#f06')</code></pre>
 </tr>
 </tbody>
 </table>
-<p>Use <code>after</code> for a sequence, <code>with-last</code> or <code>now</code> for parallel work, and <code>absolute</code> when coordinating several elements on a shared timeline.</p>
+<p>All scheduling modes operate on the runner's timeline. Use <code>after</code> for a<br />
+sequence, <code>with-last</code> or <code>now</code> for parallel work, and <code>absolute</code> when<br />
+coordinating several elements on a shared timeline.</p>
 <pre><code class="language-js">const first = rect.animate(600).move(100, 0)
-const second = circle.animate(600, 0, 'with-last').move(100, 0)
+const second = rect.animate(600, 0, 'with-last').fill('#f06')
 
-// `first` and `second` start together on their respective timelines.</code></pre>
-<p>For precise coordination across elements, assign the same timeline to both elements as shown under <a href="#orchestrating-animations">Orchestrating animations</a>.</p>
+// Both runners use `rect`'s timeline, so they start together.</code></pre>
+<p>Different elements have separate timelines by default. To coordinate runners<br />
+across elements, assign the same timeline to both elements as shown under<br />
+<a href="#orchestrating-animations">Orchestrating animations</a>.</p>
 <h3 id='chaining-animations-and-delays'>Chaining animations and delays</h3>
 <p>Call <code>animate()</code> on a runner to schedule another runner with the same element and timeline:</p>
 <pre><code class="language-js">rect
@@ -1044,6 +1048,41 @@ runner.move(200, 100)
 runner.rotate(90)
 runner.fill({ color: '#f06', opacity: 0.5 })</code></pre>
 <p>The starting values are read when the runner first executes. This lets a queued animation begin from the state left by an earlier runner.</p>
+<h3 id='animating-transforms'>Animating transforms</h3>
+<p><code>Runner.transform()</code> has two interpolation modes and can apply its target<br />
+absolutely or relatively:</p>
+<pre><code class="language-js">runner.transform(transforms, relative, affine)</code></pre>
+<p>An absolute transform is the default. It animates the element's complete local<br />
+transform to the target, replacing the previous transform at the endpoint:</p>
+<pre><code class="language-js">rect.animate(1000).transform({ rotate: 90, scale: 2 })</code></pre>
+<p>Pass <code>true</code> as the second argument to compose the animated transform with the<br />
+element's transform instead. The familiar transform helpers are relative too:</p>
+<pre><code class="language-js">rect.animate(1000).transform({ translate: [100, 0] }, true)
+
+// Equivalent relative transform helpers
+rect.animate(1000).translate(100, 0).rotate(90).scale(2)</code></pre>
+<p>For a relative transform, the baseline is read when the runner starts, not when<br />
+it is created. A delayed or chained runner therefore composes with the state<br />
+left by preceding animation.</p>
+<p>Transform objects use affine interpolation by default. SVG.js decomposes the<br />
+start and target into translation, scale, shear, rotation, and origin values;<br />
+an absolute rotation follows the shortest path, while a relative rotation uses<br />
+the requested angle as its delta. A matrix target instead interpolates its six<br />
+components directly:</p>
+<pre><code class="language-js">const target = new SVG.Matrix().rotate(90)
+
+rect.animate(1000).transform(target) // matrix components</code></pre>
+<p>Direct matrix interpolation can introduce skew or scale between endpoints.<br />
+Choose affine interpolation when the motion should look like a rotation or<br />
+scale by passing <code>true</code> as the third argument:</p>
+<pre><code class="language-js">rect.animate(1000).transform(target, false, true)</code></pre>
+<p>If an affine transform cannot be decomposed, SVG.js falls back to finite matrix<br />
+interpolation.</p>
+<p>Relative transforms from parallel runners compose in scheduling order. An<br />
+absolute transform replaces relative transforms that precede it while their<br />
+times overlap, so avoid overlapping absolute transform runners unless that<br />
+replacement is intentional. Timeline seeking preserves this composition in<br />
+both directions.</p>
 <h3 id='creating-a-runner-directly'>Creating a runner directly</h3>
 <p>Normally <code>element.animate()</code> creates, binds, and schedules the runner. For manual control you can construct one directly:</p>
 <pre><code class="language-js">const runner = new SVG.Runner(1000)
@@ -1090,6 +1129,8 @@ runner.reverse(true)    // backwards
 runner.reverse(false)   // forwards
 runner.active(false)    // skip this runner while its timeline advances
 runner.active(true)</code></pre>
+<p>For a controller-based runner, <code>finish()</code> settles its queued actions at their<br />
+targets without assigning an infinite runner time.</p>
 <h3 id='looping'>Looping</h3>
 <pre><code class="language-js">runner.loop(times, swing, wait)</code></pre>
 <ul>
@@ -1112,7 +1153,12 @@ runner.after(function (event) {
 <pre><code class="language-js">runner.on('start', function () {})
 runner.on('step', function () {})
 runner.on('finished', function () {})</code></pre>
-<p><code>start</code> and <code>finished</code> describe forward progress across the runner's boundaries. <code>start</code> fires when playback moves forward across the start, and <code>finished</code> fires when it moves forward across the end. Reversing across either boundary still produces <code>step</code> updates, but does not fire a mirrored <code>start</code> or <code>finished</code> event.</p>
+<p>For timed runners, <code>start</code> and <code>finished</code> describe forward progress across the<br />
+runner's boundaries. <code>start</code> fires when playback moves forward across the start,<br />
+and <code>finished</code> fires when it moves forward across the end. Reversing across<br />
+either boundary still produces <code>step</code> updates, but does not fire a mirrored<br />
+<code>start</code> or <code>finished</code> event. Controller completion is described under<br />
+<a href="#controllers">Controllers</a>.</p>
 <p>For a non-animating side effect that must also reverse correctly, derive its state from the position supplied to <code>during()</code> (or to a queued run callback):</p>
 <pre><code class="language-js">runner.during(function (position) {
   const state = position === 0 ? 'before'
@@ -1123,7 +1169,10 @@ runner.on('finished', function () {})</code></pre>
 })</code></pre>
 <p><code>queue(initialise, run)</code> is the low-level extension point behind animated methods. The initialiser runs when the runner starts; the run callback executes on every step. Prefer <code>during()</code> unless you need separate setup and step callbacks.</p>
 <h3 id='persistence'>Persistence</h3>
-<p>Completed runners are normally removed from their timeline to release references. Persistence keeps one available for seeking or reversing after it has finished:</p>
+<p>Completed timed runners are normally removed from their timeline to release<br />
+references. Controller runners persist by default so they can be retargeted.<br />
+Persistence keeps a timed runner available for seeking or reversing after it<br />
+has finished, or changes that controller default:</p>
 <pre><code class="language-js">runner.persist()       // get the current setting
 runner.persist(1000)   // retain for 1000 ms after it ends
 runner.persist(true)   // retain indefinitely</code></pre>
@@ -1166,6 +1215,14 @@ draw.on('pointermove', function (event) {
   const point = this.point(event.clientX, event.clientY)
   follow.move(point.x, point.y)
 })</code></pre>
+<p>Calling the same animated setter again retargets an absolute controller<br />
+animation from its current state. Absolute <code>transform()</code> animations also update<br />
+their origin when retargeted. Relative controller transforms do not retarget;<br />
+each call adds another transform action to the runner.</p>
+<p>A controller runner fires <code>finished</code> whenever all of its actions converge. If<br />
+it is retargeted afterward, it becomes active again and fires <code>finished</code> again<br />
+when it reaches the new target. This also means an <code>after()</code> callback can run<br />
+more than once on a retargeted controller.</p>
 <h2 id='svg-timeline'>SVG.Timeline</h2>
 <p>A timeline supplies time to runners and controls them as a group. Every element creates a timeline lazily when <code>element.timeline()</code> or <code>element.animate()</code> is first called.</p>
 <pre><code class="language-js">const timeline = rect.timeline()       // get or create the element's timeline
@@ -1174,7 +1231,7 @@ rect.timeline(sharedTimeline)          // assign another timeline</code></pre>
 <pre><code class="language-js">timeline.play()          // continue from the current time
 timeline.pause()         // pause at the current time
 timeline.stop()          // seek to 0 and pause
-timeline.finish()        // apply all end values and pause
+timeline.finish()        // settle all runners at their targets and pause
 timeline.active()        // true while a frame is scheduled</code></pre>
 <h3 id='time-seeking-speed-and-direction'>Time, seeking, speed, and direction</h3>
 <p><code>time()</code> uses an absolute timeline time. <code>seek()</code> moves by a relative amount:</p>
