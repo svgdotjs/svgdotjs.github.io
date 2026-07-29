@@ -63,16 +63,20 @@ rect.animate({
 | `absolute` or `start` | At the absolute timeline time given by `delay`. |
 | `relative` | Move this runner's previous start time by `delay` when rescheduling it. |
 
-Use `after` for a sequence, `with-last` or `now` for parallel work, and `absolute` when coordinating several elements on a shared timeline.
+All scheduling modes operate on the runner's timeline. Use `after` for a
+sequence, `with-last` or `now` for parallel work, and `absolute` when
+coordinating several elements on a shared timeline.
 
 ```js
 const first = rect.animate(600).move(100, 0)
-const second = circle.animate(600, 0, 'with-last').move(100, 0)
+const second = rect.animate(600, 0, 'with-last').fill('#f06')
 
-// `first` and `second` start together on their respective timelines.
+// Both runners use `rect`'s timeline, so they start together.
 ```
 
-For precise coordination across elements, assign the same timeline to both elements as shown under [Orchestrating animations](#orchestrating-animations).
+Different elements have separate timelines by default. To coordinate runners
+across elements, assign the same timeline to both elements as shown under
+[Orchestrating animations](#orchestrating-animations).
 
 ### Chaining animations and delays
 
@@ -118,6 +122,65 @@ runner.fill({ color: '#f06', opacity: 0.5 })
 ```
 
 The starting values are read when the runner first executes. This lets a queued animation begin from the state left by an earlier runner.
+
+### Animating transforms
+
+`Runner.transform()` has two interpolation modes and can apply its target
+absolutely or relatively:
+
+```js
+runner.transform(transforms, relative, affine)
+```
+
+An absolute transform is the default. It animates the element's complete local
+transform to the target, replacing the previous transform at the endpoint:
+
+```js
+rect.animate(1000).transform({ rotate: 90, scale: 2 })
+```
+
+Pass `true` as the second argument to compose the animated transform with the
+element's transform instead. The familiar transform helpers are relative too:
+
+```js
+rect.animate(1000).transform({ translate: [100, 0] }, true)
+
+// Equivalent relative transform helpers
+rect.animate(1000).translate(100, 0).rotate(90).scale(2)
+```
+
+For a relative transform, the baseline is read when the runner starts, not when
+it is created. A delayed or chained runner therefore composes with the state
+left by preceding animation.
+
+Transform objects use affine interpolation by default. SVG.js decomposes the
+start and target into translation, scale, shear, rotation, and origin values;
+an absolute rotation follows the shortest path, while a relative rotation uses
+the requested angle as its delta. A matrix target instead interpolates its six
+components directly:
+
+```js
+const target = new SVG.Matrix().rotate(90)
+
+rect.animate(1000).transform(target) // matrix components
+```
+
+Direct matrix interpolation can introduce skew or scale between endpoints.
+Choose affine interpolation when the motion should look like a rotation or
+scale by passing `true` as the third argument:
+
+```js
+rect.animate(1000).transform(target, false, true)
+```
+
+If an affine transform cannot be decomposed, SVG.js falls back to finite matrix
+interpolation.
+
+Relative transforms from parallel runners compose in scheduling order. An
+absolute transform replaces relative transforms that precede it while their
+times overlap, so avoid overlapping absolute transform runners unless that
+replacement is intentional. Timeline seeking preserves this composition in
+both directions.
 
 ### Creating a runner directly
 
@@ -185,6 +248,9 @@ runner.active(false)    // skip this runner while its timeline advances
 runner.active(true)
 ```
 
+For a controller-based runner, `finish()` settles its queued actions at their
+targets without assigning an infinite runner time.
+
 ### Looping
 
 ```js
@@ -225,7 +291,12 @@ runner.on('step', function () {})
 runner.on('finished', function () {})
 ```
 
-`start` and `finished` describe forward progress across the runner's boundaries. `start` fires when playback moves forward across the start, and `finished` fires when it moves forward across the end. Reversing across either boundary still produces `step` updates, but does not fire a mirrored `start` or `finished` event.
+For timed runners, `start` and `finished` describe forward progress across the
+runner's boundaries. `start` fires when playback moves forward across the start,
+and `finished` fires when it moves forward across the end. Reversing across
+either boundary still produces `step` updates, but does not fire a mirrored
+`start` or `finished` event. Controller completion is described under
+[Controllers](#controllers).
 
 For a non-animating side effect that must also reverse correctly, derive its state from the position supplied to `during()` (or to a queued run callback):
 
@@ -243,7 +314,10 @@ runner.during(function (position) {
 
 ### Persistence
 
-Completed runners are normally removed from their timeline to release references. Persistence keeps one available for seeking or reversing after it has finished:
+Completed timed runners are normally removed from their timeline to release
+references. Controller runners persist by default so they can be retargeted.
+Persistence keeps a timed runner available for seeking or reversing after it
+has finished, or changes that controller default:
 
 ```js
 runner.persist()       // get the current setting
@@ -319,6 +393,16 @@ draw.on('pointermove', function (event) {
 })
 ```
 
+Calling the same animated setter again retargets an absolute controller
+animation from its current state. Absolute `transform()` animations also update
+their origin when retargeted. Relative controller transforms do not retarget;
+each call adds another transform action to the runner.
+
+A controller runner fires `finished` whenever all of its actions converge. If
+it is retargeted afterward, it becomes active again and fires `finished` again
+when it reaches the new target. This also means an `after()` callback can run
+more than once on a retargeted controller.
+
 ## SVG.Timeline
 
 A timeline supplies time to runners and controls them as a group. Every element creates a timeline lazily when `element.timeline()` or `element.animate()` is first called.
@@ -334,7 +418,7 @@ rect.timeline(sharedTimeline)          // assign another timeline
 timeline.play()          // continue from the current time
 timeline.pause()         // pause at the current time
 timeline.stop()          // seek to 0 and pause
-timeline.finish()        // apply all end values and pause
+timeline.finish()        // settle all runners at their targets and pause
 timeline.active()        // true while a frame is scheduled
 ```
 
